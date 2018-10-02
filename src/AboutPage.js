@@ -4,12 +4,13 @@ import './styles/carousel.css';
 import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
 import image from './images/placeholder.jpg';
 import Footer from './Footer'
+
 class AboutPage extends Component {
 
     render() {
         return (
             <div>
-                <Header />
+                <Header/>
                 <main role="main">
                     <div className="container marketing">
                         <hr className="featurette-divider"/>
@@ -34,7 +35,7 @@ class AboutPage extends Component {
                         {/* Three columns of text below the carousel */}
                         <div className="row">
                             <div className="col-lg-4">
-                                <img className="rounded-circle"  src={image}
+                                <img className="rounded-circle" src={image}
                                      alt="Generic placeholder image" width={140} height={140}/>
                                 <h2>Your Name</h2>
                                 <p>Introduce breifly</p>
@@ -107,7 +108,7 @@ class AboutPage extends Component {
                         <hr className="featurette-divider"/>
                     </div>
                     {/* FOOTER */}
-                    <Footer />
+                    <Footer/>
                 </main>
             </div>);
     }

@@ -44,5 +44,3 @@ Thumbs.db
 *.cache
 node_modules
 dist
-yarn.lock
-package.json
