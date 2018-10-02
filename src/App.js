@@ -4,11 +4,10 @@ import './styles/carousel.css';
 import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css'
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import LandingPage from "./LandingPage";
-import ReactDOM from "react-dom";
 import SchoolPage from "./SchoolPage";
 import VolunteerPage from "./VolunteerPage";
 import CharityPage from "./CharityPage";
-// import AboutPage from './AboutPage';
+import AboutPage from "./AboutPage";
 
 class App extends Component {
     render() {
@@ -20,9 +19,9 @@ class App extends Component {
                         <Route exact path="/school" component={SchoolPage} />
                          {/*<Route path="/listing/:business" component={BusinessPage} /> */}
                         {/*<Route path={this.window.location}*/}
-                        <Route exact path={"/volunteer"} component={VolunteerPage} />
-                        <Route exact path={"/charity"} component={CharityPage} />
-                        <Route exact path={"/volunteer"} component={VolunteerPage} />
+                        <Route exact path="/volunteer" component={VolunteerPage} />
+                        <Route exact path="/charity" component={CharityPage} />
+                        <Route exact path="/about" component={AboutPage} />
                          <Route component={LandingPage} />
                     </Switch>
                 </BrowserRouter>

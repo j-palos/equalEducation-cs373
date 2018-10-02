@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./Header";
-
+import './styles/carousel.css';
+import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
 class LandingPage extends Component {
 
 
