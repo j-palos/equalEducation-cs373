@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import './App.css';
+// import './App.css';
 class Footer extends Component {
 
 //saving this code for the current. will have to be added via js later

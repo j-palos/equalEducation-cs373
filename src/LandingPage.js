@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import Header from "./Header";
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import './App.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./Footer";
 class LandingPage extends Component {
 

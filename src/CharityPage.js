@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import Header from "./Header";
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./Footer";
+
+
 class CharityPage extends Component {
 
 
@@ -101,9 +103,9 @@ class CharityPage extends Component {
                     <div className="row">
                         <div className="col-md-4 text-center">
                             <div className="card mb-4 box-shadow">
-                                <div className="distimg"><a href="#"><img className="card-img-top" src="images/district-placeholder.jpg" alt /></a></div>
+                                <div className="distimg"><a href="/"><img className="card-img-top" src="/images/district-placeholder.jpg" alt /></a></div>
                                 <div className="card-body">
-                                    <h2 className="card-text"><a href="#">Charity #1</a></h2>
+                                    <h2 className="card-text"><a href="/">Charity #1</a></h2>
                                     <p className="card-text"><span>State</span></p>
                                     <p className="card-text"><span>Description</span></p>
                                     <p className="card-text"><span>Mission Statement</span></p>

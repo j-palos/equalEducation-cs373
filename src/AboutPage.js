@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import Header from "./Header";
+import './styles/carousel.css';
+import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
 import Footer from "./Footer";
-
 class AboutPage extends Component {
     render() {
         return (
@@ -67,7 +68,7 @@ class AboutPage extends Component {
                             </div>
                             {/* /.col-lg-4 */}
                             <div className="col-lg-4">
-                                <img className="rounded-circle" src="images/placeholder.jpg"
+                                <img className="rounded-circle" src="./images/placeholder.jpg"
                                      alt="Generic placeholder image" width={140} height={140}/>
                                 <h2>Your Name</h2>
                                 <p>Introduce breifly</p>

@@ -2,8 +2,9 @@ import React, { Component } from 'react';
 import Link from "react-router-dom/es/Link";
 // import './styles/carousel.css';
 // import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
-import './App.css';
-import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+// import './App.css';
+// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
+
 class Header extends Component {
 
 //saving this code for the current. will have to be added via js later
