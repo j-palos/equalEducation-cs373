@@ -7,7 +7,7 @@
   "license": "MIT",
   "scripts": {
     "start": "parcel ./public/index.html",
-    "build": "parcel ./public/index.html"
+    "build": "parcel build ./public/index.html -d build"
   },
   "devDependencies": {
     "parcel": "^1.10.1"
