@@ -1,0 +1,23 @@
+{
+  "name": "cs373-idb",
+  "version": "1.0.0",
+  "main": "index.js",
+  "repository": "git@gitlab.com:intaeryoo/cs373-idb.git",
+  "author": "Jesus Palos <jesus.rpalos@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "start": "parcel ./public/index.html",
+    "build": "parcel ./public/index.html"
+  },
+  "devDependencies": {
+    "parcel": "^1.10.1"
+  },
+  "dependencies": {
+    "bootstrap": "^4.1.3",
+    "jquery": "^3.3.1",
+    "popper.js": "1.14.3",
+    "react": "^16.0.0",
+    "react-dom": "^16.5.2",
+    "react-router-dom": "^4.3.1"
+  }
+}
