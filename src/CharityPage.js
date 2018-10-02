@@ -4,6 +4,8 @@ import Header from "./Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./Footer";
 
+import example from './images/district-placeholder.jpg';
+
 
 class CharityPage extends Component {
 
@@ -103,7 +105,7 @@ class CharityPage extends Component {
                     <div className="row">
                         <div className="col-md-4 text-center">
                             <div className="card mb-4 box-shadow">
-                                <div className="distimg"><a href="/"><img className="card-img-top" src="/images/district-placeholder.jpg" alt /></a></div>
+                                <div className="distimg"><a href="/"><img className="card-img-top" src={example} alt /></a></div>
                                 <div className="card-body">
                                     <h2 className="card-text"><a href="/">Charity #1</a></h2>
                                     <p className="card-text"><span>State</span></p>
@@ -114,7 +116,7 @@ class CharityPage extends Component {
                         </div>
                         <div className="col-md-4 text-center">
                             <div className="card mb-4 box-shadow">
-                                <div className="distimg"><a href="#"><img className="card-img-top" src="images/district-placeholder.jpg" alt /></a></div>
+                                <div className="distimg"><a href="#"><img className="card-img-top" src={example} alt /></a></div>
                                 <div className="card-body">
                                     <h2 className="card-text"><a href="#">Charity #2</a></h2>
                                     <p className="card-text"><span>State</span></p>
@@ -125,7 +127,7 @@ class CharityPage extends Component {
                         </div>
                         <div className="col-md-4 text-center">
                             <div className="card mb-4 box-shadow">
-                                <div className="distimg"><a href="#"><img className="card-img-top" src="images/district-placeholder.jpg" alt /></a></div>
+                                <div className="distimg"><a href="#"><img className="card-img-top" src={example} alt /></a></div>
                                 <div className="card-body">
                                     <h2 className="card-text"><a href="#">Charity #3</a></h2>
                                     <p className="card-text"><span>State</span></p>

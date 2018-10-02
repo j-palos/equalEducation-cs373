@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "./Header";
 import Footer from "./Footer";
 // import './App.css';
+import image from './images/district-placeholder.jpg';
 class SchoolPage extends Component {
 
 
@@ -99,7 +100,7 @@ class SchoolPage extends Component {
             <div className="row">
                 <div className="col-md-4 text-center">
                     <div className="card mb-4 box-shadow">
-                        <div className="distimg"><a href="#"><img className="card-img-top" src="images/district-placeholder.jpg" alt /></a></div>
+                        <div className="distimg"><a href="#"><img className="card-img-top" src={image} alt /></a></div>
                         <div className="card-body">
                             <h2 className="card-text"><a href="#">District #1</a></h2>
                             <p className="card-text"><span>State</span></p>
@@ -110,7 +111,7 @@ class SchoolPage extends Component {
                 </div>
                 <div className="col-md-4 text-center">
                     <div className="card mb-4 box-shadow">
-                        <div className="distimg"><a href="#"><img className="card-img-top" src="images/district-placeholder.jpg" alt /></a></div>
+                        <div className="distimg"><a href="#"><img className="card-img-top" src={image} alt /></a></div>
                         <div className="card-body">
                             <h2 className="card-text"><a href="#">District #2</a></h2>
                             <p className="card-text"><span>State</span></p>
@@ -121,7 +122,7 @@ class SchoolPage extends Component {
                 </div>
                 <div className="col-md-4 text-center">
                     <div className="card mb-4 box-shadow">
-                        <div className="distimg"><a href="#"><img className="card-img-top" src="images/district-placeholder.jpg" alt /></a></div>
+                        <div className="distimg"><a href="#"><img className="card-img-top" src={image} alt /></a></div>
                         <div className="card-body">
                             <h2 className="card-text"><a href="#">District #3</a></h2>
                             <p className="card-text"><span>State</span></p>

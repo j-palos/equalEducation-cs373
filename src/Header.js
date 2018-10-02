@@ -13,26 +13,26 @@ class Header extends Component {
         return (
 <header>
     <nav className="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
-        <a className="navbar-brand"><Link to={'/'}>Equal Education</Link></a>
+        <div className="navbar-brand"><Link to={'/'}>Equal Education</Link></div>
         <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
             <span className="navbar-toggler-icon" />
         </button>
         <div className="collapse navbar-collapse" id="navbarCollapse">
             <ul className="navbar-nav mr-auto">
                 <li className="nav-item">
-                    <a className="nav-link" ><Link to={'/'}>Home </Link><span className="sr-only">(current)</span></a>
+                    <div className="nav-link" ><Link to={'/'}>Home </Link><span className="sr-only">(current)</span></div>
                 </li>
                 <li className="nav-item active">
-                    <a className="nav-link"><Link to={'/school'}>School Districts </Link></a>
+                    <div className="nav-link"><Link to={'/school'}>School Districts </Link></div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link"><Link to={'/volunteer'}>Volunteer></Link></a>
+                    <div className="nav-link"><Link to={'/volunteer'}>Volunteer</Link></div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link"><Link to={'/charity'}>Charity</Link></a>
+                    <div className="nav-link"><Link to={'/charity'}>Charity</Link></div>
                 </li>
                 <li className="nav-item">
-                    <a className="nav-link"><Link to={'/about'}> About</Link></a>
+                    <div className="nav-link"><Link to={'/about'}> About</Link></div>
                 </li>
             </ul>
             <form className="form-inline mt-2 mt-md-0">

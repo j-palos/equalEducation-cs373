@@ -12,7 +12,7 @@ class LandingPage extends Component {
             <div>
                 <Header />
                 <main role="main">
-                    <div id="root" />
+
                     {/**/}
                     <div id="myCarousel" className="carousel slide" data-ride="carousel">
                         <ol className="carousel-indicators">
