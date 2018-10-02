@@ -1,10 +1,8 @@
 import React, {Component} from 'react';
 import Header from "./Header";
-import './styles/carousel.css';
-import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
+import Footer from "./Footer";
+
 class AboutPage extends Component {
-
-
     render() {
         return (
             <div>
@@ -106,10 +104,7 @@ class AboutPage extends Component {
                         <hr className="featurette-divider"/>
                     </div>
                     {/* FOOTER */}
-                    <footer className="container">
-                        <p className="float-right"><a href="#">Back to top</a></p>
-                        <p>© Equal Education · <a href="#">Privacy</a> · <a href="#">Terms</a></p>
-                    </footer>
+                    <Footer />
                 </main>
             </div>);
     }

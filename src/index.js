@@ -1,8 +1,8 @@
 import React from 'react';
-import './styles/carousel.css';
-import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css'
 import * as ReactDOM from "react-dom";
+import '../node_modules/bootstrap/dist/css/bootstrap.min.css'
 import App from "./App";
+import './App.css'
 
 ReactDOM.render(
     <App />
