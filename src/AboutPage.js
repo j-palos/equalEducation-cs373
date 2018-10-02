@@ -7,6 +7,75 @@ import Footer from './Footer'
 
 class AboutPage extends Component {
 
+    constructor() {
+        super();
+        this.state = {
+            names: [],
+            commit_counts: [],
+        };
+    }
+
+    componentDidMount() {
+        fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits')
+        .then(results => {
+            return results.json();
+        }).then(data => {
+            
+            var email_dict = {
+                "ryooit@utexas.edu": "Intae",
+                "ryooit70@gmail.com" : "Intae",
+                "ksotengco@gmail.com" : "Kyle",
+                "prateek.kolhar@utexas.edu" : "Prateek",
+                "jesus.rpalos@gmail.com" : "Jesus",
+                "jpjessep@users.noreply.github.com" : "Jesus",
+                // Add Andrew
+            };
+            let output = data.map( (x) => {
+                return (email_dict[x.committer_email])
+            })
+            var counter_dict = {
+                "Intae": 0,
+                "Kyle": 0,
+                "Prateek": 0,
+                "Jesus": 0,
+                "Andrew": 0,
+            };
+            var i;
+            for(i = 0; i < output.length; i++) {
+                
+                var value = output[i];
+                counter_dict[value] +=1;
+                
+            }
+            
+            console.log(counter_dict)
+            
+            let names = Object.keys(conter_dict).map((name, index) => {
+                return(
+                    <div>{name}: {counter_dict[name]}</div>
+                )
+            })
+            console.log("asd2");
+            this.setState({names: names});
+            console.log("state:", this.state.names);
+        })
+    }
+
+    // person_cell(person){
+    //     return(
+    //         <div className="col-lg-4">
+    //         <img className="rounded-circle" src={image}
+    //              alt="Generic placeholder image" width={140} height={140}/>
+    //         <h2>{person["name"]}</h2>
+    //         <p>Introduce breifly</p>
+    //         <ul className="list-group">
+    //             <li className="list-group-item">Commits:{person["commits"]}</li>
+    //             <li className="list-group-item">Issues:</li>
+    //             <li className="list-group-item">Unit tests:</li>
+    //         </ul>
+    //         </div>
+    //     )
+    // }
     render() {
         return (
             <div>
@@ -33,6 +102,7 @@ class AboutPage extends Component {
                         </div>
                         <hr className="featurette-divider"/>
                         {/* Three columns of text below the carousel */}
+                        {this.state.names}
                         <div className="row">
                             <div className="col-lg-4">
                                 <img className="rounded-circle" src={image}
