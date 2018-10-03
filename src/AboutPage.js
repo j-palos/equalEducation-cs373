@@ -76,7 +76,7 @@ class AboutPage extends Component {
             console.log(counter_dict);
 
             // debugger;
-            let nameArray = [{}];
+            let nameArray = [];
             for (let name in counter_dict) {
                 if (name) {
                     nameArray.push({
@@ -126,7 +126,7 @@ class AboutPage extends Component {
                                 // if(this.state.done_names && this.state.done_issues){
                                 developers.map((developer) => {
                                         // debugger
-                                    if(developer.name){
+                                    if(developer.name && this.state.done_names){
                                            return( <div>
                                             <div className={"row"}>
                                             <div key={developer['name']}>

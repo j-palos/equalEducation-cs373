@@ -113,38 +113,38 @@ class CharityPage extends Component {
                                         <p className="card-text"><span>Ruling Date: <strong>November, 2003</strong></span></p>
                                         <p className="card-text"><span>The Ed Fund is the only organization that raises money for all Oakland schools.
               We have raised over $60 million in the last five years to put the right tools in out students' hands so that all kids thrive.</span></p>
-                                        <p className="card-text"><span>Volunteering Events: <Link to={Volunteer1} className="text-dark"><strong>Seeking Operations Volunteer for Public Education Fund</strong></Link></span></p>
-                                        <p className="card-text"><span>School(s) Associated: <a href="school1.html" className="text-dark"><strong>Oakland Unified School District</strong></a></span></p>
+                                        <p className="card-text"><span>Volunteering Events: <Link to={'volunteer/1'} className="text-dark"><strong>Seeking Operations Volunteer for Public Education Fund</strong></Link></span></p>
+                                        <p className="card-text"><span>School(s) Associated: <Link to={'charity/1'} className="text-dark"><strong>Oakland Unified School District</strong></Link></span></p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><a href="charity2.html"><img className="card-img-top" src={khambrelImage} alt /></a></div>
+                                    <div className="distimg"><Link to="charity/2"><img className="card-img-top" src={khambrelImage} alt /></Link></div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><a href="charity2.html" className="text-dark">Khambrel Foundation</a></h2>
+                                        <h2 className="card-text"><Link to="charity/2" className="text-dark">Khambrel Foundation</Link></h2>
                                         <p className="card-text"><span>Location: <strong>La Marque, TX</strong></span></p>
                                         <p className="card-text"><span>Deductibility: <strong>Contributions are deductible.</strong></span></p>
                                         <p className="card-text"><span>Ruling Date: <strong>August, 2017</strong></span></p>
                                         <p className="card-text"><span>Khambrel Foundation is a non-profit organization empowering youth and their families to build on life’s dreams, build dreams one book at a time through financial literacy,
               support single-parent families in need with in-kind donations and promote kindness in the community.</span></p>
-                                        <p className="card-text"><span>Volunteering Events: <a href="volunteer2.html" className="text-dark"><strong>Dream Builders Coordinator</strong></a></span></p>
-                                        <p className="card-text"><span>School(s) Associated: <a href="school2.html" className="text-dark"><strong>Texas City Independent School District</strong></a></span></p>
+                                        <p className="card-text"><span>Volunteering Events: <Link to='/volunteer/2' className="text-dark"><strong>Dream Builders Coordinator</strong></Link></span></p>
+                                        <p className="card-text"><span>School(s) Associated: <Link to='/school/2' className="text-dark"><strong>Texas City Independent School District</strong></Link></span></p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><a href="charity3.html"><img className="card-img-top" src={prathamImage} alt /></a></div>
+                                    <div className="distimg"><Link to="charity/3"><img className="card-img-top" src={prathamImage} alt /></Link></div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><a href="charity3.html" className="text-dark">Pratham USA</a></h2>
+                                        <h2 className="card-text"><Link to="charity/3" className="text-dark">Pratham USA</Link></h2>
                                         <p className="card-text"><span>Location: <strong>Houston, TX</strong></span></p>
                                         <p className="card-text"><span>Deductibility: <strong>Contributions are deductible.</strong></span></p>
                                         <p className="card-text"><span>Ruling Date: <strong>September, 2004</strong></span></p>
                                         <p className="card-text"><span>Pratham USA is a 501(c)(3) nonprofit organization which supports Pratham Education Foundation in its mission of improving child literacy,
               providing vocational skills and supporting women to complete their education in India; and encourages volunteerism in the US.</span></p>
-                                        <p className="card-text"><span>Volunteering Events: <a href="volunteer3.html" className="text-dark"><strong>Houston Holiday Luncheon 2018</strong></a></span></p>
-                                        <p className="card-text"><span>School(s) Associated: <a href="school3.html" className="text-dark"><strong>Houston Independent School District</strong></a></span></p>
+                                        <p className="card-text"><span>Volunteering Events: <Link to="volunteer/3" className="text-dark"><strong>Houston Holiday Luncheon 2018</strong></Link></span></p>
+                                        <p className="card-text"><span>School(s) Associated: <Link to="school/3" className="text-dark"><strong>Houston Independent School District</strong></Link></span></p>
                                     </div>
                                 </div>
                             </div>

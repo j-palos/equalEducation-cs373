@@ -5,7 +5,10 @@ import oaklandFund from './images/static/oaklandfund.jpg';
 import oakland from './images/static/oakland.jpg';
 import volunteer from './images/volunteers-placeholder.jpg';
 import Link from "react-router-dom/es/Link";
-class CharityEntity1 extends Component {
+
+
+
+class VolunteerPage1 extends Component {
 
 
     render() {
@@ -17,37 +20,48 @@ class CharityEntity1 extends Component {
                     <div>
                         <div className="container mt-5">
                             <div className="jumbotron">
-                                <h1 className="display-4 text-center">Oakland Public Education Fund</h1>
+                                <h1 className="display-4 text-center">Seeking Operations Volunteer for Public Education Fund</h1>
                             </div>
                             <div className="row">
-                                <div className="col-md-6 text-center">
-                                    <img src={oaklandFund} className="img-fluid rounded" alt="Oakland Public Education Fund" />
+                                <div className="col-md-6">
+                                    <img src={volunteer} className="img-fluid rounded" alt="Volunteer Public Education Fund" />
                                 </div>
                                 <div className="col-md-6">
-                                    <p className="lead text-center">Located at: <strong>PO Box 27148 </strong></p><p className="lead text-center"><strong>Oakland, CA 94602-0148</strong></p><p />
-                                    <p className="lead text-center">Ruling Date: <strong>November, 2003</strong></p>
-                                    <p className="lead text-center">Deductibility: <strong>Contributions are deductible.</strong></p>
-                                    <p className="lead text-center">Website URL: <a href="https://www.oaklandedfund.org" className="text-dark"><strong>www.oaklandedfund.org</strong></a></p>
+                                    <p className="lead text-center">Place: <strong>520 3rd St. Suite #109 </strong></p><p className="lead text-center"><strong>Oakland, CA 94607</strong></p><p />
+                                    <p className="lead text-center">Time: <strong>We'll work with your schedule.</strong></p>
+                                    <p className="lead text-center">Minimum Age: <strong>14 (Flexible)</strong></p>
+                                    <p className="lead text-center">Skills:
+                                        <strong>
+                                        </strong></p><ul className="list-unstyled lead text-center"><strong>
+                                    <li>Data Entry</li>
+                                    <li>Executive Admin</li>
+                                    <li>Administrative Support</li>
+                                    <li>General Education</li>
+                                    <li>Customer Service</li>
+                                </strong></ul><strong>
+                                </strong>
+                                    <p />
                                     <p className="lead text-center">Description:
-                                        <strong>The Ed Fund is the only organization that raises money for all Oakland schools. We have raised over $60 million in the
-                                            last five years to put the right tools in out students' hands so that all kids thrive.
+                                        <strong>The Oakland Public Education Fund connects public schools with tools, funs, and volunteers so all students can thrive. In a large, urban school district like Oakland,
+                                            recruiting additional resources for students is so important, and we invite you to join our work! We are seeking volunteering to help us on-board volunteer tutors into classrooms
+                                            across Oakland and provide excellent customer service to all of the teachers, parents, and education professionals that we engage with.
                                         </strong>
                                     </p>
                                     <div className="text-center">
-                                        <a href="https://www.charitynavigator.org/index.cfm?bay=search.profile&ein=432014630" className="btn btn-primary center">Source</a>
+                                        <a href="https://www.volunteermatch.org/search/opp3015109.jsp" className="btn btn-primary center">Source</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <hr className="featurette-divider" />
                         <div className="container my-5">
-                            <h1 className="display-4 text-center">Schools and Events</h1>
+                            <h1 className="display-4 text-center">Schools and Organizations</h1>
                             <br />
                             <br />
                             <div className="row">
                                 <div className="col-md-6 d-flex align-items-stretch">
                                     <div className="card" style={{width: '18rem'}}>
-                                        <img className="card-img-top" src={oakland} alt="Oakland Unified School District" />
+                                        <img className="card-img-top" src={oaklandFund} alt="Oakland Unified School District" />
                                         <div className="card-body text-center d-flex flex-column">
                                             <h5 className="card-title">Oakland Unified School District</h5>
                                             <ul className="list-unstyled mt-auto">
@@ -63,22 +77,25 @@ class CharityEntity1 extends Component {
                                 </div>
                                 <div className="col-md-6 d-flex align-items-stretch">
                                     <div className="card" style={{width: '18rem'}}>
-                                        <img className="card-img-top" src={volunteer} alt="Oakland Volunteer" />
+                                        <img className="card-img-top" src={oakland} alt="Oakland Fund" />
                                         <div className="card-body text-center d-flex flex-column">
-                                            <h5 className="card-title">Seeking Operations Volunteer for Public Education Fund</h5>
+                                            <h5 className="card-title">Oakland Public Education Fund</h5>
                                             <ul className="list-unstyled mt-auto">
                                                 <li className="card-text text-left">
-                                                    We are seeking volunteering to help us on-board volunteer tutors into classrooms across Oakland and provide
-                                                    excellent customer service to all of the teachers, parents, and education professionals that we engage with.
+                                                    The Ed Fund is the only organization that raises money for all Oakland schools.
+                                                    We have raised over $60 million in the last five years to put the right tools in our students’ hands
+                                                    so that all kids thrive.
                                                 </li>
                                             </ul>
-                                            <Link to="/volunteer/1" className="mt-auto btn btn-primary">View Events</Link>
+                                            <Link to="/charity/1" className="mt-auto btn btn-primary">View Org</Link>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
+
 
                     {/* /.container */}
                     {/* FOOTER */}
@@ -89,4 +106,4 @@ class CharityEntity1 extends Component {
     }
 }
 
-export default CharityEntity1;
+export default VolunteerPage1;
