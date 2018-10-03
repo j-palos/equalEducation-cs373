@@ -62,7 +62,7 @@ Actual completion time: 25 hours
 
 
 
-Git SHA: 0c2bacf95db12adf6bca48275855e9f8cede84a4
+Git SHA: aa35d569834fdf3bff5e852e8e1618a965c35fa2
 
 GitLab pipelines: https://gitlab.com/intaeryoo/cs373-idb/pipelines
 
