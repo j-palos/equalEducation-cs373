@@ -1,10 +1,11 @@
 import React, {Component} from 'react';
 import Header from "./Header";
-// import '../node_modules/bootstrap/dist/css/bootstrap.min.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Footer from "./Footer";
-
-import example from './images/district-placeholder.jpg';
+import oaklandImage from './images/static/oaklandfund.jpg';
+import prathamImage from './images/static/prathamUSA.jpg';
+import khambrelImage from './images/static/khambrelfoundationfooterlogo.jpg';
+import Link from "react-router-dom/es/Link";
 
 
 class CharityPage extends Component {
@@ -20,16 +21,13 @@ class CharityPage extends Component {
                         {/* <hr class="featurette-divider"> */}
                         <nav className="navbar navbar-expand-md navbar-dark" style={{backgroundColor: '#659dbd'}}>
                             <span className="navbar-brand">Charities</span>
-                            <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"/>
+                            <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                                <span className="navbar-toggler-icon" />
                             </button>
                             <div className="collapse navbar-collapse" id="navbarCollapse">
                                 <ul className="navbar-nav mr-auto">
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Filter by State
                                         </a>
                                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -86,8 +84,7 @@ class CharityPage extends Component {
                                         </div>
                                     </li>
                                     <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                             Sort By
                                         </a>
                                         <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
@@ -98,53 +95,62 @@ class CharityPage extends Component {
                                     </li>
                                 </ul>
                                 <form className="form-inline mt-2 mt-md-0">
-                                    <input className="form-control mr-sm-2" type="text"
-                                           placeholder="Search for District" aria-label="Search"/>
+                                    <input className="form-control mr-sm-2" type="text" placeholder="Search for Charities" aria-label="Search" />
                                     <button className="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
                                 </form>
                             </div>
                         </nav>
-                        <br/>
-                        <br/>
+                        <br />
+                        <br />
                         <div className="row">
-                            <div className="col-md-4 text-center">
+                            <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><a href="/"><img className="card-img-top" src={example}
-                                                                              alt/></a></div>
+                                    <div className="distimg"><Link to={'charity/1'}><img className="card-img-top" src={oaklandImage} alt /></Link></div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><a href="/">Charity #1</a></h2>
-                                        <p className="card-text"><span>State</span></p>
-                                        <p className="card-text"><span>Description</span></p>
-                                        <p className="card-text"><span>Mission Statement</span></p>
+                                        <h2 className="card-text"><Link to={'charity/1'}className="text-dark">Oakland Public Education Fund</Link></h2>
+                                        <p className="card-text"><span>Location: <strong>Oakland, CA</strong></span></p>
+                                        <p className="card-text"><span>Deductibility: <strong>Contributions are deductible.</strong></span></p>
+                                        <p className="card-text"><span>Ruling Date: <strong>November, 2003</strong></span></p>
+                                        <p className="card-text"><span>The Ed Fund is the only organization that raises money for all Oakland schools.
+              We have raised over $60 million in the last five years to put the right tools in out students' hands so that all kids thrive.</span></p>
+                                        <p className="card-text"><span>Volunteering Events: <Link to={Volunteer1} className="text-dark"><strong>Seeking Operations Volunteer for Public Education Fund</strong></Link></span></p>
+                                        <p className="card-text"><span>School(s) Associated: <a href="school1.html" className="text-dark"><strong>Oakland Unified School District</strong></a></span></p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4 text-center">
+                            <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><a href="#"><img className="card-img-top" src={example}
-                                                                              alt/></a></div>
+                                    <div className="distimg"><a href="charity2.html"><img className="card-img-top" src={khambrelImage} alt /></a></div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><a href="#">Charity #2</a></h2>
-                                        <p className="card-text"><span>State</span></p>
-                                        <p className="card-text"><span>Description</span></p>
-                                        <p className="card-text"><span>Mission Statement</span></p>
+                                        <h2 className="card-text"><a href="charity2.html" className="text-dark">Khambrel Foundation</a></h2>
+                                        <p className="card-text"><span>Location: <strong>La Marque, TX</strong></span></p>
+                                        <p className="card-text"><span>Deductibility: <strong>Contributions are deductible.</strong></span></p>
+                                        <p className="card-text"><span>Ruling Date: <strong>August, 2017</strong></span></p>
+                                        <p className="card-text"><span>Khambrel Foundation is a non-profit organization empowering youth and their families to build on life’s dreams, build dreams one book at a time through financial literacy,
+              support single-parent families in need with in-kind donations and promote kindness in the community.</span></p>
+                                        <p className="card-text"><span>Volunteering Events: <a href="volunteer2.html" className="text-dark"><strong>Dream Builders Coordinator</strong></a></span></p>
+                                        <p className="card-text"><span>School(s) Associated: <a href="school2.html" className="text-dark"><strong>Texas City Independent School District</strong></a></span></p>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-md-4 text-center">
+                            <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><a href="#"><img className="card-img-top" src={example}
-                                                                              alt/></a></div>
+                                    <div className="distimg"><a href="charity3.html"><img className="card-img-top" src={prathamImage} alt /></a></div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><a href="#">Charity #3</a></h2>
-                                        <p className="card-text"><span>State</span></p>
-                                        <p className="card-text"><span>Description</span></p>
-                                        <p className="card-text"><span>Mission Statement</span></p>
+                                        <h2 className="card-text"><a href="charity3.html" className="text-dark">Pratham USA</a></h2>
+                                        <p className="card-text"><span>Location: <strong>Houston, TX</strong></span></p>
+                                        <p className="card-text"><span>Deductibility: <strong>Contributions are deductible.</strong></span></p>
+                                        <p className="card-text"><span>Ruling Date: <strong>September, 2004</strong></span></p>
+                                        <p className="card-text"><span>Pratham USA is a 501(c)(3) nonprofit organization which supports Pratham Education Foundation in its mission of improving child literacy,
+              providing vocational skills and supporting women to complete their education in India; and encourages volunteerism in the US.</span></p>
+                                        <p className="card-text"><span>Volunteering Events: <a href="volunteer3.html" className="text-dark"><strong>Houston Holiday Luncheon 2018</strong></a></span></p>
+                                        <p className="card-text"><span>School(s) Associated: <a href="school3.html" className="text-dark"><strong>Houston Independent School District</strong></a></span></p>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
+
                     <hr className="featurette-divider"/>
                     {/* FOOTER */}
                     <Footer/>

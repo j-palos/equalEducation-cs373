@@ -6,6 +6,7 @@ import VolunteerPage from "./VolunteerPage";
 import CharityPage from "./CharityPage";
 import AboutPage from "./AboutPage";
 import './App.css';
+import CharityPage1 from "./CharityEntity1";
 
 class App extends Component {
     render() {
@@ -19,6 +20,7 @@ class App extends Component {
                         {/*<Route path={this.window.location}*/}
                         <Route exact path="/volunteer" component={VolunteerPage}/>
                         <Route exact path="/charity" component={CharityPage}/>
+                        <Route exact path={"/charity/1"} component={CharityPage1} />
                         <Route exact path="/about" component={AboutPage}/>
                         <Route component={LandingPage}/>
                     </Switch>
