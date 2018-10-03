@@ -148,10 +148,28 @@ class AboutPage extends Component {
                                         );
                                     }else{
                                         return(<div></div>)
-                                    }}
+                                    }
+                                  }
+
                                 )
                             }
-
+                            <div class="row featurette justify-content-md-center">
+                                <div class="col-lg-4">
+                                    <h1>Tools Used</h1>
+                                    <div class="container">
+                                      <div class="row">
+                                        <div class="col-lg-4"><h2>Slack</h2></div>
+                                        <div class="col-lg-4"><h2>Gitlab</h2></div>
+                                        <div class="col-lg-4"><h2>Bootstrap</h2></div>
+                                        <div class="col-lg-4"><h2>Postman</h2></div>
+                                        <div class="col-lg-4"><h2>React</h2></div>
+                                        <div class="col-lg-4"><h2>GCP</h2></div>
+                                        <div class="col-lg-4"><h2>GCS</h2></div>
+                                        <div class="col-lg-4"><h2>Namecheap</h2></div>
+                                      </div>
+                                    </div>
+                                </div>
+                            </div>
                     </div>
                     {/* FOOTER */}
                     <Footer/>
