@@ -57,36 +57,37 @@ class AboutPage extends Component {
                 "ksotengco@gmail.com": "Kyle",
                 "prateek.kolhar@utexas.edu": "Prateek",
                 "jesus.rpalos@gmail.com": "Jesus",
-                "jpjessep@users.noreply.github.com": "Jesus",
+                "jpjessep@users.noreply.github.com": "Jesus"
                 // Add Andrew
             };
-
+            // debugger;
             let counter_dict = {
                 "Intae": 0,
                 "Kyle": 0,
                 "Prateek": 0,
                 "Jesus": 0,
-                "Andrew": 0,
+                "Andrew": 0
             };
             for (let i = 0; i < data.length; i++) {
                 let value = data[i].email;
-                counter_dict[email_dict[value]] += data[i].commits;
+                if(email_dict[value]) {
+                    counter_dict[email_dict[value]] += data[i].commits;
+                }
             }
 
-            console.log(counter_dict);
+            // console.log(counter_dict);
 
             // debugger;
             let nameArray = [];
             for (let name in counter_dict) {
-                if (name) {
                     nameArray.push({
                         name: name,
                         commits: counter_dict[name],
                         issues: 0,
                         unit_test: 0,
                     });
-                }
             }
+            // debugger;
             console.log("state:", nameArray);
             this.setState({names: nameArray, done_names : true});
         })
