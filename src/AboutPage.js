@@ -8,7 +8,7 @@ import intaeImage from './images/intae.jpg';
 import prateekImage from './images/prateek.jpg';
 import jesusImage from './images/jesus.jpg';
 import andrewImage from './images/andrew.jpeg';
-import AboutHelper from './generators/aboutHelper';
+import AboutHelper from './generators/AboutHelper';
 import {Container} from 'reactstrap';
 
 // import profile from './profile';
