@@ -6,6 +6,7 @@ import oaklandImage from './images/static/oaklandfund.jpg';
 import prathamImage from './images/static/prathamUSA.jpg';
 import khambrelImage from './images/static/khambrelfoundationfooterlogo.jpg';
 import Link from "react-router-dom/es/Link";
+import {Container} from "reactstrap";
 
 
 class CharityPage extends Component {
@@ -13,11 +14,10 @@ class CharityPage extends Component {
 
     render() {
         return (
-
-            <div>
+            <Container>
                 <Header/>
                 <main role="main">
-                    <div className="container marketing my-5">
+                    <Container className="marketing my-5">
                         {/* <hr class="featurette-divider"> */}
                         <nav className="navbar navbar-expand-md navbar-dark" style={{backgroundColor: '#659dbd'}}>
                             <span className="navbar-brand">Charities</span>
@@ -185,13 +185,13 @@ class CharityPage extends Component {
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </Container>
 
                     <hr className="featurette-divider"/>
                     {/* FOOTER */}
                     <Footer/>
                 </main>
-            </div>
+            </Container>
         )
     }
 }
