@@ -28,15 +28,15 @@ class App extends Component {
                         {/*<Route path={this.window.location}*/}
                         <Route exact path="/volunteer" component={VolunteerPage}/>
                         <Route exact path="/charity" component={CharityPage}/>
-                        <Route exact path={"/charity/1"} component={CharityPage1} />
-                        <Route exact path={"/charity/2"} component={CharityEntity2} />
-                        <Route exact path={"/charity/3"} component={CharityEntity3} />
-                        <Route exact path={"/school/1"} component={SchoolPage1} />
-                        <Route exact path={"/school/2"} component={SchoolPage2} />
-                        <Route exact path={"/school/3"} component={SchoolPage3} />
-                        <Route exact path={"/volunteer/1"} component={VolunteerPage1} />
-                        <Route exact path={"/volunteer/2"} component={VolunteerPage2} />
-                        <Route exact path={"/volunteer/3"} component={VolunteerPage3} />
+                        <Route exact path={"/charity/1"} component={CharityPage1}/>
+                        <Route exact path={"/charity/2"} component={CharityEntity2}/>
+                        <Route exact path={"/charity/3"} component={CharityEntity3}/>
+                        <Route exact path={"/school/1"} component={SchoolPage1}/>
+                        <Route exact path={"/school/2"} component={SchoolPage2}/>
+                        <Route exact path={"/school/3"} component={SchoolPage3}/>
+                        <Route exact path={"/volunteer/1"} component={VolunteerPage1}/>
+                        <Route exact path={"/volunteer/2"} component={VolunteerPage2}/>
+                        <Route exact path={"/volunteer/3"} component={VolunteerPage3}/>
                         <Route exact path="/about" component={AboutPage}/>
                         <Route component={LandingPage}/>
                     </Switch>
