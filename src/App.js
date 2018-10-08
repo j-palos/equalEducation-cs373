@@ -24,8 +24,6 @@ class App extends Component {
                     <Switch>
                         <Route exact path="/" component={LandingPage}/>
                         <Route exact path="/school" component={SchoolPage}/>
-                        {/*<Route path="/listing/:business" component={BusinessPage} /> */}
-                        {/*<Route path={this.window.location}*/}
                         <Route exact path="/volunteer" component={VolunteerPage}/>
                         <Route exact path="/charity" component={CharityPage}/>
                         <Route exact path={"/charity/1"} component={CharityPage1}/>
