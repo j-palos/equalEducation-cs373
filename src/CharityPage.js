@@ -6,6 +6,7 @@ import oaklandImage from './images/static/oaklandfund.jpg';
 import prathamImage from './images/static/prathamUSA.jpg';
 import khambrelImage from './images/static/khambrelfoundationfooterlogo.jpg';
 import Link from "react-router-dom/es/Link";
+import {Card, CardBody, CardImg, CardText, CardTitle, Col, Container, Form, Row} from "reactstrap";
 
 
 class CharityPage extends Component {
@@ -13,11 +14,10 @@ class CharityPage extends Component {
 
     render() {
         return (
-
-            <div>
+            <Container>
                 <Header/>
                 <main role="main">
-                    <div className="container marketing my-5">
+                    <Container className="marketing my-5">
                         {/* <hr class="featurette-divider"> */}
                         <nav className="navbar navbar-expand-md navbar-dark" style={{backgroundColor: '#659dbd'}}>
                             <span className="navbar-brand">Charities</span>
@@ -98,41 +98,42 @@ class CharityPage extends Component {
                                         </div>
                                     </li>
                                 </ul>
-                                <form className="form-inline mt-2 mt-md-0">
+                                <Form className="form-inline mt-2 mt-md-0">
                                     <input className="form-control mr-sm-2" type="text"
                                            placeholder="Search for Charities" aria-label="Search"/>
                                     <button className="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
-                                </form>
+                                </Form>
                             </div>
                         </nav>
                         <br/>
                         <br/>
-                        <div className="row">
-                            <div className="col-md-4 text-center d-flex align-items-stretch">
-                                <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><Link to={'charity/1'}><img className="card-img-top"
-                                                                                         src={oaklandImage} alt/></Link>
+                        <Row>
+                            <Col md={"4"} className="text-center d-flex align-items-stretch">
+                                <Card className="mb-4 box-shadow">
+                                    <div className="distimg"><Link to={'charity/1'}><CardImg className="card-img-top"
+                                                                                             src={oaklandImage}
+                                                                                             alt={"An image"}/></Link>
                                     </div>
-                                    <div className="card-body">
-                                        <h2 className="card-text"><Link to={'charity/1'} className="text-dark">Oakland
-                                            Public Education Fund</Link></h2>
-                                        <p className="card-text"><span>Location: <strong>Oakland, CA</strong></span></p>
-                                        <p className="card-text"><span>Deductibility: <strong>Contributions are deductible.</strong></span>
-                                        </p>
-                                        <p className="card-text">
-                                            <span>Ruling Date: <strong>November, 2003</strong></span></p>
-                                        <p className="card-text"><span>The Ed Fund is the only organization that raises money for all Oakland schools.
+                                    <CardBody>
+                                        <CardTitle><Link to={'charity/1'} className="text-dark">Oakland
+                                            Public Education Fund</Link></CardTitle>
+                                        <CardText><span>Location: <strong>Oakland, CA</strong></span></CardText>
+                                        <CardText><span>Deductibility: <strong>Contributions are deductible.</strong></span>
+                                        </CardText>
+                                        <CardText>
+                                            <span>Ruling Date: <strong>November, 2003</strong></span></CardText>
+                                        <CardText><span>The Ed Fund is the only organization that raises money for all Oakland schools.
               We have raised over $60 million in the last five years to put the right tools in out students' hands so that all kids thrive.</span>
-                                        </p>
-                                        <p className="card-text"><span>Volunteering Events: <Link to={'volunteer/1'}
+                                        </CardText>
+                                        <CardText><span>Volunteering Events: <Link to={'volunteer/1'}
                                                                                                   className="text-dark"><strong>Seeking Operations Volunteer for Public Education Fund</strong></Link></span>
-                                        </p>
-                                        <p className="card-text"><span>School(s) Associated: <Link to={'charity/1'}
+                                        </CardText>
+                                        <CardText><span>School(s) Associated: <Link to={'charity/1'}
                                                                                                    className="text-dark"><strong>Oakland Unified School District</strong></Link></span>
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
+                                        </CardText>
+                                    </CardBody>
+                                </Card>
+                            </Col>
                             <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
                                     <div className="distimg"><Link to="charity/2"><img className="card-img-top"
@@ -184,14 +185,12 @@ class CharityPage extends Component {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-
+                        </Row>
+                    </Container>
                     <hr className="featurette-divider"/>
-                    {/* FOOTER */}
                     <Footer/>
                 </main>
-            </div>
+            </Container>
         )
     }
 }
