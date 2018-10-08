@@ -5,23 +5,36 @@
   "repository": "git@gitlab.com:intaeryoo/cs373-idb.git",
   "author": "Jesus Palos <jesus.rpalos@gmail.com>",
   "license": "MIT",
-  "scripts": {
-    "start": "parcel ./public/index.html",
-    "build": "parcel build ./public/index.html -d build"
-  },
   "devDependencies": {
-    "parcel": "^1.10.1"
+    "@babel/plugin-proposal-object-rest-spread": "^7.0.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-runtime": "^6.26.0"
   },
   "dependencies": {
+    "react": "^16.5.2",
+    "react-dom": "^16.5.2",
+    "react-scripts": "2.0.4",
+    "babel-polyfill": "^6.26.0",
     "bootstrap": "^4.1.3",
     "images": "^3.0.1",
     "jquery": "^3.3.1",
-    "npm": "^6.4.1",
     "popper.js": "1.14.3",
-    "react": "^16.0.0",
-    "react-dom": "^16.5.2",
     "react-router-dom": "^4.3.1",
-    "reactstrap": "^6.5.0",
-    "uninstall-all-modules": "^1.0.5"
-  }
+    "reactstrap": "^6.5.0"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject"
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

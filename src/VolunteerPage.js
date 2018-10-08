@@ -3,7 +3,6 @@ import Header from "./Header";
 import Footer from "./Footer";
 // import './App.css';
 import prathvol from "./images/static/prathamvolunteer.jpg";
-import image from './images/district-placeholder.jpg'
 import Link from "react-router-dom/es/Link";
 
 class VolunteerPage extends Component {
@@ -107,43 +106,69 @@ class VolunteerPage extends Component {
                         <div className="row">
                             <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><Link to="/volunteer/1"><img className="card-img-top" src={prathvol} alt /></Link></div>
+                                    <div className="distimg"><Link to="/volunteer/1"><img className="card-img-top"
+                                                                                          src={prathvol} alt/></Link>
+                                    </div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><Link to="/volunteer/1" className="text-dark">Seeking Operations Volunteer for Public Education Fund</Link></h2>
+                                        <h2 className="card-text"><Link to="/volunteer/1" className="text-dark">Seeking
+                                            Operations Volunteer for Public Education Fund</Link></h2>
                                         <p className="card-text"><span>Location: <strong>Oakland, CA</strong></span></p>
-                                        <p className="card-text"><span>Time: <strong>We'll work with your schedule.</strong></span></p>
-                                        <p className="card-text"><span>School District(s): <Link to="/school/1" className="text-dark"><strong>Oakland Unified School District</strong></Link></span></p>
+                                        <p className="card-text">
+                                            <span>Time: <strong>We'll work with your schedule.</strong></span></p>
+                                        <p className="card-text"><span>School District(s): <Link to="/school/1"
+                                                                                                 className="text-dark"><strong>Oakland Unified School District</strong></Link></span>
+                                        </p>
                                         <p className="card-text"><span>We are seeking volunteering to help us on-board volunteer tutors into classrooms across Oakland and provide
-            excellent customer service to all of the teachers, parents, and education professionals that we engage with.</span></p>
-                                        <p className="card-text"><span>Charities Involved: <Link to="/charity/1" className="text-dark"><strong>Oakland Public Education Fund</strong></Link></span></p>
+            excellent customer service to all of the teachers, parents, and education professionals that we engage with.</span>
+                                        </p>
+                                        <p className="card-text"><span>Charities Involved: <Link to="/charity/1"
+                                                                                                 className="text-dark"><strong>Oakland Public Education Fund</strong></Link></span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><Link to="/volunteer/2"><img className="card-img-top" src={prathvol} alt /></Link></div>
+                                    <div className="distimg"><Link to="/volunteer/2"><img className="card-img-top"
+                                                                                          src={prathvol} alt/></Link>
+                                    </div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><Link to="/volunteer/2" className="text-dark">Dream Builders Coordinator</Link></h2>
-                                        <p className="card-text"><span>Location: <strong>Texas City, TX</strong></span></p>
-                                        <p className="card-text"><span>Time: <strong>We'll work with your schedule.</strong></span></p>
-                                        <p className="card-text"><span>School District(s): <Link to="/school/2" className="text-dark"><strong>Texas City Independent School District</strong></Link></span></p>
+                                        <h2 className="card-text"><Link to="/volunteer/2" className="text-dark">Dream
+                                            Builders Coordinator</Link></h2>
+                                        <p className="card-text"><span>Location: <strong>Texas City, TX</strong></span>
+                                        </p>
+                                        <p className="card-text">
+                                            <span>Time: <strong>We'll work with your schedule.</strong></span></p>
+                                        <p className="card-text"><span>School District(s): <Link to="/school/2"
+                                                                                                 className="text-dark"><strong>Texas City Independent School District</strong></Link></span>
+                                        </p>
                                         <p className="card-text"><span>Help coordinate volunteer activities for Khambrel Foundation Dream Builders program for 1 to 4 hours a month for age groups:
             B&amp;G Dream Builders (ages 3-5), Super Kind Kids (ages 6-12) and Dream Builders (ages 13-17).</span></p>
-                                        <p className="card-text"><span>Charities Involved: <Link to="/charity/2" className="text-dark"><strong>Khambrel Foundation</strong></Link></span></p>
+                                        <p className="card-text"><span>Charities Involved: <Link to="/charity/2"
+                                                                                                 className="text-dark"><strong>Khambrel Foundation</strong></Link></span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
                             <div className="col-md-4 text-center d-flex align-items-stretch">
                                 <div className="card mb-4 box-shadow">
-                                    <div className="distimg"><Link to="/volunteer/3"><img className="card-img-top" src={prathvol} alt /></Link></div>
+                                    <div className="distimg"><Link to="/volunteer/3"><img className="card-img-top"
+                                                                                          src={prathvol} alt/></Link>
+                                    </div>
                                     <div className="card-body">
-                                        <h2 className="card-text"><a href="volunteer3.html" className="text-dark">Houston Holiday Luncheon 2018</a></h2>
+                                        <h2 className="card-text"><a href="volunteer3.html" className="text-dark">Houston
+                                            Holiday Luncheon 2018</a></h2>
                                         <p className="card-text"><span>Location: <strong>Houston, TX</strong></span></p>
-                                        <p className="card-text"><span>Time: <strong>FRIDAY, DECEMBER 7, 2018 FROM 11:00 AM TO 1:30 PM</strong></span></p>
-                                        <p className="card-text"><span>School District(s): <Link to="/school/3" className="text-dark"><strong>Houston Independent School District</strong></Link></span></p>
+                                        <p className="card-text"><span>Time: <strong>FRIDAY, DECEMBER 7, 2018 FROM 11:00 AM TO 1:30 PM</strong></span>
+                                        </p>
+                                        <p className="card-text"><span>School District(s): <Link to="/school/3"
+                                                                                                 className="text-dark"><strong>Houston Independent School District</strong></Link></span>
+                                        </p>
                                         <p className="card-text"><span>Save the date for the 2018 Houston holiday luncheon. Proceeds from the event will support Pratham’s vocational training program,
             which empowers young women through education and skills training.</span></p>
-                                        <p className="card-text"><span>Charities Involved: <Link to="/charity/3" className="text-dark"><strong>Pratham USA</strong></Link></span></p>
+                                        <p className="card-text"><span>Charities Involved: <Link to="/charity/3"
+                                                                                                 className="text-dark"><strong>Pratham USA</strong></Link></span>
+                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -151,7 +176,7 @@ class VolunteerPage extends Component {
                     </div>
 
                     {/* FOOTER */}
-                    <Footer />
+                    <Footer/>
                 </main>
                 {/* Bootstrap core JavaScript
 ================================================== */}
