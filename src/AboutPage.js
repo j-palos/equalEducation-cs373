@@ -9,7 +9,7 @@ import prateekImage from './images/prateek.jpg';
 import jesusImage from './images/jesus.jpg';
 import andrewImage from './images/andrew.jpeg';
 import AboutHelper from './generators/AboutHelper';
-import {Container} from 'reactstrap';
+import {Col, Container, Row} from 'reactstrap';
 
 // import profile from './profile';
 
@@ -48,14 +48,13 @@ class AboutPage extends Component {
 
     render() {
         return (
-            <div>
                 <Container>
                     <Header/>
                     <main role="main">
-                        <div className="container marketing">
+                        <Container className="marketing">
                             <hr className="featurette-divider"/>
-                            <div className="row featurette">
-                                <div className="col">
+                            <Row className="featurette">
+                                <Col>
                                     <h1>About the Site</h1>
                                     <p className="lead">A website to help people find charitable opportunities to assist
                                         underprivileged children with their education. The website would aggregate a
@@ -63,29 +62,23 @@ class AboutPage extends Component {
                                         number of low income areas and showcase possible volunteer events/charity
                                         organizations within those areas. Users would then be able to donate their time
                                         and/or money to these organizations through our website.</p>
-                                </div>
-                            </div>
+                                </Col>
+                            </Row>
                             <hr className="featurette-divider"/>
-                            <div className="row featurette">
-                                <div className="col">
+                            <Row className="featurette">
+                                <Col>
                                     <h1>About our Data</h1>
                                     <p className="lead">Charity Navigator, Census Govt, Volunteer match (RESTful
                                         APIs)</p>
-                                </div>
-                            </div>
+                                </Col>
+                            </Row>
                             <hr className="featurette-divider"/>
-
-                            {/* Three columns of text below the carousel */}
-                            {/*{this.state.names}*/}
                             <AboutHelper/>
-
-                        </div>
-                        {/* FOOTER */}
+                        </Container>
                         <Footer/>
                     </main>
                 </Container>
-            </div>)
-            ;
+        );
     }
 }
 
