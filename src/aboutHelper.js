@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
-import kyleImage from '../images/cropped-20180128_162201_15171782536921.jpeg';
-import intaeImage from '../images/intae.jpg';
-import prateekImage from '../images/prateek.jpg';
-import jesusImage from '../images/jesus.jpg';
-import andrewImage from '../images/andrew.jpeg';
+import kyleImage from './images/cropped-20180128_162201_15171782536921.jpeg';
+import intaeImage from './images/intae.jpg';
+import prateekImage from './images/prateek.jpg';
+import jesusImage from './images/jesus.jpg';
+import andrewImage from './images/andrew.jpeg';
 import {Col, Row} from 'reactstrap';
 
 
