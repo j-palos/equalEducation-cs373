@@ -18,24 +18,8 @@ class SortBar extends Component {
               </button>
               <div className="collapse navbar-collapse" id="navbarCollapse">
                   <ul className="navbar-nav mr-auto">
-                      <li className="nav-item dropdown">
-                          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Filter by State
-                          </a>
-
-                          <FilterBy />
-
-                      </li>
-                      <li className="nav-item dropdown">
-                          <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                             data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Sort By
-                          </a>
-
-                          <SortBy />
-
-                      </li>
+                      <FilterBy />
+                      <SortBy />
                   </ul>
                   <form className="form-inline mt-2 mt-md-0">
                       <input className="form-control mr-sm-2" type="text"
