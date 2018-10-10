@@ -6,6 +6,7 @@ import Link from "react-router-dom/es/Link";
 import oakland from "./images/static/oakland.jpg";
 import houston from "./images/static/texascity.jpg";
 import houstonisd from "./images/static/HoustonISD.png";
+import SortBar from "./SortBar"
 
 class SchoolPage extends Component {
 
@@ -17,92 +18,7 @@ class SchoolPage extends Component {
                 <main role="main">
                     <div className="container marketing my-5">
                         {/* <hr class="featurette-divider"> */}
-                        <nav className="navbar navbar-expand-md navbar-dark" style={{backgroundColor: '#659dbd'}}>
-                            <span className="navbar-brand">School Districts</span>
-                            <button className="navbar-toggler" type="button" data-toggle="collapse"
-                                    data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false"
-                                    aria-label="Toggle navigation">
-                                <span className="navbar-toggler-icon"/>
-                            </button>
-                            <div className="collapse navbar-collapse" id="navbarCollapse">
-                                <ul className="navbar-nav mr-auto">
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Filter by State
-                                        </a>
-                                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a className="dropdown-item" href="#">Alabama</a>
-                                            <a className="dropdown-item" href="#">Alaska</a>
-                                            <a className="dropdown-item" href="#">Arizona</a>
-                                            <a className="dropdown-item" href="#">Arkansas</a>
-                                            <a className="dropdown-item" href="#">California</a>
-                                            <a className="dropdown-item" href="#">Colorado</a>
-                                            <a className="dropdown-item" href="#">Connecticut</a>
-                                            <a className="dropdown-item" href="#">Delaware</a>
-                                            <a className="dropdown-item" href="#">Florida</a>
-                                            <a className="dropdown-item" href="#">Georgia</a>
-                                            <a className="dropdown-item" href="#">Hawaii</a>
-                                            <a className="dropdown-item" href="#">Idaho</a>
-                                            <a className="dropdown-item" href="#">Illinois</a>
-                                            <a className="dropdown-item" href="#">Indiana</a>
-                                            <a className="dropdown-item" href="#">Iowa</a>
-                                            <a className="dropdown-item" href="#">Kansas</a>
-                                            <a className="dropdown-item" href="#">Kentucky</a>
-                                            <a className="dropdown-item" href="#">Louisiana</a>
-                                            <a className="dropdown-item" href="#">Maine</a>
-                                            <a className="dropdown-item" href="#">Maryland</a>
-                                            <a className="dropdown-item" href="#">Massachusetts</a>
-                                            <a className="dropdown-item" href="#">Michigan</a>
-                                            <a className="dropdown-item" href="#">Minnesota</a>
-                                            <a className="dropdown-item" href="#">Mississippi</a>
-                                            <a className="dropdown-item" href="#">Missouri</a>
-                                            <a className="dropdown-item" href="#">Montana</a>
-                                            <a className="dropdown-item" href="#">Nebraska</a>
-                                            <a className="dropdown-item" href="#">Nevada</a>
-                                            <a className="dropdown-item" href="#">New Hampshire</a>
-                                            <a className="dropdown-item" href="#">New Jersey</a>
-                                            <a className="dropdown-item" href="#">New Mexico</a>
-                                            <a className="dropdown-item" href="#">New York</a>
-                                            <a className="dropdown-item" href="#">North Carolina</a>
-                                            <a className="dropdown-item" href="#">North Dakota</a>
-                                            <a className="dropdown-item" href="#">Ohio</a>
-                                            <a className="dropdown-item" href="#">Oklahoma</a>
-                                            <a className="dropdown-item" href="#">Oregon</a>
-                                            <a className="dropdown-item" href="#">Pennsylvania</a>
-                                            <a className="dropdown-item" href="#">Rhode Island</a>
-                                            <a className="dropdown-item" href="#">South Carolina</a>
-                                            <a className="dropdown-item" href="#">South Dakota</a>
-                                            <a className="dropdown-item" href="#">Tennessee</a>
-                                            <a className="dropdown-item" href="#">Texas</a>
-                                            <a className="dropdown-item" href="#">Utah</a>
-                                            <a className="dropdown-item" href="#">Vermont</a>
-                                            <a className="dropdown-item" href="#">Virginia</a>
-                                            <a className="dropdown-item" href="#">Washington</a>
-                                            <a className="dropdown-item" href="#">West Virginia</a>
-                                            <a className="dropdown-item" href="#">Wisconsin</a>
-                                            <a className="dropdown-item" href="#">Wyoming</a>
-                                        </div>
-                                    </li>
-                                    <li className="nav-item dropdown">
-                                        <a className="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink"
-                                           data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                            Sort By
-                                        </a>
-                                        <div className="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                                            <a className="dropdown-item" href="#">Date Established</a>
-                                            <a className="dropdown-item" href="#">District Name</a>
-                                            <a className="dropdown-item" href="#">Poverty Level</a>
-                                        </div>
-                                    </li>
-                                </ul>
-                                <form className="form-inline mt-2 mt-md-0">
-                                    <input className="form-control mr-sm-2" type="text"
-                                           placeholder="Search for District" aria-label="Search"/>
-                                    <button className="btn btn-warning my-2 my-sm-0" type="submit">Search</button>
-                                </form>
-                            </div>
-                        </nav>
+                        <SortBar />
                         <br/>
                         <br/>
                         <div className="row">
