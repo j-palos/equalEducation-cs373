@@ -2,10 +2,13 @@ import React, {Component} from 'react';
 import Link from "react-router-dom/es/Link";
 import oakland from "./images/static/oakland.jpg";
 import json_file from "./json/districts.json";
-import axios from 'axios';
+import { Button } from 'reactstrap';
+import './App.css';
 
-
-const data = JSON.stringify(json_file);
+const renderImg = (page) => {
+  console.log(typeof page);
+  return require(page);
+}
 
 class InfoCard extends React.Component {
   constructor() {
@@ -16,8 +19,6 @@ class InfoCard extends React.Component {
   }
 
   componentWillMount() {
-    //var test = JSON.parse(data);
-    //console.log(json_file.districts.district[0]);
     let districts = json_file.districts.district
     this.setState({
       districtList: districts
@@ -25,8 +26,6 @@ class InfoCard extends React.Component {
   }
 
   render() {
-    // console.log(this.props.id);
-    // console.log(json_file.districts.district[this.props.id]);
     const districtList = this.state.districtList;
     let districtListBlock = '';
 
@@ -36,30 +35,22 @@ class InfoCard extends React.Component {
         return(
           <div className="col-md-4 text-center d-flex align-items-stretch">
             <div className="card mb-4 box-shadow">
-                <div className="distimg"><Link to={obj.school_link}><img className="card-img-top" src={obj.img} alt/></Link></div>
+                <div className="distimg"><Link to={obj.school_link}><img className="card-img-top card_height" src={obj.img} alt/></Link></div>
                 <div className="card-body">
-                    <h2 className="card-text"><Link to={obj.school_link} className="text-dark">{obj.title}</Link></h2>
-                    <p className="card-text"><span>Location: <strong>{obj.location}</strong></span></p>
-                    <p className="card-text"><span>Population under Poverty: <strong>{obj.poverty}</strong></span></p>
-                    <p className="card-text"><span>{obj.description}</span></p>
+                    <h2 className="card-text">{obj.title}</h2>
+                    <p className="card-text">Location: <strong>{obj.location}</strong></p>
+                    <p className="card-text">Population under Poverty: <strong>{obj.poverty}</strong></p>
+                    <p className="card-text">{obj.description}</p>
                     <p className="card-text">
-                      <span>Opportunities Available:
-                        <Link to={obj.opportunity_link} className="text-dark">
-                          <strong>{obj.opportunity}</strong>
-                        </Link>
-                      </span>
+                      Opportunities Available:<Link to={obj.opportunity_link}><strong>{obj.opportunity}</strong></Link>
                     </p>
                     <p className="card-text">
-                      <span>Charities Involved:
-                        <Link to={obj.charity_link} className="text-dark">
-                          <strong>{obj.charity}</strong>
-                        </Link>
-                      </span>
+                      Charities Involved:<Link to={obj.charity_link}><strong>{obj.charity}</strong></Link>
                     </p>
+                    <Button outline color="primary" href={obj.school_link}>Learn More</Button>
                 </div>
             </div>
           </div>
-
         );
       })
     }
