@@ -1,0 +1,16 @@
+.Logo-img {
+    width:  auto;
+    height: 300px;
+}
+
+.Logo-subtitle {
+    padding-bottom: 15px;
+}
+
+.Buttons {
+    padding-top: 15px;
+}
+
+.read-more-button {
+    color: blue;
+}
