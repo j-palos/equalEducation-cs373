@@ -7,8 +7,16 @@
     padding-bottom: 15px;
 }
 
+.title-size {
+  font-size: 1.65rem;
+}
+
 .Buttons {
     padding-top: 15px;
+}
+
+.Card-margin {
+  margin-bottom: 15px;
 }
 
 .read-more-button {

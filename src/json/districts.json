@@ -12,7 +12,8 @@
         "opportunity_link": "volunteer/1",
         "opportunity": "Seeking Operations Volunteer for Public Education Fund",
         "charity_link": "charity/1",
-        "charity": "Oakland Public Education Fund"
+        "charity": "Oakland Public Education Fund",
+        "grade": "KG-12"
       },
       {
         "id": "2",
@@ -25,7 +26,8 @@
         "opportunity_link": "volunteer/2",
         "opportunity": "Dream Builders Coordinator",
         "charity_link": "charity/2",
-        "charity": "Khambrel Foundation"
+        "charity": "Khambrel Foundation",
+        "grade": "PK-12"
       },
       {
         "id": "3",
@@ -38,7 +40,8 @@
         "opportunity_link": "volunteer/3",
         "opportunity": "Houston Holiday Luncheon 2018",
         "charity_link": "charity/3",
-        "charity": "Pratham USA"
+        "charity": "Pratham USA",
+        "grade": "PK-8"
       },
       {
         "id": "4",
@@ -51,7 +54,8 @@
         "opportunity_link": "volunteer/3",
         "opportunity": "Houston Holiday Luncheon 2018",
         "charity_link": "charity/3",
-        "charity": "Pratham USA"
+        "charity": "Pratham USA",
+        "grade": "PK-8"
       },
       {
         "id": "5",
@@ -64,7 +68,8 @@
         "opportunity_link": "volunteer/1",
         "opportunity": "Seeking Operations Volunteer for Public Education Fund",
         "charity_link": "charity/1",
-        "charity": "Oakland Public Education Fund"
+        "charity": "Oakland Public Education Fund",
+        "grade": "KG-12"
       }
     ]
   }
