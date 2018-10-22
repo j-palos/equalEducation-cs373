@@ -68,6 +68,11 @@ body {
     letter-spacing: -.05rem;
 }
 
+.card_height {
+  max-height:100%;
+  max-width:100%;
+}
+
 /* RESPONSIVE CSS
 -------------------------------------------------- */
 

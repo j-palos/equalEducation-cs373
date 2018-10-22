@@ -52,43 +52,39 @@ class SchoolPage1 extends Component {
                             <br/>
                             <br/>
                             <div className="row">
-                                <div className="col-md-6 d-flex align-items-stretch">
-                                    <div className="card" style={{width: '18rem'}}>
-                                        <img className="card-img-top" src={oaklandFund} alt="Oakland Fund"/>
-                                        <div className="card-body text-center d-flex flex-column">
-                                            <h5 className="card-title">Oakland Public Education Fund</h5>
-                                            <ul className="list-unstyled mt-auto">
-                                                <li className="card-text text-left">
-                                                    The Ed Fund is the only organization that raises money for all
-                                                    Oakland schools.
-                                                    We have raised over $60 million in the last five years to put the
-                                                    right tools in our students’ hands
-                                                    so that all kids thrive.
-                                                </li>
-                                            </ul>
-                                            <Link to="/charity/1" className="mt-auto btn btn-primary">More
-                                                Details</Link>
-                                        </div>
+                                <div className="card" style={{width: '18rem'}}>
+                                    <img className="card-img-top" src={oaklandFund} alt="Oakland Fund"/>
+                                    <div className="card-body text-center d-flex flex-column">
+                                        <h5 className="card-title">Oakland Public Education Fund</h5>
+                                        <ul className="list-unstyled mt-auto">
+                                            <li className="card-text text-left">
+                                                The Ed Fund is the only organization that raises money for all
+                                                Oakland schools.
+                                                We have raised over $60 million in the last five years to put the
+                                                right tools in our students’ hands
+                                                so that all kids thrive.
+                                            </li>
+                                        </ul>
+                                        <Link to="/charity/1" className="mt-auto btn btn-primary">More
+                                            Details</Link>
                                     </div>
                                 </div>
-                                <div className="col-md-6 d-flex align-items-stretch">
-                                    <div className="card" style={{width: '18rem'}}>
-                                        <img className="card-img-top" src={volunteer} alt="Oakland Fund"/>
-                                        <div className="card-body text-center d-flex flex-column">
-                                            <h5 className="card-title">Seeking Operations Volunteer for Public Education
-                                                Fund</h5>
-                                            <ul className="list-unstyled mt-auto">
-                                                <li className="card-text text-left">
-                                                    We are seeking volunteering to help us on-board volunteer tutors
-                                                    into classrooms across Oakland and
-                                                    provide excellent customer service to all of the teachers, parents,
-                                                    and education professionals that we
-                                                    engage with.
-                                                </li>
-                                            </ul>
-                                            <Link to="/volunteer/1" className="mt-auto btn btn-primary">View
-                                                Event</Link>
-                                        </div>
+                                <div className="card" style={{width: '18rem'}}>
+                                    <img className="card-img-top" src={volunteer} alt="Oakland Fund"/>
+                                    <div className="card-body text-center d-flex flex-column">
+                                        <h5 className="card-title">Seeking Operations Volunteer for Public Education
+                                            Fund</h5>
+                                        <ul className="list-unstyled mt-auto">
+                                            <li className="card-text text-left">
+                                                We are seeking volunteering to help us on-board volunteer tutors
+                                                into classrooms across Oakland and
+                                                provide excellent customer service to all of the teachers, parents,
+                                                and education professionals that we
+                                                engage with.
+                                            </li>
+                                        </ul>
+                                        <Link to="/volunteer/1" className="mt-auto btn btn-primary">View
+                                            Event</Link>
                                     </div>
                                 </div>
                             </div>
