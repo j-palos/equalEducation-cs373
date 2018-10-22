@@ -12,7 +12,7 @@ class SchoolPage extends Component {
           <Header />
           <main role="main">
             <div className="container marketing my-5">
-              <SortBar />
+          {/*<SortBar />*/}
 
               <br /><br />
 

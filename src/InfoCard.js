@@ -1,17 +1,10 @@
 import React, {Component} from 'react';
 import Link from "react-router-dom/es/Link";
-import oakland from "./images/static/oakland.jpg";
 import json_file from "./json/districts.json";
 import { Button, Card, CardBody, CardImg, CardSubtitle,
         CardTitle, CardText, CardDeck, CardGroup, Row, Col } from 'reactstrap';
-import ReadMoreReact from 'read-more-react';
 import './App.css';
 import './InfoCard.css';
-
-const renderImg = (page) => {
-  console.log(typeof page);
-  return require(page);
-}
 
 class InfoCard extends React.Component {
   constructor() {
@@ -34,7 +27,6 @@ class InfoCard extends React.Component {
 
     if(districtList.length > 0) {
       districtListBlock = districtList.map( obj => {
-        console.log(obj.img);
         return(
           <Col md="4" className="d-flex align-items-stretch">
             <Card className="Card-margin">
