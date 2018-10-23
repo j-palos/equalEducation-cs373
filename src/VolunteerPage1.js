@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Header from "./Header";
-import Footer from "./Footer";
 import oaklandFund from './images/static/oaklandfund.jpg';
 import oakland from './images/static/oakland.jpg';
 import volunteer from './images/volunteers-placeholder.jpg';
@@ -13,7 +11,6 @@ class VolunteerPage1 extends Component {
     render() {
         return (
             <div>
-                <Header/>
                 <main role="main">
 
                     <div>
@@ -115,7 +112,6 @@ class VolunteerPage1 extends Component {
 
                     {/* /.container */}
                     {/* FOOTER */}
-                    <Footer/>
                 </main>
             </div>
         );

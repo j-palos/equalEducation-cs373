@@ -26,14 +26,11 @@ const images = {
 function PersonCard(props) {
     return (
         <Card>
-            <CardImg top className="rounded-circle" src={images[props.name]}
-                     alt={"Card image"} width={140} height={140}/>
+            <CardImg top className="rounded-circle card-img-top mx-auto" src={images[props.name]}
+                     alt={"Card image"} style={{width: 180, height: 180}}/>
             <CardBody>
                 <CardTitle>{props.name}</CardTitle>
                 <CardText>{profile[props.name]}</CardText>
-                {/* <li className="list-group-item">Commits: {developer.commits} </li>
-                        <li className="list-group-item">Issues: {developer.issues}</li>
-                        <li className="list-group-item">Unit tests: {developer.unit_test}</li> */}
             </CardBody>
         </Card>
     );

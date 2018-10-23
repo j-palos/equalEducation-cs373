@@ -1,8 +1,6 @@
 import React, {Component} from 'react';
-import Header from "./Header";
 import './styles/carousel.css';
 import './styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
-import Footer from './Footer';
 import {CardDeck, Col, Container, Row} from 'reactstrap';
 import PersonCard from "./presentation/PersonCard";
 import AboutHelper from "./aboutHelper";
@@ -25,7 +23,7 @@ class AboutPage extends Component {
     render() {
         return (
             <Container>
-                <Header/>
+                {/*<Header/>*/}
                 <main role="main">
                     <Container className="marketing">
                         <hr className="featurette-divider"/>
@@ -71,7 +69,7 @@ class AboutPage extends Component {
                             <AboutHelper/>
                         </Row>
                     </Container>
-                    <Footer/>
+                    {/*<Footer/>*/}
                 </main>
             </Container>
         );
