@@ -15,12 +15,17 @@ import SchoolPage2 from "./SchoolPage2";
 import VolunteerPage3 from "./VolunteerPage3";
 import VolunteerPage2 from "./VolunteerPage2";
 import VolunteerPage1 from "./VolunteerPage1";
+import SchoolEntity from "./entityComponents/SchoolEntity";
+import Header from "./Header";
+import Footer from "./Footer";
 
 class App extends Component {
     render() {
         return (
-            <div className="App">
-                <BrowserRouter basename={""}>
+
+            <BrowserRouter basename={""}>
+                <React.Fragment>
+                    <Header className="App"/>
                     <Switch>
                         <Route exact path="/" component={LandingPage}/>
                         <Route exact path="/school" component={SchoolPage}/>
@@ -36,10 +41,13 @@ class App extends Component {
                         <Route exact path={"/volunteer/2"} component={VolunteerPage2}/>
                         <Route exact path={"/volunteer/3"} component={VolunteerPage3}/>
                         <Route exact path="/about" component={AboutPage}/>
+                        <Route exact path={'/entitypage'} component={SchoolEntity}/>
                         <Route component={LandingPage}/>
                     </Switch>
-                </BrowserRouter>
-            </div>
+                    <Footer/>
+                </React.Fragment>
+            </BrowserRouter>
+
         );
     }
 }

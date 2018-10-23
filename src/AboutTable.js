@@ -7,10 +7,12 @@ function AboutTable(props) {
     return (
         <Table striped>
             <thead>
-            <th>Name</th>
-            <th>Commits</th>
-            <th>Issues</th>
-            <th>Unit Tests</th>
+            <tr>
+                <th>Name</th>
+                <th>Commits</th>
+                <th>Issues</th>
+                <th>Unit Tests</th>
+            </tr>
             </thead>
             <tbody>
             {namesArray.map((person) => {
