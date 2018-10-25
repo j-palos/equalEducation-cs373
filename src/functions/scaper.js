@@ -1,6 +1,3 @@
-
-
-
 const getGitLabData = () => {
 
     let nameArray = [];

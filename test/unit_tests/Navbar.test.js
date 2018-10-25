@@ -5,7 +5,7 @@ import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
-import MyNavbar from '../../src/components/MyNavbar';
+import MyNavbar from '../../src/components/MyNavbar/MyNavbar';
 
 describe('MyNavbar', () => {
   it('renders without exploding', () => {
@@ -17,9 +17,16 @@ describe('MyNavbar', () => {
   });
 
   const wrapper = shallow(<MyNavbar />)
+  it('links to root with a tag in NavbarBrand', () => {
+    expect(
+      wrapper.find('a')
+      .prop('href')
+    ).toEqual('/');
+  });
+
   it('links to root with first link', () => {
     expect(
-      wrapper.find('Link')
+      wrapper.find('NavLink')
       .at('0')
       .prop('to')
     ).toEqual('/');
@@ -27,40 +34,32 @@ describe('MyNavbar', () => {
 
   it('links to root with second link', () => {
     expect(
-      wrapper.find('Link')
+      wrapper.find('NavLink')
       .at('1')
-      .prop('to')
-    ).toEqual('/');
-  });
-
-  it('links to root with third link', () => {
-    expect(
-      wrapper.find('Link')
-      .at('2')
       .prop('to')
     ).toEqual('/school');
   });
 
-  it('links to volunteer with fourth link', () => {
+  it('links to volunteer with third link', () => {
     expect(
-      wrapper.find('Link')
-      .at('3')
+      wrapper.find('NavLink')
+      .at('2')
       .prop('to')
     ).toEqual('/volunteer');
   });
 
-  it('links to charity with fifth link', () => {
+  it('links to charity with fourth link', () => {
     expect(
-      wrapper.find('Link')
-      .at('4')
+      wrapper.find('NavLink')
+      .at('3')
       .prop('to')
     ).toEqual('/charity');
   });
 
   it('links to about with sixth link', () => {
     expect(
-      wrapper.find('Link')
-      .at('5')
+      wrapper.find('NavLink')
+      .at('4')
       .prop('to')
     ).toEqual('/about');
   });

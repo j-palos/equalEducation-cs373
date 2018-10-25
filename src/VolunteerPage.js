@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import Header from "./Header";
-import Footer from "./Footer";
 // import './App.css';
 import prathvol from "./images/static/prathamvolunteer.jpg";
 import Link from "react-router-dom/es/Link";
@@ -11,7 +9,6 @@ class VolunteerPage extends Component {
     render() {
         return (
             <div>
-                <Header/>
                 <main role="main">
                     <div className="container marketing my-5">
                         {/* <hr class="featurette-divider"> */}
@@ -174,9 +171,6 @@ class VolunteerPage extends Component {
                             </div>
                         </div>
                     </div>
-
-                    {/* FOOTER */}
-                    <Footer/>
                 </main>
                 {/* Bootstrap core JavaScript
 ================================================== */}

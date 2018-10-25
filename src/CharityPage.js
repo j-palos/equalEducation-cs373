@@ -1,7 +1,5 @@
 import React, {Component} from 'react';
-import Header from "./Header";
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Footer from "./Footer";
 import oaklandImage from './images/static/oaklandfund.jpg';
 import prathamImage from './images/static/prathamUSA.jpg';
 import khambrelImage from './images/static/khambrelfoundationfooterlogo.jpg';
@@ -15,7 +13,6 @@ class CharityPage extends Component {
     render() {
         return (
             <Container>
-                <Header/>
                 <main role="main">
                     <Container className="marketing my-5">
                         {/* <hr class="featurette-divider"> */}
@@ -126,10 +123,10 @@ class CharityPage extends Component {
               We have raised over $60 million in the last five years to put the right tools in out students' hands so that all kids thrive.</span>
                                         </CardText>
                                         <CardText><span>Volunteering Events: <Link to={'volunteer/1'}
-                                                                                                  className="text-dark"><strong>Seeking Operations Volunteer for Public Education Fund</strong></Link></span>
+                                                                                   className="text-dark"><strong>Seeking Operations Volunteer for Public Education Fund</strong></Link></span>
                                         </CardText>
                                         <CardText><span>School(s) Associated: <Link to={'charity/1'}
-                                                                                                   className="text-dark"><strong>Oakland Unified School District</strong></Link></span>
+                                                                                    className="text-dark"><strong>Oakland Unified School District</strong></Link></span>
                                         </CardText>
                                     </CardBody>
                                 </Card>
@@ -188,7 +185,7 @@ class CharityPage extends Component {
                         </Row>
                     </Container>
                     <hr className="featurette-divider"/>
-                    <Footer/>
+
                 </main>
             </Container>
         )
