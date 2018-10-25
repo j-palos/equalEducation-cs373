@@ -1,0 +1,29 @@
+.margin-bottom {
+  margin-bottom: 20px;
+}
+.card-top-padding {
+  padding-top: 20px;
+}
+.image_size{
+  margin-right: 30px;
+  margin-bottom: 30px;
+}
+.tools{
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: flex-end;
+}
+
+/* Medium screens */
+@media all and (max-width: 800px) {
+  .tools {
+    justify-content: space-around;
+  }
+}
+
+/* Small screens */
+@media all and (max-width: 500px) {
+  .tools {
+    flex-direction: column;
+  }
+}
