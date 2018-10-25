@@ -1,6 +1,7 @@
 import React from 'react';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink} from 'react-router-dom';
+import styles from './styles.css'
 
 class MyNavbar extends React.Component {
     constructor(props) {
@@ -22,12 +23,14 @@ class MyNavbar extends React.Component {
         return (
             <div>
                 <Navbar color="dark" dark expand="md" fixed={"top"}>
-                    <NavbarBrand>Equal Education</NavbarBrand>
+                    <NavbarBrand>
+                      <a href="/" className="text-white">Equal Education</a>
+                    </NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
                             <NavItem>
-                                <NavLink to={'/'} activeClassName={'active'} tag={RRNavLink}>Home</NavLink>
+                                <NavLink exact to={"/"} activeClassName={'active'} tag={RRNavLink}>Home</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to={"/school"} activeClassName={'active'} tag={RRNavLink}>Schools</NavLink>
