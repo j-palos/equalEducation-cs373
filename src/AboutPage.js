@@ -31,18 +31,18 @@ class AboutPage extends Component {
                             <Col>
                                 <h1>About the Site</h1>
                                 <p className="lead">A website to help people find charitable opportunities to assist
-                                    underprivileged children with their education. The website would aggregate a
+                                    underprivileged children with their education. The website aggregates a
                                     large
-                                    number of low income areas and showcase possible volunteer events/charity
-                                    organizations within those areas. Users would then be able to donate their time
-                                    and/or money to these organizations through our website.</p>
+                                    number of low income areas and highlights specific stats about the surrounding
+                                    community to raise awareness to these impoverished areas. Users are then able to donate their time
+                                    and/or money to organizations associated with these communities through our website.</p>
                             </Col>
                         </Row>
                         <hr className="featurette-divider"/>
                         <Row className="featurette">
                             <Col>
                                 <h1>About our Data</h1>
-                                <p className="lead">Charity Navigator, Census Govt, Volunteer match (RESTful APIs)</p>
+                                <p className="lead">Charity Navigator, Census Govt (RESTful APIs)</p>
                             </Col>
                         </Row>
                         <hr className="featurette-divider"/>
