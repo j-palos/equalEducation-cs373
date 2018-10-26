@@ -60,6 +60,15 @@ Estimated completion time: 15 hours
 Actual completion time: 25 hours
 
 
+Name: Ailyn Aguirre
+
+EID: ada2578
+
+GitLab ID: ailynailyn
+
+Estimated completion time: 15 hours
+
+Actual completion time: 25 hours
 
 
 Git SHA: a501b53483a2d90e3f61022512447c3e9bcedb36
