@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
 import InfoCard from "./InfoCard";
+import PaginationContainer from "./paginationComponents/PaginationContainer";
 
 class SchoolPage extends Component {
     render() {
@@ -13,9 +14,10 @@ class SchoolPage extends Component {
                         <hr className="featurette-divider"/>
                     </div>
                 </main>
+                <PaginationContainer/>
             </div>
         )
     }
 }
 
-export default SchoolPage;
+export default (SchoolPage);
