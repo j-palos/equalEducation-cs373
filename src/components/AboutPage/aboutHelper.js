@@ -9,7 +9,8 @@ const email_dict = {
     "jesus.rpalos@gmail.com": "Jesus",
     "jpjessep@users.noreply.github.com": "Jesus",
     "harmonrky@gmail.com" : "Andrew",
-    "ubuntu@ip-172-31-30-122.us-west-2.compute.internal" : "Andrew"
+    "ubuntu@ip-172-31-30-122.us-west-2.compute.internal" : "Andrew",
+    "ailyndarlenne@gmail.com": "Ailyn"
 }; 
 
 const commit_dict = {
@@ -17,7 +18,8 @@ const commit_dict = {
     "Kyle": 0,
     "Prateek": 0,
     "Jesus": 0,
-    "Andrew": 0
+    "Andrew": 0,
+    "Ailyn": 0
 };
 
 const issue_dict = {
@@ -26,6 +28,7 @@ const issue_dict = {
     "Prateek": 0,
     "Jesus": 0,
     "Andrew": 0
+    "Ailyn": 0
 }
 
 class AboutHelper extends Component {

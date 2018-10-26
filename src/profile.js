@@ -4,6 +4,7 @@ const profile = {
     "Prateek": 'w',
     "Andrew": 'w',
     "Jesus": 'I\'m A senior and hate coding.',
+    "Ailyn": 'w'
 };
 
 export default profile;

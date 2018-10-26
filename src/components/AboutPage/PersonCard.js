@@ -4,6 +4,7 @@ import intaeImage from '../../images/profiles/intae.jpg';
 import prateekImage from '../../images/profiles/prateek.jpg';
 import jesusImage from '../../images/profiles/jesus.jpg';
 import andrewImage from '../../images/profiles/andrew.jpeg';
+import ailynImage from '../../images/profiles/ailyn.png';
 import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
 import styles from './styles.css'
 
@@ -13,8 +14,8 @@ const profile = {
     "Kyle": "I'm a senior at UTCS from La Marque, Texas. I'm interested in game development and hope to have my own game company one day!",
     "Prateek": "I’m a Masters student at UTCS. I’m interested in NLP and CV.",
     "Andrew": "I’m a senior at UTCS from Richmond, Kentucky. I’m interested in cloud computing and GIS mapping.",
-    "Jesus": "I'm A senior at UTCS, from around. I'm interested in full stack and cyber security.",
-    "Ailyn": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras condimentum placerat dapibus.",
+    "Jesus": "I'm a senior at UTCS, from around. I'm interested in full stack and cyber security.",
+    "Ailyn": "I'm a junior at UTCS, from El Paso, Texas. I'm interested in cyber security and web development.",
 };
 
 const responsibilities = {
@@ -23,7 +24,7 @@ const responsibilities = {
     "Prateek": "Responsibilities: I am responsible for the back-end development and API design.",
     "Andrew": "Responsibilities: I am responsible for back-end development and operations.",
     "Jesus": "Responsibilities: I have mostly been responsible for setting up react",
-    "Ailyn": "Responsibilities: Praesent ullamcorper ac urna a porttitor.",
+    "Ailyn": "Responsibilities: Front end design.",
 }
 
 const images = {
@@ -32,7 +33,7 @@ const images = {
     "Prateek": prateekImage,
     "Andrew": andrewImage,
     "Jesus": jesusImage,
-    "Ailyn": jesusImage,
+    "Ailyn": ailynImage,
 };
 
 function PersonCard(props) {
