@@ -12,7 +12,7 @@ import SchoolPage3 from "../SchoolPage3";
 import VolunteerPage1 from "../VolunteerPage1";
 import VolunteerPage2 from "../VolunteerPage2";
 import VolunteerPage3 from "../VolunteerPage3";
-import AboutPage from "../AboutPage";
+import AboutPage from "./AboutPage/AboutPage";
 import React, {Component} from "react";
 import EntityContainer from "../entityComponents/EntityContainer";
 
