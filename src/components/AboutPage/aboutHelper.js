@@ -27,7 +27,7 @@ const issue_dict = {
     "Kyle": 0,
     "Prateek": 0,
     "Jesus": 0,
-    "Andrew": 0
+    "Andrew": 0,
     "Ailyn": 0
 }
 
