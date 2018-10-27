@@ -1,6 +1,8 @@
 import React from 'react';
 import Link from "react-router-dom/es/Link";
-import json_file from "./json/districts.json";
+import district_file from "./json/districts.json";
+import community_file from "./json/communities.json";
+import charity_file from "./json/charities.json";
 import {Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardTitle, Col, Row} from 'reactstrap';
 import './App.css';
 import './InfoCard.css';
@@ -14,18 +16,41 @@ class InfoCard extends React.Component {
     }
 
     componentWillMount() {
-        let districts = json_file.districts.district
+        let jsonFile;
+        let attrs;
+        switch(this.props.type) {
+            case "school":
+                let districts = district_file.districts.district;
+                jsonFile = districts;
+                attrs = {"attr1" : "Location", "attr2" : "Poverty", "attr3" : "Grade Range"};
+                break;
+            case "community":
+                let communities = community_file.communities.community;
+                jsonFile = communities;
+                attrs = {"attr1" : "ATTR1", "attr2" : "ATTR2", "attr3" : "ATTR3"};
+                break;
+            case "charity":
+                let charities = charity_file.charities.charity;
+                jsonFile = charities;
+                attrs = {"attr1" : "Location", "attr2" : "Deductibility", "attr3" : "Rating"};
+                break;
+            default:
+                break;
+        }
+
         this.setState({
-            districtList: districts
+            attrsList: attrs,
+            jsonList: jsonFile
         });
     }
 
     render() {
-        const districtList = this.state.districtList;
-        let districtListBlock = '';
+        const jsonList = this.state.jsonList;
+        const attrsList = this.state.attrsList;
+        let listBlock = '';
 
-        if (districtList.length > 0) {
-            districtListBlock = districtList.map(obj => {
+        if (jsonList.length > 0) {
+            listBlock = jsonList.map(obj => {
                 return (
                     <Col md="4" className="d-flex align-items-stretch">
                         <Card className="Card-margin">
@@ -37,12 +62,12 @@ class InfoCard extends React.Component {
                             </CardBody>
 
                             <CardBody>
-                                <CardSubtitle className="Logo-subtitle">Location: {obj.location}</CardSubtitle>
-                                <CardSubtitle className="Logo-subtitle">Poverty: {obj.poverty}</CardSubtitle>
-                                <CardSubtitle className="Logo-subtitle">Grade Range: {obj.grade}</CardSubtitle>
-                                <Link to={obj.charity_link}><CardSubtitle
+                                <CardSubtitle className="Logo-subtitle">{attrsList["attr1"]}: {obj.attrs[attrsList["attr1"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
+                                <CardSubtitle className="Logo-subtitle">{attrsList["attr2"]}: {obj.attrs[attrsList["attr2"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
+                                <CardSubtitle className="Logo-subtitle">{attrsList["attr3"]}: {obj.attrs[attrsList["attr3"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
+                                <Link to={obj.attrs["charity_link"]}><CardSubtitle
                                     className="Logo-subtitle">Charities</CardSubtitle></Link>
-                                <Link to={obj.opportunity_link}><CardSubtitle
+                                <Link to={obj.attrs["opportunity_link"]}><CardSubtitle
                                     className="Logo-subtitle">Volunteer</CardSubtitle></Link>
                                 <Row className="Buttons">
                                     <Col className="text-center">
@@ -60,7 +85,7 @@ class InfoCard extends React.Component {
 
         return (
             <CardGroup>
-                {districtListBlock}
+                {listBlock}
             </CardGroup>
 
         );
