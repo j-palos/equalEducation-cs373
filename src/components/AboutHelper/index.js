@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import AboutTable from "./AboutTable";
+import AboutTable from "../AboutTable";
 
 const email_dict = {
     "ryooit@utexas.edu": "Intae",
@@ -11,7 +11,7 @@ const email_dict = {
     "harmonrky@gmail.com" : "Andrew",
     "ubuntu@ip-172-31-30-122.us-west-2.compute.internal" : "Andrew",
     "ailyndarlenne@gmail.com": "Ailyn"
-}; 
+};
 
 const commit_dict = {
     "Intae": 0,
@@ -19,7 +19,8 @@ const commit_dict = {
     "Prateek": 0,
     "Jesus": 0,
     "Andrew": 0,
-    "Ailyn": 0
+    "Ailyn": 0,
+    "Total": 0
 };
 
 const issue_dict = {
@@ -28,7 +29,8 @@ const issue_dict = {
     "Prateek": 0,
     "Jesus": 0,
     "Andrew": 0,
-    "Ailyn": 0
+    "Ailyn": 0,
+    "Total": 0
 }
 
 class AboutHelper extends Component {
@@ -48,26 +50,28 @@ class AboutHelper extends Component {
             .then(results => {
                 return results.json();
             }).then(frontend_commits => {
-            
+
             for (let i = 0; i < frontend_commits.length; i++) {
                 let value = frontend_commits[i].author_email;
                 if (email_dict[value]) {
                     commit_dict[email_dict[value]] += 1;
+                    commit_dict["Total"] += 1;
                 }
             }
             //todo Add in the gitlab data for issues and unit_test
-            
+
         });
 
         fetch('https://gitlab.com/api/v4/projects/8778058/repository/commits?per_page=500')
             .then(results => {
                 return results.json();
             }).then(backend_commits => {
-                
+
                 for (let i = 0; i < backend_commits.length; i++) {
                     let value = backend_commits[i].author_email;
                     if (email_dict[value]) {
                         commit_dict[email_dict[value]] += 1;
+                        commit_dict["Total"] += 1;
                     }
                 }
         });
@@ -85,8 +89,9 @@ class AboutHelper extends Component {
                         var temp = name.split(" ");
                         name = temp[0];
                         issue_dict[name] += 1;
+                        issue_dict["Total"] += 1;
                     }
-                } 
+                }
 
                 for (let name in commit_dict) {
                     nameArray.push({

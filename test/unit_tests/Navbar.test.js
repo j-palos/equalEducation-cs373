@@ -40,20 +40,20 @@ describe('MyNavbar', () => {
     ).toEqual('/school');
   });
 
-  it('links to volunteer with third link', () => {
+  it('links to charity with third link', () => {
     expect(
       wrapper.find('NavLink')
       .at('2')
       .prop('to')
-    ).toEqual('/volunteer');
+    ).toEqual('/charity');
   });
 
-  it('links to charity with fourth link', () => {
+  it('links to communities with fourth link', () => {
     expect(
       wrapper.find('NavLink')
       .at('3')
       .prop('to')
-    ).toEqual('/charity');
+    ).toEqual('/volunteer');
   });
 
   it('links to about with sixth link', () => {
