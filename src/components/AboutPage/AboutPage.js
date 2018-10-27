@@ -1,10 +1,10 @@
 import React, {Component} from 'react';
+import './styles.css'
 import '../../styles/carousel.css';
 import '../../styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
 import {CardDeck, Col, Container, Row} from 'reactstrap';
 import PersonCard from "./PersonCard";
 import AboutHelper from "./aboutHelper";
-import styles from './styles.css'
 
 class AboutPage extends Component {
 

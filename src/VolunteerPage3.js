@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import Link from "react-router-dom/es/Link";
 import prathusa from "./images/static/prathamUSA.jpg";
 import houston from "./images/static/HoustonISD.png";

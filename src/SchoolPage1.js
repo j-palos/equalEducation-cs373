@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import Header from "./Header";
-import Footer from "./Footer";
+import Header from "./components/Header";
+import Footer from "./components/Footer";
 import oaklandFund from './images/static/oaklandfund.jpg';
 import oakland from './images/static/oakland.jpg';
 import volunteer from './images/volunteers-placeholder.jpg';

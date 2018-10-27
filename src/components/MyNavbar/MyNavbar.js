@@ -1,7 +1,7 @@
 import React from 'react';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink} from 'react-router-dom';
-import styles from './styles.css'
+import './styles.css'
 
 class MyNavbar extends React.Component {
     constructor(props) {
@@ -36,11 +36,10 @@ class MyNavbar extends React.Component {
                                 <NavLink to={"/school"} activeClassName={'active'} tag={RRNavLink}>Schools</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to={"/volunteer"} activeClassName={'active'} tag={RRNavLink}>Volunteer
-                                    Opportunities</NavLink>
+                                <NavLink to={"/charity"} activeClassName={'active'} tag={RRNavLink}>Charities</NavLink>
                             </NavItem>
                             <NavItem>
-                                <NavLink to={"/charity"} activeClassName={'active'} tag={RRNavLink}>Charities</NavLink>
+                                <NavLink to={"/volunteer"} activeClassName={'active'} tag={RRNavLink}>Communities</NavLink>
                             </NavItem>
                             <NavItem>
                                 <NavLink to={"/about"} activeClassName={'active'} tag={RRNavLink}>About</NavLink>
