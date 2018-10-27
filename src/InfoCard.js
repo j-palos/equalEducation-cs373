@@ -14,7 +14,7 @@ class InfoCard extends React.Component {
     }
 
     componentWillMount() {
-        let districts = json_file.districts.district
+        let districts = json_file.districts.district;
         this.setState({
             districtList: districts
         });
@@ -27,11 +27,11 @@ class InfoCard extends React.Component {
         if (districtList.length > 0) {
             districtListBlock = districtList.map(obj => {
                 return (
-                    <Col md="4" className="d-flex align-items-stretch">
+                    <Col md="4" className="d-flex align-items-stretch" key={obj.title}>
                         <Card className="Card-margin">
                             <CardBody>
                                 <CardTitle className="text-center title-size">{obj.title}</CardTitle>
-                                <Link to={obj.school_link}>
+                                <Link to={`/${obj.school_link}`}>
                                     <CardImg top width="100%" src={obj.img} className="Logo-img" alt="Card image cap"/>
                                 </Link>
                             </CardBody>

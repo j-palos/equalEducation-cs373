@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
-import {Link, withRouter} from 'react-router-dom';
-import {Pagination, PaginationItem, PaginationLink} from 'reactstrap';
+import {withRouter} from 'react-router-dom';
+import {Pagination} from 'reactstrap';
+import {PagingGenerator} from './PagingGenerator';
 
 class PaginationContainer extends Component {
 
@@ -9,35 +10,38 @@ class PaginationContainer extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pageNumber: props.current,
+            pageNumber: this.props.match.params['id'],
+            total: 27,
+            perPage: 9,
         }
     }
 
+    helperPaging() {
+        let children = [];
+        let currentPage = Number(this.state.pageNumber);
+        let i;
+        let lastPage = Number(Math.ceil(this.state.total / this.state.perPage));
+        debugger;
+        if (currentPage === 1) {
+            i = currentPage;
+            children.push(<PagingGenerator pageNumber={i} type={'previous'} url={this.props.match.params['type']}
+                                           key={'prev'}/>);
+        }
+        else {
+            i = currentPage - 1;
+        }
 
+        for (i; i <= lastPage; i++) {
+            children.push(<PagingGenerator pageNumber={i} url={this.props.match.params['type']} type={''} key={i}/>)
+        }
+        return children;
+
+    }
     render() {
+        let paging = this.helperPaging();
         return (
             <Pagination size="lg" aria-label="Page navigation example">
-                <PaginationItem>
-                    <PaginationLink previous tag={Link} to={'/school'}/>
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink tag={Link} to={`${this.props.match.url}/1`}>
-                        1
-                    </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink href="#">
-                        2
-                    </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink href="#">
-                        3
-                    </PaginationLink>
-                </PaginationItem>
-                <PaginationItem>
-                    <PaginationLink next href="#"/>
-                </PaginationItem>
+                {paging}
             </Pagination>
         )
     }

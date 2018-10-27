@@ -2,8 +2,13 @@ import React, {Component} from 'react';
 import './App.css';
 import InfoCard from "./InfoCard";
 import PaginationContainer from "./paginationComponents/PaginationContainer";
+import {withRouter} from "react-router-dom";
 
 class SchoolPage extends Component {
+
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
             <div>
@@ -14,10 +19,10 @@ class SchoolPage extends Component {
                         <hr className="featurette-divider"/>
                     </div>
                 </main>
-                <PaginationContainer/>
+                <PaginationContainer current={this.props.current} path={this.props.match.url}/>
             </div>
         )
     }
 }
 
-export default (SchoolPage);
+export default withRouter(SchoolPage);
