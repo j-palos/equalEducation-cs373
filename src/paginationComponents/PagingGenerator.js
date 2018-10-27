@@ -3,23 +3,32 @@ import {PaginationItem, PaginationLink} from 'reactstrap';
 import {Link} from "react-router-dom";
 
 
-export const PagingGenerator = (props) => {
-    const path = props.url;
-    const pageNumber = props.pageNumber;
-    const type = props.type;
-    let output = [];
-    if (type === 'previous' || type === 'next') {
-        output = [];
-    }
-    else {
-        output.push(pageNumber);
-    }
-    debugger;
-    return (
-        <PaginationItem>
-            <PaginationLink className={type} tag={Link} to={`/${path}/${pageNumber}`}>
-                {output}
-            </PaginationLink>
-        </PaginationItem>
-    )
-};
+export default class PagingGenerator extends React.PureComponent {
+
+
+    render() {
+        const path = this.props.url;
+        const pageNumber = this.props.pageNumber;
+        const type = this.props.type;
+        let output = [];
+        let prev, next = false;
+        let active = this.props.currentPage === pageNumber;
+        if (type === 'previous') {
+            prev = true;
+        }
+        else if (type === 'next') {
+            next = true;
+        }
+        else {
+            output.push(pageNumber);
+        }
+        return (
+            <PaginationItem active={active}>
+                <PaginationLink next={next} previous={prev} tag={Link} to={`/${path}/${pageNumber}`}>
+                    {output}
+                </PaginationLink>
+            </PaginationItem>
+        );
+    };
+}
+

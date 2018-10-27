@@ -21,7 +21,6 @@ export default class RouteBuilder extends Component {
     constructor(props) {
         super();
         this.state = {
-            // route: props.url.match
         }
     }
 
@@ -31,12 +30,11 @@ export default class RouteBuilder extends Component {
                 <Route exact path="/" component={LandingPage}/>
                 <Route exact path="/schools/" component={SchoolPage}/>
                 {/*<Route exact path="/:type/:id" component={SchoolPage}/>*/}
-                <Route exact path="/:type/:id" component={SchoolPage}
-                       render={(props) => <SchoolPage{...props} location={this.location}/>}/>
+                {/*<Route exact path="/:type/:id" component={SchoolPage} render={(props) => <SchoolPage{...props} location={this.location}/>}/>*/}
                 <Route exact path="/volunteers" component={VolunteerPage}/>
                 <Route exact path="/charities" component={CharityPage}/>
                 {/*<Route path={`/school/:entityId`} render={(props) => <EntityContainer{...props} type={'school'}/>}/>*/}
-                {/*<Route exact path="/:type/:id" component={SchoolPage}/>*/}
+                <Route exact path="/:type/:id" component={SchoolPage}/>
                 {/*<Route path={'/schools/:pageId'} render={(props) */}
                 {/*<Route path={`/charity/:entityId`} component={<EntityContainer type={'charity'}/>}/>*/}
                 {/*<Route path={`/community/:entityId`} component={<EntityContainer type={'community'}/>}/>*/}
