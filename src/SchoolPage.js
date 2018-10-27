@@ -9,12 +9,12 @@ class SchoolPage extends Component {
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-                        <InfoCard/>
+                        <InfoCard type="school"/>
                         <hr className="featurette-divider"/>
                     </div>
                 </main>
             </div>
-        )
+        );
     }
 }
 
