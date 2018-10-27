@@ -6,7 +6,7 @@ import jesusImage from '../../images/profiles/jesus.jpg';
 import andrewImage from '../../images/profiles/andrew.jpeg';
 import ailynImage from '../../images/profiles/ailyn.png';
 import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
-import styles from './styles.css'
+import './styles.css'
 
 
 const profile = {
