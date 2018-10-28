@@ -1,37 +1,6 @@
 import React, {Component} from 'react';
 import AboutTable from "../AboutTable";
 
-const email_dict = {
-    "ryooit@utexas.edu": "Intae",
-    "ryooit70@gmail.com": "Intae",
-    "ksotengco@gmail.com": "Kyle",
-    "prateek.kolhar@utexas.edu": "Prateek",
-    "jesus.rpalos@gmail.com": "Jesus",
-    "jpjessep@users.noreply.github.com": "Jesus",
-    "harmonrky@gmail.com" : "Andrew",
-    "ubuntu@ip-172-31-30-122.us-west-2.compute.internal" : "Andrew",
-    "ailyndarlenne@gmail.com": "Ailyn"
-};
-
-const commit_dict = {
-    "Intae": 0,
-    "Kyle": 0,
-    "Prateek": 0,
-    "Jesus": 0,
-    "Andrew": 0,
-    "Ailyn": 0,
-    "Total": 0
-};
-
-const issue_dict = {
-    "Intae": 0,
-    "Kyle": 0,
-    "Prateek": 0,
-    "Jesus": 0,
-    "Andrew": 0,
-    "Ailyn": 0,
-    "Total": 0
-}
 
 class AboutHelper extends Component {
 
@@ -44,6 +13,37 @@ class AboutHelper extends Component {
     }
 
     componentDidMount() {
+        const email_dict = {
+            "ryooit@utexas.edu": "Intae",
+            "ryooit70@gmail.com": "Intae",
+            "ksotengco@gmail.com": "Kyle",
+            "prateek.kolhar@utexas.edu": "Prateek",
+            "jesus.rpalos@gmail.com": "Jesus",
+            "jpjessep@users.noreply.github.com": "Jesus",
+            "harmonrky@gmail.com" : "Andrew",
+            "ubuntu@ip-172-31-30-122.us-west-2.compute.internal" : "Andrew",
+            "ailyndarlenne@gmail.com": "Ailyn"
+        };
+
+        const commit_dict = {
+            "Intae": 0,
+            "Kyle": 0,
+            "Prateek": 0,
+            "Jesus": 0,
+            "Andrew": 0,
+            "Ailyn": 0,
+            "Total": 0
+        };
+
+        const issue_dict = {
+            "Intae": 0,
+            "Kyle": 0,
+            "Prateek": 0,
+            "Jesus": 0,
+            "Andrew": 0,
+            "Ailyn": 0,
+            "Total": 0
+        };
         let nameArray = [];
         //fetch the data from the gitlab api and return as an object we can use later
         fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits?per_page=500')
@@ -83,10 +83,10 @@ class AboutHelper extends Component {
 
                 for (let i = 0; i < issues.length; i++) {
                     let value = issues[i].closed_by;
-                    var name = "";
+                    let name = "";
                     if (value != null) {
                         name = issues[i].closed_by.name;
-                        var temp = name.split(" ");
+                        let temp = name.split(" ");
                         name = temp[0];
                         issue_dict[name] += 1;
                         issue_dict["Total"] += 1;
