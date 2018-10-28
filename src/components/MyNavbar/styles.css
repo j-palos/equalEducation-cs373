@@ -1,3 +1,15 @@
 .text-white {
     color: black;
-  }
+    font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", sans-serif;
+    font-weight: bold;
+    font-variant: small-caps;
+    font-size: 30px;
+}
+
+.nav-item {
+	font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", sans-serif;
+	color: black;
+	font-family: fantasy;
+    font-variant: small-caps;
+    font-size: 24px;
+}

@@ -5,6 +5,7 @@
 
 .Logo-subtitle {
     padding-bottom: 15px;
+    font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
 }
 
 .title-size {
@@ -13,12 +14,15 @@
 
 .Buttons {
     padding-top: 15px;
+    font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
 }
 
 .Card-margin {
     margin-bottom: 15px;
+    font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
 }
 
 .read-more-button {
+	font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
     color: blue;
 }

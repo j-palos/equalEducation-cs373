@@ -5,7 +5,7 @@ import oaklandFund from './images/static/oaklandfund.jpg';
 import oakland from './images/static/oakland.jpg';
 import volunteer from './images/volunteers-placeholder.jpg';
 import Link from "react-router-dom/es/Link";
-
+import './Base.css';
 
 class SchoolPage1 extends Component {
 

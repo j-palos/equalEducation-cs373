@@ -22,14 +22,14 @@ class MyNavbar extends React.Component {
     render() {
         return (
             <div>
-                <Navbar color="dark" dark expand="md" fixed={"top"}>
+                <Navbar style={{backgroundColor: '#07969b'}} dark expand="md" fixed={"top"}>
                     <NavbarBrand>
                       <a href="/" className="text-white">Equal Education</a>
                     </NavbarBrand>
                     <NavbarToggler onClick={this.toggle}/>
                     <Collapse isOpen={this.state.isOpen} navbar>
                         <Nav className="ml-auto" navbar>
-                            <NavItem>
+                            <NavItem className="nav-item">
                                 <NavLink exact to={"/"} activeClassName={'active'} tag={RRNavLink}>Home</NavLink>
                             </NavItem>
                             <NavItem>
