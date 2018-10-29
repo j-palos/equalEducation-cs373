@@ -3,6 +3,7 @@ import './App.css';
 import InfoCard from "./InfoCard";
 import PaginationContainer from "./paginationComponents/PaginationContainer";
 import {withRouter} from "react-router-dom";
+import {Container, Row} from "reactstrap";
 
 class SchoolPage extends Component {
 
@@ -11,16 +12,18 @@ class SchoolPage extends Component {
     }
     render() {
         return (
-            <div>
+            <Container>
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
                         <InfoCard/>
-                        <hr className="featurette-divider"/>
+                        <Row>
+                            <div className={'mx-auto'}>
+                                <PaginationContainer path={'schools'}/></div>
+                        </Row>
                     </div>
                 </main>
-                <PaginationContainer current={this.props.current} path={this.props.match.url}/>
-            </div>
+            </Container>
         )
     }
 }

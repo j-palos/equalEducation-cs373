@@ -18,23 +18,22 @@ class PaginationContainer extends Component {
     helperPaging() {
         let children = [];
         let currentPage = Number(this.props.match.params['id']);
-        if (currentPage !== undefined) {
+        // debugger;
+        if (isNaN(currentPage)) {
             currentPage = 1;
         }
+        // debugger;
         let i;
         let lastPage = Number(Math.ceil(this.state.total / this.state.perPage));
         i = Number(Math.max(currentPage - 3, 1));
         let prev = Number(Math.max(currentPage - 1, 1));
         let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
-        children.push(<PagingGenerator pageNumber={prev} type={'previous'} url={this.props.match.params['type']}
-                                       key={'prev'}/>);
+        children.push(<PagingGenerator pageNumber={prev} type={'previous'} path={this.props.path} key={'prev'}/>);
         for (i; i <= rightBoundary; i++) {
-            children.push(<PagingGenerator pageNumber={i} url={this.props.match.params['type']}
-                                           currentPage={currentPage} key={i}/>)
+            children.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}/>)
         }
         let next = Number(Math.min(currentPage + 1, lastPage));
-        children.push(<PagingGenerator pageNumber={next} type={'next'} url={this.props.match.params['type']}
-                                       key={'next'}/>);
+        children.push(<PagingGenerator pageNumber={next} type={'next'} path={this.props.path} key={'next'}/>);
         return children;
     }
     render() {

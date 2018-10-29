@@ -28,25 +28,11 @@ export default class RouteBuilder extends Component {
         return (
             <Switch>
                 <Route exact path="/" component={LandingPage}/>
-                <Route exact path="/schools/" component={SchoolPage}/>
-                {/*<Route exact path="/:type/:id" component={SchoolPage}/>*/}
-                {/*<Route exact path="/:type/:id" component={SchoolPage} render={(props) => <SchoolPage{...props} location={this.location}/>}/>*/}
-                <Route exact path="/volunteers" component={VolunteerPage}/>
+                <Route exact path={'/schools/'} component={SchoolPage}/>
+                <Route exact path="/schools/:id" component={SchoolPage}/>
                 <Route exact path="/charities" component={CharityPage}/>
                 {/*<Route path={`/school/:entityId`} render={(props) => <EntityContainer{...props} type={'school'}/>}/>*/}
-                <Route exact path="/:type/:id" component={SchoolPage}/>
-                {/*<Route path={'/schools/:pageId'} render={(props) */}
-                {/*<Route path={`/charity/:entityId`} component={<EntityContainer type={'charity'}/>}/>*/}
-                {/*<Route path={`/community/:entityId`} component={<EntityContainer type={'community'}/>}/>*/}
-                <Route exact path={"/charity/1"} component={CharityPage1}/>
-                <Route exact path={"/charity/2"} component={CharityEntity2}/>
-                <Route exact path={"/charity/3"} component={CharityEntity3}/>
-                <Route exact path={"/school/1"} component={SchoolPage1}/>
-                <Route exact path={"/school/2"} component={SchoolPage2}/>
-                <Route exact path={"/school/3"} component={SchoolPage3}/>
-                <Route exact path={"/volunteer/1"} component={VolunteerPage1}/>
-                <Route exact path={"/volunteer/2"} component={VolunteerPage2}/>
-                <Route exact path={"/volunteer/3"} component={VolunteerPage3}/>
+                <Route exact path="/charities/:id" component={CharityPage}/>
                 <Route exact path="/about" component={AboutPage}/>
                 <Route component={LandingPage}/>
             </Switch>

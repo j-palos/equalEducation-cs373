@@ -7,12 +7,14 @@ export default class PagingGenerator extends React.PureComponent {
 
 
     render() {
-        const path = this.props.url;
+        const path = this.props.path;
+        debugger;
         const pageNumber = this.props.pageNumber;
         const type = this.props.type;
         let output = [];
         let prev, next = false;
         let active = this.props.currentPage === pageNumber;
+        debugger;
         if (type === 'previous') {
             prev = true;
         }
