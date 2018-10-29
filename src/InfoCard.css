@@ -5,7 +5,9 @@
 
 .Logo-subtitle {
     padding-bottom: 15px;
-    font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .title-size {
@@ -14,15 +16,21 @@
 
 .Buttons {
     padding-top: 15px;
-    font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .Card-margin {
     margin-bottom: 15px;
-    font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
 }
 
 .read-more-button {
-	font-family: "Gill Sans MT", "Gill Sans", "My Gill Sans", serif;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
+    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
+    sans-serif;
     color: blue;
 }
