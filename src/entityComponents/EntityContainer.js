@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {Entity} from "./Entity";
 
+//todo add in api call stuff
 const exampleInfo = {
     title: "Oakland Unified School District",
     imageURL: 'http://www.equaleducation.info/images/static/oakland.jpg',

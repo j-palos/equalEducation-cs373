@@ -1,21 +1,31 @@
 import React, {Component} from 'react';
 import './App.css';
 import InfoCard from "./InfoCard";
+import PaginationContainer from "./paginationComponents/PaginationContainer";
+import {withRouter} from "react-router-dom";
+import {Container, Row} from "reactstrap";
 
 class SchoolPage extends Component {
+
+    constructor(props) {
+        super(props);
+    }
     render() {
         return (
-            <div>
+            <Container>
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-                        <InfoCard type="school"/>
-                        <hr className="featurette-divider"/>
+                        <InfoCard type={'school'}/>
+                        <Row>
+                            <div className={'mx-auto'}>
+                                <PaginationContainer path={'schools'}/></div>
+                        </Row>
                     </div>
                 </main>
-            </div>
-        );
+            </Container>
+        )
     }
 }
 
-export default SchoolPage;
+export default withRouter(SchoolPage);

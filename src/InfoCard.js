@@ -18,6 +18,7 @@ class InfoCard extends React.Component {
     componentWillMount() {
         let jsonFile;
         let attrs;
+        //todo change this to api calls
         switch(this.props.type) {
             case "school":
                 let districts = district_file.districts.district;
@@ -38,6 +39,7 @@ class InfoCard extends React.Component {
                 break;
         }
 
+        // let districts = jsonFile.districts.district;
         this.setState({
             attrsList: attrs,
             jsonList: jsonFile
@@ -48,15 +50,14 @@ class InfoCard extends React.Component {
         const jsonList = this.state.jsonList;
         const attrsList = this.state.attrsList;
         let listBlock = '';
-
         if (jsonList.length > 0) {
             listBlock = jsonList.map(obj => {
                 return (
-                    <Col md="4" className="d-flex align-items-stretch">
+                    <Col md="4" className="d-flex align-items-stretch" key={obj.title}>
                         <Card className="Card-margin">
                             <CardBody>
                                 <CardTitle className="text-center title-size">{obj.title}</CardTitle>
-                                <Link to={obj.school_link}>
+                                <Link to={`/${obj.school_link}`}>
                                     <CardImg top width="100%" src={obj.img} className="Logo-img" alt="Card image cap"/>
                                 </Link>
                             </CardBody>
