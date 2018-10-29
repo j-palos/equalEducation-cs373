@@ -1,0 +1,29 @@
+import React from 'react';
+import Link from "react-router-dom/es/Link";
+import district_file from "./json/districts.json";
+import community_file from "./json/communities.json";
+import charity_file from "./json/charities.json";
+import {Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardTitle, Col, Row} from 'reactstrap';
+import CardText from "reactstrap/src/CardText";
+
+
+
+class GridCard extends React.PureComponent {
+
+    render(){
+        let information = props.info;
+        let children = [];
+        let keys = Object.keys(information);
+        for (let i = 0; i < Object.values(keys).length; i++) {
+            children.push(<span key={keys[i]}>{keys[i]}: <strong>{information[keys[i]]}</strong> <br/> </span>)
+        }
+        return (
+            <CardText className={"lead text-center"}>
+                {children}
+            </CardText>
+        )
+    };
+}
+
+
+export default GridCard;

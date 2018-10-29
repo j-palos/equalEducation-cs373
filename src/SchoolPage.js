@@ -16,7 +16,7 @@ class SchoolPage extends Component {
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-                        <InfoCard/>
+                        <InfoCard type={'school'}/>
                         <Row>
                             <div className={'mx-auto'}>
                                 <PaginationContainer path={'schools'}/></div>
