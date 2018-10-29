@@ -1,0 +1,54 @@
+{
+    "charities": {
+      "charity": [
+        {
+          "id": "1",
+          "img": "/images/oaklandfund.jpg",
+          "school_link": "charity/1",
+          "title": "Oakland Public Education Fund",
+          "attrs": {
+            "location": "Oakland, California",
+            "deductibility": "Contributions are deductible.",
+            "rating": "4",
+            "description": "The Ed Fund is the only organization that raises money for all Oakland schools. We have raised over $60 million in the last five years to put the right tools in out students' hands so that all kids thrive.",
+            "opportunity_link": "volunteer/1",
+            "opportunity": "Seeking Operations Volunteer for Public Education Fund",
+            "charity_link": "charity/1",
+            "charity": "Oakland Public Education Fund"
+          }
+        },
+        {
+          "id": "2",
+          "img": "/images/khambrelfoundationfooterlogo.jpg",
+          "school_link": "charity/2",
+          "title": "Khambrel Foundation",
+          "attrs": {
+            "location": "La Marque, Texas",
+            "deductibility": "Contributions are deductible.",
+            "rating": "4",
+            "description": "Khambrel Foundation is a non-profit organization empowering youth and their families to build on life’s dreams, build dreams one book at a time through financial literacy, support single-parent families in need with in-kind donations and promote kindness in the community.",
+            "opportunity_link": "volunteer/1",
+            "opportunity": "Seeking Operations Volunteer for Public Education Fund",
+            "charity_link": "charity/1",
+            "charity": "Oakland Public Education Fund"
+          }
+        },
+        {
+          "id": "3",
+          "img": "/images/prathamUSA.jpg",
+          "school_link": "charity/3",
+          "title": "Pratham USA",
+          "attrs": {
+            "location": "Houston, Texas",
+            "deductibility": "Contributions are deductible.",
+            "rating": "3",
+            "description": "Pratham USA is a 501(c)(3) nonprofit organization which supports Pratham Education Foundation in its mission of improving child literacy, providing vocational skills and supporting women to complete their education in India; and encourages volunteerism in the US.",
+            "opportunity_link": "volunteer/1",
+            "opportunity": "Seeking Operations Volunteer for Public Education Fund",
+            "charity_link": "charity/1",
+            "charity": "Oakland Public Education Fund"
+          }
+        }
+      ]
+    }
+  }  
