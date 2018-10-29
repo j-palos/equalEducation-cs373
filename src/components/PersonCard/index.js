@@ -23,8 +23,8 @@ const responsibilities = {
     "Kyle": "Responsibilities: I am responsible for the front-end design and documentation.",
     "Prateek": "Responsibilities: I am responsible for the back-end development and API design.",
     "Andrew": "Responsibilities: I am responsible for back-end development and operations.",
-    "Jesus": "Responsibilities: I have mostly been responsible for setting up react",
-    "Ailyn": "Responsibilities: Front end design.",
+    "Jesus": "Responsibilities: I have mostly been responsible for setting up react.",
+    "Ailyn": "Responsibilities: I am responsible for the front end design.",
 }
 
 const images = {
