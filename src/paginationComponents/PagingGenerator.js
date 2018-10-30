@@ -3,6 +3,11 @@ import {PaginationItem, PaginationLink} from 'reactstrap';
 import {Link} from "react-router-dom";
 
 
+const urls = {
+    'charity': 'charities',
+    'school': 'schools',
+    'community': 'communities',
+};
 export default class PagingGenerator extends React.PureComponent {
 
 
@@ -24,7 +29,7 @@ export default class PagingGenerator extends React.PureComponent {
         }
         return (
             <PaginationItem active={active}>
-                <PaginationLink next={next} previous={prev} tag={Link} to={`/${path}/${pageNumber}`}>
+                <PaginationLink next={next} previous={prev} tag={Link} to={`/${urls[path]}/${pageNumber}`}>
                     {output}
                 </PaginationLink>
             </PaginationItem>

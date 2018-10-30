@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
-import {Pagination} from 'reactstrap';
+import {Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainer";
 
@@ -43,9 +43,12 @@ class PaginationContainer extends Component {
         return (
             <div>
                 <GridContainer path={this.props.path} page={this.props.match.params['id]'] ? this.props.match.params['id]']: 1} />
-            <Pagination size="lg" aria-label="Page navigation">
+
+                <Row>
+                    <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                 {paging}
             </Pagination>
+                </Row>
             </div>
         )
     }
