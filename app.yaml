@@ -1,12 +1,13 @@
+service: dev-app
 runtime: python27
 api_version: 1
 threadsafe: true
 
 handlers:
 - url: /
-  static_files: template/index.html
-  upload: template/index.html
+  static_files: build/index.html
+  upload: build/index.html
 
 - url: /(.*)
-  static_files: template/\1
-  upload: template/(.*)
+  static_files: build/\1
+  upload: build/(.*)
