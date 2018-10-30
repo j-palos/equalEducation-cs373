@@ -11,12 +11,13 @@ class SchoolPage extends Component {
         super(props);
     }
     render() {
+
+
         return (
             <Container>
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-                        <InfoCard type={'school'}/>
                         <Row>
                             <div className={'mx-auto'}>
                                 <PaginationContainer path={'schools'}/></div>

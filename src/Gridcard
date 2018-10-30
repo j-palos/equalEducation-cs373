@@ -1,0 +1,23 @@
+import React from 'react';
+import {Button, Card, CardBody, CardGroup, CardImg, CardSubtitle, CardTitle, Col, Row} from 'reactstrap';
+import {EntityInfo} from "./entityComponents/EntityInfo";
+
+
+
+class Gridcard extends React.Component {
+
+    render() {
+        debugger;
+        return(
+            <Card>
+                <CardImg src={this.props.imgsrc} />
+                <CardBody>
+                    <EntityInfo info={this.props.info}/>
+                </CardBody>
+            </Card>
+        );
+    }
+}
+
+
+export default Gridcard;
