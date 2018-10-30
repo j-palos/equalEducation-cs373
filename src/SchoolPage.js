@@ -9,14 +9,15 @@ class SchoolPage extends Component {
     constructor(props) {
         super(props);
     }
+
     render() {
         return (
             <Container>
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-                            <div className={'mx-auto'}>
-                                <PaginationContainer path={'school'}/></div>
+                        <div className={'mx-auto'}>
+                            <PaginationContainer path={'school'}/></div>
                     </div>
                 </main>
             </Container>

@@ -37,17 +37,19 @@ class PaginationContainer extends Component {
         children.push(<PagingGenerator pageNumber={next} type={'next'} path={this.props.path} key={'next'}/>);
         return children;
     }
+
     render() {
         let paging = this.helperPaging();
 
         return (
             <div>
-                <GridContainer path={this.props.path} page={this.props.match.params['id]'] ? this.props.match.params['id]']: 1} />
+                <GridContainer path={this.props.path}
+                               page={this.props.match.params['id]'] ? this.props.match.params['id]'] : 1}/>
 
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
-                {paging}
-            </Pagination>
+                        {paging}
+                    </Pagination>
                 </Row>
             </div>
         )

@@ -8,7 +8,7 @@ class Gridcard extends React.Component {
 
     render() {
         debugger;
-        return(
+        return (
             <Card>
                 <CardImg top width="100%" src={this.props.src}/>
                 <CardBody>

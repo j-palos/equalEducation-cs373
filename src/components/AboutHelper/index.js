@@ -20,8 +20,8 @@ class AboutHelper extends Component {
             "prateek.kolhar@utexas.edu": "Prateek",
             "jesus.rpalos@gmail.com": "Jesus",
             "jpjessep@users.noreply.github.com": "Jesus",
-            "harmonrky@gmail.com" : "Andrew",
-            "ubuntu@ip-172-31-30-122.us-west-2.compute.internal" : "Andrew",
+            "harmonrky@gmail.com": "Andrew",
+            "ubuntu@ip-172-31-30-122.us-west-2.compute.internal": "Andrew",
             "ailyndarlenne@gmail.com": "Ailyn"
         };
 
@@ -67,13 +67,13 @@ class AboutHelper extends Component {
                 return results.json();
             }).then(backend_commits => {
 
-                for (let i = 0; i < backend_commits.length; i++) {
-                    let value = backend_commits[i].author_email;
-                    if (email_dict[value]) {
-                        commit_dict[email_dict[value]] += 1;
-                        commit_dict["Total"] += 1;
-                    }
+            for (let i = 0; i < backend_commits.length; i++) {
+                let value = backend_commits[i].author_email;
+                if (email_dict[value]) {
+                    commit_dict[email_dict[value]] += 1;
+                    commit_dict["Total"] += 1;
                 }
+            }
         });
 
         fetch('https://gitlab.com/api/v4/projects/8524331/issues?per_page=500')
@@ -81,30 +81,30 @@ class AboutHelper extends Component {
                 return results.json();
             }).then(issues => {
 
-                for (let i = 0; i < issues.length; i++) {
-                    let value = issues[i].closed_by;
-                    let name = "";
-                    if (value != null) {
-                        name = issues[i].closed_by.name;
-                        let temp = name.split(" ");
-                        name = temp[0];
-                        issue_dict[name] += 1;
-                        issue_dict["Total"] += 1;
-                    }
+            for (let i = 0; i < issues.length; i++) {
+                let value = issues[i].closed_by;
+                let name = "";
+                if (value != null) {
+                    name = issues[i].closed_by.name;
+                    let temp = name.split(" ");
+                    name = temp[0];
+                    issue_dict[name] += 1;
+                    issue_dict["Total"] += 1;
                 }
+            }
 
-                for (let name in commit_dict) {
-                    nameArray.push({
-                        name: name,
-                        commits: commit_dict[name],
-                        issues: issue_dict[name],
-                        unit_test: 0,
-                    });
-                }
-                this.setState({
-                    names: nameArray,
-                    loaded: true
-                })
+            for (let name in commit_dict) {
+                nameArray.push({
+                    name: name,
+                    commits: commit_dict[name],
+                    issues: issue_dict[name],
+                    unit_test: 0,
+                });
+            }
+            this.setState({
+                names: nameArray,
+                loaded: true
+            })
         });
     }
 

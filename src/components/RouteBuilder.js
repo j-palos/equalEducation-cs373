@@ -12,8 +12,7 @@ export default class RouteBuilder extends Component {
 
     constructor(props) {
         super();
-        this.state = {
-        }
+        this.state = {}
     }
 
     render() {
