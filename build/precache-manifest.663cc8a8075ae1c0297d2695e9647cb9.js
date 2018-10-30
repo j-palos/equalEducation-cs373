@@ -1,55 +1,23 @@
 self.__precacheManifest = [
   {
-    "revision": "3a675249b3ba5a960f3487cabb482a44",
-    "url": "/static/media/prateek.3a675249.jpg"
+    "revision": "76f3a578f07ac79a36eea05ba080c942",
+    "url": "/static/media/gitlab.76f3a578.png"
   },
   {
-    "revision": "42019f676190fafd772a",
-    "url": "/static/css/main.0a44a443.chunk.css"
+    "revision": "31ff22f1077f36249e3d",
+    "url": "/static/css/main.52617e97.chunk.css"
   },
   {
     "revision": "62ccbee9eff3da365acd793f4ace325b",
     "url": "/static/media/grammarly.62ccbee9.jpeg"
   },
   {
-    "revision": "83352170dde87d14d800",
-    "url": "/static/js/1.83352170.chunk.js"
+    "revision": "1d7299ed7599ef32c566",
+    "url": "/static/js/1.1d7299ed.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
     "url": "/static/js/runtime~main.229c360f.js"
-  },
-  {
-    "revision": "d9a7a868485973e6b6d67b021440211f",
-    "url": "/static/media/volunteers-placeholder.d9a7a868.jpg"
-  },
-  {
-    "revision": "a414435dafc2de95fb718b278605b660",
-    "url": "/static/media/oaklandfund.a414435d.jpg"
-  },
-  {
-    "revision": "1ff782fdffb455013e33000e47685f10",
-    "url": "/static/media/prathamUSA.1ff782fd.jpg"
-  },
-  {
-    "revision": "f35ba3946c41221009b748105cc0847e",
-    "url": "/static/media/khambrelfoundationfooterlogo.f35ba394.jpg"
-  },
-  {
-    "revision": "8d42515fd5ab0e4a85c755c61bbaf629",
-    "url": "/static/media/prathamvolunteer.8d42515f.jpg"
-  },
-  {
-    "revision": "6aa54743db651b5e1ce19f5c27fd4e0a",
-    "url": "/static/media/oakland.6aa54743.jpg"
-  },
-  {
-    "revision": "aad8527969e857985a9d031fb8d32b6d",
-    "url": "/static/media/texascity.aad85279.jpg"
-  },
-  {
-    "revision": "952cf556b961ad6cda2146b2dd5446f1",
-    "url": "/static/media/HoustonISD.952cf556.png"
   },
   {
     "revision": "58131e447b3f11b05e58f5a39ee54fd3",
@@ -60,8 +28,8 @@ self.__precacheManifest = [
     "url": "/static/media/intae.62273dc1.jpg"
   },
   {
-    "revision": "42019f676190fafd772a",
-    "url": "/static/js/main.42019f67.chunk.js"
+    "revision": "3a675249b3ba5a960f3487cabb482a44",
+    "url": "/static/media/prateek.3a675249.jpg"
   },
   {
     "revision": "3c9d159399fd8247429914ce2ddfc14b",
@@ -76,8 +44,8 @@ self.__precacheManifest = [
     "url": "/static/media/ailyn.dafab196.png"
   },
   {
-    "revision": "76f3a578f07ac79a36eea05ba080c942",
-    "url": "/static/media/gitlab.76f3a578.png"
+    "revision": "31ff22f1077f36249e3d",
+    "url": "/static/js/main.31ff22f1.chunk.js"
   },
   {
     "revision": "685f0f040ef30e27dca474acb828020a",
@@ -112,11 +80,11 @@ self.__precacheManifest = [
     "url": "/static/media/selenium.e3a8cc80.png"
   },
   {
-    "revision": "83352170dde87d14d800",
-    "url": "/static/css/1.33de31a2.chunk.css"
+    "revision": "1d7299ed7599ef32c566",
+    "url": "/static/css/1.15543f94.chunk.css"
   },
   {
-    "revision": "ba9269e9674b87785bcb8aede10eb3b4",
+    "revision": "2a73f9a4acb13d9cb0b00d2733de3f59",
     "url": "/index.html"
   }
 ];
