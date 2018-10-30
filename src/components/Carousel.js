@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Slide from "./Slide";
 import './Carousel.css'
+import {Link} from 'react-router-dom';
 
 class Carousel extends Component {
     render() {
@@ -12,9 +13,9 @@ class Carousel extends Component {
                     <li data-target="#myCarousel" data-slide-to={2}/>
                 </ol>
                 <div className="carousel-inner">
-                    <Slide state="active" title="School Districts" link="/school" align="text-left"/>
-                    <Slide title="Charities" link="/charity"/>
-                    <Slide title="Communities" link="/volunteer" align="text-right"/>
+                    <Slide state="active" title="School Districts" tag={Link} link="/schools" align="text-left"/>
+                    <Slide title="Charities" tag={Link} link="/charities"/>
+                    <Slide title="Communities" tag={Link} link="/communities" align="text-right"/>
                 </div>
                 <a className="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"/>

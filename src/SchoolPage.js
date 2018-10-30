@@ -1,9 +1,8 @@
 import React, {Component} from 'react';
 import './App.css';
-import InfoCard from "./InfoCard";
 import PaginationContainer from "./paginationComponents/PaginationContainer";
 import {withRouter} from "react-router-dom";
-import {Container, Row} from "reactstrap";
+import {Container} from "reactstrap";
 
 class SchoolPage extends Component {
 
@@ -16,11 +15,8 @@ class SchoolPage extends Component {
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-                        <InfoCard type={'school'}/>
-                        <Row>
                             <div className={'mx-auto'}>
-                                <PaginationContainer path={'schools'}/></div>
-                        </Row>
+                                <PaginationContainer path={'school'}/></div>
                     </div>
                 </main>
             </Container>

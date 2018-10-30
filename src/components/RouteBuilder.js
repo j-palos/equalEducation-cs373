@@ -5,6 +5,7 @@ import CharityPage from "../CharityPage";
 import AboutPage from "./AboutPage";
 import React, {Component} from "react";
 import EntityContainer from "../entityComponents/EntityContainer";
+import CommunityPage from "../CommunityPage";
 
 
 export default class RouteBuilder extends Component {
@@ -22,12 +23,16 @@ export default class RouteBuilder extends Component {
                 <Route exact path={'/schools/'} component={SchoolPage}/>
                 <Route exact path="/schools/:id" component={SchoolPage}/>
                 <Route exact path="/charities" component={CharityPage}/>
-                <Route path={`/school/:entityId`} render={(props) => <EntityContainer{...props} type={'school'}/>}/>
-                <Route path={`/charity/:entityId`} render={(props) => <EntityContainer{...props} type={'charity'}/>}/>
-                <Route path={`/community/:entityId`} render={(props) => <EntityContainer{...props} type={'community'}/>}/>
                 <Route exact path="/charities/:id" component={CharityPage}/>
+                <Route exact path="/communities" component={CommunityPage}/>
+                <Route exact path="/communities" component={CommunityPage}/>
+                <Route exact path={`/school/:entityId`}
+                       render={(props) => <EntityContainer{...props} type={'school'}/>}/>
+                <Route exact path={`/charity/:entityId`}
+                       render={(props) => <EntityContainer{...props} type={'charity'}/>}/>
+                <Route exact path={`/community/:entityId`}
+                       render={(props) => <EntityContainer{...props} type={'community'}/>}/>
                 <Route exact path="/about" component={AboutPage}/>
-                <Route component={LandingPage}/>
             </Switch>
         )
     }

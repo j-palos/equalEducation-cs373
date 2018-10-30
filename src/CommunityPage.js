@@ -1,11 +1,8 @@
 import React, {Component} from 'react';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "reactstrap";
 import PaginationContainer from "./paginationComponents/PaginationContainer";
 
-
-class CharityPage extends Component {
-
+class CommunityPage extends Component {
 
     render() {
         return (
@@ -13,9 +10,8 @@ class CharityPage extends Component {
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-
                         <div className={'mx-auto'}>
-                            <PaginationContainer path={'charity'}/></div>
+                            <PaginationContainer path={'community'}/></div>
                     </div>
                 </main>
             </Container>
@@ -23,4 +19,4 @@ class CharityPage extends Component {
     }
 }
 
-export default CharityPage;
+export default CommunityPage;
