@@ -201,7 +201,7 @@ class AboutPage extends Component {
                           <div class="blur"></div>
                           <div class="caption-text">
                             <h1>Plant UML</h1>
-                            <p>Our web framework</p>
+                            <p>Created UML diagram</p>
                           </div>
                         </div>
                       </li>
@@ -212,6 +212,16 @@ class AboutPage extends Component {
                           <div class="caption-text">
                             <h1>Grammarly</h1>
                             <p>Check our spelling and grammar</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <img src={require("../../images/logo/bootstrap-logo.png")} className="img-size" alt="bootstrap" />
+                        <div class="caption">
+                          <div class="blur"></div>
+                          <div class="caption-text">
+                            <h1>Bootstrap</h1>
+                            <p>Front-end design</p>
                           </div>
                         </div>
                       </li>
