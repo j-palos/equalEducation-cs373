@@ -6,3 +6,6 @@ dispatch:
 # Default service serves simple hostname request.
 - url: "www.equaleducation.info/*"
   service: default
+
+- url: "cs373-idb-218121.appspot.com/*"
+  service: default
