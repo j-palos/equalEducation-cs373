@@ -44,6 +44,16 @@ class AboutHelper extends Component {
             "Ailyn": 0,
             "Total": 0
         };
+
+        const unit_dict = {
+            "Intae": 18,
+            "Kyle": 0,
+            "Prateek": 3,
+            "Jesus": 0,
+            "Andrew": 6,
+            "Ailyn": 0,
+            "Total": 27
+        }
         let nameArray = [];
         //fetch the data from the gitlab api and return as an object we can use later
         fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits?per_page=100&page=1')
@@ -114,7 +124,7 @@ class AboutHelper extends Component {
                     name: name,
                     commits: commit_dict[name],
                     issues: issue_dict[name],
-                    unit_test: 0,
+                    unit_test: unit_dict[name],
                 });
             }
             this.setState({
