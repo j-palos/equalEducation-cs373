@@ -19,21 +19,21 @@ class InfoCard extends React.Component {
         let jsonFile;
         let attrs;
         //todo change this to api calls
-        switch(this.props.type) {
+        switch (this.props.type) {
             case "school":
                 let districts = district_file.districts.district;
                 jsonFile = districts;
-                attrs = {"attr1" : "Location", "attr2" : "Poverty", "attr3" : "Grade Range"};
+                attrs = {"attr1": "Location", "attr2": "Poverty", "attr3": "Grade Range"};
                 break;
             case "community":
                 let communities = community_file.communities.community;
                 jsonFile = communities;
-                attrs = {"attr1" : "ATTR1", "attr2" : "ATTR2", "attr3" : "ATTR3"};
+                attrs = {"attr1": "ATTR1", "attr2": "ATTR2", "attr3": "ATTR3"};
                 break;
             case "charity":
                 let charities = charity_file.charities.charity;
                 jsonFile = charities;
-                attrs = {"attr1" : "Location", "attr2" : "Deductibility", "attr3" : "Rating"};
+                attrs = {"attr1": "Location", "attr2": "Deductibility", "attr3": "Rating"};
                 break;
             default:
                 break;
@@ -63,9 +63,12 @@ class InfoCard extends React.Component {
                             </CardBody>
 
                             <CardBody>
-                                <CardSubtitle className="Logo-subtitle">{attrsList["attr1"]}: {obj.attrs[attrsList["attr1"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
-                                <CardSubtitle className="Logo-subtitle">{attrsList["attr2"]}: {obj.attrs[attrsList["attr2"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
-                                <CardSubtitle className="Logo-subtitle">{attrsList["attr3"]}: {obj.attrs[attrsList["attr3"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
+                                <CardSubtitle
+                                    className="Logo-subtitle">{attrsList["attr1"]}: {obj.attrs[attrsList["attr1"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
+                                <CardSubtitle
+                                    className="Logo-subtitle">{attrsList["attr2"]}: {obj.attrs[attrsList["attr2"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
+                                <CardSubtitle
+                                    className="Logo-subtitle">{attrsList["attr3"]}: {obj.attrs[attrsList["attr3"].toLowerCase().split(' ').join('_')]}</CardSubtitle>
                                 <Link to={obj.attrs["charity_link"]}><CardSubtitle
                                     className="Logo-subtitle">Charities</CardSubtitle></Link>
                                 <Link to={obj.attrs["opportunity_link"]}><CardSubtitle

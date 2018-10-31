@@ -3,170 +3,41 @@ import Gridcard from "./Gridcard";
 import {CardColumns, Container} from 'reactstrap';
 import './InfoCard.css';
 
+
 class GridContainer extends React.Component {
 
     constructor(props) {
         super(props);
         this.state = {
-            cards: []
-
-        };
+            info: []
+        }
     }
 
-    componentDidMount() {
-        let json = [
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            },
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            },
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            },
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            },
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            },
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            }, {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            },
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            },
-            {
-                "Id": "3",
-                "Image": "https://upload.wikimedia.org/wikipedia/commons/5/5f/Larkmead_School%2C_Abingdon%2C_Oxfordshire.png",
-                "school_link": "school/3",
-                "Name": "Houston Independent School District",
-                "Info": {
-                    "location": "Houston, Texas",
-                    "poverty": "76,878",
-                    "description": "The Houston Independent School District is the largest school district in Texas and the seventh-largest in the United States.",
-                    "opportunity_link": "volunteer/3",
-                    "opportunity": "Houston Holiday Luncheon 2018",
-                    "charity_link": "charity/3",
-                    "charity": "Pratham USA",
-                    "grade_range": "PK-8"
-                }
-            }
-        ];
-        this.setState({
-            cards: json
-        })
-    }
+    // componentDidMount(){
+    //     let currentPage = Number(this.props.match.params['id']);
+    //     // debugger;
+    //     if (isNaN(currentPage)) {
+    //         currentPage = 1;
+    //     }
+    //     let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
+    //     fetch(url)
+    //         .then(results => {
+    //             return results.json();
+    //         })
+    //         .then(data => {
+    //             let totalPages = data['num_pages'];
+    //             let info = data['grid'];
+    //             debugger;
+    //             this.setState({
+    //                 total: totalPages,
+    //                 info : info
+    //             })
+    //         })
+    // };
 
     render() {
         let output = [];
-        let cards = this.state.cards;
+        let cards = this.props.info;
         for (let x in cards) {
             output.push(<Gridcard key={cards[x]['Id']} link={`/${this.props.path}/${cards[x]['Id']}`}
                                   className={'modelCard'} info={cards[x]['Info']}

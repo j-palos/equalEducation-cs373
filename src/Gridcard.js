@@ -7,10 +7,10 @@ import {Link} from 'react-router-dom';
 class Gridcard extends React.Component {
 
     render() {
-        debugger;
-        return(
+        // debugger;
+        return (
             <Card>
-                <CardImg top width="100%" src={this.props.src}/>
+                <CardImg top src={this.props.src}/>
                 <CardBody>
                     <EntityInfo info={this.props.info}/>
                     <Row className="Buttons">
