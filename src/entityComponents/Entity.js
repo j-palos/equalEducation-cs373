@@ -1,6 +1,6 @@
 import React from 'react';
 import {EntityName} from './EntityName';
-import {Card, CardBody, CardColumns, CardImg, Container, Row} from 'reactstrap';
+import {Card, CardBody, CardGroup, CardImg, Container, Row} from 'reactstrap';
 import {EntityInfo} from "./EntityInfo";
 
 export const Entity = (props) => {
@@ -11,16 +11,16 @@ export const Entity = (props) => {
             <EntityName title={info.Name}/>
             <Row>
                 <Container>
-                    <CardColumns className={'mx-auto'}>
+                    <CardGroup className={'mx-auto'}>
                         <Card>
                             <CardImg top width="100%" src={info.Image} className={'img-fluid rounded'}/>
                         </Card>
-                        <Card>
+                        <Card style={{width: '50%'}} className={'mx-auto'}>
                             <CardBody>
                                 <EntityInfo info={info.Info}/>
                             </CardBody>
                         </Card>
-                    </CardColumns>
+                    </CardGroup>
                 </Container>
             </Row>
         </Container>
