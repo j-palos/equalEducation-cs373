@@ -19,8 +19,8 @@ describe('MyNavbar', () => {
   const wrapper = shallow(<MyNavbar />)
   it('links to root with a tag in NavbarBrand', () => {
     expect(
-      wrapper.find('a')
-      .prop('href')
+      wrapper.find('NavbarBrand')
+      .prop('to')
     ).toEqual('/');
   });
 
@@ -37,7 +37,7 @@ describe('MyNavbar', () => {
       wrapper.find('NavLink')
       .at('1')
       .prop('to')
-    ).toEqual('/school');
+    ).toEqual('/schools');
   });
 
   it('links to charity with third link', () => {
@@ -45,7 +45,7 @@ describe('MyNavbar', () => {
       wrapper.find('NavLink')
       .at('2')
       .prop('to')
-    ).toEqual('/charity');
+    ).toEqual('/communities');
   });
 
   it('links to communities with fourth link', () => {
@@ -53,7 +53,7 @@ describe('MyNavbar', () => {
       wrapper.find('NavLink')
       .at('3')
       .prop('to')
-    ).toEqual('/volunteer');
+    ).toEqual('/charities');
   });
 
   it('links to about with sixth link', () => {

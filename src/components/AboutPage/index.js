@@ -32,8 +32,7 @@ class AboutPage extends Component {
                                 underprivileged children with their education. The website aggregates a
                                 large
                                 number of low income areas and highlights specific stats about the surrounding
-                                community to raise awareness to these impoverished areas. Users are then able to donate
-                                their time
+                                community to raise awareness to these impoverished areas. Users are then able to donate their time
                                 and/or money to organizations associated with these communities through our website.</p>
                         </Col>
                     </Row>
@@ -42,7 +41,10 @@ class AboutPage extends Component {
                     <Row className="featurette">
                         <Col>
                             <h1 className="h1-style">About our Data</h1>
-                            <p className="lead">Charity Navigator, Census Govt (RESTful APIs)</p>
+                            <p className="lead">Charity Navigator, Census Govt, Wikipedia (RESTful APIs)</p>
+                            <a href="https://documenter.getpostman.com/view/5488016/RWgm41VA" className="lead">Postman API</a>
+
+
                         </Col>
                     </Row>
 
@@ -204,7 +206,7 @@ class AboutPage extends Component {
                                     <div class="blur"></div>
                                     <div class="caption-text">
                                         <h1>Plant UML</h1>
-                                        <p>Our web framework</p>
+                                        <p>Created UML diagram</p>
                                     </div>
                                 </div>
                             </li>
@@ -216,6 +218,16 @@ class AboutPage extends Component {
                                     <div class="caption-text">
                                         <h1>Grammarly</h1>
                                         <p>Check our spelling and grammar</p>
+                          </div>
+                        </div>
+                      </li>
+                      <li>
+                        <img src={require("../../images/logo/bootstrap-logo.png")} className="img-size" alt="bootstrap" />
+                        <div class="caption">
+                          <div class="blur"></div>
+                          <div class="caption-text">
+                            <h1>Bootstrap</h1>
+                            <p>Front-end design</p>
                                     </div>
                                 </div>
                             </li>

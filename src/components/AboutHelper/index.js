@@ -46,7 +46,23 @@ class AboutHelper extends Component {
         };
         let nameArray = [];
         //fetch the data from the gitlab api and return as an object we can use later
-        fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits?per_page=500')
+        fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits?per_page=100&page=1')
+            .then(results => {
+                return results.json();
+            }).then(frontend_commits => {
+
+            for (let i = 0; i < frontend_commits.length; i++) {
+                let value = frontend_commits[i].author_email;
+                if (email_dict[value]) {
+                    commit_dict[email_dict[value]] += 1;
+                    commit_dict["Total"] += 1;
+                }
+            }
+            //todo Add in the gitlab data for issues and unit_test
+
+        });
+
+        fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits?per_page=100&page=2')
             .then(results => {
                 return results.json();
             }).then(frontend_commits => {
