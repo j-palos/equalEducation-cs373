@@ -1,4 +1,4 @@
-import {Route, Switch} from "react-router-dom";
+import {Redirect, Route, Switch} from "react-router-dom";
 import LandingPage from "../LandingPage";
 import SchoolPage from "../SchoolPage";
 import CharityPage from "../CharityPage";
@@ -19,12 +19,12 @@ export default class RouteBuilder extends Component {
         return (
             <Switch>
                 <Route exact path="/" component={LandingPage}/>
-                <Route exact path={'/schools/'} component={SchoolPage}/>
-                <Route exact path="/schools/:id" component={SchoolPage}/>
-                <Route exact path="/charities" component={CharityPage}/>
+                <Route exact path={'/schools/'} render={() => (<Redirect to="/schools/1"/>)}/>
+                <Route exact path={'/schools/:id'} component={SchoolPage}/>
+                <Route exact path="/charities" render={() => (<Redirect to="/charities/1"/>)}/>
                 <Route exact path="/charities/:id" component={CharityPage}/>
-                <Route exact path="/communities" component={CommunityPage}/>
-                <Route exact path="/communities" component={CommunityPage}/>
+                <Route exact path="/communities" render={() => (<Redirect to="/communities/1"/>)}/>
+                <Route exact path="/communities/:id" component={CommunityPage}/>
                 <Route exact path={`/school/:entityId`}
                        render={(props) => <EntityContainer{...props} type={'school'}/>}/>
                 <Route exact path={`/charity/:entityId`}

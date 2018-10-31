@@ -13,7 +13,6 @@ class CharityPage extends Component {
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
-
                         <div className={'mx-auto'}>
                             <PaginationContainer path={'charity'}/></div>
                     </div>

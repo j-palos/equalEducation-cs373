@@ -11,13 +11,15 @@ class SchoolPage extends Component {
     }
 
     render() {
+        debugger;
         return (
             <Container>
                 <main role="main">
                     <div className="container marketing my-5">
                         <br/><br/>
                         <div className={'mx-auto'}>
-                            <PaginationContainer path={'school'}/></div>
+                            <PaginationContainer path={'school'}/>
+                        </div>
                     </div>
                 </main>
             </Container>
