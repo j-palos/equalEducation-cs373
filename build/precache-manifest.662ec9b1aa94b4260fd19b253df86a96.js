@@ -4,16 +4,16 @@ self.__precacheManifest = [
     "url": "/static/media/gitlab.76f3a578.png"
   },
   {
-    "revision": "31ff22f1077f36249e3d",
-    "url": "/static/css/main.52617e97.chunk.css"
+    "revision": "1436544592171218a875",
+    "url": "/static/css/main.f613c499.chunk.css"
   },
   {
-    "revision": "62ccbee9eff3da365acd793f4ace325b",
-    "url": "/static/media/grammarly.62ccbee9.jpeg"
+    "revision": "279fd3d2da766f54ab16c09c3b48da32",
+    "url": "/static/media/bootstrap-logo.279fd3d2.png"
   },
   {
-    "revision": "1d7299ed7599ef32c566",
-    "url": "/static/js/1.1d7299ed.chunk.js"
+    "revision": "e14ef9e75ce4d780f252",
+    "url": "/static/js/1.e14ef9e7.chunk.js"
   },
   {
     "revision": "229c360febb4351a89df",
@@ -44,16 +44,16 @@ self.__precacheManifest = [
     "url": "/static/media/ailyn.dafab196.png"
   },
   {
-    "revision": "31ff22f1077f36249e3d",
-    "url": "/static/js/main.31ff22f1.chunk.js"
+    "revision": "1436544592171218a875",
+    "url": "/static/js/main.14365445.chunk.js"
   },
   {
     "revision": "685f0f040ef30e27dca474acb828020a",
     "url": "/static/media/gcp.685f0f04.png"
   },
   {
-    "revision": "4f08ce7a0fcbf75069b1cdbede5804e5",
-    "url": "/static/media/gke.4f08ce7a.svg"
+    "revision": "506de576e2f200cd226891884e226681",
+    "url": "/static/media/gke.506de576.svg"
   },
   {
     "revision": "c52005a24172f46814b5173a908e2667",
@@ -80,11 +80,15 @@ self.__precacheManifest = [
     "url": "/static/media/selenium.e3a8cc80.png"
   },
   {
-    "revision": "1d7299ed7599ef32c566",
-    "url": "/static/css/1.15543f94.chunk.css"
+    "revision": "62ccbee9eff3da365acd793f4ace325b",
+    "url": "/static/media/grammarly.62ccbee9.jpeg"
   },
   {
-    "revision": "2a73f9a4acb13d9cb0b00d2733de3f59",
+    "revision": "e14ef9e75ce4d780f252",
+    "url": "/static/css/1.6368cc54.chunk.css"
+  },
+  {
+    "revision": "9546200ceefaf71d24f432f14bee06eb",
     "url": "/index.html"
   }
 ];

@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {Component, Link} from 'react';
 import './styles.css'
 import '../../styles/carousel.css';
 import '../../styles/bootstrap-4.1.3-dist/css/bootstrap.min.css';
@@ -41,7 +41,10 @@ class AboutPage extends Component {
                     <Row className="featurette">
                         <Col>
                             <h1 className="h1-style">About our Data</h1>
-                            <p className="lead">Charity Navigator, Census Govt (RESTful APIs)</p>
+                            <p className="lead">Charity Navigator, Census Govt, Wikipedia (RESTful APIs)</p>
+                            <a href="https://documenter.getpostman.com/view/5488016/RWgm41VA" className="lead">Postman API</a>
+
+
                         </Col>
                     </Row>
 
