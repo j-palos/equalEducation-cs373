@@ -35,9 +35,9 @@ describe('AboutPage', () => {
     ).toBe(1);
   });
 
-  it('contains fourteen images of tools', () => {
+  it('contains fifteen images of tools', () => {
     expect(
       wrapper.find('img').length
-    ).toBe(14);
+    ).toBe(15);
   });
 });

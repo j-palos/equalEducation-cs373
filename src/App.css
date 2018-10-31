@@ -94,4 +94,14 @@ body {
     .featurette-heading {
         margin-top: 7rem;
     }
+
+}
+
+.modelCard {
+    width: 23.5%;
+    display: inline-block;
+    border-radius: 2vw;
+    margin: 5px;
+    padding: 1vw;
+    min-width: 100px;
 }
