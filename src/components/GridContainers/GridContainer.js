@@ -13,28 +13,6 @@ class GridContainer extends React.Component {
         }
     }
 
-    // componentDidMount(){
-    //     let currentPage = Number(this.props.match.params['id']);
-    //     // debugger;
-    //     if (isNaN(currentPage)) {
-    //         currentPage = 1;
-    //     }
-    //     let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-    //     fetch(url)
-    //         .then(results => {
-    //             return results.json();
-    //         })
-    //         .then(data => {
-    //             let totalPages = data['num_pages'];
-    //             let info = data['grid'];
-    //             debugger;
-    //             this.setState({
-    //                 total: totalPages,
-    //                 info : info
-    //             })
-    //         })
-    // };
-
     render() {
         let output = [];
         let cards = this.props.info;

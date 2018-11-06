@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
-import './App.css';
-import PaginationContainer from "./paginationComponents/PaginationContainer";
+import '../../App.css';
+import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import {withRouter} from "react-router-dom";
 import {Container} from "reactstrap";
 
@@ -11,7 +11,6 @@ class SchoolPage extends Component {
     }
 
     render() {
-        debugger;
         return (
             <Container>
                 <main role="main">

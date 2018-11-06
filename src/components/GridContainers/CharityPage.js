@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "reactstrap";
-import PaginationContainer from "./paginationComponents/PaginationContainer";
+import PaginationContainer from "../PaginationComponents/PaginationContainer";
 
 
 class CharityPage extends Component {

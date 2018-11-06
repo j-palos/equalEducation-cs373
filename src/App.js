@@ -3,7 +3,7 @@ import {BrowserRouter} from 'react-router-dom';
 import './App.css';
 import Header from "./components/Header";
 import Footer from "./components/Footer";
-import RouteBuilder from './components/RouteBuilder';
+import RouteBuilder from './components/Routes/RouteBuilder';
 
 class App extends Component {
     render() {
