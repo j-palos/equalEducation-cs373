@@ -1,6 +1,6 @@
 import React, {Component} from 'react';
 import {Container} from "reactstrap";
-import PaginationContainer from "./paginationComponents/PaginationContainer";
+import PaginationContainer from "../PaginationComponents/PaginationContainer";
 
 class CommunityPage extends Component {
 

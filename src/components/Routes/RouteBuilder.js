@@ -1,11 +1,11 @@
 import {Redirect, Route, Switch} from "react-router-dom";
-import LandingPage from "../LandingPage";
-import SchoolPage from "../SchoolPage";
-import CharityPage from "../CharityPage";
-import AboutPage from "./AboutPage";
+import LandingPage from "../LandingPage/LandingPage";
+import SchoolPage from "../GridContainers/SchoolPage";
+import CharityPage from "../GridContainers/CharityPage";
+import AboutPage from "../AboutPage/index";
 import React, {Component} from "react";
-import EntityContainer from "../entityComponents/EntityContainer";
-import CommunityPage from "../CommunityPage";
+import EntityContainer from "../EntityComponents/EntityContainer";
+import CommunityPage from "../GridContainers/CommunityPage";
 
 
 export default class RouteBuilder extends Component {

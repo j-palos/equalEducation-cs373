@@ -5,7 +5,6 @@ import {EntityInfo} from "./EntityInfo";
 
 export const Entity = (props) => {
     const info = props.info;
-    debugger;
     return (
         <Container className={'mt-5'}>
             <EntityName title={info.Name}/>

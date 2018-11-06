@@ -1,13 +1,12 @@
 import React from 'react';
 import {Button, Card, CardBody, CardImg, Col, Row} from 'reactstrap';
-import {EntityInfo} from "./entityComponents/EntityInfo";
+import {EntityInfo} from "../EntityComponents/EntityInfo";
 import {Link} from 'react-router-dom';
 
 
-class Gridcard extends React.Component {
+class Gridcard extends React.PureComponent {
 
     render() {
-        // debugger;
         return (
             <Card>
                 <CardImg top src={this.props.src}/>

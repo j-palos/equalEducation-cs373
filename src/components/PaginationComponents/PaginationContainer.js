@@ -2,7 +2,7 @@ import React, {Component} from 'react';
 import {withRouter} from 'react-router-dom';
 import {Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
-import GridContainer from "../GridContainer";
+import GridContainer from "../GridContainers/GridContainer";
 
 
 const base = 'http://api.equaleducation.info';
