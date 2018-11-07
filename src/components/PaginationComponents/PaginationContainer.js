@@ -13,8 +13,6 @@ const urls = {
     'community': 'communities',
 };
 
-const PER_PAGE = 18;
-
 class PaginationContainer extends PureComponent {
 
     //passed in a prop for total number of thing
@@ -37,7 +35,6 @@ class PaginationContainer extends PureComponent {
     getData() {
         let currentPage = this.state.currentPage;
         let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-        debugger;
         fetch(url)
             .then(results => {
                 return results.json();
@@ -45,9 +42,8 @@ class PaginationContainer extends PureComponent {
             .then(data => {
                 let totalPages = data['num_pages'];
                 let info = data['grid'];
-                // debugger;
+
                 let pagination = this.helperPaging(this.state.currentPage, totalPages);
-                debugger;
                 this.setState({
                     total: totalPages,
                     info: info,
@@ -57,15 +53,14 @@ class PaginationContainer extends PureComponent {
             })
     }
 
+
     helperPaging(curPage, total) {
         let pagination = [];
         let currentPage = curPage;
 
-        debugger;
         let i;
         let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
-
         let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
         if (currentPage > 1) {
             pagination.push(<PagingGenerator pageNumber={currentPage - 1} type={'previous'} path={this.props.path}
@@ -85,9 +80,7 @@ class PaginationContainer extends PureComponent {
     }
 
     componentWillReceiveProps(props) {
-        debugger;
         this.props = props;
-        debugger;
         let curPage = parseInt(this.props.page);
         this.setState({
                 currentPage: curPage,
@@ -100,7 +93,6 @@ class PaginationContainer extends PureComponent {
     }
 
     render() {
-        debugger;
         return (
             <div>
                 <GridContainer info={this.state.info} path={this.props.path}/>

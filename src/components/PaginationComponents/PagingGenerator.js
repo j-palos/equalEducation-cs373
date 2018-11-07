@@ -21,7 +21,6 @@ export default class PagingGenerator extends React.PureComponent {
 
     render() {
         const path = this.props.path;
-        debugger;
         const pageNumber = this.props.pageNumber;
         const type = this.props.type;
         let output = [];
