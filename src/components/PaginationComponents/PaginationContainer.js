@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {withRouter} from 'react-router-dom';
 import {Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
@@ -13,27 +13,27 @@ const urls = {
     'community': 'communities',
 };
 
-const PER_PAGE = 18;
-class PaginationContainer extends Component {
+class PaginationContainer extends PureComponent {
 
-    //passed in a prop for total number of things
-
+    //passed in a prop for total number of thing
     constructor(props) {
         super(props);
+        let curPage = parseInt(this.props.page);
         this.state = {
-            total: 0,
-            perPage: PER_PAGE,
-            info: []
-        };
-        this.helperGrid = this.helperGrid.bind(this);
+            info: [],
+            currentPage: curPage,
+            path: this.props.path,
+            pagination: [],
+        }
     }
 
     componentDidMount() {
-        let currentPage = Number(this.props.match.params['id']);
-        // debugger;
-        if (isNaN(currentPage)) {
-            currentPage = 1;
-        }
+        this.getData()
+    }
+
+
+    getData() {
+        let currentPage = this.state.currentPage;
         let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
         fetch(url)
             .then(results => {
@@ -42,72 +42,64 @@ class PaginationContainer extends Component {
             .then(data => {
                 let totalPages = data['num_pages'];
                 let info = data['grid'];
-                // debugger;
+
+                let pagination = this.helperPaging(this.state.currentPage, totalPages);
                 this.setState({
                     total: totalPages,
-                    info: info
-                })
+                    info: info,
+                    pagination: pagination,
+                });
+                return totalPages;
             })
     }
 
 
+    helperPaging(curPage, total) {
+        let pagination = [];
+        let currentPage = curPage;
 
-
-    helperPaging() {
-        let children = [];
-        let currentPage = Number(this.props.match.params['id']);
-        // debugger;
-        if (isNaN(currentPage)) {
-            currentPage = 1;
-        }
-        // debugger;
         let i;
-        let lastPage = Number(this.state.total);
+        let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
-        let prev = Number(Math.max(currentPage - 1, 1));
         let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
-        children.push(<PagingGenerator pageNumber={prev} type={'previous'} path={this.props.path} key={'prev'}/>);
-        for (i; i <= rightBoundary; i++) {
-            children.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}/>)
+        if (currentPage > 1) {
+            pagination.push(<PagingGenerator pageNumber={currentPage - 1} type={'previous'} path={this.props.path}
+                                             key={'prev'}
+            />);
         }
-        let next = Number(Math.min(currentPage + 1, lastPage));
-        children.push(<PagingGenerator pageNumber={next} type={'next'} path={this.props.path} key={'next'}/>);
-        return children;
+        for (i; i <= rightBoundary; i++) {
+            pagination.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}
+            />)
+        }
+        if (lastPage > currentPage) {
+            pagination.push(<PagingGenerator pageNumber={currentPage + 1} type={'next'} path={this.props.path}
+                                             key={'next'}
+            />);
+        }
+        return pagination;
     }
 
-    helperGrid() {
-        let currentPage = Number(this.props.match.params['id']);
-        debugger;
-        if (isNaN(currentPage)) {
-            currentPage = 1;
-        }
-        let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-        fetch(url)
-            .then(results => {
-                return results.json();
-            })
-            .then(data => {
-                let totalPages = data['num_pages'];
-                let info = data['grid'];
-                // debugger;
-                this.setState({
-                    total: totalPages,
-                    info: info
-                })
-            })
+    componentWillReceiveProps(props) {
+        this.props = props;
+        let curPage = parseInt(this.props.page);
+        this.setState({
+                currentPage: curPage,
+                pagination: []
+            },
+            function () {
+                this.getData();
+            }
+        )
     }
 
     render() {
-        let paging = this.helperPaging();
-
         return (
             <div>
-                <GridContainer info={this.state.info} path={this.props.path}
-                               page={this.props.match.params['id]'] ? this.props.match.params['id]'] : 1}/>
+                <GridContainer info={this.state.info} path={this.props.path}/>
 
                 <Row>
-                    <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'} onClick={this.helperGrid}>
-                        {paging}
+                    <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
+                        {this.state.pagination}
                     </Pagination>
                 </Row>
             </div>

@@ -29,12 +29,8 @@ export default class EntityContainer extends Component {
                 return results.json();
             })
             .then(data => {
-                let info = data;
-                let name = data['Name'];
-                // debugger;
                 this.setState({
-                    // total: totalPages,
-                    info: info,
+                    info: data,
                     loaded: true,
                 })
             })

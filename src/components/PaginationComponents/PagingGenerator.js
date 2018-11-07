@@ -8,8 +8,16 @@ const urls = {
     'school': 'schools',
     'community': 'communities',
 };
+
+
 export default class PagingGenerator extends React.PureComponent {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            pageNumber: this.props.pageNumber
+        }
+    }
 
     render() {
         const path = this.props.path;
