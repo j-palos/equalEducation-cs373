@@ -37,7 +37,7 @@ export default class PagingGenerator extends React.PureComponent {
             output.push(pageNumber);
         }
         return (
-            <PaginationItem active={active} onClick={this.props.data(this.state.pageNumber)}>
+            <PaginationItem active={active}>
                 <PaginationLink next={next} previous={prev} tag={Link} to={`/${urls[path]}/${pageNumber}`}>
                     {output}
                 </PaginationLink>
