@@ -23,13 +23,14 @@ class PaginationContainer extends Component {
         this.state = {
             total: 0,
             perPage: PER_PAGE,
-            info: []
+            info: [],
+            currentPage: this.props.match.params['id'],
         };
-        this.helperGrid = this.helperGrid.bind(this);
+        // this.helperGrid = this.helperGrid.bind(this);
     }
 
     componentDidMount() {
-        let currentPage = Number(this.props.match.params['id']);
+        let currentPage = Number(this.state.currentPage);
         // debugger;
         if (isNaN(currentPage)) {
             currentPage = 1;
@@ -45,7 +46,8 @@ class PaginationContainer extends Component {
                 // debugger;
                 this.setState({
                     total: totalPages,
-                    info: info
+                    info: info,
+                    currentPage: currentPage,
                 })
             })
     }
@@ -55,8 +57,9 @@ class PaginationContainer extends Component {
 
     helperPaging() {
         let children = [];
-        let currentPage = Number(this.props.match.params['id']);
-        // debugger;
+        let currentPage = Number(this.state.currentPage);
+
+        debugger;
         if (isNaN(currentPage)) {
             currentPage = 1;
         }
@@ -64,37 +67,48 @@ class PaginationContainer extends Component {
         let i;
         let lastPage = Number(this.state.total);
         i = Number(Math.max(currentPage - 3, 1));
-        let prev = Number(Math.max(currentPage - 1, 1));
+
         let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
-        children.push(<PagingGenerator pageNumber={prev} type={'previous'} path={this.props.path} key={'prev'}/>);
-        for (i; i <= rightBoundary; i++) {
-            children.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}/>)
+        if (currentPage > 1) {
+            children.push(<PagingGenerator pageNumber={currentPage - 1} type={'previous'} path={this.props.path}
+                                           key={'prev'}
+                                           data={this.update.bind(this)}/>);
         }
-        let next = Number(Math.min(currentPage + 1, lastPage));
-        children.push(<PagingGenerator pageNumber={next} type={'next'} path={this.props.path} key={'next'}/>);
+        for (i; i <= rightBoundary; i++) {
+            children.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}
+                                           data={this.update.bind(this)}/>)
+        }
+        if (lastPage > currentPage) {
+            children.push(<PagingGenerator pageNumber={currentPage + 1} type={'next'} path={this.props.path}
+                                           key={'next'}
+                                           data={this.update.bind(this)}/>);
+        }
         return children;
     }
 
-    helperGrid() {
-        let currentPage = Number(this.props.match.params['id']);
-        debugger;
-        if (isNaN(currentPage)) {
-            currentPage = 1;
-        }
-        let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-        fetch(url)
-            .then(results => {
-                return results.json();
-            })
-            .then(data => {
-                let totalPages = data['num_pages'];
-                let info = data['grid'];
-                // debugger;
-                this.setState({
-                    total: totalPages,
-                    info: info
+    update(page) {
+        return () => {
+            let currentPage = Number(page);
+            debugger;
+            if (isNaN(currentPage)) {
+                currentPage = 1;
+            }
+            let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
+            fetch(url)
+                .then(results => {
+                    return results.json();
                 })
-            })
+                .then(data => {
+                    let totalPages = data['num_pages'];
+                    let info = data['grid'];
+                    // debugger;
+                    this.setState({
+                        total: totalPages,
+                        info: info,
+                        currentPage: currentPage
+                    })
+                })
+        };
     }
 
     render() {
@@ -106,7 +120,7 @@ class PaginationContainer extends Component {
                                page={this.props.match.params['id]'] ? this.props.match.params['id]'] : 1}/>
 
                 <Row>
-                    <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'} onClick={this.helperGrid}>
+                    <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {paging}
                     </Pagination>
                 </Row>

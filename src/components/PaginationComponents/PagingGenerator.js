@@ -8,11 +8,20 @@ const urls = {
     'school': 'schools',
     'community': 'communities',
 };
+
+
 export default class PagingGenerator extends React.PureComponent {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            pageNumber: this.props.pageNumber
+        }
+    }
 
     render() {
         const path = this.props.path;
+        debugger;
         const pageNumber = this.props.pageNumber;
         const type = this.props.type;
         let output = [];
@@ -28,7 +37,7 @@ export default class PagingGenerator extends React.PureComponent {
             output.push(pageNumber);
         }
         return (
-            <PaginationItem active={active}>
+            <PaginationItem active={active} onClick={this.props.data(this.state.pageNumber)}>
                 <PaginationLink next={next} previous={prev} tag={Link} to={`/${urls[path]}/${pageNumber}`}>
                     {output}
                 </PaginationLink>
