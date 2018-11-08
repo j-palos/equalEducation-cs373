@@ -1,5 +1,4 @@
-import React, {PureComponent} from 'react';
-import {withRouter} from 'react-router-dom';
+import React, {Component} from 'react';
 import {Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
@@ -13,7 +12,7 @@ const urls = {
     'community': 'communities',
 };
 
-class PaginationContainer extends PureComponent {
+class PaginationContainer extends Component {
 
     //passed in a prop for total number of thing
     constructor(props) {
@@ -39,14 +38,16 @@ class PaginationContainer extends PureComponent {
 
     getData() {
         let currentPage = this.state.currentPage;
-        debugger;
-        if (sessionStorage.getItem(`${this.state.path}${currentPage}`)) {
-            this.getDataFromCache(`${this.state.path}${currentPage}`);
+        // debugger;
+
+        if (sessionStorage.getItem(`${currentPage}`)) {
+            // debugger;
+            this.getDataFromCache(`${currentPage}`);
         }
         else {
             // debugger;
             let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-            debugger;
+            // debugger;
             fetch(url)
                 .then(results => {
                     return results.json();
@@ -54,7 +55,7 @@ class PaginationContainer extends PureComponent {
                 .then(data => {
                     let totalPages = data['num_pages'];
                     let info = data['grid'];
-                    sessionStorage.setItem(`${this.state.path}${currentPage}`, JSON.stringify(data));
+                    sessionStorage.setItem(`${currentPage}`, JSON.stringify(data));
 
                     let pagination = this.helperPaging(this.state.currentPage, totalPages);
                     this.setState({
@@ -67,31 +68,11 @@ class PaginationContainer extends PureComponent {
         }
     }
 
-    doCache(){
-            let i = 1;
-            let rightBoundary = this.state.total;
-            debugger;
-            for (i; i < rightBoundary; i++) {
-                let url = `${base}/${urls[this.props.path]}/?page=${i}`;
-                debugger;
-                fetch(url)
-                    .then(results => {
-                        return results.json();
-                    })
-                    .then(data => {
-                        sessionStorage.setItem(`${this.state.path}${i}`, JSON.stringify(data));
-                    })
-            }
-            this.setState({
-                cached: true
-            });
-    }
-
     getDataFromCache(currentPage) {
         let data = sessionStorage.getItem(currentPage);
-        // debugger;
+
         data = JSON.parse(data);
-        // debugger;
+
         let totalPages = data['num_pages'];
         let info = data['grid'];
         let pagination = this.helperPaging(this.state.currentPage, totalPages);
@@ -141,10 +122,11 @@ class PaginationContainer extends PureComponent {
     }
 
     render() {
-        debugger;
-        if(!this.state.cached && this.state.total !== 0){
-            this.doCache();
-        }
+
+        // if(!this.state.cached && this.state.total !== 0){
+        //
+        //     this.doCache();
+        // }
         return (
             <div>
                 <GridContainer info={this.state.info} path={this.props.path}/>
@@ -158,5 +140,5 @@ class PaginationContainer extends PureComponent {
     }
 }
 
-export default withRouter(PaginationContainer);
+export default (PaginationContainer);
 
