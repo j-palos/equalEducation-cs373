@@ -1,6 +1,5 @@
 import React, {Component} from 'react';
-import {Row, Container} from 'reactstrap';
-import {Map, InfoWindow, Marker, GoogleApiWrapper} from 'google-maps-react';
+import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 
 

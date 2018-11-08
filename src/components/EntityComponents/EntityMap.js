@@ -1,5 +1,4 @@
 import React from 'react';
-import {Container, CardText, Row} from 'reactstrap';
 
 import MapContainer from "../MapContainer"
 
