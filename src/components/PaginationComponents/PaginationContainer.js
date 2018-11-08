@@ -24,16 +24,21 @@ class PaginationContainer extends PureComponent {
             currentPage: curPage,
             path: this.props.path,
             pagination: [],
+            cached: false,
         }
     }
 
     componentDidMount() {
-        this.getData()
+        this.getData();
     }
-
-
     getData() {
         let currentPage = this.state.currentPage;
+        if(sessionStorage.getItem(`${this.state.path}${currentPage}`)){
+            // debugger;
+            this.getDataFromCache(`${this.state.path}${currentPage}`);
+            
+        }
+        else{
         let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
         fetch(url)
             .then(results => {
@@ -42,6 +47,7 @@ class PaginationContainer extends PureComponent {
             .then(data => {
                 let totalPages = data['num_pages'];
                 let info = data['grid'];
+                sessionStorage.setItem(`${this.state.path}${currentPage}`, JSON.stringify(data));
 
                 let pagination = this.helperPaging(this.state.currentPage, totalPages);
                 this.setState({
@@ -51,13 +57,49 @@ class PaginationContainer extends PureComponent {
                 });
                 return totalPages;
             })
+            .then((totalPages )=> {
+                if(this.state.cached === true){
+                    return;
+                }
+                let i = 1;
+        let rightBoundary = totalPages;
+        debugger;
+        for(i; i < rightBoundary; i++){
+            let url = `${base}/${urls[this.props.path]}/?page=${i}`;
+            fetch(url)
+                .then(results => {
+                    return results.json();
+                })
+                .then(data => {
+                    sessionStorage.setItem(`${this.state.path}${i}`, JSON.stringify(data));
+                })
+        }
+        this.setState({
+            cached: true
+        });
+            })
+        }
+    }
+
+    getDataFromCache(currentPage){
+            let data = sessionStorage.getItem(currentPage);
+            // debugger;
+            data = JSON.parse(data);
+            // debugger;
+            let totalPages = data['num_pages'];
+            let info = data['grid'];
+            let pagination = this.helperPaging(this.state.currentPage, totalPages);
+            this.setState({
+                total: totalPages,
+                info: info,
+                pagination: pagination,
+            });
     }
 
 
     helperPaging(curPage, total) {
         let pagination = [];
         let currentPage = curPage;
-
         let i;
         let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
@@ -96,7 +138,6 @@ class PaginationContainer extends PureComponent {
         return (
             <div>
                 <GridContainer info={this.state.info} path={this.props.path}/>
-
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {this.state.pagination}
