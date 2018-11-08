@@ -6,13 +6,6 @@ import './InfoCard.css';
 
 class GridContainer extends React.Component {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            info: []
-        }
-    }
-
     render() {
         let output = [];
         let cards = this.props.info;

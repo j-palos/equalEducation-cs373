@@ -4,6 +4,18 @@ import PaginationContainer from "../PaginationComponents/PaginationContainer";
 
 class CommunityPage extends Component {
 
+    constructor(props) {
+        super(props);
+        this.state = {
+            page: this.props.match.params.page || 1
+        }
+    }
+
+    componentWillReceiveProps(props) {
+        this.props = props;
+        this.setState({'page': props.match.params.page});
+    }
+
     render() {
         return (
             <Container>
@@ -11,7 +23,10 @@ class CommunityPage extends Component {
                     <div className="container marketing my-5">
                         <br/><br/>
                         <div className={'mx-auto'}>
-                            <PaginationContainer path={'community'}/></div>
+                            <PaginationContainer
+                                path={'community'}
+                                page={this.state.page}/>
+                        </div>
                     </div>
                 </main>
             </Container>
