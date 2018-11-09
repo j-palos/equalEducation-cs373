@@ -1,7 +1,6 @@
 import React, {Component} from 'react';
 import '../../App.css';
 import PaginationContainer from "../PaginationComponents/PaginationContainer";
-import {withRouter} from "react-router-dom";
 import {Container} from "reactstrap";
 
 class SchoolPage extends Component {
@@ -35,4 +34,4 @@ class SchoolPage extends Component {
     }
 }
 
-export default withRouter(SchoolPage);
+export default (SchoolPage);

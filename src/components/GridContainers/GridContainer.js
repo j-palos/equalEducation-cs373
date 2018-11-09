@@ -14,6 +14,7 @@ class GridContainer extends React.Component {
                                   className={'modelCard'} info={cards[x]['Info']}
                                   src={cards[x]['Image']}/>);
         }
+
         return (
             <Container>
                 <CardColumns>

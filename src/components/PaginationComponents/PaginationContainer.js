@@ -1,5 +1,4 @@
-import React, {PureComponent} from 'react';
-import {withRouter} from 'react-router-dom';
+import React, {Component} from 'react';
 import {Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
@@ -13,7 +12,7 @@ const urls = {
     'community': 'communities',
 };
 
-class PaginationContainer extends PureComponent {
+class PaginationContainer extends Component {
 
     //passed in a prop for total number of thing
     constructor(props) {
@@ -24,40 +23,70 @@ class PaginationContainer extends PureComponent {
             currentPage: curPage,
             path: this.props.path,
             pagination: [],
+            cached: false,
+            total: 0
         }
     }
 
     componentDidMount() {
-        this.getData()
+        this.getData();
     }
 
+    componentWillUnmount(){
+        sessionStorage.clear();
+    }
 
     getData() {
         let currentPage = this.state.currentPage;
-        let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-        fetch(url)
-            .then(results => {
-                return results.json();
-            })
-            .then(data => {
-                let totalPages = data['num_pages'];
-                let info = data['grid'];
+        // debugger;
 
-                let pagination = this.helperPaging(this.state.currentPage, totalPages);
-                this.setState({
-                    total: totalPages,
-                    info: info,
-                    pagination: pagination,
-                });
-                return totalPages;
-            })
+        if (sessionStorage.getItem(`${currentPage}`)) {
+            // debugger;
+            this.getDataFromCache(`${currentPage}`);
+        }
+        else {
+            // debugger;
+            let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
+            // debugger;
+            fetch(url)
+                .then(results => {
+                    return results.json();
+                })
+                .then(data => {
+                    let totalPages = data['num_pages'];
+                    let info = data['grid'];
+                    sessionStorage.setItem(`${currentPage}`, JSON.stringify(data));
+
+                    let pagination = this.helperPaging(this.state.currentPage, totalPages);
+                    this.setState({
+                        total: totalPages,
+                        info: info,
+                        pagination: pagination,
+                    });
+                    return totalPages;
+                })
+        }
+    }
+
+    getDataFromCache(currentPage) {
+        let data = sessionStorage.getItem(currentPage);
+
+        data = JSON.parse(data);
+
+        let totalPages = data['num_pages'];
+        let info = data['grid'];
+        let pagination = this.helperPaging(this.state.currentPage, totalPages);
+        this.setState({
+            total: totalPages,
+            info: info,
+            pagination: pagination,
+        });
     }
 
 
     helperPaging(curPage, total) {
         let pagination = [];
         let currentPage = curPage;
-
         let i;
         let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
@@ -93,10 +122,14 @@ class PaginationContainer extends PureComponent {
     }
 
     render() {
+
+        // if(!this.state.cached && this.state.total !== 0){
+        //
+        //     this.doCache();
+        // }
         return (
             <div>
                 <GridContainer info={this.state.info} path={this.props.path}/>
-
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {this.state.pagination}
@@ -107,5 +140,5 @@ class PaginationContainer extends PureComponent {
     }
 }
 
-export default withRouter(PaginationContainer);
+export default (PaginationContainer);
 
