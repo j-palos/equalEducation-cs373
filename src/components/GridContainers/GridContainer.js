@@ -1,7 +1,8 @@
 import React from 'react';
 import Gridcard from "./Gridcard";
-import {CardColumns, Container} from 'reactstrap';
+import {CardColumns, Container, Row} from 'reactstrap';
 import './InfoCard.css';
+import SearchAppBar from "../FilterSortBar/SearchAppBar";
 
 
 class GridContainer extends React.Component {
@@ -17,6 +18,9 @@ class GridContainer extends React.Component {
 
         return (
             <Container>
+                <Row>
+                    <SearchAppBar/>
+                </Row>
                 <CardColumns>
                     {output}
                 </CardColumns>
