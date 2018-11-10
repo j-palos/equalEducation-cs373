@@ -109,8 +109,7 @@ class PaginationContainer extends Component {
     }
 
     componentWillReceiveProps(props) {
-        this.props = props;
-        let curPage = parseInt(this.props.page);
+        let curPage = parseInt(props.page);
         this.setState({
                 currentPage: curPage,
                 pagination: []
@@ -122,13 +121,9 @@ class PaginationContainer extends Component {
     }
 
     render() {
-
-        // if(!this.state.cached && this.state.total !== 0){
-        //
-        //     this.doCache();
-        // }
         return (
             <div>
+                {/*<MultipleSelect/>*/}
                 <GridContainer info={this.state.info} path={this.props.path}/>
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
