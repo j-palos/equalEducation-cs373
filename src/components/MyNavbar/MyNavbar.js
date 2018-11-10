@@ -1,6 +1,6 @@
 import React from 'react';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
-import {NavLink as RRNavLink} from 'react-router-dom';
+import {NavLink as RRNavLink, withRouter} from 'react-router-dom';
 import './styles.css'
 
 class MyNavbar extends React.Component {
@@ -20,6 +20,7 @@ class MyNavbar extends React.Component {
     }
 
     render() {
+
         return (
             <div>
                 <Navbar style={{backgroundColor: '#07969b'}} dark expand="md" fixed={"top"}>
@@ -54,4 +55,4 @@ class MyNavbar extends React.Component {
     }
 }
 
-export default MyNavbar;
+export default withRouter(MyNavbar);

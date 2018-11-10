@@ -10,11 +10,6 @@ import CommunityPage from "../GridContainers/CommunityPage";
 
 export default class RouteBuilder extends Component {
 
-    constructor(props) {
-        super();
-        this.state = {}
-    }
-
     render() {
         return (
             <Switch>
