@@ -8,7 +8,8 @@ class Map extends Component {
   static propTypes = {
     google: PropTypes.object,
     zoom: PropTypes.number,
-    initialCenter: PropTypes.object
+    initialCenter: PropTypes.object,
+    markerPosition: PropTypes.object,
   };
 
   static defaultProps = {
@@ -17,80 +18,32 @@ class Map extends Component {
       lat: 37.774929,
       lng: -122.419416
     },
-    centerAroundCurrentLocation: false
+    markerPosition: {
+      lat: 37.774929,
+      lng: -122.419416
+    },
   }
 
   constructor(props) {
     super(props);
     const {lat, lng} = this.props.initialCenter;
+    // this.props.location;
+    const m_lat = 37.775929, m_lng = -122.419416;
     this.state = {
       currentLocation: {
         lat: lat,
         lng: lng
+      },
+      markerPosition: {
+        lat: m_lat,
+        lng: m_lng
       }
     }
   }
 
-  componentDidMount() {
-    if (this.props.centerAroundCurrentLocation) {
-        if (navigator && navigator.geolocation) {
-            navigator.geolocation.getCurrentPosition((pos) => {
-                const coords = pos.coords;
-                this.setState({
-                    currentLocation: {
-                        lat: coords.latitude,
-                        lng: coords.longitude
-                    }
-                })
-            })
-        }
-    }
-    this.loadMap();
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-    if (prevProps.google !== this.props.google) {
-      this.loadMap();
-    }
-    if (prevState.currentLocation !== this.state.currentLocation) {
-      this.recenterMap();
-    }
-  }
-
-  recenterMap() {
-    const map = this.map;
-    const curr = this.state.currentLocation;
-
-    const google = this.props.google;
-    const maps = google.maps;
-
-    if (map) {
-        let center = new maps.LatLng(curr.lat, curr.lng)
-        map.panTo(center)
-    }
-  }
-
-  loadMap() {
-    if (this.props && this.props.google) {
-      const {google} = this.props;
-      const maps = google.maps;
-
-      const mapRef = this.refs.map;
-      const node = ReactDOM.findDOMNode(mapRef);
-
-      let {initialCenter, zoom} = this.props;
-      const {lat, lng} = this.state.initialCenter;
-      const center = new maps.LatLng(lat, lng);
-      const mapConfig = Object.assign({}, {
-        center: center,
-        zoom: zoom
-      })
-      this.map = new maps.Map(node, mapConfig);
-    }
-  }
-
   render() {
-    const info = this.props
+    const info = this.state
+    console.log("info:", info)
     return (
       <div ref='map'>
         <Container info={info}/>

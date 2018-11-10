@@ -13,7 +13,9 @@ class Container extends Component {
     width: '80%',
     height: '100%'
     }
-    const pos = {lat: 37.774929, lng: -122.419416}
+
+    const pos = {lat:this.props.info.markerPosition.lat, lng: this.props.info.markerPosition.lng}
+
     return (
       <div style={style}>
         <Map google={this.props.google}>
