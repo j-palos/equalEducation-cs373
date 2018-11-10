@@ -44,3 +44,7 @@ Thumbs.db
 *.cache
 node_modules
 dist
+
+# Google Maps api keys #
+########################
+GoogleMaps.json

@@ -1,24 +1,7 @@
-// import React, {Component} from 'react';
-//
-// export class MapContainer extends Component {
-//   render() {
-//     return (
-//       <div ref='map'>
-//         Loading map...
-//       </div>
-//     )
-//   }
-// }
-
-
 import React, {Component} from 'react';
 import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
-let GOOGLE_MAPS = require('../../json/GoogleMaps.json');
-let GOOGLE_MAPS_KEYS = GOOGLE_MAPS.keys;
-console.log(GOOGLE_MAPS_KEYS);
-
-export class MapContainer extends Component {
+export class Container extends Component {
   render() {
     const style = {
     width: '95%',
@@ -41,5 +24,5 @@ export class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: GOOGLE_MAPS_KEYS
-})(MapContainer)
+  apiKey: ("AIzaSyCc81IYdNCv3kHTpYOKCnsXDFi6Tc0-EXg")
+})(Container)
