@@ -1,10 +1,17 @@
 import React from 'react';
 import Gridcard from "./Gridcard";
-import {CardColumns, Container} from 'reactstrap';
+import {CardColumns, CardDeck, Container, Col} from 'reactstrap';
 import './InfoCard.css';
 
 
 class GridContainer extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            info: []
+        }
+    }
 
     render() {
         let output = [];
@@ -14,12 +21,11 @@ class GridContainer extends React.Component {
                                   className={'modelCard'} info={cards[x]['Info']}
                                   src={cards[x]['Image']}/>);
         }
-
         return (
             <Container>
-                <CardColumns>
+                <CardDeck className="Card-margin">
                     {output}
-                </CardColumns>
+                </CardDeck>
             </Container>
         )
     }
