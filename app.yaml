@@ -9,5 +9,5 @@ handlers:
   upload: build/index.html
 
 - url: /(.*)
-  script: main.application
+  script: main
 
