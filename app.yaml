@@ -1,4 +1,3 @@
-service: dev-app
 runtime: python27
 api_version: 1
 threadsafe: true
@@ -9,5 +8,5 @@ handlers:
   upload: build/index.html
 
 - url: /(.*)
-  static_files: build/\1
-  upload: build/(.*)
+  script: main
+
