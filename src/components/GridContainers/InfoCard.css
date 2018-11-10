@@ -1,6 +1,10 @@
-.Logo-img {
+.Logo-img-container {
     width: auto;
     height: 300px;
+}
+
+.Logo-img {
+    padding: 20px;
 }
 
 .Logo-subtitle {
