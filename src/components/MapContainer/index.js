@@ -16,7 +16,6 @@ import {Map, Marker, GoogleApiWrapper} from 'google-maps-react';
 
 let GOOGLE_MAPS = require('../../json/GoogleMaps.json');
 let GOOGLE_MAPS_KEYS = GOOGLE_MAPS.keys;
-console.log(GOOGLE_MAPS_KEYS);
 
 export class MapContainer extends Component {
   render() {
