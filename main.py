@@ -6,9 +6,9 @@ from google.appengine.ext.webapp import template
 class NotFoundPageHandler(webapp.RequestHandler):
     def get(self):
         # self.error(404)
-        path = os.path.join(os.path.dirname(__file__), 'build/index.html')
-        self.response.out.write(template.render(path, {}))
-        # self.redirect("/")
+        # path = os.path.join(os.path.dirname(__file__), 'build/index.html')
+        # self.response.out.write(template.render(path, {}))
+        self.redirect("/")
         # self.response.out.write('<Your 404 error html page>')
 
 application = webapp.WSGIApplication([('/.*', NotFoundPageHandler)],
