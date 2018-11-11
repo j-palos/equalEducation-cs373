@@ -10,15 +10,15 @@ class Container extends Component {
 
   render() {
     const style = {
-    width: '80%',
+    width: '95%',
     height: '100%'
     }
 
     const pos = {lat:this.props.info.markerPosition.lat, lng: this.props.info.markerPosition.lng}
 
     return (
-      <div style={style}>
-        <Map google={this.props.google}>
+      <div>
+        <Map google={this.props.google} style={style}>
           <Marker position={pos} />
         </Map>
       </div>

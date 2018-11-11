@@ -1,5 +1,4 @@
 import React, {Component} from 'react';
-import ReactDOM from 'react-dom';
 import Container from "./Container";
 import PropTypes from 'prop-types';
 

@@ -1,6 +1,6 @@
 import React from 'react';
 import Gridcard from "./Gridcard";
-import {CardColumns, CardDeck, Container, Col} from 'reactstrap';
+import { CardDeck, Container } from 'reactstrap';
 import './InfoCard.css';
 
 
