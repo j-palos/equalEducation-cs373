@@ -6,6 +6,7 @@ import Adapter from 'enzyme-adapter-react-16';
 Enzyme.configure({ adapter: new Adapter() });
 
 import MyNavbar from '../../src/components/MyNavbar/MyNavbar';
+import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
 
 describe('MyNavbar', () => {
   it('renders without exploding', () => {
@@ -17,18 +18,33 @@ describe('MyNavbar', () => {
   });
 
   const wrapper = shallow(<MyNavbar />)
+  it('has one Collapse', () => {
+    expect(
+      wrapper.find('Collapse').length
+    ).toBe(1);
+  });
+
   it('links to root with a tag in NavbarBrand', () => {
     expect(
-      wrapper.find('NavbarBrand')
-      .prop('to')
-    ).toEqual('/');
+      shallow(
+        <NavbarBrand/>
+      ).length
+    ).toEqual(1);
+  });
+
+  it('links to root with a tag in NavItem', () => {
+    expect(
+      shallow(
+        <NavItem/>
+      ).length
+    ).toEqual(5);
   });
 
   it('links to root with first link', () => {
     expect(
       wrapper.find('NavLink')
       .at('0')
-      .prop('to')
+      .prop("to")
     ).toEqual('/');
   });
 
