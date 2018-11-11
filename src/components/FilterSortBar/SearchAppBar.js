@@ -7,7 +7,16 @@ import InputBase from '@material-ui/core/InputBase';
 import {fade} from '@material-ui/core/styles/colorManipulator';
 import {withStyles} from '@material-ui/core/styles';
 import SearchIcon from '@material-ui/icons/Search';
-import MultipleSelect from "./MultipleSelectButton";
+// import MultipleSelect from "./MultipleSelectButton";
+import InputLabel from "@material-ui/core/InputLabel/InputLabel";
+import Select from "@material-ui/core/Select/Select";
+import Input from "@material-ui/core/Input/Input";
+import Chip from "@material-ui/core/Chip/Chip";
+import {stateFilter, states_hash} from "../../constants/apiConstants";
+import MenuItem from "@material-ui/core/MenuItem/MenuItem";
+import Checkbox from "@material-ui/core/Checkbox/Checkbox";
+import ListItemText from "@material-ui/core/ListItemText/ListItemText";
+import FormControl from "@material-ui/core/FormControl/FormControl";
 
 const styles = theme => ({
     root: {
@@ -69,8 +78,21 @@ const styles = theme => ({
     },
 });
 
+const ITEM_HEIGHT = 48;
+const ITEM_PADDING_TOP = 8;
+const MenuProps = {
+    PaperProps: {
+        style: {
+            maxHeight: ITEM_HEIGHT * 4.5 + ITEM_PADDING_TOP,
+            width: 250,
+        },
+    },
+};
+
 function SearchAppBar(props) {
     const {classes} = props;
+    let update = props.update;
+    debugger;
     return (
         <div className={classes.root}>
             <AppBar position="static">
@@ -78,7 +100,30 @@ function SearchAppBar(props) {
                     <Typography className={classes.title} variant="h6" color="inherit" noWrap>
                         Filter By ...
                     </Typography>
-                    <MultipleSelect/>
+                    <FormControl className={classes.formControl}>
+                        <InputLabel htmlFor="select-multiple-checkbox">State</InputLabel>
+                        <Select
+                            multiple
+                            value={props.name}
+                            onChange={(e) => update(e.target.value)}
+                            input={<Input id="select-multiple-checkbox"/>}
+                            renderValue={selected => (
+                                <div className={classes.chips}>
+                                    {selected.map(value => (
+                                        <Chip key={value} label={states_hash[value]} className={classes.chip}/>
+                                    ))}
+                                </div>
+                            )}
+                            MenuProps={MenuProps}
+                        >
+                            {stateFilter.map(name => (
+                                <MenuItem key={name} value={name}>
+                                    <Checkbox checked={props.name.indexOf(name) > -1}/>
+                                    <ListItemText primary={name}/>
+                                </MenuItem>
+                            ))}
+                        </Select>
+                    </FormControl>
                     <div className={classes.grow}/>
                     <div className={classes.search}>
                         <div className={classes.searchIcon}>

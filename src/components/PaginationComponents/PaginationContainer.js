@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import {Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
+import SearchAppBar from "../FilterSortBar/SearchAppBar";
 
 
 const base = 'http://api.equaleducation.info';
@@ -24,8 +25,12 @@ class PaginationContainer extends Component {
             path: this.props.path,
             pagination: [],
             cached: false,
-            total: 0
+            total: 0,
+            filters: {},
+            sorts: {},
+            states: [],
         }
+
     }
 
     componentDidMount() {
@@ -108,8 +113,8 @@ class PaginationContainer extends Component {
         return pagination;
     }
 
-    componentWillReceiveProps(props) {
-        let curPage = parseInt(props.page);
+    componentWillReceiveProps(nextProps, nextContext) {
+        let curPage = parseInt(nextProps.page);
         this.setState({
                 currentPage: curPage,
                 pagination: []
@@ -120,10 +125,27 @@ class PaginationContainer extends Component {
         )
     }
 
+    updateStates = (change) => {
+        // e.preventDefault();
+        // debugger;
+        // let change  = {key : value};
+
+        debugger;
+        // this.setState({
+        //     states : change
+        // })
+        this.setState({
+            states: change
+        })
+    };
+
     render() {
+        debugger;
         return (
             <div>
-                {/*<MultipleSelect/>*/}
+                <Row>
+                    <SearchAppBar name={this.state.states} update={this.update}/>
+                </Row>
                 <GridContainer info={this.state.info} path={this.props.path}/>
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>

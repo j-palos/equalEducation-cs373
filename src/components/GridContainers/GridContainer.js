@@ -1,8 +1,7 @@
 import React from 'react';
 import Gridcard from "./Gridcard";
-import {CardColumns, CardDeck, Container, Col, Row} from 'reactstrap';
+import {CardDeck, Container} from 'reactstrap';
 import './InfoCard.css';
-import SearchAppBar from "../FilterSortBar/SearchAppBar";
 
 
 class GridContainer extends React.Component {
@@ -24,9 +23,6 @@ class GridContainer extends React.Component {
         }
         return (
             <Container>
-                <Row>
-                    <SearchAppBar/>
-                </Row>
                 <CardDeck className="Card-margin">
                     {output}
                 </CardDeck>
