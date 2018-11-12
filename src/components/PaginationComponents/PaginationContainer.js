@@ -7,6 +7,7 @@ import Select from 'react-select';
 import './PaginationContainer.css';
 import {filterables, sortables} from '../../constants/apiConstants';
 import Button from '@material-ui/core/Button';
+import SorterButton from "../FilterSortBar/SorterButton";
 
 
 const base = 'http://api.equaleducation.info';
@@ -33,9 +34,9 @@ class PaginationContainer extends Component {
             total: 0,
             filterOptions: Object.keys(filterables[this.props.path] || []),
             sortOptions: Object.keys(sortables[this.props.path] || []),
-            activeFilters : [],
-            activeSort: '',
-            desc : false,
+            activeFilters: [],
+            activeSort: this.props.activeSort || null,
+            desc: false,
         }
     }
 
@@ -131,16 +132,15 @@ class PaginationContainer extends Component {
     }
 
     handleFilterChange(filterable, selections) {
-        let selection  = this.state.activeFilters[filterable] || [];
+        let selection = this.state.activeFilters[filterable] || [];
         selection.push(selections);
         this.setState({
-            activeFilters : {[filterable]: selection},
+            activeFilters: {[filterable]: selection},
         });
     }
 
 
     handleSortChange(selectedOption) {
-        // debugger;
         if (selectedOption) {
             this.setState({
                 activeSort: selectedOption['value'],
@@ -156,13 +156,20 @@ class PaginationContainer extends Component {
         debugger;
     };
 
+    handleDirectionChange(e) {
+        let change = !this.state.desc;
+        this.setState({
+            desc: change
+        });
+        debugger;
+    }
+
     render() {
-        let filtersRender, sortRender = [];
+        let filtersRender, sortRender, sortButton = [];
         if (this.state.path !== 'search') {
             filtersRender = this.state.filterOptions.map(filterable =>
-                <Col key={filterable} sm={4}>
+                <Col key={filterable} sm={4} className={'mx-auto'}>
                     <Select className={"Filter"}
-
                             name={filterable}
                             value={this.state.activeFilters.filterable}
                             onChange={this.handleFilterChange.bind(this, filterable)}
@@ -172,7 +179,6 @@ class PaginationContainer extends Component {
                     </Select>
                 </Col>
             );
-
             sortRender =
                 [<Select className={"Sort"}
                          key={'Sort'}
@@ -183,33 +189,38 @@ class PaginationContainer extends Component {
                          placeholder={"Sort by ..."}>
                 </Select>]
             ;
+            sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
+                                        onClick={this.handleDirectionChange.bind(this)}/>]
         }
         return (
             <div>
                 {this.state.path !== 'search' &&
                 (<div>
                         <Row>
-                    {filtersRender}
-                </Row>
-                <Row>
-                    <Col>
-                        <div className={"Menu"}>
-                            {sortRender}</div>
+                            {filtersRender}
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className={"Menu"}>
+                                    {sortRender}</div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                            </Col>
 
-                    </Col>
-                </Row>
-                <Row>
-                    <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
-                            className={'mx-auto'} style={{margin: '2%'}}>
-                        Apply Filters/Sort
-                    </Button>
+                            <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
+                                    className={'mx-auto'} style={{margin: '5px'}}>
+                                Apply Filters/Sort {sortButton}
+                            </Button>
+                            <Col>
 
-                </Row>
+                            </Col>
+                        </Row>
                     </div>
                 )}
                 <GridContainer info={this.state.info} path={this.props.path}/>
                 <Row>
-
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {this.state.pagination}
                     </Pagination>
