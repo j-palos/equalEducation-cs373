@@ -29,21 +29,27 @@ export default class PagingGenerator extends React.Component {
 
     componentDidMount() {
 
-        if (sessionStorage.getItem(this.state.pageNumber)) {
+        let url = `${base}/${apiurls[this.props.path]}/?page=${this.state.pageNumber}`;
+        if (sessionStorage.getItem(url)) {
             return
         }
-        let url = `${base}/${apiurls[this.props.path]}/?page=${this.state.pageNumber}`;
-
         fetch(url)
             .then(results => {
-                return results.json();
+                if (results.ok) {
+                    return results.json();
+                }
+                throw new Error('Network response was not ok.');
             })
             .then(data => {
-                sessionStorage.setItem(`${this.state.pageNumber}`, JSON.stringify(data));
+                sessionStorage.setItem(`${url}`, JSON.stringify(data));
+            })
+            .catch(function (error) {
+                console.log(error.message);
             });
         this.setState({
             cached: true
         });
+
     }
 
     render() {

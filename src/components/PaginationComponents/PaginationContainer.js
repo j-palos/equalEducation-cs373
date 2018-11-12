@@ -10,6 +10,7 @@ const urls = {
     'charity': 'charities',
     'school': 'school_districts',
     'community': 'communities',
+    'search': 'search',
 };
 
 class PaginationContainer extends Component {
@@ -32,31 +33,28 @@ class PaginationContainer extends Component {
         this.getData();
     }
 
-    componentWillUnmount(){
-        sessionStorage.clear();
-    }
+    // componentWillUnmount(){
+    //     sessionStorage.clear();
+    // }
 
     getData() {
         let currentPage = this.state.currentPage;
-        // debugger;
-
-        if (sessionStorage.getItem(`${currentPage}`)) {
-            // debugger;
-            this.getDataFromCache(`${currentPage}`);
+        let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
+        if (sessionStorage.getItem(`${url}`)) {
+            this.getDataFromCache(currentPage, `${url}`);
         }
         else {
-            // debugger;
-            let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-            // debugger;
             fetch(url)
                 .then(results => {
-                    return results.json();
+                    if (results.ok) {
+                        return results.json();
+                    }
+                    throw new Error('Network response was not ok.');
                 })
                 .then(data => {
                     let totalPages = data['num_pages'];
                     let info = data['grid'];
-                    sessionStorage.setItem(`${currentPage}`, JSON.stringify(data));
-
+                    sessionStorage.setItem(`${url}`, JSON.stringify(data));
                     let pagination = this.helperPaging(this.state.currentPage, totalPages);
                     this.setState({
                         total: totalPages,
@@ -65,17 +63,18 @@ class PaginationContainer extends Component {
                     });
                     return totalPages;
                 })
+                .catch(function (error) {
+                    console.log(error);
+                })
         }
     }
 
-    getDataFromCache(currentPage) {
-        let data = sessionStorage.getItem(currentPage);
-
+    getDataFromCache(currentPage, url) {
+        let data = sessionStorage.getItem(url);
         data = JSON.parse(data);
-
         let totalPages = data['num_pages'];
         let info = data['grid'];
-        let pagination = this.helperPaging(this.state.currentPage, totalPages);
+        let pagination = this.helperPaging(currentPage, totalPages);
         this.setState({
             total: totalPages,
             info: info,
@@ -122,11 +121,6 @@ class PaginationContainer extends Component {
     }
 
     render() {
-
-        // if(!this.state.cached && this.state.total !== 0){
-        //
-        //     this.doCache();
-        // }
         return (
             <div>
                 <GridContainer info={this.state.info} path={this.props.path}/>
