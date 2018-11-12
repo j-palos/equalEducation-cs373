@@ -218,4 +218,3 @@ class PaginationContainer extends Component {
 }
 
 export default (PaginationContainer);
-
