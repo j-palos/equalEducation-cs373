@@ -31,8 +31,8 @@ class PaginationContainer extends Component {
             pagination: [],
             cached: false,
             total: 0,
-            filterOptions: Object.keys(filterables[this.props.path]),
-            sortOptions: Object.keys(sortables[this.props.path]),
+            filterOptions: Object.keys(filterables[this.props.path] || []),
+            sortOptions: Object.keys(sortables[this.props.path] || []),
             activeFilters : [],
             activeSort: '',
             desc : false,
@@ -157,34 +157,38 @@ class PaginationContainer extends Component {
     };
 
     render() {
-        let filtersRender = this.state.filterOptions.map(filterable =>
-            <Col key={filterable} sm={4}>
-            <Select className={"Filter"}
+        let filtersRender, sortRender = [];
+        if (this.state.path !== 'search') {
+            filtersRender = this.state.filterOptions.map(filterable =>
+                <Col key={filterable} sm={4}>
+                    <Select className={"Filter"}
 
-                    name={filterable}
-                    value={this.state.activeFilters.filterable}
-                    onChange={this.handleFilterChange.bind(this, filterable)}
-                    options={filterables[this.props.path][filterable]}
-                    isMulti={false}
-                    placeholder={"Filter by " + filterable + "..."}>
-            </Select>
-            </Col>
-        );
+                            name={filterable}
+                            value={this.state.activeFilters.filterable}
+                            onChange={this.handleFilterChange.bind(this, filterable)}
+                            options={filterables[this.props.path][filterable]}
+                            isMulti={false}
+                            placeholder={"Filter by " + filterable + "..."}>
+                    </Select>
+                </Col>
+            );
 
-        let sortRender =
-            [<Select className={"Sort"}
-                     key={'Sort'}
-                     name='Sort'
-                     value={sortables[this.props.path][this.state.activeSort]}
-                     onChange={this.handleSortChange.bind(this)}
-                     options={sortables[this.props.path]}
-                     placeholder={"Sort by ..."}>
-            </Select>]
-        ;
-
+            sortRender =
+                [<Select className={"Sort"}
+                         key={'Sort'}
+                         name='Sort'
+                         value={sortables[this.props.path][this.state.activeSort]}
+                         onChange={this.handleSortChange.bind(this)}
+                         options={sortables[this.props.path]}
+                         placeholder={"Sort by ..."}>
+                </Select>]
+            ;
+        }
         return (
             <div>
-                <Row>
+                {this.state.path !== 'search' &&
+                (<div>
+                        <Row>
                     {filtersRender}
                 </Row>
                 <Row>
@@ -201,6 +205,8 @@ class PaginationContainer extends Component {
                     </Button>
 
                 </Row>
+                    </div>
+                )}
                 <GridContainer info={this.state.info} path={this.props.path}/>
                 <Row>
 
