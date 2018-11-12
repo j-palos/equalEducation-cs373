@@ -1,6 +1,6 @@
 import React from 'react';
 import Gridcard from "./Gridcard";
-import {CardColumns, CardDeck, Container, Col} from 'reactstrap';
+import {CardDeck} from 'reactstrap';
 import './InfoCard.css';
 
 
@@ -22,11 +22,10 @@ class GridContainer extends React.Component {
                                   src={cards[x]['Image']}/>);
         }
         return (
-            <Container>
-                <CardDeck className="Card-margin">
+
+            <CardDeck className="Card-margin">
                     {output}
                 </CardDeck>
-            </Container>
         )
     }
 }

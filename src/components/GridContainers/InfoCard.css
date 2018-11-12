@@ -1,10 +1,11 @@
 .Logo-img-container {
     width: auto;
-    height: 300px;
+    height: 450px;
 }
 
 .Logo-img {
-    padding: 20px;
+    /*padding: 20px;*/
+    object-fit: cover;
 }
 
 .Logo-subtitle {
