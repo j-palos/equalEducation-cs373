@@ -2,16 +2,18 @@ import React, {Component} from 'react';
 import {Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
-import SearchAppBar from "../FilterSortBar/SearchAppBar";
-
-
+// import SearchAppBar from "../FilterSortBar/SearchAppBar";
+import Select from 'react-select';
+import {filterables, sortables, reverse_states } from '../../constants/apiConstants';
 const base = 'http://api.equaleducation.info';
+
 
 const urls = {
     'charity': 'charities',
     'school': 'school_districts',
     'community': 'communities',
 };
+
 
 class PaginationContainer extends Component {
 
@@ -26,9 +28,11 @@ class PaginationContainer extends Component {
             pagination: [],
             cached: false,
             total: 0,
-            filters: {},
-            sorts: {},
-            states: [],
+            filters: Object.keys(filterables[this.props.path]),
+            sorts: Object.keys(sortables[this.props.path]),
+            activeFilters : [],
+            activeSort: {},
+            desc : false,
         }
 
     }
@@ -125,27 +129,46 @@ class PaginationContainer extends Component {
         )
     }
 
-    updateStates = (change) => {
-        // e.preventDefault();
-        // debugger;
-        // let change  = {key : value};
+    // updateStates = (change) => {
+    //     this.setState({
+    //         [states]: change
+    //     })
+    // };
 
-        debugger;
-        // this.setState({
-        //     states : change
-        // })
+
+    handleFilterChange(filterable, selections) {
+        const RESET_PAGE = 1;
+        let selection  = this.state.activeFilters[filterable] || [];
+        selection.push(selections);
         this.setState({
-            states: change
-        })
-    };
+            activeFilters : {[filterable]: selection},
+            page: RESET_PAGE
+        }, function() {this.getData()});
+    }
+
 
     render() {
-        debugger;
+
+
+        // let filters = Object.keys(this.props.filterables).map(selection => this.props.filterables[selection]);
+        // debugger;
+
+        let filtersRender = this.state.filters.map(filterable =>
+
+            <Select className={"Filter"}
+                    key={filterable}
+                    name={filterable}
+                    value={this.state.activeFilters.filterable}
+                    onChange={this.handleFilterChange.bind(this, filterable)}
+                    options={filterables[this.props.path][filterable]}
+                    isMulti={false}
+                    placeholder={"Filter by " + filterable + "..."}>
+            </Select>
+        );
+        // debugger;
         return (
             <div>
-                <Row>
-                    <SearchAppBar name={this.state.states} update={this.update}/>
-                </Row>
+                    {filtersRender}
                 <GridContainer info={this.state.info} path={this.props.path}/>
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
