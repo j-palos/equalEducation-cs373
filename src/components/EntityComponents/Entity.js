@@ -29,6 +29,11 @@ export const Entity = (props) => {
                         </CardBody>
                       </Card>
                     </Row>
+                    <Row className={'chart mt-4 p-3'}>
+                      <div className="App">
+                        <BarChart />
+                      </div>
+                    </Row>
                 </Container>
             </Row>
         </Container>
