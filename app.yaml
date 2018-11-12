@@ -1,13 +1,19 @@
-service: dev-app
+
 runtime: python27
 api_version: 1
-threadsafe: true
+threadsafe: false
 
 handlers:
 - url: /
   static_files: build/index.html
   upload: build/index.html
 
-- url: /(.*)
+- url: /(.*\.(gif|png|jpg|jpeg|json|css|js))$
   static_files: build/\1
-  upload: build/(.*)
+  upload: build/(.*\.(gif|png|jpg|jpeg|json|css|js))$
+
+- url: /(.*)
+  script: main.py
+
+error_handlers:
+  - file: build/error_handler.html
