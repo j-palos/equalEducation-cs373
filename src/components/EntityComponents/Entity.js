@@ -6,7 +6,7 @@ import {EntityMap} from "./EntityMap";
 
 export const Entity = (props) => {
     const info = props.info;
-    debugger;
+    //debugger;
     return (
         <Container className={'mt-5'}>
             <EntityName title={info.Name}/>
