@@ -1,5 +1,6 @@
 import React from 'react';
 import {Container, Jumbotron} from 'reactstrap';
+import './Entity.css'
 
 export const EntityName = (props) => {
     return (

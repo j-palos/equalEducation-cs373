@@ -4,6 +4,7 @@ import {EntityName} from './EntityName';
 import {EntityInfo} from "./EntityInfo";
 import {EntityMap} from "./EntityMap";
 import {EntityYoutube} from "./EntityYoutube";
+import './Entity.css'
 
 export const Entity = (props) => {
     const info = props.info;
@@ -34,6 +35,17 @@ export const Entity = (props) => {
                   </Card>
                 </Row>
                 }
+                {props.type === "charity" &&
+                   <Row className={'mt-4 p-3'}>
+                    <Col sm={'2'}>
+                    </Col>
+                    <Col>
+                      <EntityYoutube title={info.Name} />
+                    </Col>
+                    <Col sm={'2'}>
+                    </Col>
+                   </Row>
+                }
                 {(props.type === "school" || props.type === "charity") &&
                   <Row>
                     <Col sm={'4'}>
@@ -50,11 +62,7 @@ export const Entity = (props) => {
                     </Col>
                   </Row>
                 }
-                {props.type === "charity" &&
-                   <Row className={'mt-4 p-3'}>
-                    <EntityYoutube title={info.Name} />
-                   </Row>
-                }
+                
                 </Container>
             </Row>
         </Container>
