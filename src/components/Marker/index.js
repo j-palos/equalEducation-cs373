@@ -11,8 +11,8 @@ class Marker extends Component {
 
   renderMarker() {
     let { map, google, position, mapCenter } = this.props;
+    let pos = position || mapCenter
 
-    let pos = position || mapCenter;
     position = new google.maps.LatLng(pos.lat, pos.lng);
     const pref = {
         map: map,

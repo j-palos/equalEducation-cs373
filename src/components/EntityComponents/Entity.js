@@ -3,8 +3,13 @@ import {Card, CardBody, CardImg, Col, Container, Row} from 'reactstrap';
 import {EntityName} from './EntityName';
 import {EntityInfo} from "./EntityInfo";
 import {EntityMap} from "./EntityMap";
+<<<<<<< HEAD
 import {EntityChart} from "./EntityChart";
 
+=======
+import {EntityYoutube} from "./EntityYoutube";
+import './Entity.css'
+>>>>>>> 55a84cf374da6d7822d9aecdb0e6b55618bdaf33
 
 export const Entity = (props) => {
     const info = props.info;
@@ -22,7 +27,7 @@ export const Entity = (props) => {
                       </Card>
                     </Col>
                       <Col sm={'8 pr-5'}>
-                        <EntityMap info={info.Info}/>
+                        <EntityMap info={info.Location}/>
                       </Col>
                   </Row>
                 }
@@ -34,6 +39,17 @@ export const Entity = (props) => {
                     </CardBody>
                   </Card>
                 </Row>
+                }
+                {props.type === "charity" &&
+                   <Row className={'mt-4 p-3'}>
+                    <Col sm={'2'}>
+                    </Col>
+                    <Col>
+                      <EntityYoutube title={info.Name} />
+                    </Col>
+                    <Col sm={'2'}>
+                    </Col>
+                   </Row>
                 }
                 {(props.type === "school" || props.type === "charity") &&
                   <Row>
@@ -51,11 +67,15 @@ export const Entity = (props) => {
                     </Col>
                   </Row>
                 }
+<<<<<<< HEAD
                 {props.type === "school" &&
                 <Row className={'mt-4 p-3'}>
                   <EntityChart info={info.Info} />
                 </Row>
                 }
+=======
+                
+>>>>>>> 55a84cf374da6d7822d9aecdb0e6b55618bdaf33
                 </Container>
             </Row>
         </Container>

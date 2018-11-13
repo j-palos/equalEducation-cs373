@@ -25,13 +25,14 @@ class Map extends Component {
 
   constructor(props) {
     super(props);
-    const {lat, lng} = this.props.initialCenter;
-    // this.props.location;
-    const m_lat = 37.775929, m_lng = -122.419416;
+    var location = props.location
+    var partsOfStr = location.split(',');
+    const m_lat = partsOfStr[0], m_lng = partsOfStr[1];
+
     this.state = {
       currentLocation: {
-        lat: lat,
-        lng: lng
+        lat: m_lat,
+        lng: m_lng
       },
       markerPosition: {
         lat: m_lat,
@@ -42,7 +43,6 @@ class Map extends Component {
 
   render() {
     const info = this.state
-    console.log("info:", info)
     return (
       <div ref='map'>
         <Container info={info}/>
