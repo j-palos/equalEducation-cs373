@@ -4,6 +4,8 @@ import {EntityName} from './EntityName';
 import {EntityInfo} from "./EntityInfo";
 import {EntityMap} from "./EntityMap";
 import {EntityYoutube} from "./EntityYoutube";
+import {EntityBarChart} from "./EntityBarChart";
+import {EntityPieChart} from "./EntityPieChart";
 import './Entity.css'
 
 export const Entity = (props) => {
@@ -64,7 +66,12 @@ export const Entity = (props) => {
                 }
                 {props.type === "school" &&
                 <Row className={'mt-4 p-3'}>
-                  <EntityChart info={info.Info} />
+                  <Col>
+                    <EntityBarChart info={info.Info} />
+                  </Col>
+                  <Col className={'left-padding'}>
+                    <EntityPieChart info={info.Info} />
+                  </Col>
                 </Row>
                 }
                 </Container>
