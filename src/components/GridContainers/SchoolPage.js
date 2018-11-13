@@ -14,9 +14,10 @@ class SchoolPage extends Component {
 
     componentWillReceiveProps(props) {
         this.props = props;
-        this.setState({'page': props.match.params.page});
+        this.setState({'page': props.match.params.page || 1});
     }
     render() {
+
         return (
             <Container>
                 <main role="main">

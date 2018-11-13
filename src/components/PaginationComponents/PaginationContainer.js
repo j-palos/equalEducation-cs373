@@ -1,10 +1,16 @@
 import React, {Component} from 'react';
-import {Pagination, Row} from 'reactstrap';
+import {Col, Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
+// import SearchAppBar from "../FilterSortBar/SearchAppBar";
+import Select from 'react-select';
+import './PaginationContainer.css';
+import {filterables, sortables} from '../../constants/apiConstants';
+import Button from '@material-ui/core/Button';
 
 
 const base = 'http://api.equaleducation.info';
+
 
 const urls = {
     'charity': 'charities',
@@ -12,9 +18,11 @@ const urls = {
     'community': 'communities',
 };
 
+
 class PaginationContainer extends Component {
 
     //passed in a prop for total number of thing
+
     constructor(props) {
         super(props);
         let curPage = parseInt(this.props.page);
@@ -24,8 +32,14 @@ class PaginationContainer extends Component {
             path: this.props.path,
             pagination: [],
             cached: false,
-            total: 0
+            total: 0,
+            filterOptions: Object.keys(filterables[this.props.path]),
+            sortOptions: Object.keys(sortables[this.props.path]),
+            activeFilters : [],
+            activeSort: '',
+            desc : false,
         }
+
     }
 
     componentDidMount() {
@@ -108,9 +122,8 @@ class PaginationContainer extends Component {
         return pagination;
     }
 
-    componentWillReceiveProps(props) {
-        this.props = props;
-        let curPage = parseInt(this.props.page);
+    componentWillReceiveProps(nextProps, nextContext) {
+        let curPage = parseInt(nextProps.page);
         this.setState({
                 currentPage: curPage,
                 pagination: []
@@ -121,16 +134,80 @@ class PaginationContainer extends Component {
         )
     }
 
-    render() {
+    handleFilterChange(filterable, selections) {
+        let selection  = this.state.activeFilters[filterable] || [];
+        selection.push(selections);
+        this.setState({
+            activeFilters : {[filterable]: selection},
+        });
+    }
 
-        // if(!this.state.cached && this.state.total !== 0){
-        //
-        //     this.doCache();
-        // }
+
+    handleSortChange(selectedOption) {
+        // debugger;
+        if (selectedOption) {
+            this.setState({
+                activeSort: selectedOption['value'],
+            });
+        } else {
+            this.setState({activeSort: null})
+        }
+    }
+
+    handleSubmit = () => {
+        sessionStorage.clear();
+        this.getData();
+        debugger;
+    };
+
+    render() {
+        let filtersRender = this.state.filterOptions.map(filterable =>
+            <Col key={filterable} sm={4}>
+            <Select className={"Filter"}
+
+                    name={filterable}
+                    value={this.state.activeFilters.filterable}
+                    onChange={this.handleFilterChange.bind(this, filterable)}
+                    options={filterables[this.props.path][filterable]}
+                    isMulti={false}
+                    placeholder={"Filter by " + filterable + "..."}>
+            </Select>
+            </Col>
+        );
+
+        let sortRender =
+            [<Select className={"Sort"}
+                     key={'Sort'}
+                     name='Sort'
+                     value={sortables[this.props.path][this.state.activeSort]}
+                     onChange={this.handleSortChange.bind(this)}
+                     options={sortables[this.props.path]}
+                     placeholder={"Sort by ..."}>
+            </Select>]
+        ;
+
         return (
             <div>
+                <Row>
+                    {filtersRender}
+                </Row>
+                <Row>
+                    <Col>
+                        <div className={"Menu"}>
+                            {sortRender}</div>
+
+                    </Col>
+                </Row>
+                <Row>
+                    <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
+                            className={'mx-auto'} style={{margin: '2%'}}>
+                        Apply Filters/Sort
+                    </Button>
+
+                </Row>
                 <GridContainer info={this.state.info} path={this.props.path}/>
                 <Row>
+
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {this.state.pagination}
                     </Pagination>
@@ -141,4 +218,3 @@ class PaginationContainer extends Component {
 }
 
 export default (PaginationContainer);
-

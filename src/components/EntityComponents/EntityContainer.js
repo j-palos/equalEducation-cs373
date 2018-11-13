@@ -39,7 +39,7 @@ export default class EntityContainer extends Component {
     render() {
         return (
             <div>
-                {this.state.loaded && <Entity info={this.state.info}/>}
+                {this.state.loaded && <Entity info={this.state.info} type={this.props.type}/>}
             </div>
         )
     }
