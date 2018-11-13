@@ -21,7 +21,7 @@ export const Entity = (props) => {
                       </Card>
                     </Col>
                       <Col sm={'8 pr-5'}>
-                        <EntityMap info={info.Info}/>
+                        <EntityMap info={info.Location}/>
                       </Col>
                   </Row>
                 }

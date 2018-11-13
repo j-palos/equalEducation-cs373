@@ -13,12 +13,19 @@ class Container extends Component {
     width: '95%',
     height: '100%'
     }
-
     const pos = {lat:this.props.info.markerPosition.lat, lng: this.props.info.markerPosition.lng}
+    const pos_lat = pos.lat
+    const pos_lng = pos.lng
 
     return (
       <div>
-        <Map google={this.props.google} style={style}>
+        <Map google={this.props.google}
+             style={style}
+             initialCenter={{
+              lat: pos_lat,
+              lng: pos_lng
+            }}
+        >
           <Marker position={pos} />
         </Map>
       </div>
