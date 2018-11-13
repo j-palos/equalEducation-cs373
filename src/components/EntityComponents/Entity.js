@@ -3,6 +3,8 @@ import {Card, CardBody, CardImg, Col, Container, Row} from 'reactstrap';
 import {EntityName} from './EntityName';
 import {EntityInfo} from "./EntityInfo";
 import {EntityMap} from "./EntityMap";
+import {EntityChart} from "./EntityChart";
+
 
 export const Entity = (props) => {
     const info = props.info;
@@ -48,6 +50,11 @@ export const Entity = (props) => {
                       </Card>
                     </Col>
                   </Row>
+                }
+                {props.type === "school" &&
+                <Row className={'mt-4 p-3'}>
+                  <EntityChart info={info.Info} />
+                </Row>
                 }
                 </Container>
             </Row>
