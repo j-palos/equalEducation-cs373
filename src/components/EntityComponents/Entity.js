@@ -37,10 +37,10 @@ export const Entity = (props) => {
                 }
                 {props.type === "charity" &&
                    <Row className={'mt-4 p-3'}>
-                   <Col sm={'2'}>
+                    <Col sm={'2'}>
                     </Col>
                     <Col>
-                    <EntityYoutube title={info.Name} />
+                      <EntityYoutube title={info.Name} />
                     </Col>
                     <Col sm={'2'}>
                     </Col>
