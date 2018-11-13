@@ -16,6 +16,9 @@ const urls = {
     'charity': 'charities',
     'school': 'school_districts',
     'community': 'communities',
+};
+
+const searchurl = {
     'search': 'search',
 };
 
@@ -48,9 +51,48 @@ class PaginationContainer extends Component {
     //     sessionStorage.clear();
     // }
 
+    getActiveFilters() {
+        let filters = '';
+        let activeFilters = this.state.activeFilters;
+        for (let x in activeFilters) {
+            // let string  = [activeFilters[x]].value.replace(' ', '+');
+            filters += `&${x}=${activeFilters[x].value}`;
+        }
+        // filters = encodeURI(filters);
+        // debugger;
+        return filters.toLowerCase();
+    }
+
+    getActiveSort() {
+        let sort = '';
+        let activeSort = this.state.activeSort;
+        if (activeSort) {
+            sort += `&sort=${activeSort}`;
+            if (this.state.desc) {
+                sort += '&desc=true'
+            }
+        }
+        // debugger;
+        return sort.toLowerCase();
+    }
+
+    getAPIURL(currentPage) {
+        let url = `${base}/${urls[this.props.path]}?page=${currentPage}`;
+        if (searchurl[this.state.path]) {
+            return url;
+        }
+        let end = this.getActiveFilters();
+        end += this.getActiveSort();
+        // debugger;
+        // +encodeURIComponent(end)
+        return url + end;
+    }
+
+
     getData() {
         let currentPage = this.state.currentPage;
-        let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
+        let url = this.getAPIURL(currentPage);
+        debugger;
         if (sessionStorage.getItem(`${url}`)) {
             this.getDataFromCache(currentPage, `${url}`);
         }
@@ -83,7 +125,6 @@ class PaginationContainer extends Component {
     getDataFromCache(currentPage, url) {
         let data = sessionStorage.getItem(url);
         data = JSON.parse(data);
-
         let totalPages = data['num_pages'];
         let info = data['grid'];
         let pagination = this.helperPaging(currentPage, totalPages);
@@ -103,17 +144,21 @@ class PaginationContainer extends Component {
         i = Number(Math.max(currentPage - 3, 1));
         let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
         if (currentPage > 1) {
+            let url = this.getAPIURL(currentPage);
             pagination.push(<PagingGenerator pageNumber={currentPage - 1} type={'previous'} path={this.props.path}
-                                             key={'prev'}
+                                             key={'prev'} url={url}
             />);
         }
         for (i; i <= rightBoundary; i++) {
+            let url = this.getAPIURL(i);
             pagination.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}
+                                             url={url}
             />)
         }
         if (lastPage > currentPage) {
+            let url = this.getAPIURL(lastPage);
             pagination.push(<PagingGenerator pageNumber={currentPage + 1} type={'next'} path={this.props.path}
-                                             key={'next'}
+                                             key={'next'} url={url}
             />);
         }
         return pagination;
@@ -132,10 +177,10 @@ class PaginationContainer extends Component {
     }
 
     handleFilterChange(filterable, selections) {
-        let selection = this.state.activeFilters[filterable] || [];
-        selection.push(selections);
+        let selection = this.state.activeFilters || [];
+        selection[`${filterable}`] = selections;
         this.setState({
-            activeFilters: {[filterable]: selection},
+            activeFilters: selection,
         });
     }
 
@@ -151,9 +196,9 @@ class PaginationContainer extends Component {
     }
 
     handleSubmit = () => {
-        sessionStorage.clear();
+        // sessionStorage.clear();
         this.getData();
-        debugger;
+        // debugger;
     };
 
     handleDirectionChange(e) {
@@ -161,7 +206,7 @@ class PaginationContainer extends Component {
         this.setState({
             desc: change
         });
-        debugger;
+        this.getData();
     }
 
     render() {
@@ -208,13 +253,12 @@ class PaginationContainer extends Component {
                         <Row>
                             <Col>
                             </Col>
-
                             <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
                                     className={'mx-auto'} style={{margin: '5px'}}>
-                                Apply Filters/Sort {sortButton}
-                            </Button>
-                            <Col>
-
+                                Apply Filters/Sort
+                            </Button><Col>
+                            <span style={{margin: 'auto'}}>
+                                {sortButton}</span>
                             </Col>
                         </Row>
                     </div>

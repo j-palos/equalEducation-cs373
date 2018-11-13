@@ -77,7 +77,17 @@ const nameSort = {value: 'Name', label: 'Name'};
 const povertySort = {value: 'Poverty', label: 'Poverty'};
 const ratingSort = {value: 'Rating', label: 'Rating'};
 const populationSort = {value: 'Population', label: 'Population'};
-
+const ratingFilter = [
+    {
+        value: 'Low', label: 'Low'
+    },
+    {
+        value: 'Average', label: 'Average',
+    },
+    {
+        value: 'High', label: 'High'
+    }
+];
 export const sortables =
     {
         community: [nameSort, populationSort],
@@ -87,9 +97,9 @@ export const sortables =
 
 export const filterables =
     {
-        community: {'State': categoryFilter, 'Population': populationFilter},
+        community: {'State': stateFilter, 'Population': populationFilter},
         school: {'State': stateFilter, 'Population': populationFilter, 'Poverty': povertyFilter},
-        charity: {'State': stateFilter, 'Scope': scopeFilter, 'Category': categoryFilter}
+        charity: {'State': stateFilter, 'Scope': scopeFilter, 'Category': categoryFilter, 'Rating': ratingFilter}
     };
 
 

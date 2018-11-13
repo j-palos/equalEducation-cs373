@@ -29,7 +29,8 @@ export default class PagingGenerator extends React.Component {
 
     componentDidMount() {
 
-        let url = `${base}/${apiurls[this.props.path]}/?page=${this.state.pageNumber}`;
+        let url = this.props.url;
+        debugger;
         if (sessionStorage.getItem(url)) {
             return
         }
