@@ -1,4 +1,4 @@
-
+service: dev-app
 runtime: python27
 api_version: 1
 threadsafe: false
@@ -8,9 +8,9 @@ handlers:
   static_files: build/index.html
   upload: build/index.html
 
-- url: /(.*\.(gif|png|jpg|jpeg|json|css|js))$
+- url: /(.*\.(gif|png|jpg|jpeg|json|css|js|svg))$
   static_files: build/\1
-  upload: build/(.*\.(gif|png|jpg|jpeg|json|css|js))$
+  upload: build/(.*\.(gif|png|jpg|jpeg|json|css|js|svg))$
 
 - url: /(.*)
   script: main.py
