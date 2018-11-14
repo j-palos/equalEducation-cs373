@@ -175,9 +175,9 @@ Gitlab Pipeline (back-end): https://gitlab.com/harmonrky/cs373-idb-backend/pipel
 
 Phase 3
 
-Git SHA (front-end):
+Git SHA (front-end): 7c788ac63e132840b4fff2d89c2d65361d27e196
 
-Git SHA (back-end):
+Git SHA (back-end): 426487866287d5810d035b5c483f7955e92824ea
 
 Gitlab Pipeline (front-end): https://gitlab.com/intaeryoo/cs373-idb/pipelines
 
