@@ -22,8 +22,9 @@ class SearchPage extends React.Component {
         this.state = {
             userInput: this.props.match.params.input || '',
             page: this.props.match.params.page || 1,
-            type: 'All',
+            type: 'all',
             value: 0,
+            submitted: false,
         }
     }
 
@@ -36,7 +37,6 @@ class SearchPage extends React.Component {
         // debugger;
         this.setState({
             userInput: e.target.value,
-
         })
     }
 
@@ -44,12 +44,23 @@ class SearchPage extends React.Component {
     handleSubmit = (e) => {
         e.preventDefault();
         sessionStorage.clear();
-        // this.getData();
+        let value = this.state.userInput;
         debugger;
+        value = value.replace(/ /g, "+");
+        debugger;
+        // debugger;
+        // this.getData();
+        this.setState({
+            search: value,
+            submitted: true,
+        });
     };
 
     handleTabChange = (event, value) => {
-        this.setState({value});
+        this.setState({
+            value: value,
+            submitted: false
+        });
     };
 
     render() {
@@ -86,28 +97,28 @@ class SearchPage extends React.Component {
                                         </Button>
                                     </FormGroup>
                                 </Form>
-                                {this.state.value === 0 && <TabContainer><PaginationContainer
+                                {this.state.submitted && this.state.value === 0 && <TabContainer><PaginationContainer
                                     path={'search'}
                                     page={this.state.page}
+                                    search={this.state.search}
                                 /></TabContainer>}
-                                {this.state.value === 1 && <TabContainer><PaginationContainer
+                                {this.state.submitted && this.state.value === 1 && <TabContainer><PaginationContainer
                                     path={'search'}
                                     page={this.state.page}
+                                    search={this.state.search}
                                 /></TabContainer>}
-                                {this.state.value === 2 && <TabContainer><PaginationContainer
+                                {this.state.submitted && this.state.value === 2 && <TabContainer><PaginationContainer
                                     path={'search'}
                                     page={this.state.page}
+                                    search={this.state.search}
                                 /></TabContainer>}
-                                {this.state.value === 3 && <TabContainer><PaginationContainer
+                                {this.state.submitted && this.state.value === 3 && <TabContainer><PaginationContainer
                                     path={'search'}
                                     page={this.state.page}
+                                    search={this.state.search}
                                 /></TabContainer>}
                             </Col>
                         </Row>
-                        <PaginationContainer
-                            path={'search'}
-                            page={this.state.page}
-                        />
                     </div>
                 </main>
             </Container>

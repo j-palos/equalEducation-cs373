@@ -22,6 +22,10 @@ const urls = {
 
 const searchurl = {
     'search': 'search',
+    0: 'all',
+    1: 'school_districts',
+    2: 'charities',
+    3: 'communities'
 };
 
 const surls = {
@@ -44,6 +48,7 @@ class PaginationContainer extends Component {
             pagination: [],
             cached: false,
             total: 0,
+            value: this.props.value || 0,
             filterOptions: Object.keys(filterables[this.props.path] || []),
             sortOptions: Object.keys(sortables[this.props.path] || []),
             activeFilters: this.props.activeFilters || [],
@@ -90,19 +95,27 @@ class PaginationContainer extends Component {
 
     getAPIURL(currentPage) {
         let url = `${base}/${urls[this.props.path]}?page=${currentPage}`;
-        if (searchurl[this.state.path]) {
-            return url;
-        }
+
         let end = this.getActiveFilters();
         end += this.getActiveSort();
         return url + end;
     }
 
+    getSearchAPIURL(currentPage) {
+        return `${base}/${searchurl[this.state.value]}?page=${currentPage}&search=${this.props.search}&list=999`;
+    }
 
+// /school_districts?page=1&search=Clarksdale
     getData() {
         let currentPage = this.state.currentPage;
-        let url = this.getAPIURL(currentPage).toLowerCase();
-
+        let url = '';
+        if (searchurl[this.state.path]) {
+            url = this.getSearchAPIURL(currentPage);
+            debugger;
+        }
+        else {
+            url = this.getAPIURL(currentPage).toLowerCase();
+        }
         if (sessionStorage.getItem(`${url}`)) {
             this.getDataFromCache(currentPage, `${url}`);
         }
