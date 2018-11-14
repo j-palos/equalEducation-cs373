@@ -53,6 +53,13 @@ export const Entity = (props) => {
                     </Col>
                   </Row>
                 }
+                {props.type === "charity" &&
+                   <Row className={'mt-4 p-3'}>
+                    <Col>
+                      <EntityYoutube title={info.Name} />
+                    </Col>
+                   </Row>
+                }
                 {props.type === "school" &&
                 <Row className={'mt-4 p-3'}>
                   <Col>
@@ -63,6 +70,7 @@ export const Entity = (props) => {
                   </Col>
                 </Row>
                 }
+
                 </Container>
             </Row>
         </Container>
