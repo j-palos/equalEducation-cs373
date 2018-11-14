@@ -49,7 +49,7 @@ class CommunityPage extends Component {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'community'}
-                                page={this.state.page}
+                                page={this.state.page} id="community-page"
                                 query={this.props.location.search}
                                 desc={desc}
                                 activeFilters={activeFilters}
