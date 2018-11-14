@@ -29,8 +29,8 @@ export default class PagingGenerator extends React.Component {
 
     componentDidMount() {
 
-        let url = this.props.url;
-        debugger;
+        let url = this.props.url.toLowerCase();
+        // debugger;
         if (sessionStorage.getItem(url)) {
             return
         }
@@ -71,7 +71,8 @@ export default class PagingGenerator extends React.Component {
         }
         return (
             <PaginationItem active={active}>
-                <PaginationLink next={next} previous={prev} tag={Link} to={`/${urls[path]}/${pageNumber}`}>
+                <PaginationLink next={next} previous={prev} tag={Link}
+                                to={`/${urls[path]}/${pageNumber}${this.props.query}`}>
                     {output}
                 </PaginationLink>
             </PaginationItem>
