@@ -96,6 +96,11 @@ body {
 
 }
 
+mark {
+    background-color: yellow;
+    color: black;
+}
+
 .modelCard {
     width: 23.5%;
     display: inline-block;
