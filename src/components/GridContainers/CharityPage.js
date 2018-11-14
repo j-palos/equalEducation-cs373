@@ -27,7 +27,7 @@ class CharityPage extends Component {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'charity'}
-                                page={this.state.page}/>
+                                page={this.state.page} id="charity-page"/>
                         </div>
                     </div>
                 </main>
