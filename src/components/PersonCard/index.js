@@ -41,7 +41,7 @@ function PersonCard(props) {
         <Card className="card-top-padding">
             <CardImg top className="rounded-circle card-img-top mx-auto" src={images[props.name]}
                      alt={"Card image"} style={{width: 180, height: 180}}/>
-            <CardBody>
+            <CardBody id="cardbody-persons">
                 <CardTitle>{props.name}</CardTitle>
                 <CardText>{profile[props.name]}</CardText>
                 <CardText>{responsibilities[props.name]}</CardText>
