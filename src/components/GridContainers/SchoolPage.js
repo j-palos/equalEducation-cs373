@@ -2,6 +2,8 @@ import React, {Component} from 'react';
 import '../../App.css';
 import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import {Container} from "reactstrap";
+import queryString from 'query-string';
+import {schoolFilterQuery} from "../../constants/apiConstants";
 
 class SchoolPage extends Component {
 
@@ -13,11 +15,26 @@ class SchoolPage extends Component {
     }
 
     componentWillReceiveProps(props) {
-        this.props = props;
         this.setState({'page': props.match.params.page || 1});
     }
     render() {
+        let x = this.props.location.search;
+        let egg = queryString.parse(x);
+        let activeFilters = [];
+        let activeSort = egg.sort;
+        let desc = egg.desc;
+        let xx = schoolFilterQuery;
+        debugger;
+        for (x in (egg)) {
+            for (let y in xx) {
+                if (xx[y] === x) {
+                    activeFilters[x] = {value: egg[x], label: egg[x]};
+                }
+            }
+        }
 
+
+        debugger;
         return (
             <Container>
                 <main role="main">
@@ -26,7 +43,12 @@ class SchoolPage extends Component {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'school'}
-                                page={this.state.page} id="school-page"/>
+                                page={this.state.page} id="school-page"
+                                query={this.props.location.search}
+                                desc={desc}
+                                activeFilters={activeFilters}
+                                activeSort={activeSort}
+                            />
                         </div>
                     </div>
                 </main>

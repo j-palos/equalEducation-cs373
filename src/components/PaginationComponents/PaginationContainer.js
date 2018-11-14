@@ -7,6 +7,8 @@ import Select from 'react-select';
 import './PaginationContainer.css';
 import {filterables, sortables} from '../../constants/apiConstants';
 import Button from '@material-ui/core/Button';
+import SorterButton from "../FilterSortBar/SorterButton";
+import {withRouter} from "react-router-dom";
 
 
 const base = 'http://api.equaleducation.info';
@@ -18,6 +20,15 @@ const urls = {
     'community': 'communities',
 };
 
+const searchurl = {
+    'search': 'search',
+};
+
+const surls = {
+    'charity': 'charities',
+    'school': 'schools',
+    'community': 'communities',
+};
 
 class PaginationContainer extends Component {
 
@@ -33,11 +44,11 @@ class PaginationContainer extends Component {
             pagination: [],
             cached: false,
             total: 0,
-            filterOptions: Object.keys(filterables[this.props.path]),
-            sortOptions: Object.keys(sortables[this.props.path]),
-            activeFilters : [],
-            activeSort: '',
-            desc : false,
+            filterOptions: Object.keys(filterables[this.props.path] || []),
+            sortOptions: Object.keys(sortables[this.props.path] || []),
+            activeFilters: this.props.activeFilters || [],
+            activeSort: this.props.activeSort || null,
+            desc: this.props.desc || false,
         }
 
     }
@@ -46,31 +57,67 @@ class PaginationContainer extends Component {
         this.getData();
     }
 
-    componentWillUnmount(){
-        sessionStorage.clear();
+    getActiveFilters() {
+        let filters = '';
+        let activeFilters = this.state.activeFilters;
+        debugger;
+        for (let key in activeFilters) {
+            // console.log(activeFilters);
+            let value = (activeFilters[key]).value;
+            // let value = activeFilters[x][key];
+            // debugger;
+            value = value.replace(/ /g, "+");
+            // debugger;
+            filters += `&${key}=${value}`;
+        }
+        // filters = encodeURI(filters);
+        // debugger;
+        return filters;
     }
+
+    getActiveSort() {
+        let sort = '';
+        let activeSort = this.state.activeSort;
+        if (activeSort) {
+            sort += `&sort=${activeSort}`;
+            if (this.state.desc) {
+                sort += '&desc=true'
+            }
+        }
+        // debugger;
+        return sort;
+    }
+
+    getAPIURL(currentPage) {
+        let url = `${base}/${urls[this.props.path]}?page=${currentPage}`;
+        if (searchurl[this.state.path]) {
+            return url;
+        }
+        let end = this.getActiveFilters();
+        end += this.getActiveSort();
+        return url + end;
+    }
+
 
     getData() {
         let currentPage = this.state.currentPage;
-        // debugger;
+        let url = this.getAPIURL(currentPage).toLowerCase();
 
-        if (sessionStorage.getItem(`${currentPage}`)) {
-            // debugger;
-            this.getDataFromCache(`${currentPage}`);
+        if (sessionStorage.getItem(`${url}`)) {
+            this.getDataFromCache(currentPage, `${url}`);
         }
         else {
-            // debugger;
-            let url = `${base}/${urls[this.props.path]}/?page=${currentPage}`;
-            // debugger;
             fetch(url)
                 .then(results => {
-                    return results.json();
+                    if (results.ok) {
+                        return results.json();
+                    }
+                    throw new Error('Network response was not ok.');
                 })
                 .then(data => {
                     let totalPages = data['num_pages'];
                     let info = data['grid'];
-                    sessionStorage.setItem(`${currentPage}`, JSON.stringify(data));
-
+                    sessionStorage.setItem(`${url}`, JSON.stringify(data));
                     let pagination = this.helperPaging(this.state.currentPage, totalPages);
                     this.setState({
                         total: totalPages,
@@ -79,17 +126,18 @@ class PaginationContainer extends Component {
                     });
                     return totalPages;
                 })
+                .catch(function (error) {
+                    console.log(error);
+                })
         }
     }
 
-    getDataFromCache(currentPage) {
-        let data = sessionStorage.getItem(currentPage);
-
+    getDataFromCache(currentPage, url) {
+        let data = sessionStorage.getItem(url);
         data = JSON.parse(data);
-
         let totalPages = data['num_pages'];
         let info = data['grid'];
-        let pagination = this.helperPaging(this.state.currentPage, totalPages);
+        let pagination = this.helperPaging(currentPage, totalPages);
         this.setState({
             total: totalPages,
             info: info,
@@ -105,18 +153,23 @@ class PaginationContainer extends Component {
         let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
         let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
+        let query = this.props.query || `?${this.getActiveFilters() + this.getActiveSort()}`;
         if (currentPage > 1) {
+            let url = this.getAPIURL(currentPage);
             pagination.push(<PagingGenerator pageNumber={currentPage - 1} type={'previous'} path={this.props.path}
-                                             key={'prev'}
+                                             key={'prev'} url={url} query={query}
             />);
         }
         for (i; i <= rightBoundary; i++) {
+            let url = this.getAPIURL(i);
             pagination.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}
+                                             url={url} query={query}
             />)
         }
         if (lastPage > currentPage) {
+            let url = this.getAPIURL(lastPage);
             pagination.push(<PagingGenerator pageNumber={currentPage + 1} type={'next'} path={this.props.path}
-                                             key={'next'}
+                                             key={'next'} url={url} query={query}
             />);
         }
         return pagination;
@@ -126,7 +179,9 @@ class PaginationContainer extends Component {
         let curPage = parseInt(nextProps.page);
         this.setState({
                 currentPage: curPage,
-                pagination: []
+                pagination: [],
+                activeFilters: nextProps.activeFilters || [],
+                activeSort: nextProps.activeSort || null,
             },
             function () {
                 this.getData();
@@ -135,16 +190,21 @@ class PaginationContainer extends Component {
     }
 
     handleFilterChange(filterable, selections) {
-        let selection  = this.state.activeFilters[filterable] || [];
-        selection.push(selections);
+        let selection = this.state.activeFilters || [];
+        selection[`${filterable}`] = selections;
+        console.log('here')
+        console.log(selection);
+        console.log(selections);
+        debugger;
         this.setState({
-            activeFilters : {[filterable]: selection},
+            activeFilters: selection,
         });
     }
 
 
     handleSortChange(selectedOption) {
-        // debugger;
+        console.log(selectedOption);
+        console.log(selectedOption.label);
         if (selectedOption) {
             this.setState({
                 activeSort: selectedOption['value'],
@@ -155,59 +215,89 @@ class PaginationContainer extends Component {
     }
 
     handleSubmit = () => {
-        sessionStorage.clear();
-        this.getData();
-        debugger;
+        // sessionStorage.clear();
+        // this.setState({
+        //     currentPage : 1
+        // }, function(){
+        //     this.props.history.push(`/${surls[this.state.path]}/1${this.props.query}`)
+        // });
+        let end = `${this.getActiveFilters() + this.getActiveSort()}`;
+        // debugger;
+        this.setState({
+            currentPage: 1,
+        });
+        return (this.props.history.replace(`/${surls[this.state.path]}/1?${end}`));
+        // (<Redirect to={`/${surls[this.state.path]}/1${this.props.query}`}/>);
+
+        // this.getData();
     };
 
+    handleDirectionChange(e) {
+        let change = !this.state.desc;
+        this.setState({
+            currentPage: 1,
+            desc: change,
+        })
+
+    }
+
     render() {
-        let filtersRender = this.state.filterOptions.map(filterable =>
-            <Col key={filterable} sm={4}>
-            <Select className={"Filter"}
-
-                    name={filterable}
-                    value={this.state.activeFilters.filterable}
-                    onChange={this.handleFilterChange.bind(this, filterable)}
-                    options={filterables[this.props.path][filterable]}
-                    isMulti={false}
-                    placeholder={"Filter by " + filterable + "..."}>
-            </Select>
-            </Col>
-        );
-
-        let sortRender =
-            [<Select className={"Sort"}
-                     key={'Sort'}
-                     name='Sort'
-                     value={sortables[this.props.path][this.state.activeSort]}
-                     onChange={this.handleSortChange.bind(this)}
-                     options={sortables[this.props.path]}
-                     placeholder={"Sort by ..."}>
-            </Select>]
-        ;
-
+        let filtersRender, sortRender, sortButton = [];
+        if (this.state.path !== 'search') {
+            debugger;
+            filtersRender = this.state.filterOptions.map(filterable =>
+                <Col key={filterable} sm={4} className={'mx-auto'}>
+                    <Select className={"Filter"}
+                            name={filterable}
+                            value={this.state.activeFilters.filterable}
+                            onChange={this.handleFilterChange.bind(this, filterable)}
+                            options={filterables[this.props.path][filterable]}
+                            isMulti={false}
+                            placeholder={`${this.state.activeFilters.filterable || "Filter by " + filterable + "..."}`}>
+                    </Select>
+                </Col>
+            );
+            sortRender =
+                [<Select className={"Sort"}
+                         key={'Sort'}
+                         name='Sort'
+                         value={sortables[this.props.path][this.state.activeSort]}
+                         onChange={this.handleSortChange.bind(this)}
+                         options={sortables[this.props.path]}
+                         placeholder={`${this.state.activeSort || "Sort by ..."}`}>
+                </Select>]
+            ;
+            sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
+                                        onClick={this.handleDirectionChange.bind(this)}/>]
+        }
         return (
             <div>
-                <Row>
-                    {filtersRender}
-                </Row>
-                <Row>
-                    <Col>
-                        <div className={"Menu"}>
-                            {sortRender}</div>
-
-                    </Col>
-                </Row>
-                <Row>
-                    <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
-                            className={'mx-auto'} style={{margin: '2%'}}>
-                        Apply Filters/Sort
-                    </Button>
-
-                </Row>
+                {this.state.path !== 'search' &&
+                (<div>
+                        <Row>
+                            {filtersRender}
+                        </Row>
+                        <Row>
+                            <Col>
+                                <div className={"Menu"}>
+                                    {sortRender}</div>
+                            </Col>
+                        </Row>
+                        <Row>
+                            <Col>
+                            </Col>
+                            <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
+                                    className={'mx-auto'} style={{margin: '5px'}}>
+                                Apply Filters/Sort
+                            </Button><Col>
+                            <span style={{margin: 'auto'}}>
+                                {sortButton}</span>
+                            </Col>
+                        </Row>
+                    </div>
+                )}
                 <GridContainer info={this.state.info} path={this.props.path}/>
                 <Row>
-
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {this.state.pagination}
                     </Pagination>
@@ -217,4 +307,5 @@ class PaginationContainer extends Component {
     }
 }
 
-export default (PaginationContainer);
+export default withRouter(PaginationContainer);
+

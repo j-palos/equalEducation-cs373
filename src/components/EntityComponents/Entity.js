@@ -4,6 +4,8 @@ import {EntityName} from './EntityName';
 import {EntityInfo} from "./EntityInfo";
 import {EntityMap} from "./EntityMap";
 import {EntityYoutube} from "./EntityYoutube";
+import {EntityBarChart} from "./EntityBarChart";
+import {EntityPieChart} from "./EntityPieChart";
 import './Entity.css'
 
 export const Entity = (props) => {
@@ -22,7 +24,7 @@ export const Entity = (props) => {
                       </Card>
                     </Col>
                       <Col sm={'8 pr-5'}>
-                        <EntityMap info={info.Info}/>
+                        <EntityMap info={info.Location}/>
                       </Col>
                   </Row>
                 }
@@ -34,17 +36,6 @@ export const Entity = (props) => {
                     </CardBody>
                   </Card>
                 </Row>
-                }
-                {props.type === "charity" &&
-                   <Row className={'mt-4 p-3'}>
-                    <Col sm={'2'}>
-                    </Col>
-                    <Col>
-                      <EntityYoutube title={info.Name} />
-                    </Col>
-                    <Col sm={'2'}>
-                    </Col>
-                   </Row>
                 }
                 {(props.type === "school" || props.type === "charity") &&
                   <Row>
@@ -62,7 +53,24 @@ export const Entity = (props) => {
                     </Col>
                   </Row>
                 }
-                
+                {props.type === "charity" &&
+                   <Row className={'mt-4 p-3'}>
+                    <Col>
+                      <EntityYoutube title={info.Name} />
+                    </Col>
+                   </Row>
+                }
+                {props.type === "school" &&
+                <Row className={'mt-4 p-3'}>
+                  <Col>
+                    <EntityBarChart info={info.Info} />
+                  </Col>
+                  <Col className={'left-padding'}>
+                    <EntityPieChart info={info.Info} />
+                  </Col>
+                </Row>
+                }
+
                 </Container>
             </Row>
         </Container>
