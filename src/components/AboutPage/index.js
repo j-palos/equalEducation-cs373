@@ -27,7 +27,7 @@ class AboutPage extends Component {
                 <main role="main">
                     <Row className="featurette first-row-margin">
                         <Col>
-                            <h1 className="h1-style">About the Site</h1>
+                            <h1 className="h1-style" id="about-site">About the Site</h1>
                             <p className="lead">A website to help people find charitable opportunities to assist
                                 underprivileged children with their education. The website aggregates a
                                 large
@@ -40,7 +40,7 @@ class AboutPage extends Component {
                     <hr className="featurette-divider"/>
                     <Row className="featurette">
                         <Col>
-                            <h1 className="h1-style">About our Data</h1>
+                            <h1 className="h1-style" id="about-data">About our Data</h1>
                             <p className="lead">Charity Navigator, Census Govt, Wikipedia (RESTful APIs)</p>
                             <a href="https://documenter.getpostman.com/view/5488016/RWgm41VA" className="lead">Postman API</a>
 
@@ -51,7 +51,7 @@ class AboutPage extends Component {
                     <hr className="featurette-divider"/>
                     <Row className={"featurette"}>
                         <Col>
-                            <h1 className="h1-style">About Us</h1>
+                            <h1 className="h1-style"  id="about-us">About Us</h1>
                         </Col>
                         <CardDeck className="margin-bottom">
                             <PersonCard className="card-top-padding" name={'Jesus'}/>
@@ -69,15 +69,15 @@ class AboutPage extends Component {
 
                     <hr className={"featurette-divider"}/>
                     <Row className={"featurette"}>
-                        <Col><h1 className="h1-style">Statistics</h1></Col>
+                        <Col><h1 className="h1-style" id="about-stats">Statistics</h1></Col>
                         <AboutHelper/>
                     </Row>
 
                     <hr className={"featurette-divider"}/>
-                    <h1 className="h1-style">Tools Used</h1>
+                    <h1 className="h1-style" id="about-tools">Tools Used</h1>
 
                     <Col className="tools">
-                        <ul className="caption-style-4">
+                        <ul className="caption-style-4" id="tools-group">
                             <li>
                                 <img src={require("../../images/logo/gitlab.png")} className="img-size" alt="gitlab"/>
                                 <div className="caption">

@@ -46,13 +46,13 @@ class AboutHelper extends Component {
         };
 
         const unit_dict = {
-            "Intae": 18,
+            "Intae": 20,
             "Kyle": 0,
-            "Prateek": 3,
+            "Prateek": 12,
             "Jesus": 0,
             "Andrew": 6,
             "Ailyn": 0,
-            "Total": 27
+            "Total": 38
         }
         let nameArray = [];
         //fetch the data from the gitlab api and return as an object we can use later
