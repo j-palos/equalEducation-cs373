@@ -13,6 +13,7 @@ import {withRouter} from "react-router-dom";
 
 const base = 'http://api.equaleducation.info';
 
+
 const urls = {
     'charity': 'charities',
     'school': 'school_districts',
@@ -32,6 +33,7 @@ const surls = {
 class PaginationContainer extends Component {
 
     //passed in a prop for total number of thing
+
     constructor(props) {
         super(props);
         let curPage = parseInt(this.props.page);
@@ -48,6 +50,7 @@ class PaginationContainer extends Component {
             activeSort: this.props.activeSort || null,
             desc: this.props.desc || false,
         }
+
     }
 
     componentDidMount() {
@@ -164,7 +167,7 @@ class PaginationContainer extends Component {
             />)
         }
         if (lastPage > currentPage) {
-            let url = this.getAPIURL(i);
+            let url = this.getAPIURL(lastPage);
             pagination.push(<PagingGenerator pageNumber={currentPage + 1} type={'next'} path={this.props.path}
                                              key={'next'} url={url} query={query}
             />);
