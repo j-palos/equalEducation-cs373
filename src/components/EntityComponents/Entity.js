@@ -37,17 +37,6 @@ export const Entity = (props) => {
                   </Card>
                 </Row>
                 }
-                {props.type === "charity" &&
-                   <Row className={'mt-4 p-3'}>
-                    <Col sm={'2'}>
-                    </Col>
-                    <Col>
-                      <EntityYoutube title={info.Name} />
-                    </Col>
-                    <Col sm={'2'}>
-                    </Col>
-                   </Row>
-                }
                 {(props.type === "school" || props.type === "charity") &&
                   <Row>
                     <Col sm={'4'}>
