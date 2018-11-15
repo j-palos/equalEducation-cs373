@@ -98,8 +98,10 @@ body {
 }
 
 mark {
-    background-color: yellow;
-    color: black;
+    /*background-color: yellow !important;*/
+    background-color: transparent !important;
+    color: red !important;
+    font-size: larger;
 }
 
 .modelCard {

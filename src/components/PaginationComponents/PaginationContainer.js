@@ -34,6 +34,13 @@ const surls = {
     'community': 'communities',
 };
 
+const gridSearchPaths = {
+    0: 'all',
+    1: 'school_districts',
+    2: 'charities',
+    3: 'communities'
+};
+
 class PaginationContainer extends Component {
 
     //passed in a prop for total number of thing
@@ -205,7 +212,7 @@ class PaginationContainer extends Component {
     handleFilterChange(filterable, selections) {
         let selection = this.state.activeFilters || [];
         selection[`${filterable}`] = selections;
-        console.log('here')
+        console.log('here');
         console.log(selection);
         console.log(selections);
         debugger;
@@ -256,6 +263,7 @@ class PaginationContainer extends Component {
 
     render() {
         let filtersRender, sortRender, sortButton = [];
+        let gridPath = this.props.path !== 'search' ? this.props.path : searchurl[this.state.value];
         if (this.state.path !== 'search') {
             debugger;
             filtersRender = this.state.filterOptions.map(filterable =>
@@ -309,7 +317,7 @@ class PaginationContainer extends Component {
                         </Row>
                     </div>
                 )}
-                <GridContainer info={this.state.info} path={this.props.path}/>
+                <GridContainer info={this.state.info} path={gridPath}/>
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {this.state.pagination}

@@ -1,10 +1,10 @@
 import React from 'react';
-import { BarChart } from 'react-easy-chart';
+import {BarChart} from 'react-easy-chart';
 import './chart.css'
 
 export const EntityBarChart = (props) => {
 
-  var poverty = props.info.Poverty;
+    let poverty = props.info.Poverty;
   poverty = poverty.replace(/\d+% ?/g, "");
 
   return (

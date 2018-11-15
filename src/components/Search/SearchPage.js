@@ -4,16 +4,15 @@ import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import Tab from "@material-ui/core/Tab/Tab";
 import Tabs from "@material-ui/core/Tabs/Tabs";
 import AppBar from "@material-ui/core/AppBar/AppBar";
-import Typography from "@material-ui/core/Typography/Typography";
 
 
-function TabContainer(props) {
-    return (
-        <Typography component="div" style={{padding: 8 * 3}}>
-            {props.children}
-        </Typography>
-    );
-}
+// function TabContainer(props) {
+//     return (
+//         <Typography component="div" style={{padding: 8 * 3}}>
+//             {props.children}
+//         </Typography>
+//     );
+// }
 
 class SearchPage extends React.Component {
 
@@ -97,26 +96,12 @@ class SearchPage extends React.Component {
                                         </Button>
                                     </FormGroup>
                                 </Form>
-                                {this.state.submitted && this.state.value === 0 && <TabContainer><PaginationContainer
+                                {this.state.submitted && <PaginationContainer
                                     path={'search'}
                                     page={this.state.page}
                                     search={this.state.search}
-                                /></TabContainer>}
-                                {this.state.submitted && this.state.value === 1 && <TabContainer><PaginationContainer
-                                    path={'search'}
-                                    page={this.state.page}
-                                    search={this.state.search}
-                                /></TabContainer>}
-                                {this.state.submitted && this.state.value === 2 && <TabContainer><PaginationContainer
-                                    path={'search'}
-                                    page={this.state.page}
-                                    search={this.state.search}
-                                /></TabContainer>}
-                                {this.state.submitted && this.state.value === 3 && <TabContainer><PaginationContainer
-                                    path={'search'}
-                                    page={this.state.page}
-                                    search={this.state.search}
-                                /></TabContainer>}
+                                    value={this.state.value}
+                                />}
                             </Col>
                         </Row>
                     </div>

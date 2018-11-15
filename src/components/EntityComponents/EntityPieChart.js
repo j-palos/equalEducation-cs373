@@ -1,10 +1,10 @@
 import React from 'react';
-import { PieChart } from 'react-easy-chart';
+import {PieChart} from 'react-easy-chart';
 import './chart.css'
 
 export const EntityPieChart = (props) => {
 
-  var poverty = props.info.Poverty;
+    let poverty = props.info.Poverty;
   poverty = poverty.replace(/\d+% ?/g, "");
 
   return (

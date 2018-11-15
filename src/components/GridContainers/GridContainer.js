@@ -4,6 +4,12 @@ import {CardDeck, Component} from 'reactstrap';
 import './InfoCard.css';
 
 
+const urls = {
+    'charities': 'charity',
+    'school_districts': 'school',
+    'communities': 'community',
+};
+
 class GridContainer extends React.Component {
 
     constructor(props) {
@@ -17,7 +23,7 @@ class GridContainer extends React.Component {
         let output = [];
         let cards = this.props.info;
         for (let x in cards) {
-            output.push(<Gridcard key={cards[x]['Id']} link={`/${this.props.path}/${cards[x]['Id']}`}
+            output.push(<Gridcard key={cards[x]['Id']} link={`/${urls[cards[x]['Model']]}/${cards[x]['Id']}`}
                                   className={'modelCard'} info={cards[x]['Info']}
                                   src={cards[x]['Image']}/>);
         }
