@@ -102,14 +102,18 @@ class PaginationContainer extends Component {
 
     getAPIURL(currentPage) {
         let url = `${base}/${urls[this.props.path]}?page=${currentPage}`;
-
-        let end = this.getActiveFilters();
-        end += this.getActiveSort();
+        let end;
+        if (this.state.activeFilters) {
+            end = this.getActiveFilters();
+        }
+        if (this.state.activeSort) {
+            end += this.getActiveSort();
+        }
         return url + end;
     }
 
     getSearchAPIURL(currentPage) {
-        return `${base}/${searchurl[this.state.value]}?page=${currentPage}&search=${this.props.search}&list=999`;
+        return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${this.props.search}&list=999`;
     }
 
 // /school_districts?page=1&search=Clarksdale
@@ -123,7 +127,7 @@ class PaginationContainer extends Component {
         else {
             url = this.getAPIURL(currentPage).toLowerCase();
         }
-        if (sessionStorage.getItem(`${url}`)) {
+        if (sessionStorage.getItem(`${url}`) && this.props.path !== 'search') {
             this.getDataFromCache(currentPage, `${url}`);
         }
         else {
@@ -196,6 +200,10 @@ class PaginationContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
+        if (this.props.search === nextProps.search && this.props.value === nextProps.value) {
+            debugger;
+            return;
+        }
         let curPage = parseInt(nextProps.page);
         this.setState({
                 currentPage: curPage,

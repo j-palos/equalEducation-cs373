@@ -58,7 +58,6 @@ class SearchPage extends React.Component {
     handleTabChange = (event, value) => {
         this.setState({
             value: value,
-            submitted: false
         });
     };
 
