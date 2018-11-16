@@ -200,7 +200,7 @@ class PaginationContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if (this.props.search === nextProps.search && this.props.value === nextProps.value) {
+        if (this.props.search === nextProps.search && this.props.value === nextProps.value && this.props.path === 'search') {
             debugger;
             return;
         }
