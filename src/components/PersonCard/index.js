@@ -23,9 +23,9 @@ const responsibilities = {
     "Kyle": "Responsibilities: I am responsible for the front-end design and documentation.",
     "Prateek": "Responsibilities: I am responsible for the back-end development and API design.",
     "Andrew": "Responsibilities: I am responsible for back-end development and operations.",
-    "Jesus": "Responsibilities: I have mostly been responsible for setting up react.",
+    "Jesus": "Responsibilities: I am responsible for front-end design and architecture. I worked with the backend to make sure our API was connected",
     "Ailyn": "Responsibilities: I am responsible for the front end design.",
-}
+};
 
 const images = {
     "Intae": intaeImage,
@@ -41,7 +41,7 @@ function PersonCard(props) {
         <Card className="card-top-padding">
             <CardImg top className="rounded-circle card-img-top mx-auto" src={images[props.name]}
                      alt={"Card image"} style={{width: 180, height: 180}}/>
-            <CardBody>
+            <CardBody id="cardbody-persons">
                 <CardTitle>{props.name}</CardTitle>
                 <CardText>{profile[props.name]}</CardText>
                 <CardText>{responsibilities[props.name]}</CardText>

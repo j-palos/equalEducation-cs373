@@ -8,7 +8,8 @@ export const EntityInfo = (props) => {
     let keys = Object.keys(information);
     // debugger;
     for (let i = 0; i < Object.values(keys).length; i++) {
-        children.push(<span key={keys[i]}>{keys[i]}: <strong>{information[keys[i]]}</strong> <br/> </span>)
+        children.push(<span key={keys[i]}><span dangerouslySetInnerHTML={{__html: keys[i]}}/>: <strong><span
+            dangerouslySetInnerHTML={{__html: information[keys[i]]}}/></strong> <br/> </span>)
     }
     return (
         <CardText className={"lead"}>

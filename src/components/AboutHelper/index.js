@@ -46,13 +46,13 @@ class AboutHelper extends Component {
         };
 
         const unit_dict = {
-            "Intae": 18,
+            "Intae": 20,
             "Kyle": 0,
-            "Prateek": 3,
+            "Prateek": 12,
             "Jesus": 0,
             "Andrew": 6,
             "Ailyn": 0,
-            "Total": 27
+            "Total": 38
         }
         let nameArray = [];
         //fetch the data from the gitlab api and return as an object we can use later
@@ -88,7 +88,39 @@ class AboutHelper extends Component {
 
         });
 
-        fetch('https://gitlab.com/api/v4/projects/8778058/repository/commits?per_page=500')
+        fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits?per_page=100&page=3')
+            .then(results => {
+                return results.json();
+            }).then(frontend_commits => {
+
+            for (let i = 0; i < frontend_commits.length; i++) {
+                let value = frontend_commits[i].author_email;
+                if (email_dict[value]) {
+                    commit_dict[email_dict[value]] += 1;
+                    commit_dict["Total"] += 1;
+                }
+            }
+            //todo Add in the gitlab data for issues and unit_test
+
+        });
+
+        fetch('https://gitlab.com/api/v4/projects/8524331/repository/commits?per_page=100&page=4')
+            .then(results => {
+                return results.json();
+            }).then(frontend_commits => {
+
+            for (let i = 0; i < frontend_commits.length; i++) {
+                let value = frontend_commits[i].author_email;
+                if (email_dict[value]) {
+                    commit_dict[email_dict[value]] += 1;
+                    commit_dict["Total"] += 1;
+                }
+            }
+            //todo Add in the gitlab data for issues and unit_test
+
+        });
+
+        fetch('https://gitlab.com/api/v4/projects/8778058/repository/commits?per_page=100&page=1')
             .then(results => {
                 return results.json();
             }).then(backend_commits => {
