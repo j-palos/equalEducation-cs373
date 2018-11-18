@@ -1,18 +1,10 @@
 import React from 'react';
 import {Button, Col, Container, Form, FormGroup, Input, Row} from 'reactstrap';
-import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import Tab from "@material-ui/core/Tab/Tab";
 import Tabs from "@material-ui/core/Tabs/Tabs";
 import AppBar from "@material-ui/core/AppBar/AppBar";
+import SearchPaginationContainer from "../PaginationComponents/SearchPaginationContainer";
 
-
-// function TabContainer(props) {
-//     return (
-//         <Typography component="div" style={{padding: 8 * 3}}>
-//             {props.children}
-//         </Typography>
-//     );
-// }
 
 class SearchPage extends React.Component {
 
@@ -95,11 +87,12 @@ class SearchPage extends React.Component {
                                         </Button>
                                     </FormGroup>
                                 </Form>
-                                {this.state.submitted && <PaginationContainer
+                                {this.state.submitted && <SearchPaginationContainer
                                     path={'search'}
                                     page={this.state.page}
                                     search={this.state.search}
                                     value={this.state.value}
+                                    query={this.props.location.search}
                                 />}
                             </Col>
                         </Row>

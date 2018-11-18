@@ -9,6 +9,7 @@ const urls = {
     'charity': 'charities',
     'school': 'schools',
     'community': 'communities',
+    'search': 'search',
 };
 
 const apiurls = {
@@ -18,14 +19,9 @@ const apiurls = {
 };
 
 
-export default class PagingGenerator extends React.Component {
+export default class PagingGenerator extends React.PureComponent {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            pageNumber: this.props.pageNumber
-        }
-    }
+
 
     componentDidMount() {
 
