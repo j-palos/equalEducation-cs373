@@ -1,5 +1,5 @@
 const initialState = {
-    articles: []
+    searchTerms: []
 };
 const rootReducer = (state = initialState, action) => state;
 
