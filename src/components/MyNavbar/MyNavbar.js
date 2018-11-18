@@ -12,13 +12,16 @@ const mapDispatchToProps = dispatch => {
     };
 };
 
+const mapStateToProps = state => {
+    return {searchTerms: state.searchTerms};
+};
+
 class Myavbar extends React.Component {
     constructor(props) {
         super(props);
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            userInput: '',
             isOpen: false
         };
     }
@@ -35,6 +38,10 @@ class Myavbar extends React.Component {
         });
         this.props.changeTerms(e.target.value);
 
+    }
+
+    handleSubmit() {
+        this.props.history.push('/search');
     }
 
     render() {
@@ -71,7 +78,7 @@ class Myavbar extends React.Component {
                             </NavItem>
                         </Nav>
                         <Input type="search" name="search" id="search" placeholder="Search Within Page.."
-                               value={this.state.userInput} onKeyPress={e => {
+                               value={this.props.searchTerms} onKeyPress={e => {
                             if (e.key === 'Enter') this.handleSubmit(e);
                         }} onChange={this.handleChange.bind(this)}/>
                     </Collapse>
@@ -81,5 +88,5 @@ class Myavbar extends React.Component {
     }
 }
 
-const MyNavbar = connect(null, mapDispatchToProps)(Myavbar);
+const MyNavbar = connect(mapStateToProps, mapDispatchToProps)(Myavbar);
 export default withRouter(MyNavbar);

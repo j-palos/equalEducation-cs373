@@ -7,7 +7,7 @@ const mapStateToProps = state => {
     return {searchTerms: state.searchTerms};
 };
 
-class CxtWrapper extends React.Component {
+class CxtWrapper extends React.PureComponent {
 
 
     render() {
@@ -17,7 +17,7 @@ class CxtWrapper extends React.Component {
                         highlightClassName="mark"
                         searchWords={this.props.searchTerms}
                         autoEscape={true}
-                        textToHighlight={this.props.text}
+                        textToHighlight={String(this.props.children)}
                     />
         )
     }

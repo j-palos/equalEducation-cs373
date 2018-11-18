@@ -10,8 +10,12 @@ class LandingPage extends Component {
             <div>
                 <main role="main">
                     <Carousel/>
-                    <p className="mission"><TextWrapper
-                        text={"Here at Equal Education, our mission is to help people find charitable organizations that support education  in their desired region. Equal Education focuses on low income areas and highlights statistics about the surrounding community to raise awareness for these impoverished areas. We make it possible to donate or volunteer with these organizations and make a difference in a child's education."}/>
+                    <p className="mission"><TextWrapper>
+                        Here at Equal Education, our mission is to help people find charitable organizations that
+                        support education in their desired region. Equal Education focuses on low income areas and
+                        highlights statistics about the surrounding community to raise awareness for these impoverished
+                        areas. We make it possible to donate or volunteer with these organizations and make a difference
+                        in a child's education.</TextWrapper>
                     </p>
                     <div className="container marketing">
                     </div>

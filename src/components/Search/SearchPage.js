@@ -4,9 +4,17 @@ import Tab from "@material-ui/core/Tab/Tab";
 import Tabs from "@material-ui/core/Tabs/Tabs";
 import AppBar from "@material-ui/core/AppBar/AppBar";
 import SearchPaginationContainer from "../PaginationComponents/SearchPaginationContainer";
+import {changeTerms} from "../../js/store/actions";
+import connect from "react-redux/es/connect/connect";
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeTerms: term => dispatch(changeTerms(term))
+    };
+};
 
 
-class SearchPage extends React.Component {
+class Search extends React.Component {
 
     constructor(props) {
         super(props);
@@ -45,12 +53,14 @@ class SearchPage extends React.Component {
             search: value,
             submitted: true,
         });
+        this.props.changeTerms(value);
     };
 
     handleTabChange = (event, value) => {
         this.setState({
             value: value,
         });
+
     };
 
     render() {
@@ -104,5 +114,5 @@ class SearchPage extends React.Component {
     }
 }
 
-
+const SearchPage = connect(null, mapDispatchToProps)(Search);
 export default SearchPage;

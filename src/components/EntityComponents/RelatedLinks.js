@@ -2,6 +2,7 @@ import React from 'react';
 import RelatedLinkHelper from "./RelatedLinkHelper";
 // import Card from "@material-ui/core/Card/Card";
 import {Card, CardBody, CardText, CardTitle} from "reactstrap";
+import TextWrapper from "../Search/TextWrapper";
 
 //todo add in api call stuff
 const base = 'http://api.equaleducation.info';
@@ -101,7 +102,7 @@ class RelatedLinks extends React.Component {
             <Card>
 
                 <CardBody>
-                    <CardTitle>{relatedText[this.props.to]}</CardTitle>
+                    <CardTitle><TextWrapper>{relatedText[this.props.to]}</TextWrapper></CardTitle>
                     {this.state.loaded &&
                     this.state.links.map(entity =>
                         <CardText><RelatedLinkHelper id={entity['Id']} to={this.props.to}>
