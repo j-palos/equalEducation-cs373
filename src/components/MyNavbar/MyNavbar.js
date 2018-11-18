@@ -3,16 +3,22 @@ import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} fro
 import {NavLink as RRNavLink, withRouter} from 'react-router-dom';
 import './styles.css'
 import Input from "@material-ui/core/Input";
+import {changeTerms} from "../../js/store/actions";
+import connect from "react-redux/es/connect/connect";
 
+const mapDispatchToProps = dispatch => {
+    return {
+        changeTerms: term => dispatch(changeTerms(term))
+    };
+};
 
-const SearchContext = React.createContext('');
-class MyNavbar extends React.Component {
+class Myavbar extends React.Component {
     constructor(props) {
         super(props);
 
         this.toggle = this.toggle.bind(this);
         this.state = {
-            userInput: 'hello',
+            userInput: '',
             isOpen: false
         };
     }
@@ -24,19 +30,18 @@ class MyNavbar extends React.Component {
     }
 
     handleChange(e) {
-        // debugger;
         this.setState({
             userInput: e.target.value,
-        })
+        });
+        this.props.changeTerms(e.target.value);
+
     }
 
     render() {
 
 
-        debugger;
         return (
             <div>
-                <SearchContext.Provider value={{input: this.state.userInput}}/>
                 <Navbar style={{backgroundColor: '#07969b'}} dark expand="md" fixed={"top"}>
                     <NavbarBrand tag={RRNavLink} to={"/"}>
                         <span className="text-white">Equal Education</span>
@@ -65,7 +70,7 @@ class MyNavbar extends React.Component {
                                 <NavLink to={"/search"} activeClassName={'active'} tag={RRNavLink}>Search</NavLink>
                             </NavItem>
                         </Nav>
-                        <Input type="search" name="search" id="search" placeholder="Search for...."
+                        <Input type="search" name="search" id="search" placeholder="Search Within Page.."
                                value={this.state.userInput} onKeyPress={e => {
                             if (e.key === 'Enter') this.handleSubmit(e);
                         }} onChange={this.handleChange.bind(this)}/>
@@ -76,6 +81,5 @@ class MyNavbar extends React.Component {
     }
 }
 
-export const SearchContextConsumer = SearchContext.Consumer;
-
+const MyNavbar = connect(null, mapDispatchToProps)(Myavbar);
 export default withRouter(MyNavbar);

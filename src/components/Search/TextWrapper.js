@@ -1,26 +1,27 @@
 import Highlighter from "react-highlight-words";
 import React from 'react';
-import {SearchContextConsumer} from '../MyNavbar/MyNavbar';
+import connect from "react-redux/es/connect/connect";
 
 
-class TextWrapper extends React.Component {
+const mapStateToProps = state => {
+    return {searchTerms: state.searchTerms};
+};
+
+class CxtWrapper extends React.Component {
 
 
     render() {
         debugger;
         return (
-            <SearchContextConsumer>
-                {({input}) => (
                     <Highlighter
                         highlightClassName="mark"
-                        searchWords={[input]}
+                        searchWords={this.props.searchTerms}
                         autoEscape={true}
                         textToHighlight={this.props.text}
                     />
-                )}
-            </SearchContextConsumer>
         )
     }
 }
 
+const TextWrapper = connect(mapStateToProps)(CxtWrapper);
 export default TextWrapper;
