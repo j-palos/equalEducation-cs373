@@ -1,20 +1,20 @@
 import React from 'react';
 import {Button, Col, Container, Form, FormGroup, Input, Row} from 'reactstrap';
-import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import Tab from "@material-ui/core/Tab/Tab";
 import Tabs from "@material-ui/core/Tabs/Tabs";
 import AppBar from "@material-ui/core/AppBar/AppBar";
+import SearchPaginationContainer from "../PaginationComponents/SearchPaginationContainer";
+import {changeTerms} from "../../js/store/actions";
+import connect from "react-redux/es/connect/connect";
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeTerms: term => dispatch(changeTerms(term))
+    };
+};
 
 
-// function TabContainer(props) {
-//     return (
-//         <Typography component="div" style={{padding: 8 * 3}}>
-//             {props.children}
-//         </Typography>
-//     );
-// }
-
-class SearchPage extends React.Component {
+class Search extends React.Component {
 
     constructor(props) {
         super(props);
@@ -53,12 +53,14 @@ class SearchPage extends React.Component {
             search: value,
             submitted: true,
         });
+        this.props.changeTerms(value);
     };
 
     handleTabChange = (event, value) => {
         this.setState({
             value: value,
         });
+
     };
 
     render() {
@@ -95,11 +97,12 @@ class SearchPage extends React.Component {
                                         </Button>
                                     </FormGroup>
                                 </Form>
-                                {this.state.submitted && <PaginationContainer
+                                {this.state.submitted && <SearchPaginationContainer
                                     path={'search'}
                                     page={this.state.page}
                                     search={this.state.search}
                                     value={this.state.value}
+                                    query={this.props.location.search}
                                 />}
                             </Col>
                         </Row>
@@ -111,5 +114,5 @@ class SearchPage extends React.Component {
     }
 }
 
-
+const SearchPage = connect(null, mapDispatchToProps)(Search);
 export default SearchPage;

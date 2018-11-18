@@ -20,13 +20,10 @@ class Gridcard extends React.PureComponent {
                         <EntityInfo info={this.props.info}/>
                         <Row className="Buttons">
                             <Col className="text-center">
-                                <Link to={this.props.link}>
-                                    <Button color="primary">View More</Button>
-                                </Link>
+                                <Button tag={Link} to={this.props.link} color="primary">View More</Button>
                             </Col>
                         </Row>
                     </CardBody>
-
                 </Paper>
             </Col>
         );

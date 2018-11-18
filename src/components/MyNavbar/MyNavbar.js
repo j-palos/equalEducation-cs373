@@ -2,8 +2,21 @@ import React from 'react';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink, withRouter} from 'react-router-dom';
 import './styles.css'
+import Input from "@material-ui/core/Input";
+import {changeTerms} from "../../js/store/actions";
+import connect from "react-redux/es/connect/connect";
 
-class MyNavbar extends React.Component {
+const mapDispatchToProps = dispatch => {
+    return {
+        changeTerms: term => dispatch(changeTerms(term))
+    };
+};
+
+const mapStateToProps = state => {
+    return {searchTerms: state.searchTerms};
+};
+
+class Myavbar extends React.Component {
     constructor(props) {
         super(props);
 
@@ -19,7 +32,20 @@ class MyNavbar extends React.Component {
         });
     }
 
+    handleChange(e) {
+        this.setState({
+            userInput: e.target.value,
+        });
+        this.props.changeTerms(e.target.value);
+
+    }
+
+    handleSubmit() {
+        this.props.history.push('/search');
+    }
+
     render() {
+
 
         return (
             <div>
@@ -51,6 +77,10 @@ class MyNavbar extends React.Component {
                                 <NavLink to={"/search"} activeClassName={'active'} tag={RRNavLink}>Search</NavLink>
                             </NavItem>
                         </Nav>
+                        <Input type="search" name="search" id="search" placeholder="Search Within Page.."
+                               value={this.props.searchTerms} onKeyPress={e => {
+                            if (e.key === 'Enter') this.handleSubmit(e);
+                        }} onChange={this.handleChange.bind(this)}/>
                     </Collapse>
                 </Navbar>
             </div>
@@ -58,4 +88,5 @@ class MyNavbar extends React.Component {
     }
 }
 
+const MyNavbar = connect(mapStateToProps, mapDispatchToProps)(Myavbar);
 export default withRouter(MyNavbar);
