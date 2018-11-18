@@ -8,10 +8,7 @@ const mapStateToProps = state => {
 };
 
 class CxtWrapper extends React.PureComponent {
-
-
     render() {
-        debugger;
         return (
                     <Highlighter
                         highlightClassName="mark"

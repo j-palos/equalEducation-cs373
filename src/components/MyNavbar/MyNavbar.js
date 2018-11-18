@@ -78,7 +78,7 @@ class Myavbar extends React.Component {
                             </NavItem>
                         </Nav>
                         <Input type="search" name="search" id="search" placeholder="Search Within Page.."
-                               value={this.props.searchTerms} onKeyPress={e => {
+                               value={String(this.props.searchTerms).replace(/,/g, ' ')} onKeyPress={e => {
                             if (e.key === 'Enter') this.handleSubmit(e);
                         }} onChange={this.handleChange.bind(this)}/>
                     </Collapse>
