@@ -17,7 +17,36 @@ class LandingPage extends Component {
                         areas. We make it possible to donate or volunteer with these organizations and make a difference
                         in a child's education.</TextWrapper>
                     </p>
-                    <div className="container marketing">
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-sm">
+                                <div class="card text-center">
+                                    <div class="card-body" id="landing-cards">
+                                        <h5 class="card-title">School Districts</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="/schools" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card text-center">
+                                    <div class="card-body" id="landing-cards">
+                                        <h5 class="card-title">Charities</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="/charities" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm">
+                                <div class="card text-center">
+                                    <div class="card-body" id="landing-cards">
+                                        <h5 class="card-title">Communities</h5>
+                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <a href="/communties" class="btn btn-primary">Learn More</a>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </main>
             </div>

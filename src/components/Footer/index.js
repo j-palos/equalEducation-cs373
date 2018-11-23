@@ -25,7 +25,7 @@ class Footer extends Component {
 // <span className="sr-only">(current)</span>
   render() {
     return (
-      <footer className="container">
+      <footer color='#393789' className="container">
         <p className="float-right">
           <button type="button" className="btn btn-link"
                   onClick={ () => { this.scrollToTop(); }}>
