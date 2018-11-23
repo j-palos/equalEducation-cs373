@@ -23,7 +23,7 @@ class LandingPage extends Component {
                                 <div class="card text-center">
                                     <div class="card-body" id="landing-cards">
                                         <h5 class="card-title">School Districts</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <p class="card-text">Description of schools</p>
                                         <a href="/schools" class="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@ class LandingPage extends Component {
                                 <div class="card text-center">
                                     <div class="card-body" id="landing-cards">
                                         <h5 class="card-title">Charities</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+                                        <p class="card-text">Description of charities</p>
                                         <a href="/charities" class="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
@@ -41,12 +41,17 @@ class LandingPage extends Component {
                                 <div class="card text-center">
                                     <div class="card-body" id="landing-cards">
                                         <h5 class="card-title">Communities</h5>
-                                        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
-                                        <a href="/communties" class="btn btn-primary">Learn More</a>
+                                        <p class="card-text">Description of communities</p>
+                                        <a href="/communities" class="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                    <div>
+                    <p></p>
+                    <p></p>
+                    <p></p>
                     </div>
                 </main>
             </div>

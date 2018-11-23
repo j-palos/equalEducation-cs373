@@ -4,7 +4,7 @@ import {Button} from 'reactstrap';
 
 const pictures = [
     '/images/splash-school-template.jpg',
-    '/images/splash-charity-template.jpeg',
+    '/images/splash-charity-template.jpg',
     '/images/splash-community-template.jpeg'];
 
 class Slide extends Component {
@@ -31,16 +31,6 @@ class Slide extends Component {
                 <img className="first-slide"
                      src={this.picture}
                      alt="First slide"/>
-                <div className="container">
-                    <div className="carousel-caption text-left">
-                        <h1>{this.props.title}</h1>
-                        <p>
-                            <Link to={this.props.link}>
-                                <Button color="success">Learn More</Button>
-                            </Link>
-                        </p>
-                    </div>
-                </div>
             </div>
 
         );
