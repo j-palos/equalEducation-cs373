@@ -17,32 +17,32 @@ class LandingPage extends Component {
                         areas. We make it possible to donate or volunteer with these organizations and make a difference
                         in a child's education.</TextWrapper>
                     </p>
-                    <div class="container">
-                        <div class="row">
-                            <div class="col-sm">
-                                <div class="card text-center">
-                                    <div class="card-body" id="landing-cards">
-                                        <h5 class="card-title">School Districts</h5>
-                                        <p class="card-text">Description of schools</p>
-                                        <a href="/schools" class="btn btn-primary">Learn More</a>
+                    <div className="container">
+                        <div className="row">
+                            <div className="col-sm">
+                                <div className="card text-center">
+                                    <div className="card-body" id="landing-cards">
+                                        <h5 className="card-title">School Districts</h5>
+                                        <p className="card-text">Description of schools</p>
+                                        <a href="/schools" className="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm">
-                                <div class="card text-center">
-                                    <div class="card-body" id="landing-cards">
-                                        <h5 class="card-title">Charities</h5>
-                                        <p class="card-text">Description of charities</p>
-                                        <a href="/charities" class="btn btn-primary">Learn More</a>
+                            <div className="col-sm">
+                                <div className="card text-center">
+                                    <div className="card-body" id="landing-cards">
+                                        <h5 className="card-title">Charities</h5>
+                                        <p className="card-text">Description of charities</p>
+                                        <a href="/charities" className="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
                             </div>
-                            <div class="col-sm">
-                                <div class="card text-center">
-                                    <div class="card-body" id="landing-cards">
-                                        <h5 class="card-title">Communities</h5>
-                                        <p class="card-text">Description of communities</p>
-                                        <a href="/communities" class="btn btn-primary">Learn More</a>
+                            <div className="col-sm">
+                                <div className="card text-center">
+                                    <div className="card-body" id="landing-cards">
+                                        <h5 className="card-title">Communities</h5>
+                                        <p className="card-text">Description of communities</p>
+                                        <a href="/communities" className="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
                             </div>
