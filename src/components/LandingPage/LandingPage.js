@@ -23,7 +23,7 @@ class LandingPage extends Component {
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">School Districts</h5>
-                                        <p className="card-text">Description of schools</p>
+                                        <p className="card-text">Low income school districts in America.</p>
                                         <a href="/schools" className="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
@@ -32,7 +32,7 @@ class LandingPage extends Component {
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Charities</h5>
-                                        <p className="card-text">Description of charities</p>
+                                        <p className="card-text">Charitable organizations involved in education.</p>
                                         <a href="/charities" className="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
@@ -41,7 +41,7 @@ class LandingPage extends Component {
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Communities</h5>
-                                        <p className="card-text">Description of communities</p>
+                                        <p className="card-text">Communities involved in low income school districts.</p>
                                         <a href="/communities" className="btn btn-primary">Learn More</a>
                                     </div>
                                 </div>
