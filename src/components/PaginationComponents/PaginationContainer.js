@@ -41,6 +41,7 @@ const gridSearchPaths = {
     3: 'communities'
 };
 
+
 class PaginationContainer extends Component {
 
     //passed in a prop for total number of thing

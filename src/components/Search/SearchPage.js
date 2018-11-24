@@ -36,7 +36,10 @@ class Search extends React.Component {
         // debugger;
         this.setState({
             userInput: e.target.value,
-        })
+            submitted: true,
+        });
+        this.props.changeTerms(e.target.value);
+        console.log('we handled change');
     }
 
 
@@ -97,10 +100,10 @@ class Search extends React.Component {
                                         </Button>
                                     </FormGroup>
                                 </Form>
-                                {this.state.submitted && <SearchPaginationContainer
+                                {<SearchPaginationContainer
                                     path={'search'}
                                     page={this.state.page}
-                                    search={this.state.search}
+                                    search={this.state.searchTerms}
                                     value={this.state.value}
                                     query={this.props.location.search}
                                 />}

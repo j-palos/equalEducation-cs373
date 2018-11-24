@@ -4,6 +4,7 @@ import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 import './PaginationContainer.css';
 import {withRouter} from "react-router-dom";
+import connect from "react-redux/es/connect/connect";
 
 
 const base = 'http://api.equaleducation.info';
@@ -16,8 +17,11 @@ const searchurl = {
     3: 'communities'
 };
 
+const mapStateToProps = state => {
+    return {searchTerms: state.searchTerms};
+};
 
-class SearchPaginationContainer extends Component {
+class SearchPaginationContainerConnect extends Component {
 
     //passed in a prop for total number of thing
 
@@ -40,8 +44,13 @@ class SearchPaginationContainer extends Component {
     }
 
 
+    /**
+     * Modify this to deal with the fact that our search terms are now an array
+     * @param currentPage
+     * @returns {string}
+     */
     getSearchAPIURL(currentPage) {
-        return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${this.props.search}&list=2`;
+        return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${this.state.searchTerms}&list=18`;
     }
 
     getData() {
@@ -149,5 +158,6 @@ class SearchPaginationContainer extends Component {
     }
 }
 
+const SearchPaginationContainer = connect(mapStateToProps, null)(SearchPaginationContainerConnect);
 export default withRouter(SearchPaginationContainer);
 
