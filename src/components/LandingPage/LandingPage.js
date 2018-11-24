@@ -2,6 +2,7 @@ import React, {Component} from 'react';
 import Carousel from './Carousel';
 import './LandingPage.css'
 import TextWrapper from "../Search/TextWrapper";
+import {Link} from 'react-router-dom';
 
 
 class LandingPage extends Component {
@@ -24,7 +25,7 @@ class LandingPage extends Component {
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">School Districts</h5>
                                         <p className="card-text">Low income school districts in America.</p>
-                                        <a href="/schools" className="btn btn-primary">Learn More</a>
+                                        <Link to={'/schools'}> Learn More </Link>
                                     </div>
                                 </div>
                             </div>
@@ -33,7 +34,7 @@ class LandingPage extends Component {
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Charities</h5>
                                         <p className="card-text">Charitable organizations involved in education.</p>
-                                        <a href="/charities" className="btn btn-primary">Learn More</a>
+                                        <Link to={'/charities'}> Learn More </Link>
                                     </div>
                                 </div>
                             </div>
@@ -42,7 +43,7 @@ class LandingPage extends Component {
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Communities</h5>
                                         <p className="card-text">Communities involved in low income school districts.</p>
-                                        <a href="/communities" className="btn btn-primary">Learn More</a>
+                                        <Link to={'/communities'}> Learn More </Link>
                                     </div>
                                 </div>
                             </div>
