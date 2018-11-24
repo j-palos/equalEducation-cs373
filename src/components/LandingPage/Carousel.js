@@ -14,7 +14,7 @@ class Carousel extends Component {
                 </ol>
                 <div className="carousel-inner">
                     <Slide state="active" quote="Education is the most powerful weapon 
-                    which you can use to change the world." author="Nelson Mendela" align="text-left"/>
+                    which you can use to change the world." author="Nelson Mandela" align="text-left"/>
                     <Slide quote="Education is the passport to the future, for tomorrow belongs to 
                     those who prepare for it today." author="Malcolm X"/>
                     <Slide quote="Knowledge is power. Information is liberating. Education is the 

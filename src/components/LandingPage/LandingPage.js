@@ -12,11 +12,13 @@ class LandingPage extends Component {
                 <main role="main">
                     <Carousel/>
                     <p className="mission"><TextWrapper>
-                        Here at Equal Education, our mission is to help people find charitable organizations that
-                        support education in their desired region. Equal Education focuses on low income areas and
-                        highlights statistics about the surrounding community to raise awareness for these impoverished
-                        areas. We make it possible to donate or volunteer with these organizations and make a difference
-                        in a child's education.</TextWrapper>
+                        Here at Equal Education our mission is to help people find charitable opportunities to assist 
+                        underprivileged children with their education. In today's society, a strong, reliant 
+                        education is essential to living a successful life; yet there are many school districts 
+                        in America that lack even basic school supplies. We wanted to showcase less fortunate areas 
+                        in the US and allow users the opportunity to give their time or financial support to these 
+                        communities. We hope that these contributions allow less privileged children have the same 
+                        opportunities and benefits as more affluent areas.</TextWrapper>
                     </p>
                     <div className="container">
                         <div className="row">
