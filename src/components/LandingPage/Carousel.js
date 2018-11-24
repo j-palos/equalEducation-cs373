@@ -13,9 +13,13 @@ class Carousel extends Component {
                     <li data-target="#myCarousel" data-slide-to={2}/>
                 </ol>
                 <div className="carousel-inner">
-                    <Slide state="active" title="School Districts" tag={Link} link="/schools" align="text-left"/>
-                    <Slide title="Charities" tag={Link} link="/charities"/>
-                    <Slide title="Communities" tag={Link} link="/communities" align="text-right"/>
+                    <Slide state="active" quote="Education is the most powerful weapon 
+                    which you can use to change the world." author="Nelson Mendela" align="text-left"/>
+                    <Slide quote="Education is the passport to the future, for tomorrow belongs to 
+                    those who prepare for it today." author="Malcolm X"/>
+                    <Slide quote="Knowledge is power. Information is liberating. Education is the 
+                    premise of progress, in every society, in every family." author="Kofi Annan" 
+                    align="text-right"/>
                 </div>
                 <a className="carousel-control-prev" href="#myCarousel" role="button" data-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"/>

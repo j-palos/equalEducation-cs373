@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import Link from "react-router-dom/es/Link";
 import {Button} from 'reactstrap';
+import './Carousel.css'
 
 const pictures = [
     '/images/splash-school-template.jpg',
@@ -31,6 +32,13 @@ class Slide extends Component {
                 <img className="first-slide"
                      src={this.picture}
                      alt="First slide"/>
+                <div className="container">
+                    <div className="carousel-caption text-center">
+                        <h1 className="quote">{this.props.quote}</h1>
+                        <h2 className="author">{this.props.author}</h2>
+                    </div>
+                </div>
+
             </div>
 
         );
