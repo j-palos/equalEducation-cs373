@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Pagination, Row} from 'reactstrap';
+import {Button as MyButton, Col, Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 // import SearchAppBar from "../FilterSortBar/SearchAppBar";
@@ -8,11 +8,10 @@ import './PaginationContainer.css';
 import {filterables, sortables} from '../../constants/apiConstants';
 import Button from '@material-ui/core/Button';
 import SorterButton from "../FilterSortBar/SorterButton";
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 
 
 const base = 'http://api.equaleducation.info';
-
 
 const urls = {
     'charity': 'charities',
@@ -274,7 +273,7 @@ class PaginationContainer extends Component {
         let filtersRender, sortRender, sortButton = [];
         let gridPath = this.props.path !== 'search' ? this.props.path : searchurl[this.state.value];
         if (this.state.path !== 'search') {
-            debugger;
+            // debugger;
             filtersRender = this.state.filterOptions.map(filterable =>
                 <Col key={filterable} sm={4} className={'mx-auto'}>
                     <Select className={"Filter"}
@@ -296,7 +295,9 @@ class PaginationContainer extends Component {
                          options={sortables[this.props.path]}
                          placeholder={`${this.state.activeSort || "Sort by ..."}`}>
                 </Select>]
+
             ;
+            debugger;
             sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
                                         onClick={this.handleDirectionChange.bind(this)}/>]
         }
@@ -310,7 +311,14 @@ class PaginationContainer extends Component {
                         <Row>
                             <Col>
                                 <div className={"Menu"}>
-                                    {sortRender}</div>
+                                    <Select className={"Sort"}
+                                            key={'Sort'}
+                                            name='Sort'
+                                            value={sortables[this.props.path][this.props.activeSort]}
+                                            onChange={this.handleSortChange.bind(this)}
+                                            options={sortables[this.props.path]}
+                                            placeholder={`${this.props.activeSort || "Sort by ..."}`}>
+                                    </Select></div>
                             </Col>
                         </Row>
                         <Row>
@@ -323,6 +331,7 @@ class PaginationContainer extends Component {
                             <span style={{margin: 'auto'}}>
                                 {sortButton}</span>
                             </Col>
+                            <MyButton tag={Link} to={`/${surls[this.props.path]}/1`}>Reset</MyButton>
                         </Row>
                     </div>
                 )}
