@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import './ModelPages.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "reactstrap";
 import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import queryString from "query-string";
 import {charityFilterQuery} from "../../constants/apiConstants";
+
 
 
 class CharityPage extends Component {
@@ -43,6 +45,8 @@ class CharityPage extends Component {
             <Container>
                 <main role="main">
                     <div className="container marketing my-5">
+                        <br/><br/>
+                        <h1 class="h1-models">Charities</h1>
                         <br/><br/>
                         <div className={'mx-auto'}>
                             <PaginationContainer
