@@ -18,29 +18,18 @@ class CommunityPage extends Component {
     }
 
     render() {
-        let x = this.props.location.search;
-        debugger;
-        let egg = queryString.parse(x);
-        let meta = {};
+        let params = queryString.parse(this.props.location.search);
         let activeFilters = [];
-        let activeSort = egg.sort;
-        let desc = egg.desc;
-        let xx = communityFilterQuery;
-        for (x in (egg)) {
-            // debugger;
-            for (let y in xx) {
-                if (xx[y] === x) {
-                    if (x === 'Name') {
-                        activeFilters[x] = {value: 'Community', label: egg[x]};
-                    }
-                    else {
-                        activeFilters[x] = {value: egg[x], label: egg[x]};
-                    }
+        let activeSort = params.sort;
+        let desc = params.desc;
+        let possibles = communityFilterQuery;
+        for (let param in (params)) {
+            for (let pos in possibles) {
+                if (possibles[pos] === param) {
+                    activeFilters[param] = {value: params[param], label: params[param]};
                 }
             }
         }
-
-
         return (
             <Container>
                 <main role="main">
@@ -49,7 +38,8 @@ class CommunityPage extends Component {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'community'}
-                                page={this.state.page} id="community-page"
+                                page={this.state.page}
+                                id="community-page"
                                 query={this.props.location.search}
                                 desc={desc}
                                 activeFilters={activeFilters}

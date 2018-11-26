@@ -6,7 +6,7 @@ import './InfoCard.css';
 import Paper from "@material-ui/core/Paper/Paper";
 
 
-class Gridcard extends React.PureComponent {
+class GridCard extends React.PureComponent {
 
     render() {
         return (
@@ -34,4 +34,4 @@ class Gridcard extends React.PureComponent {
 }
 
 
-export default Gridcard;
+export default GridCard;

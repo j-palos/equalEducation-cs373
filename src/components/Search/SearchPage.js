@@ -6,14 +6,6 @@ import Tabs from "@material-ui/core/Tabs/Tabs";
 import AppBar from "@material-ui/core/AppBar/AppBar";
 
 
-// function TabContainer(props) {
-//     return (
-//         <Typography component="div" style={{padding: 8 * 3}}>
-//             {props.children}
-//         </Typography>
-//     );
-// }
-
 class SearchPage extends React.Component {
 
     constructor(props) {
@@ -33,7 +25,6 @@ class SearchPage extends React.Component {
 
 
     handleChange(e) {
-        // debugger;
         this.setState({
             userInput: e.target.value,
         })
@@ -44,11 +35,7 @@ class SearchPage extends React.Component {
         e.preventDefault();
         sessionStorage.clear();
         let value = this.state.userInput;
-        debugger;
         value = value.replace(/ /g, "+");
-        debugger;
-        // debugger;
-        // this.getData();
         this.setState({
             search: value,
             submitted: true,

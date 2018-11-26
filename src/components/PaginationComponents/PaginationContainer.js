@@ -34,17 +34,7 @@ const surls = {
     'community': 'communities',
 };
 
-const gridSearchPaths = {
-    0: 'all',
-    1: 'school_districts',
-    2: 'charities',
-    3: 'communities'
-};
-
 class PaginationContainer extends Component {
-
-    //passed in a prop for total number of thing
-
     constructor(props) {
         super(props);
         let curPage = parseInt(this.props.page);
@@ -74,16 +64,10 @@ class PaginationContainer extends Component {
         let activeFilters = this.state.activeFilters;
         debugger;
         for (let key in activeFilters) {
-            // console.log(activeFilters);
             let value = (activeFilters[key]).value;
-            // let value = activeFilters[x][key];
-            // debugger;
             value = value.replace(/ /g, "+");
-            // debugger;
             filters += `&${key}=${value}`;
         }
-        // filters = encodeURI(filters);
-        // debugger;
         return filters;
     }
 
@@ -96,7 +80,6 @@ class PaginationContainer extends Component {
                 sort += '&desc=true'
             }
         }
-        // debugger;
         return sort;
     }
 
@@ -116,7 +99,6 @@ class PaginationContainer extends Component {
         return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${this.props.search}&list=999`;
     }
 
-// /school_districts?page=1&search=Clarksdale
     getData() {
         let currentPage = this.state.currentPage;
         let url = '';
@@ -200,10 +182,6 @@ class PaginationContainer extends Component {
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
-        if (this.props.search === nextProps.search && this.props.value === nextProps.value && this.props.path === 'search') {
-            debugger;
-            return;
-        }
         let curPage = parseInt(nextProps.page);
         this.setState({
                 currentPage: curPage,
@@ -243,24 +221,14 @@ class PaginationContainer extends Component {
     }
 
     handleSubmit = () => {
-        // sessionStorage.clear();
-        // this.setState({
-        //     currentPage : 1
-        // }, function(){
-        //     this.props.history.push(`/${surls[this.state.path]}/1${this.props.query}`)
-        // });
         let end = `${this.getActiveFilters() + this.getActiveSort()}`;
-        // debugger;
         this.setState({
             currentPage: 1,
         });
         return (this.props.history.replace(`/${surls[this.state.path]}/1?${end}`));
-        // (<Redirect to={`/${surls[this.state.path]}/1${this.props.query}`}/>);
-
-        // this.getData();
     };
 
-    handleDirectionChange(e) {
+    handleDirectionChange() {
         let change = !this.state.desc;
         this.setState({
             currentPage: 1,
@@ -271,9 +239,6 @@ class PaginationContainer extends Component {
 
     render() {
         let filtersRender, sortRender, sortButton = [];
-        let gridPath = this.props.path !== 'search' ? this.props.path : searchurl[this.state.value];
-        if (this.state.path !== 'search') {
-            debugger;
             filtersRender = this.state.filterOptions.map(filterable =>
                 <Col key={filterable} sm={4} className={'mx-auto'}>
                     <Select className={"Filter"}
@@ -297,35 +262,35 @@ class PaginationContainer extends Component {
                 </Select>]
             ;
             sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
-                                        onClick={this.handleDirectionChange.bind(this)}/>]
-        }
+                                        onClick={this.handleDirectionChange.bind(this)}/>];
+
         return (
             <div>
-                {this.state.path !== 'search' &&
-                (<div>
-                        <Row>
-                            {filtersRender}
-                        </Row>
-                        <Row>
-                            <Col>
-                                <div className={"Menu"}>
-                                    {sortRender}</div>
-                            </Col>
-                        </Row>
-                        <Row>
-                            <Col>
-                            </Col>
-                            <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
-                                    className={'mx-auto'} style={{margin: '5px'}}>
-                                Apply Filters/Sort
-                            </Button><Col>
+                (
+                <div>
+                    <Row>
+                        {filtersRender}
+                    </Row>
+                    <Row>
+                        <Col>
+                            <div className={"Menu"}>
+                                {sortRender}</div>
+                        </Col>
+                    </Row>
+                    <Row>
+                        <Col>
+                        </Col>
+                        <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
+                                className={'mx-auto'} style={{margin: '5px'}}>
+                            Apply Filters/Sort
+                        </Button><Col>
                             <span style={{margin: 'auto'}}>
                                 {sortButton}</span>
-                            </Col>
-                        </Row>
-                    </div>
-                )}
-                <GridContainer info={this.state.info} path={gridPath}/>
+                    </Col>
+                    </Row>
+                </div>
+                )
+                <GridContainer info={this.state.info}/>
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
                         {this.state.pagination}

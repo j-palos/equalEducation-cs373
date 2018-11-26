@@ -20,25 +20,18 @@ class CharityPage extends Component {
     }
 
     render() {
-        let x = this.props.location.search;
-        // debugger;
-        let egg = queryString.parse(x);
-        let meta = {};
-        let activeFilters = {};
-        let activeSort = egg.sort;
-        let desc = egg.desc;
-        let xx = charityFilterQuery;
-        for (x in (egg)) {
-            // debugger;
-            for (let y in xx) {
-                if (xx[y] === x) {
-                    // let z = x.toString();
-                    activeFilters[x] = {value: egg[x], label: egg[x]};
-                    // debugger;
+        let params = queryString.parse(this.props.location.search);
+        let activeFilters = [];
+        let activeSort = params.sort;
+        let desc = params.desc;
+        let possibles = charityFilterQuery;
+        for (let param in (params)) {
+            for (let pos in possibles) {
+                if (possibles[pos] === param) {
+                    activeFilters[param] = {value: params[param], label: params[param]};
                 }
             }
         }
-
         return (
             <Container>
                 <main role="main">

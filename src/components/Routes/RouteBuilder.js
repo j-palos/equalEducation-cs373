@@ -27,7 +27,6 @@ export default class RouteBuilder extends Component {
                        render={(props) => <EntityContainer{...props} type={'charity'}/>}/>
                 <Route exact path={`/community/:entityId`}
                        render={(props) => <EntityContainer{...props} type={'community'}/>}/>
-
                 <Route exact path="/about" component={AboutPage}/>
                 <Route exact path="/search" component={SearchPage}/>
                 <Route exact path="/search/:input" component={SearchPage}/>
