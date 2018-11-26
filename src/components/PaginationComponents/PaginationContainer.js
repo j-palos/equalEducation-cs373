@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Col, Pagination, Row} from 'reactstrap';
+import {Button as MyButton, Col, Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 // import SearchAppBar from "../FilterSortBar/SearchAppBar";
@@ -8,11 +8,10 @@ import './PaginationContainer.css';
 import {filterables, sortables} from '../../constants/apiConstants';
 import Button from '@material-ui/core/Button';
 import SorterButton from "../FilterSortBar/SorterButton";
-import {withRouter} from "react-router-dom";
+import {Link, withRouter} from "react-router-dom";
 
 
 const base = 'http://api.equaleducation.info';
-
 
 const urls = {
     'charity': 'charities',
@@ -260,7 +259,9 @@ class PaginationContainer extends Component {
                          options={sortables[this.props.path]}
                          placeholder={`${this.state.activeSort || "Sort by ..."}`}>
                 </Select>]
+
             ;
+            debugger;
             sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
                                         onClick={this.handleDirectionChange.bind(this)}/>];
 

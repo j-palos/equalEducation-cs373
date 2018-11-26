@@ -7,6 +7,7 @@ import andrewImage from '../../images/profiles/andrew.jpeg';
 import ailynImage from '../../images/profiles/ailyn.png';
 import {Card, CardBody, CardImg, CardText, CardTitle} from 'reactstrap';
 import './styles.css'
+import TextWrapper from "../Search/TextWrapper";
 
 
 const profile = {
@@ -42,9 +43,9 @@ function PersonCard(props) {
             <CardImg top className="rounded-circle card-img-top mx-auto" src={images[props.name]}
                      alt={"Card image"} style={{width: 180, height: 180}}/>
             <CardBody id="cardbody-persons">
-                <CardTitle>{props.name}</CardTitle>
-                <CardText>{profile[props.name]}</CardText>
-                <CardText>{responsibilities[props.name]}</CardText>
+                <CardTitle><TextWrapper>{props.name}</TextWrapper></CardTitle>
+                <CardText><TextWrapper>{profile[props.name]}</TextWrapper></CardText>
+                <CardText><TextWrapper>{responsibilities[props.name]}</TextWrapper></CardText>
             </CardBody>
         </Card>
     );

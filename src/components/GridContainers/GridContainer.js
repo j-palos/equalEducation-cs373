@@ -3,21 +3,14 @@ import GridCard from "./GridCard";
 import {CardDeck} from 'reactstrap';
 import './InfoCard.css';
 
+
 const urls = {
     'charities': 'charity',
     'school_districts': 'school',
     'communities': 'community',
 };
 
-class GridContainer extends React.Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            info: []
-        }
-    }
-
+class GridContainer extends React.PureComponent {
     render() {
         let output = [];
         let cards = this.props.info;

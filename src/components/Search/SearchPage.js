@@ -1,12 +1,20 @@
 import React from 'react';
 import {Button, Col, Container, Form, FormGroup, Input, Row} from 'reactstrap';
-import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import Tab from "@material-ui/core/Tab/Tab";
 import Tabs from "@material-ui/core/Tabs/Tabs";
 import AppBar from "@material-ui/core/AppBar/AppBar";
+import SearchPaginationContainer from "../PaginationComponents/SearchPaginationContainer";
+import {changeTerms} from "../../js/store/actions";
+import connect from "react-redux/es/connect/connect";
+
+const mapDispatchToProps = dispatch => {
+    return {
+        changeTerms: term => dispatch(changeTerms(term))
+    };
+};
 
 
-class SearchPage extends React.Component {
+class Search extends React.Component {
 
     constructor(props) {
         super(props);
@@ -27,7 +35,10 @@ class SearchPage extends React.Component {
     handleChange(e) {
         this.setState({
             userInput: e.target.value,
-        })
+            submitted: true,
+        });
+        this.props.changeTerms(e.target.value);
+        console.log('we handled change');
     }
 
 
@@ -40,6 +51,7 @@ class SearchPage extends React.Component {
             search: value,
             submitted: true,
         });
+        this.props.changeTerms(value);
     };
 
     handleTabChange = (event, value) => {
@@ -82,11 +94,12 @@ class SearchPage extends React.Component {
                                         </Button>
                                     </FormGroup>
                                 </Form>
-                                {this.state.submitted && <PaginationContainer
+                                {<SearchPaginationContainer
                                     path={'search'}
                                     page={this.state.page}
-                                    search={this.state.search}
+                                    search={this.state.searchTerms}
                                     value={this.state.value}
+                                    query={this.props.location.search}
                                 />}
                             </Col>
                         </Row>
@@ -98,5 +111,5 @@ class SearchPage extends React.Component {
     }
 }
 
-
+const SearchPage = connect(null, mapDispatchToProps)(Search);
 export default SearchPage;

@@ -1,5 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router-dom';
+import TextWrapper from "../Search/TextWrapper";
 
 
 class RelatedLinkHelper extends React.PureComponent {
@@ -7,10 +8,9 @@ class RelatedLinkHelper extends React.PureComponent {
     render() {
         const url = this.props.to;
         const id = this.props.id;
-        // debugger;
         return (
             <Link to={`/${url}/${id}`}>
-                {this.props.children}
+                <TextWrapper>{this.props.children}</TextWrapper>
             </Link>
         )
     }
