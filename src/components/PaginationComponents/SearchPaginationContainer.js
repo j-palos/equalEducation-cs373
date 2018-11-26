@@ -6,7 +6,6 @@ import './PaginationContainer.css';
 import {withRouter} from "react-router-dom";
 import connect from "react-redux/es/connect/connect";
 
-
 const base = 'http://api.equaleducation.info';
 
 const searchurl = {
@@ -50,7 +49,8 @@ class SearchPaginationContainerConnect extends Component {
      * @returns {string}
      */
     getSearchAPIURL(currentPage) {
-        return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${this.state.searchTerms}&list=18`;
+        console.log(this.props.searchTerms);
+        return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${this.props.searchTerms}&list=999`;
     }
 
     getData() {

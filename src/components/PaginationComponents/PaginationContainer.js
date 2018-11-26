@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Button as MyButton, Col, Pagination, Row} from 'reactstrap';
+import {Col, Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 // import SearchAppBar from "../FilterSortBar/SearchAppBar";
@@ -8,7 +8,7 @@ import './PaginationContainer.css';
 import {filterables, sortables} from '../../constants/apiConstants';
 import Button from '@material-ui/core/Button';
 import SorterButton from "../FilterSortBar/SorterButton";
-import {Link, withRouter} from "react-router-dom";
+import {withRouter} from "react-router-dom";
 
 
 const base = 'http://api.equaleducation.info';
@@ -237,7 +237,7 @@ class PaginationContainer extends Component {
     }
 
     render() {
-        let filtersRender, sortRender, sortButton = [];
+        let filtersRender, sortRender, sortButton;
             filtersRender = this.state.filterOptions.map(filterable =>
                 <Col key={filterable} sm={4} className={'mx-auto'}>
                     <Select className={"Filter"}
@@ -259,15 +259,12 @@ class PaginationContainer extends Component {
                          options={sortables[this.props.path]}
                          placeholder={`${this.state.activeSort || "Sort by ..."}`}>
                 </Select>]
-
             ;
-            debugger;
             sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
                                         onClick={this.handleDirectionChange.bind(this)}/>];
 
         return (
             <div>
-                (
                 <div>
                     <Row>
                         {filtersRender}
@@ -290,7 +287,6 @@ class PaginationContainer extends Component {
                     </Col>
                     </Row>
                 </div>
-                )
                 <GridContainer info={this.state.info}/>
                 <Row>
                     <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
