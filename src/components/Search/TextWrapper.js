@@ -10,12 +10,12 @@ const mapStateToProps = state => {
 class CxtWrapper extends React.PureComponent {
     render() {
         return (
-                    <Highlighter
-                        highlightClassName="mark"
-                        searchWords={this.props.searchTerms}
-                        autoEscape={true}
-                        textToHighlight={String(this.props.children)}
-                    />
+            <Highlighter
+                highlightClassName="mark"
+                searchWords={this.props.searchTerms}
+                autoEscape={true}
+                textToHighlight={String(this.props.children)}
+            />
         )
     }
 }

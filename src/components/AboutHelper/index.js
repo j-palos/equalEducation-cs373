@@ -168,7 +168,6 @@ class AboutHelper extends Component {
 
     render() {
         if (this.state.loaded) {
-            // debugger;
             return (
                 <AboutTable names={this.state.names}/>
             )

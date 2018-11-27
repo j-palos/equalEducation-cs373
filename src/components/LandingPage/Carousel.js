@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Slide from "./Slide";
 import './Carousel.css'
 import {Link} from 'react-router-dom';
 
-class Carousel extends Component {
+class Carousel extends PureComponent {
     render() {
         return (
             <div id="myCarousel" className="carousel slide" data-ride="carousel">

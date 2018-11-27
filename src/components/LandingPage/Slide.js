@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import Link from "react-router-dom/es/Link";
 import {Button} from 'reactstrap';
 
@@ -7,7 +7,7 @@ const pictures = [
     '/images/splash-charity-template.jpeg',
     '/images/splash-community-template.jpeg'];
 
-class Slide extends Component {
+class Slide extends PureComponent {
     componentWillMount() {
         switch (this.props.title) {
             case "School Districts":

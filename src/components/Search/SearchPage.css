@@ -1,0 +1,10 @@
+.anchor a {
+    position: absolute;
+    left: 0px;
+    margin-top: -60px;
+}
+
+.button {
+    margin-top: 5px;
+    margin-right: 5px;
+}

@@ -1,8 +1,13 @@
 import React from 'react';
-import {Col, Container, Form, FormGroup, Input, Row} from 'reactstrap';
-import SearchPaginationContainer from "../PaginationComponents/SearchPaginationContainer";
+import {Button as MyButton, Col, Container, Form, FormGroup, Input, Row} from 'reactstrap';
 import {changeTerms} from "../../js/store/actions";
 import connect from "react-redux/es/connect/connect";
+import GridContainer from "../GridContainers/GridContainer";
+import {EntityName} from "../EntityComponents/EntityName";
+import './SearchPage.css';
+import Button from "@material-ui/core/Button/Button";
+import {withStyles} from '@material-ui/core/styles';
+
 
 const mapDispatchToProps = dispatch => {
     return {
@@ -11,6 +16,28 @@ const mapDispatchToProps = dispatch => {
 };
 
 
+const style = theme => ({
+    fab: {
+        margin: 0,
+        top: 'auto',
+        right: '10%',
+        bottom: 20,
+        left: 'auto',
+        position: 'fixed',
+
+    }
+});
+
+const base = 'http://api.equaleducation.info';
+
+const searchurl = {
+    'search': 'search',
+    0: 'all',
+    1: 'school_districts',
+    2: 'charities',
+    3: 'communities'
+};
+
 class Search extends React.Component {
 
     constructor(props) {
@@ -18,7 +45,13 @@ class Search extends React.Component {
         this.state = {
             userInput: this.props.match.params.input || '',
             page: this.props.match.params.page || 1,
-            submitted: false,
+            charity_submitted: false,
+            school_submitted: false,
+            community_submitted: false,
+            info_schools: [],
+            info_charities: [],
+            info_communities: [],
+            intervalId: 0,
         }
     }
 
@@ -26,36 +59,105 @@ class Search extends React.Component {
         this.setState({'page': props.match.params.page || 1});
     }
 
-
     handleChange(e) {
         this.setState({
             userInput: e.target.value,
-            submitted: true,
         });
-        this.props.changeTerms(e.target.value);
-        console.log('we handled change');
     }
 
+    componentWillMount() {
+        this.props.changeTerms('')
+    }
+
+    /**
+     * Modify this to deal with the fact that our search terms are now an array
+     * @param currentPage
+     * @param type
+     * @returns {string}
+     */
+    getSearchAPIURL(currentPage, type) {
+        let value = String(this.state.userInput.trim()).replace(/,/g, "+");
+        return `${base}/${searchurl[type]}?page=${currentPage}&search=${value}&list=999`;
+    }
+
+
+    getData() {
+        fetch(this.getSearchAPIURL(1, 1))
+            .then(results => {
+                if (results.ok) {
+                    return results.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                let info = data['grid'];
+                this.setState({
+                    charity_submitted: true,
+                    info_schools: info,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        fetch(this.getSearchAPIURL(1, 2))
+            .then(results => {
+                if (results.ok) {
+                    return results.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                let info = data['grid'];
+                this.setState({
+                    school_submitted: true,
+                    info_charities: info,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+        fetch(this.getSearchAPIURL(1, 3))
+            .then(results => {
+                if (results.ok) {
+                    return results.json();
+                }
+                throw new Error('Network response was not ok.');
+            })
+            .then(data => {
+                let info = data['grid'];
+                this.setState({
+                    community_submitted: true,
+                    info_communities: info,
+                });
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    }
+
+
+    scrollStep() {
+        if (window.pageYOffset === 0) {
+            clearInterval(this.state.intervalId);
+        }
+        window.scroll(0, window.pageYOffset - this.props.scrollStepInPx);
+    }
+
+    scrollToTop() {
+        let intervalId = setInterval(this.scrollStep.bind(this), this.props.delayInMs);
+        this.setState({intervalId: intervalId});
+    }
 
     handleSubmit = (e) => {
         e.preventDefault();
         sessionStorage.clear();
-        let value = this.state.userInput;
-        value = value.replace(/ /g, "+");
-        this.setState({
-            search: value,
-            submitted: true,
-        });
-        // this.props.changeTerms(value);
+        this.getData();
+        this.props.changeTerms(e.target.value);
     };
 
-    handleTabChange = (event, value) => {
-        this.setState({
-            value: value,
-        });
-    };
 
     render() {
+        const {classes} = this.props;
         return (
             <Container>
                 <main role="main">
@@ -63,53 +165,66 @@ class Search extends React.Component {
                         <br/><br/>
                         <Row>
                             <Col>
-                                <Form>
+                                <Form inline>
                                     <FormGroup>
                                         <Input type="search" name="search" id="search" placeholder="Search for...."
                                                value={this.state.userInput} onKeyPress={e => {
                                             if (e.key === 'Enter') this.handleSubmit(e);
                                         }} onChange={this.handleChange.bind(this)}/>
+                                        <MyButton color={'primary'} onClick={e => {
+                                            this.handleSubmit(e)
+                                        }}>Submit</MyButton>
                                     </FormGroup>
                                 </Form>
                             </Col>
                         </Row>
                         <Row>
-                            <p>Value 0</p>
-                            <SearchPaginationContainer
-                                path={'search'}
-                                page={this.state.page}
-                                search={this.state.searchTerms}
-                                value={0}
-                                query={this.props.location.search}
-                            />
+                            <Col>
+                                {this.state.school_submitted && this.state.info_schools.length !== 0 &&
+                                <MyButton className={'button'} color={'primary'} href={'#schools'}>Schools</MyButton>
+                                }
+                                {this.state.charity_submitted && this.state.info_charities.length !== 0 &&
+                                <MyButton className={'button'} color={'primary'}
+                                          href={'#charities'}>Charities</MyButton>
+                                }
+                                {this.state.community_submitted && this.state.info_communities.length !== 0 &&
+                                <MyButton className={'button'} color={'primary'}
+                                          href={'#communities'}>Communities</MyButton>
+                                }
+                            </Col>
                         </Row>
+
+                        {this.state.charity_submitted && this.state.info_charities.length !== 0 &&
                         <Row>
-                            <p>Value 1</p>
-                            <SearchPaginationContainer
-                                path={'search'}
-                                page={this.state.page}
-                                search={this.state.searchTerms}
-                                value={1}
-                                query={this.props.location.search}
-                            />
+                            <a className={'anchor'} id={'charities'}/>
+                            <EntityName title={"Results for Charities"}/>
+                            <GridContainer info={this.state.info_charities}/>
                         </Row>
-                        <Row>
-                            <p>Value 2</p>
-                            <SearchPaginationContainer
-                                path={'search'}
-                                page={this.state.page}
-                                search={this.state.searchTerms}
-                                value={2}
-                                query={this.props.location.search}
-                            />
+                        }
+                        {this.state.school_submitted && this.state.info_schools.length !== 0 &&
+                        <Row id={'schools'}>
+                            <EntityName title={"Results for Schools"}/>
+                            <GridContainer info={this.state.info_schools}/>
                         </Row>
+                        }
+                        {this.state.community_submitted && this.state.info_communities.length !== 0 &&
+                        <Row id={'communities'}>
+                            <EntityName title={"Results for Communities"}/>
+                            <GridContainer info={this.state.info_communities}/>
+                        </Row>
+                        }
+                        <Button variant="fab" color="secondary" aria-label="Jump To Top" className={classes.fab}
+                                onClick={() => {
+                                    this.scrollToTop();
+                                }}>
+                            Top
+                        </Button>
                     </div>
                 </main>
             </Container>
         )
-
     }
 }
 
 const SearchPage = connect(null, mapDispatchToProps)(Search);
-export default SearchPage;
+export default withStyles(style)(SearchPage);
