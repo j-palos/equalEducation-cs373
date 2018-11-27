@@ -1,5 +1,5 @@
 import React from 'react';
-import Gridcard from "./Gridcard";
+import GridCard from "./GridCard";
 import {CardDeck} from 'reactstrap';
 import './InfoCard.css';
 
@@ -15,15 +15,14 @@ class GridContainer extends React.PureComponent {
         let output = [];
         let cards = this.props.info;
         for (let x in cards) {
-            output.push(<Gridcard key={cards[x]['Id']} link={`/${urls[cards[x]['Model']]}/${cards[x]['Id']}`}
+            output.push(<GridCard key={cards[x]['Id']} link={`/${urls[cards[x]['Model']]}/${cards[x]['Id']}`}
                                   className={'modelCard'} info={cards[x]['Info']}
                                   src={cards[x]['Image']}/>);
         }
         return (
-
             <CardDeck className="Card-margin">
-                    {output}
-                </CardDeck>
+                {output}
+            </CardDeck>
         )
     }
 }

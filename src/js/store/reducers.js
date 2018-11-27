@@ -6,7 +6,6 @@ const initialState = {
 
 
 const RootReducer = (state = initialState, action) => {
-    //debugger;
     switch (action.type) {
         case CHANGE_TERMS:
             return Object.assign({}, state, {

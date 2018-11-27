@@ -1,9 +1,9 @@
 import React, {Component} from 'react';
 import {BrowserRouter} from 'react-router-dom';
 import './App.css';
-import Header from "./components/Header";
 import Footer from "./components/Footer";
 import RouteBuilder from './components/Routes/RouteBuilder';
+import MyNavbar from "./components/MyNavbar/MyNavbar";
 
 class App extends Component {
 
@@ -13,7 +13,7 @@ class App extends Component {
 
             <BrowserRouter basename={""}>
                 <React.Fragment>
-                    <Header className="App"/>
+                    <MyNavbar className="App"/>
                     <RouteBuilder/>
                     <Footer/>
                 </React.Fragment>

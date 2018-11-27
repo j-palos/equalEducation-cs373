@@ -16,10 +16,9 @@ const mapStateToProps = state => {
     return {searchTerms: state.searchTerms};
 };
 
-class Myavbar extends React.Component {
+class ConnectedNavbar extends React.Component {
     constructor(props) {
         super(props);
-
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false
@@ -91,5 +90,5 @@ class Myavbar extends React.Component {
     }
 }
 
-const MyNavbar = connect(mapStateToProps, mapDispatchToProps)(Myavbar);
+const MyNavbar = connect(mapStateToProps, mapDispatchToProps)(ConnectedNavbar);
 export default withRouter(MyNavbar);

@@ -18,24 +18,20 @@ class SchoolPage extends Component {
     componentWillReceiveProps(props) {
         this.setState({'page': props.match.params.page || 1});
     }
+
     render() {
-        let x = this.props.location.search;
-        let egg = queryString.parse(x);
+        let params = queryString.parse(this.props.location.search);
         let activeFilters = [];
-        let activeSort = egg.sort;
-        let desc = egg.desc;
-        let xx = schoolFilterQuery;
-        debugger;
-        for (x in (egg)) {
-            for (let y in xx) {
-                if (xx[y] === x) {
-                    activeFilters[x] = {value: egg[x], label: egg[x]};
+        let activeSort = params.sort;
+        let desc = params.desc;
+        let possibles = schoolFilterQuery;
+        for (let param in (params)) {
+            for (let pos in possibles) {
+                if (possibles[pos] === param) {
+                    activeFilters[param] = {value: params[param], label: params[param]};
                 }
             }
         }
-
-
-        debugger;
         return (
             <Container>
                 <main role="main">

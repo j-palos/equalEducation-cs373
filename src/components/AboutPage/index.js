@@ -32,7 +32,8 @@ class AboutPage extends Component {
                                 underprivileged children with their education. The website aggregates a
                                 large
                                 number of low income areas and highlights specific stats about the surrounding
-                                community to raise awareness to these impoverished areas. Users are then able to donate their time
+                                community to raise awareness to these impoverished areas. Users are then able to donate
+                                their time
                                 and/or money to organizations associated with these communities through our website.</p>
                         </Col>
                     </Row>
@@ -42,7 +43,8 @@ class AboutPage extends Component {
                         <Col>
                             <h1 className="h1-style" id="about-data">About our Data</h1>
                             <p className="lead">Charity Navigator, Census Govt, Wikipedia (RESTful APIs)</p>
-                            <a href="https://documenter.getpostman.com/view/5488016/RWgm41VA" className="lead">Postman API</a>
+                            <a href="https://documenter.getpostman.com/view/5488016/RWgm41VA" className="lead">Postman
+                                API</a>
 
 
                         </Col>
@@ -51,7 +53,7 @@ class AboutPage extends Component {
                     <hr className="featurette-divider"/>
                     <Row className={"featurette"}>
                         <Col>
-                            <h1 className="h1-style"  id="about-us">About Us</h1>
+                            <h1 className="h1-style" id="about-us">About Us</h1>
                         </Col>
                         <CardDeck className="margin-bottom">
                             <PersonCard className="card-top-padding" name={'Jesus'}/>
@@ -218,16 +220,17 @@ class AboutPage extends Component {
                                     <div className="caption-text">
                                         <h1>Grammarly</h1>
                                         <p>Check our spelling and grammar</p>
-                          </div>
-                        </div>
-                      </li>
-                      <li>
-                        <img src={require("../../images/logo/bootstrap-logo.png")} className="img-size" alt="bootstrap" />
-                          <div className="caption">
-                              <div className="blur"></div>
-                              <div className="caption-text">
-                            <h1>Bootstrap</h1>
-                            <p>Front-end design</p>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <img src={require("../../images/logo/bootstrap-logo.png")} className="img-size"
+                                     alt="bootstrap"/>
+                                <div className="caption">
+                                    <div className="blur"></div>
+                                    <div className="caption-text">
+                                        <h1>Bootstrap</h1>
+                                        <p>Front-end design</p>
                                     </div>
                                 </div>
                             </li>
