@@ -1,8 +1,5 @@
 import React from 'react';
-import {Button, Col, Container, Form, FormGroup, Input, Row} from 'reactstrap';
-import Tab from "@material-ui/core/Tab/Tab";
-import Tabs from "@material-ui/core/Tabs/Tabs";
-import AppBar from "@material-ui/core/AppBar/AppBar";
+import {Col, Container, Form, FormGroup, Input, Row} from 'reactstrap';
 import SearchPaginationContainer from "../PaginationComponents/SearchPaginationContainer";
 import {changeTerms} from "../../js/store/actions";
 import connect from "react-redux/es/connect/connect";
@@ -21,8 +18,6 @@ class Search extends React.Component {
         this.state = {
             userInput: this.props.match.params.input || '',
             page: this.props.match.params.page || 1,
-            type: 'all',
-            value: 0,
             submitted: false,
         }
     }
@@ -70,38 +65,43 @@ class Search extends React.Component {
                             <Col>
                                 <Form>
                                     <FormGroup>
-                                        {/*<Label for="search" style={{margin :'auto'}}>Search</Label>*/}
-                                        <AppBar position="static">
-                                            <Tabs value={this.state.value} onChange={this.handleTabChange}
-                                                  indicatorColor={'inherit'}
-                                                  textColor={'inherit'}
-                                                  centered>
-                                                <Tab label="Site"/>
-                                                <Tab label="Schools"/>
-                                                <Tab label="Communities"/>
-                                                <Tab label={"Charities"}/>
-                                            </Tabs>
-                                        </AppBar>
                                         <Input type="search" name="search" id="search" placeholder="Search for...."
                                                value={this.state.userInput} onKeyPress={e => {
                                             if (e.key === 'Enter') this.handleSubmit(e);
                                         }} onChange={this.handleChange.bind(this)}/>
-
-                                        <Button variant="contained" color="inherit"
-                                                onClick={(e) => this.handleSubmit(e)}
-                                                className={'mx-auto'} style={{margin: '2%'}}>
-                                            Submit
-                                        </Button>
                                     </FormGroup>
                                 </Form>
-                                {<SearchPaginationContainer
-                                    path={'search'}
-                                    page={this.state.page}
-                                    search={this.state.searchTerms}
-                                    value={this.state.value}
-                                    query={this.props.location.search}
-                                />}
                             </Col>
+                        </Row>
+                        <Row>
+                            <p>Value 0</p>
+                            <SearchPaginationContainer
+                                path={'search'}
+                                page={this.state.page}
+                                search={this.state.searchTerms}
+                                value={0}
+                                query={this.props.location.search}
+                            />
+                        </Row>
+                        <Row>
+                            <p>Value 1</p>
+                            <SearchPaginationContainer
+                                path={'search'}
+                                page={this.state.page}
+                                search={this.state.searchTerms}
+                                value={1}
+                                query={this.props.location.search}
+                            />
+                        </Row>
+                        <Row>
+                            <p>Value 2</p>
+                            <SearchPaginationContainer
+                                path={'search'}
+                                page={this.state.page}
+                                search={this.state.searchTerms}
+                                value={2}
+                                query={this.props.location.search}
+                            />
                         </Row>
                     </div>
                 </main>

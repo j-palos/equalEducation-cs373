@@ -90,6 +90,12 @@ class SearchPaginationContainerConnect extends Component {
         });
     }
 
+    shouldComponentUpdate(nextProps) {
+        console.log(nextProps.searchTerms !== this.props.searchTerms);
+        return nextProps.searchTerms !== this.props.searchTerms;
+    }
+
+
     componentWillReceiveProps(nextProps, nextContext) {
         if (this.props.search === nextProps.search && this.props.value === nextProps.value && this.props.page === nextProps.page) {
             return;
