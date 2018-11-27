@@ -1,6 +1,4 @@
 import React, {Component} from 'react';
-import {Row} from 'reactstrap';
-import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 import './PaginationContainer.css';
 import {withRouter} from "react-router-dom";
@@ -22,8 +20,6 @@ const mapStateToProps = state => {
 
 class SearchPaginationContainerConnect extends Component {
 
-    //passed in a prop for total number of thing
-
     constructor(props) {
         super(props);
         let curPage = parseInt(this.props.page);
@@ -35,7 +31,6 @@ class SearchPaginationContainerConnect extends Component {
             total: 0,
             value: this.props.value || 0,
         }
-
     }
 
     componentDidMount() {
@@ -72,11 +67,9 @@ class SearchPaginationContainerConnect extends Component {
                     let totalPages = data['num_pages'];
                     let info = data['grid'];
                     sessionStorage.setItem(`${url}`, JSON.stringify(data));
-                    debugger;
                     this.setState({
                         total: totalPages,
                         info: info,
-                        // pagination: pagination,
                     });
                     return totalPages;
                 })
@@ -91,41 +84,10 @@ class SearchPaginationContainerConnect extends Component {
         data = JSON.parse(data);
         let totalPages = data['num_pages'];
         let info = data['grid'];
-        // let pagination = this.helperPaging(currentPage, totalPages);
         this.setState({
             total: totalPages,
             info: info,
-            // pagination: pagination,
         });
-    }
-
-
-    helperPaging(curPage, total) {
-        let pagination = [];
-        let currentPage = curPage;
-        let i;
-        let lastPage = Number(total);
-        i = Number(Math.max(currentPage - 3, 1));
-        let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
-        if (currentPage > 1) {
-            let url = this.getSearchAPIURL(currentPage);
-            pagination.push(<PagingGenerator pageNumber={currentPage - 1} type={'previous'} path={this.props.path}
-                                             key={'prev'} url={url} query={this.props.query}
-            />);
-        }
-        for (i; i <= rightBoundary; i++) {
-            let url = this.getSearchAPIURL(i);
-            pagination.push(<PagingGenerator pageNumber={i} path={this.props.path} currentPage={currentPage} key={i}
-                                             url={url} query={this.props.query}
-            />)
-        }
-        if (lastPage > currentPage) {
-            let url = this.getSearchAPIURL(lastPage);
-            pagination.push(<PagingGenerator pageNumber={currentPage + 1} type={'next'} path={this.props.path}
-                                             key={'next'} url={url} query={this.props.query}
-            />);
-        }
-        return pagination;
     }
 
     componentWillReceiveProps(nextProps, nextContext) {
@@ -145,14 +107,7 @@ class SearchPaginationContainerConnect extends Component {
 
     render() {
         return (
-            <div>
                 <GridContainer info={this.state.info}/>
-                <Row>
-                    {/*<Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>*/}
-                    {/*{this.state.pagination}*/}
-                    {/*</Pagination>*/}
-                </Row>
-            </div>
         )
     }
 }

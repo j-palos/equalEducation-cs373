@@ -6,10 +6,6 @@ import ArrowUp from '@material-ui/icons/ArrowUpward';
 
 class SorterButton extends React.PureComponent {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         let handleClick = this.props.onClick;
         let image = !this.props.desc ? [<ArrowDown key={'down'}/>] : [<ArrowUp key={'up'}/>];

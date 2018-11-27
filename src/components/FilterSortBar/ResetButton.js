@@ -4,10 +4,6 @@ import IconButton from "@material-ui/core/IconButton/IconButton";
 
 class SorterButton extends React.PureComponent {
 
-    constructor(props) {
-        super(props)
-    }
-
     render() {
         let handleClick = this.props.onClick;
         // let image = !this.props.desc ? [<ArrowDown key={'down'}/>] : [<ArrowUp key={'up'}/>];

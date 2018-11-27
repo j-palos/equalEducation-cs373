@@ -3,7 +3,7 @@ import {PaginationItem, PaginationLink} from 'reactstrap';
 import {Link} from "react-router-dom";
 
 
-const base = 'http://api.equaleducation.info';
+// const base = 'http://api.equaleducation.info';
 
 const urls = {
     'charity': 'charities',
@@ -12,11 +12,11 @@ const urls = {
     'search': 'search',
 };
 
-const apiurls = {
-    'charity': 'charities',
-    'school': 'school_districts',
-    'community': 'communities',
-};
+// const apiurls = {
+//     'charity': 'charities',
+//     'school': 'school_districts',
+//     'community': 'communities',
+// };
 
 
 export default class PagingGenerator extends React.PureComponent {
