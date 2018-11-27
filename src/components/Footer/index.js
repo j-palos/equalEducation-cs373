@@ -24,7 +24,8 @@ class Footer extends Component {
     render() {
         return (
             <footer className="container">
-                <p className="float-right">
+                <div id="site-footer">
+          <p className="float-right">
                     <button type="button" className="btn btn-link"
                             onClick={() => {
                                 this.scrollToTop();
@@ -32,7 +33,7 @@ class Footer extends Component {
                         Back to top
                     </button>
                 </p>
-                <p className="float-left">© Equal Education</p>
+                <p className="float-left">© Equal Education</p></div>
             </footer>
         );
     }

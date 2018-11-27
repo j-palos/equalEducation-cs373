@@ -4,6 +4,7 @@ import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import {Container} from "reactstrap";
 import queryString from 'query-string';
 import {schoolFilterQuery} from "../../constants/apiConstants";
+import './ModelPages.css'
 
 class SchoolPage extends Component {
 
@@ -35,6 +36,8 @@ class SchoolPage extends Component {
             <Container>
                 <main role="main">
                     <div className="container marketing my-5">
+                        <br/><br/>
+                        <h1 class="h1-models">School Districts</h1>
                         <br/><br/>
                         <div className={'mx-auto'}>
                             <PaginationContainer

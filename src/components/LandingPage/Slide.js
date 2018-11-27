@@ -1,10 +1,11 @@
 import React, {PureComponent} from 'react';
 import Link from "react-router-dom/es/Link";
 import {Button} from 'reactstrap';
+import './Carousel.css'
 
 const pictures = [
     '/images/splash-school-template.jpg',
-    '/images/splash-charity-template.jpeg',
+    '/images/splash-charity-template.jpg',
     '/images/splash-community-template.jpeg'];
 
 class Slide extends PureComponent {
@@ -32,15 +33,12 @@ class Slide extends PureComponent {
                      src={this.picture}
                      alt="First slide"/>
                 <div className="container">
-                    <div className="carousel-caption text-left">
-                        <h1>{this.props.title}</h1>
-                        <p>
-                            <Link to={this.props.link}>
-                                <Button color="success">Learn More</Button>
-                            </Link>
-                        </p>
+                    <div className="carousel-caption text-center">
+                        <h1 className="quote">{this.props.quote}</h1>
+                        <h2 className="author">{this.props.author}</h2>
                     </div>
                 </div>
+
             </div>
 
         );
