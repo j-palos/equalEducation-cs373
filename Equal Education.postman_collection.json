@@ -1,0 +1,1515 @@
+{
+	"info": {
+		"_postman_id": "bd1f1126-4c57-4f55-be8f-a5b9b5d4347b",
+		"name": "Equal Education",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Mocks",
+			"item": [
+				{
+					"name": "School Districts",
+					"item": [
+						{
+							"name": "/school_districts/?id=476",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "f952f60f-43a0-4399-8afc-1d9a6cf90e57",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.Id)\r",
+											"    pm.expect(jsonData.Id).to.eql(476)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/school_districts/?id=476",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"school_districts",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "476"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/school_districts/?id=476",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/school_districts/?id=476",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"school_districts",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "476"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"Id\": 476,\n    \"Name\": \"Owsley County School District\",\n    \"Image\": \"http://www.owsley.kyschools.us/files/gallery/133/IMG_5958.JPG\",\n    \"Info\": {\n        \"State\": \"Kentucky\",\n        \"Community\": \"Booneville, KY\",\n        \"Poverty\": \"52.9\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "/school_districts/?page=1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "459e812e-cc2e-4875-b1c3-ffbe97164331",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/school_districts/?page=1",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"school_districts",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/school_districts/?page=1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/school_districts/?page=1",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"school_districts",
+												""
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 8,\n    \"grid\": [\n        {\n            \"Id\": 451,\n            \"Name\": \"Clarksdale Municipal School District\",\n            \"Image\": \"https://scontent.fftw1-1.fna.fbcdn.net/v/t1.0-9/1378464_178196972373520_606778070_n.png?_nc_cat=109&_nc_ht=scontent.fftw1-1.fna&oh=57e1e441edd31ec12df2730f8cd22b82&oe=5C3CC584\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Clarksdale, MI\",\n                \"Poverty\": \"71.0\"\n            }\n        },\n        {\n            \"Id\": 452,\n            \"Name\": \"Coahoma County School District\",\n            \"Image\": \"https://bloximages.chicago2.vip.townnews.com/pressregister.com/content/tncms/assets/v3/editorial/2/54/254cf7d6-39c3-11e4-82b9-133527bc7507/5411b7e16ca75.image.jpg?resize=760%2C580\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Clarksdale, MI\",\n                \"Poverty\": \"67.7\"\n            }\n        },\n        {\n            \"Id\": 453,\n            \"Name\": \"Brooklyn Community Unit School District 188\",\n            \"Image\": \"http://www.lovejoy.stclair.k12.il.us/lovejoy_school.jpg\",\n            \"Info\": {\n                \"State\": \"Illinois\",\n                \"Community\": \"Brooklyn, IL\",\n                \"Poverty\": \"62.8\"\n            }\n        },\n        {\n            \"Id\": 454,\n            \"Name\": \"Quemado Independent Schools\",\n            \"Image\": \"http://images.pcmac.org//images/Users/webmaster@quemadosd.com//bald-eagle-clipart-16.gif\",\n            \"Info\": {\n                \"State\": \"New Mexico\",\n                \"Community\": \"Quemado, NM\",\n                \"Poverty\": \"62.7\"\n            }\n        },\n        {\n            \"Id\": 455,\n            \"Name\": \"Lowndes County School District\",\n            \"Image\": \"https://www.nowforce.com/wp-content/uploads/2014/12/lowndes-county1.png\",\n            \"Info\": {\n                \"State\": \"Alabama\",\n                \"Community\": \"Hayneville, AL\",\n                \"Poverty\": \"60.4\"\n            }\n        },\n        {\n            \"Id\": 456,\n            \"Name\": \"Buena Vista Independent School District\",\n            \"Image\": \"https://www.bvisd.net/assets/apptegy_cms/themes/buenavistatx/logo-c72a6df53f9c4f4e2f78dc04ecead867.png\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Community\": \"Imperial, TX\",\n                \"Poverty\": \"60.3\"\n            }\n        },\n        {\n            \"Id\": 457,\n            \"Name\": \"East Carroll Parish School District\",\n            \"Image\": \"https://www.e-carrollschools.org/cms/lib/LA02201178/Centricity/Template/GlobalAssets/images///logos/logo.png\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Community\": \"Lake Providence, LA\",\n                \"Poverty\": \"58.9\"\n            }\n        },\n        {\n            \"Id\": 458,\n            \"Name\": \"Selma City School District\",\n            \"Image\": \"http://www.selmacityschools.org/sysimages/logoTopNew2.jpg\",\n            \"Info\": {\n                \"State\": \"Alabama\",\n                \"Community\": \"Selma, AL\",\n                \"Poverty\": \"57.6\"\n            }\n        },\n        {\n            \"Id\": 459,\n            \"Name\": \"Fulton Independent School District\",\n            \"Image\": \"https://pbs.twimg.com/profile_images/903370336414171138/i8_mo-Ww_400x400.jpg\",\n            \"Info\": {\n                \"State\": \"Kentucky\",\n                \"Community\": \"Hickman, KY\",\n                \"Poverty\": \"57.1\"\n            }\n        },\n        {\n            \"Id\": 460,\n            \"Name\": \"Durant Public School District\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/en/a/af/Durant_Public_School_District.png\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Durant, MS\",\n                \"Poverty\": \"57.1\"\n            }\n        },\n        {\n            \"Id\": 461,\n            \"Name\": \"Cairo Community Unit School District 1\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/0/0a/Cairo_Junior-Senior_High_School.jpg/250px-Cairo_Junior-Senior_High_School.jpg\",\n            \"Info\": {\n                \"State\": \"Illinois\",\n                \"Community\": \"Cairo, IL\",\n                \"Poverty\": \"56.0\"\n            }\n        },\n        {\n            \"Id\": 462,\n            \"Name\": \"Hamtramck Public Schools\",\n            \"Image\": \"http://p2cdn4static.sharpschool.com/UserFiles/Servers/Server_129989/Templates/logo.png\",\n            \"Info\": {\n                \"State\": \"Michigan\",\n                \"Community\": \"Detroit, MI\",\n                \"Poverty\": \"55.8\"\n            }\n        },\n        {\n            \"Id\": 463,\n            \"Name\": \"Hollandale School District\",\n            \"Image\": \"https://www.hollandalesd.org/cms/lib/MS01910525/Centricity/Template/GlobalAssets/images///logos/gb-logo.png\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Hollandale, MS\",\n                \"Poverty\": \"55.8\"\n            }\n        },\n        {\n            \"Id\": 464,\n            \"Name\": \"Donna Independent School District\",\n            \"Image\": \"http://www.donnaisd.net/Portals/Donna/District/images/DISD%20logo%20black%20feather.jpg?ver=2018-08-21-153142-663\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Community\": \"Donna, TX\",\n                \"Poverty\": \"55.8\"\n            }\n        },\n        {\n            \"Id\": 465,\n            \"Name\": \"Claiborne County School District\",\n            \"Image\": \"https://www.claiborne.k12.ms.us/cms/lib/MS50000180/Centricity/Template/GlobalAssets/images///logos/CCPSD_LOGO_ROUND_PNG.png\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Port Gibson, MS\",\n                \"Poverty\": \"55.6\"\n            }\n        },\n        {\n            \"Id\": 466,\n            \"Name\": \"Port Orford-Langlois School District 2J\",\n            \"Image\": \"https://static.wixstatic.com/media/db0adf_5569521ce1ae405f93677694a43ab1f6~mv2.gif\",\n            \"Info\": {\n                \"State\": \"Oregon\",\n                \"Community\": \"Port Orford, OR\",\n                \"Poverty\": \"55.6\"\n            }\n        },\n        {\n            \"Id\": 467,\n            \"Name\": \"Madison Parish School District\",\n            \"Image\": \"https://s3.amazonaws.com/scschoolfiles/1181/design_img__zmlkug.png\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Community\": \"Tallulah, LA\",\n                \"Poverty\": \"55.3\"\n            }\n        },\n        {\n            \"Id\": 468,\n            \"Name\": \"Muskegon Heights School District\",\n            \"Image\": \"http://www.mhtigers.org/downloads/logos__image_assets/mhtigerslogo.png\",\n            \"Info\": {\n                \"State\": \"Michigan\",\n                \"Community\": \"Muskegon, MI\",\n                \"Poverty\": \"55.2\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/school_districts/ filter and sort",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "459e812e-cc2e-4875-b1c3-ffbe97164331",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/school_districts?page=1&population=medium&poverty=extreme&state=alaska&sort=poverty&desc=true",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"school_districts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "population",
+											"value": "medium"
+										},
+										{
+											"key": "poverty",
+											"value": "extreme"
+										},
+										{
+											"key": "state",
+											"value": "alaska"
+										},
+										{
+											"key": "sort",
+											"value": "poverty"
+										},
+										{
+											"key": "desc",
+											"value": "true"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/school_districts filter and sort",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/school_districts?page=1&population=medium&poverty=extreme&state=alaska&sort=poverty&desc=true",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"school_districts"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "population",
+													"value": "medium"
+												},
+												{
+													"key": "poverty",
+													"value": "extreme"
+												},
+												{
+													"key": "state",
+													"value": "alaska"
+												},
+												{
+													"key": "sort",
+													"value": "poverty"
+												},
+												{
+													"key": "desc",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 6,\n    \"grid\": [\n        {\n            \"Id\": 451,\n            \"Name\": \"Clarksdale Municipal School District\",\n            \"Image\": \"https://scontent.fftw1-1.fna.fbcdn.net/v/t1.0-9/1378464_178196972373520_606778070_n.png?_nc_cat=109&_nc_ht=scontent.fftw1-1.fna&oh=57e1e441edd31ec12df2730f8cd22b82&oe=5C3CC584\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Clarksdale, MS\",\n                \"Poverty\": \"71.0%\",\n                \"Population\": 4594\n            }\n        },\n        {\n            \"Id\": 455,\n            \"Name\": \"Lowndes County School District\",\n            \"Image\": \"https://www.nowforce.com/wp-content/uploads/2014/12/lowndes-county1.png\",\n            \"Info\": {\n                \"State\": \"Alabama\",\n                \"Community\": \"Hayneville, AL\",\n                \"Poverty\": \"60.4%\",\n                \"Population\": 2851\n            }\n        },\n        {\n            \"Id\": 457,\n            \"Name\": \"East Carroll Parish School District\",\n            \"Image\": \"https://www.e-carrollschools.org/cms/lib/LA02201178/Centricity/Template/GlobalAssets/images///logos/logo.png\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Community\": \"Lake Providence, LA\",\n                \"Poverty\": \"58.9%\",\n                \"Population\": 2153\n            }\n        },\n        {\n            \"Id\": 465,\n            \"Name\": \"Claiborne County School District\",\n            \"Image\": \"https://www.claiborne.k12.ms.us/cms/lib/MS50000180/Centricity/Template/GlobalAssets/images///logos/CCPSD_LOGO_ROUND_PNG.png\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Port Gibson, MS\",\n                \"Poverty\": \"55.6%\",\n                \"Population\": 2540\n            }\n        },\n        {\n            \"Id\": 467,\n            \"Name\": \"Madison Parish School District\",\n            \"Image\": \"https://s3.amazonaws.com/scschoolfiles/1181/design_img__zmlkug.png\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Community\": \"Tallulah, LA\",\n                \"Poverty\": \"55.3%\",\n                \"Population\": 3562\n            }\n        },\n        {\n            \"Id\": 468,\n            \"Name\": \"Muskegon Heights School District\",\n            \"Image\": \"http://www.mhtigers.org/downloads/logos__image_assets/mhtigerslogo.png\",\n            \"Info\": {\n                \"State\": \"Michigan\",\n                \"Community\": \"Muskegon, MI\",\n                \"Poverty\": \"55.2%\",\n                \"Population\": 4134\n            }\n        },\n        {\n            \"Id\": 474,\n            \"Name\": \"Helena-West Helena School District\",\n            \"Image\": \"https://www.hwh.grsc.k12.ar.us/assets/apptegy_cms/themes/bet/logo-3cc6a676aa1bf0b9a3c0458d901766bd.png\",\n            \"Info\": {\n                \"State\": \"Arkansas\",\n                \"Community\": \"Helena-West Helena, AR\",\n                \"Poverty\": \"53.5%\",\n                \"Population\": 4602\n            }\n        },\n        {\n            \"Id\": 477,\n            \"Name\": \"Fabens Independent School District\",\n            \"Image\": \"https://bloximages.newyork1.vip.townnews.com/elpasoinc.com/content/tncms/assets/v3/editorial/8/43/843fccc4-3735-11e7-b079-f3649adbd500/5915ec3a08e07.image.png\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Community\": \"Fabens, TX\",\n                \"Poverty\": \"52.9%\",\n                \"Population\": 4219\n            }\n        },\n        {\n            \"Id\": 479,\n            \"Name\": \"Humphreys County School District\",\n            \"Image\": \"https://humphreyscountyschoolsms.net/Portals/_humphreysschools/NEWONEe.jpg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Belzoni, MS\",\n                \"Poverty\": \"52.0%\",\n                \"Population\": 3396\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/school_districts/ search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "459e812e-cc2e-4875-b1c3-ffbe97164331",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/school_districts?page=1&search=Clarksdale",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"school_districts"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "Clarksdale"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/school_districts  Search",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/school_districts?page=1&search=Clarksdale",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"school_districts"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "search",
+													"value": "Clarksdale"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 6,\n    \"grid\": [\n        {\n            \"Id\": 451,\n            \"Name\": \"Clarksdale Municipal School District\",\n            \"Image\": \"https://scontent.fftw1-1.fna.fbcdn.net/v/t1.0-9/1378464_178196972373520_606778070_n.png?_nc_cat=109&_nc_ht=scontent.fftw1-1.fna&oh=57e1e441edd31ec12df2730f8cd22b82&oe=5C3CC584\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Clarksdale, MS\",\n                \"Poverty\": \"71.0%\",\n                \"Population\": 4594\n            }\n        },\n        {\n            \"Id\": 455,\n            \"Name\": \"Lowndes County School District\",\n            \"Image\": \"https://www.nowforce.com/wp-content/uploads/2014/12/lowndes-county1.png\",\n            \"Info\": {\n                \"State\": \"Alabama\",\n                \"Community\": \"Hayneville, AL\",\n                \"Poverty\": \"60.4%\",\n                \"Population\": 2851\n            }\n        },\n        {\n            \"Id\": 457,\n            \"Name\": \"East Carroll Parish School District\",\n            \"Image\": \"https://www.e-carrollschools.org/cms/lib/LA02201178/Centricity/Template/GlobalAssets/images///logos/logo.png\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Community\": \"Lake Providence, LA\",\n                \"Poverty\": \"58.9%\",\n                \"Population\": 2153\n            }\n        },\n        {\n            \"Id\": 465,\n            \"Name\": \"Claiborne County School District\",\n            \"Image\": \"https://www.claiborne.k12.ms.us/cms/lib/MS50000180/Centricity/Template/GlobalAssets/images///logos/CCPSD_LOGO_ROUND_PNG.png\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Port Gibson, MS\",\n                \"Poverty\": \"55.6%\",\n                \"Population\": 2540\n            }\n        },\n        {\n            \"Id\": 467,\n            \"Name\": \"Madison Parish School District\",\n            \"Image\": \"https://s3.amazonaws.com/scschoolfiles/1181/design_img__zmlkug.png\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Community\": \"Tallulah, LA\",\n                \"Poverty\": \"55.3%\",\n                \"Population\": 3562\n            }\n        },\n        {\n            \"Id\": 468,\n            \"Name\": \"Muskegon Heights School District\",\n            \"Image\": \"http://www.mhtigers.org/downloads/logos__image_assets/mhtigerslogo.png\",\n            \"Info\": {\n                \"State\": \"Michigan\",\n                \"Community\": \"Muskegon, MI\",\n                \"Poverty\": \"55.2%\",\n                \"Population\": 4134\n            }\n        },\n        {\n            \"Id\": 474,\n            \"Name\": \"Helena-West Helena School District\",\n            \"Image\": \"https://www.hwh.grsc.k12.ar.us/assets/apptegy_cms/themes/bet/logo-3cc6a676aa1bf0b9a3c0458d901766bd.png\",\n            \"Info\": {\n                \"State\": \"Arkansas\",\n                \"Community\": \"Helena-West Helena, AR\",\n                \"Poverty\": \"53.5%\",\n                \"Population\": 4602\n            }\n        },\n        {\n            \"Id\": 477,\n            \"Name\": \"Fabens Independent School District\",\n            \"Image\": \"https://bloximages.newyork1.vip.townnews.com/elpasoinc.com/content/tncms/assets/v3/editorial/8/43/843fccc4-3735-11e7-b079-f3649adbd500/5915ec3a08e07.image.png\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Community\": \"Fabens, TX\",\n                \"Poverty\": \"52.9%\",\n                \"Population\": 4219\n            }\n        },\n        {\n            \"Id\": 479,\n            \"Name\": \"Humphreys County School District\",\n            \"Image\": \"https://humphreyscountyschoolsms.net/Portals/_humphreysschools/NEWONEe.jpg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Community\": \"Belzoni, MS\",\n                \"Poverty\": \"52.0%\",\n                \"Population\": 3396\n            }\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Charities",
+					"item": [
+						{
+							"name": "charities/?id",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "2cd6c8b5-ec9f-476b-baa6-8f16e8ca8091",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.Id)\r",
+											"    pm.expect(jsonData.Id).to.eql(182)\r",
+											"});\r",
+											"\r",
+											""
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/charities/?id=182",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"charities",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "182"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "charities/?id",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/charities/?id=182",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"charities",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "182"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"Id\": 182,\n    \"Name\": \"Jones Valley Teaching Farm\",\n    \"Image\": \"https://jvtf.org/wp-content/uploads/2017/12/new-logo-stacked.png\",\n    \"Info\": {\n        \"Tagline\": \"Encouraging students to act as critical thinkers, problem solvers, and change agents\",\n        \"Category\": \"Youth Education Programs and Services\",\n        \"Scope\": \"Regional\",\n        \"State\": \"Alabama\",\n        \"Website\": \"http://jvtf.org/\",\n        \"Mission\": \"Jones Valley Teaching Farm's mission is encouraging students to act as critical thinkers, problem solvers, and change agents in their communities. We accomplish this mission by partnering with schools to provide students with innovative and rigorous hands-on food and nutrition education. We believe that our city's greatest resources are inside our schools and that education must connect discoveries in the classroom to action in the community.\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "charities/?page=1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "33991357-5ebb-4f82-a146-cce3b8f3e76e",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/charities/?page=1",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"charities",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "charities/?page=1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/charities/?page=1",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"charities",
+												""
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 14,\n    \"grid\": [\n        {\n            \"Id\": 182,\n            \"Name\": \"Jones Valley Teaching Farm\",\n            \"Image\": \"https://jvtf.org/wp-content/uploads/2017/12/new-logo-stacked.png\",\n            \"Info\": {\n                \"Tagline\": \"Encouraging students to act as critical thinkers, problem solvers, and change agents\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\"\n            }\n        },\n        {\n            \"Id\": 183,\n            \"Name\": \"Junior Achievement of Alabama\",\n            \"Image\": \"http://static1.squarespace.com/static/568d4405b204d5a4f88d2cbd/t/568d779d05f8e2ada343d666/1518216170222/?format=1500w\",\n            \"Info\": {\n                \"Tagline\": \"Empowering Young people to own their economic success\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\"\n            }\n        },\n        {\n            \"Id\": 184,\n            \"Name\": \"Cornerstone Schools of Alabama\",\n            \"Image\": \"https://csalabama.org/app/uploads/2017/09/cornerstone-school-vertical-logo.png\",\n            \"Info\": {\n                \"Tagline\": \"A model of excellence in urban education\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\"\n            }\n        },\n        {\n            \"Id\": 185,\n            \"Name\": \"Better Basics\",\n            \"Image\": \"https://pbs.twimg.com/profile_images/471317752284598273/0t6P-OnA.png\",\n            \"Info\": {\n                \"Tagline\": \"Empowering Children - Reducing Illiteracy - Improving the Community\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\"\n            }\n        },\n        {\n            \"Id\": 186,\n            \"Name\": \"Make Way for Books\",\n            \"Image\": \"https://makewayforbooks.org/wp-content/themes/mwfb-theme/img/MWFB_Logowide_rgb.png\",\n            \"Info\": {\n                \"Tagline\": \"Sharing stories changes lives, especially young lives\",\n                \"Category\": \"Early Childhood Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\"\n            }\n        },\n        {\n            \"Id\": 187,\n            \"Name\": \"Phoenix Day\",\n            \"Image\": \"https://static.wixstatic.com/media/528478_2f20825cd69b42fc9519eccf286bea38~mv2.png/v1/fill/w_387,h_120,al_c,q_80,usm_0.66_1.00_0.01/528478_2f20825cd69b42fc9519eccf286bea38~mv2.webp\",\n            \"Info\": {\n                \"Tagline\": \"Building futures for children and families\",\n                \"Category\": \"Early Childhood Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\"\n            }\n        },\n        {\n            \"Id\": 188,\n            \"Name\": \"Junior Achievement of Arizona\",\n            \"Image\": \"https://media.licdn.com/dms/image/C4D0BAQEK-0VNlq3Z2w/company-logo_200_200/0?e=2159024400&v=beta&t=P8T4AFz-HYKR7_9Hjo1JUHxCY5sfEQinT9jAiZ0g7Y8\",\n            \"Info\": {\n                \"Tagline\": \"To inspire and prepare young people to succeed in a global economy Empowering young people to own their economic success\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\"\n            }\n        },\n        {\n            \"Id\": 189,\n            \"Name\": \"Youth On Their Own\",\n            \"Image\": \"https://yoto.org/wp-content/uploads/2015/06/yoto-header_01.png\",\n            \"Info\": {\n                \"Tagline\": \"Educating homeless teens, investing in Arizona's future!\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\"\n            }\n        },\n        {\n            \"Id\": 190,\n            \"Name\": \"Families Forward Learning Center\",\n            \"Image\": \"https://assets.networkforgood.org/21131/Images/Page/37cb562b-e20d-4895-8b90-cc9fe75f173c.jpg\",\n            \"Info\": {\n                \"Tagline\": \"A Two-Generation Learning Program\",\n                \"Category\": \"Early Childhood Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 191,\n            \"Name\": \"Kokua Hawai?i Foundation\",\n            \"Image\": \"https://www.kokuahawaiifoundation.org/images/sized/images/ugc/uploads/kokua_admat_sized-305x0.jpg\",\n            \"Info\": {\n                \"Tagline\": \"Supporting environmental education in the schools and communities of Hawaiʻi.\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 192,\n            \"Name\": \"LA Promise Fund\",\n            \"Image\": \"http://www.lapromisefund.org/wp-content/uploads/2017/06/LAPF_final_logo_wo_tagline_ai___103___RGB_GPU_Preview_.png\",\n            \"Info\": {\n                \"Tagline\": \"Empowering students. Strengthening families. Building communities.\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 193,\n            \"Name\": \"Silicon Valley Education Foundation\",\n            \"Image\": \"https://static1.squarespace.com/static/56339016e4b095e84e825b9c/t/5820d0ead482e9a9a704c4c3/1478545656869/Silicon+Valley+Education+Foundation+logo\",\n            \"Info\": {\n                \"Tagline\": \"To transform Silicon Valley into a model for enhancing public education.\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 194,\n            \"Name\": \"Ocean Institute\",\n            \"Image\": \"https://www.ocean-institute.org/sites/default/themes/dtheme/img/logo-share.png\",\n            \"Info\": {\n                \"Tagline\": \"Experience is the teacher\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 195,\n            \"Name\": \"The Wooden Floor\",\n            \"Image\": \"http://www.thewoodenfloor.org/images/the-wooden-floor-logo.png\",\n            \"Info\": {\n                \"Tagline\": \"From here you can step anywhere.\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 196,\n            \"Name\": \"Pro Kids Golf Academy\",\n            \"Image\": \"http://encorepartnersllp.com/wp-content/uploads/2015/04/ProKidsLogoColor3.11.jpg\",\n            \"Info\": {\n                \"Tagline\": \"The First Tee of San Diego\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 197,\n            \"Name\": \"Ocean Discovery Institute\",\n            \"Image\": \"http://oceandiscoveryinstitute.org/wp-content/themes/ocean-discovery-institute/images/odi_logo.png\",\n            \"Info\": {\n                \"Tagline\": \"Young lives transformed through science\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 198,\n            \"Name\": \"Monarch School Project\",\n            \"Image\": \"https://static1.squarespace.com/static/58a3cb4020099ea90dfd42dc/t/5b416d5f1ae6cf2d20dd83bd/1539221665919/\",\n            \"Info\": {\n                \"Tagline\": \"Education. Opportunity. Transformation.\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        },\n        {\n            \"Id\": 199,\n            \"Name\": \"Nativity Prep Academy\",\n            \"Image\": \"http://www.nativityprep.org/wp-content/themes/nativityprep/ui/images/xlogo.png.pagespeed.ic.KhWnSKAewk.webp\",\n            \"Info\": {\n                \"Tagline\": \"Educating Inner-City Youth: From Middle School, through High School, to College.\",\n                \"Category\": \"Youth Education Programs and Services\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "charities/ filter and sort",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "33991357-5ebb-4f82-a146-cce3b8f3e76e",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/charities?page=1&category=youth+education&rating=average&scope=national&state=alaska&sort=name",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"charities"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "category",
+											"value": "youth+education"
+										},
+										{
+											"key": "rating",
+											"value": "average"
+										},
+										{
+											"key": "scope",
+											"value": "national"
+										},
+										{
+											"key": "state",
+											"value": "alaska"
+										},
+										{
+											"key": "sort",
+											"value": "name"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "charities/ filter and sort",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/charities?page=1&category=youth+education&rating=average&scope=national&state=alaska&sort=name",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"charities"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "category",
+													"value": "youth+education"
+												},
+												{
+													"key": "rating",
+													"value": "average"
+												},
+												{
+													"key": "scope",
+													"value": "national"
+												},
+												{
+													"key": "state",
+													"value": "alaska"
+												},
+												{
+													"key": "sort",
+													"value": "name"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 25,\n    \"grid\": [\n        {\n            \"Id\": 182,\n            \"Name\": \"Jones Valley Teaching Farm\",\n            \"Image\": \"https://jvtf.org/wp-content/uploads/2017/12/new-logo-stacked.png\",\n            \"Info\": {\n                \"Tagline\": \"Encouraging students to act as critical thinkers, problem solvers, and change agents\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 2\n            }\n        },\n        {\n            \"Id\": 183,\n            \"Name\": \"Junior Achievement of Alabama\",\n            \"Image\": \"http://static1.squarespace.com/static/568d4405b204d5a4f88d2cbd/t/568d779d05f8e2ada343d666/1518216170222/?format=1500w\",\n            \"Info\": {\n                \"Tagline\": \"Empowering Young people to own their economic success\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 184,\n            \"Name\": \"Cornerstone Schools of Alabama\",\n            \"Image\": \"https://csalabama.org/app/uploads/2017/09/cornerstone-school-vertical-logo.png\",\n            \"Info\": {\n                \"Tagline\": \"A model of excellence in urban education\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 185,\n            \"Name\": \"Better Basics\",\n            \"Image\": \"https://pbs.twimg.com/profile_images/471317752284598273/0t6P-OnA.png\",\n            \"Info\": {\n                \"Tagline\": \"Empowering Children - Reducing Illiteracy - Improving the Community\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 4\n            }\n        },\n        {\n            \"Id\": 188,\n            \"Name\": \"Junior Achievement of Arizona\",\n            \"Image\": \"https://media.licdn.com/dms/image/C4D0BAQEK-0VNlq3Z2w/company-logo_200_200/0?e=2159024400&v=beta&t=P8T4AFz-HYKR7_9Hjo1JUHxCY5sfEQinT9jAiZ0g7Y8\",\n            \"Info\": {\n                \"Tagline\": \"To inspire and prepare young people to succeed in a global economy Empowering young people to own their economic success\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 189,\n            \"Name\": \"Youth On Their Own\",\n            \"Image\": \"https://yoto.org/wp-content/uploads/2015/06/yoto-header_01.png\",\n            \"Info\": {\n                \"Tagline\": \"Educating homeless teens, investing in Arizona's future!\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 191,\n            \"Name\": \"Kokua Hawai?i Foundation\",\n            \"Image\": \"https://www.kokuahawaiifoundation.org/images/sized/images/ugc/uploads/kokua_admat_sized-305x0.jpg\",\n            \"Info\": {\n                \"Tagline\": \"Supporting environmental education in the schools and communities of Hawaiʻi.\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\",\n                \"Rating\": 1\n            }\n        },\n        {\n            \"Id\": 192,\n            \"Name\": \"LA Promise Fund\",\n            \"Image\": \"http://www.lapromisefund.org/wp-content/uploads/2017/06/LAPF_final_logo_wo_tagline_ai___103___RGB_GPU_Preview_.png\",\n            \"Info\": {\n                \"Tagline\": \"Empowering students. Strengthening families. Building communities.\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\",\n                \"Rating\": 4\n            }\n        },\n        {\n            \"Id\": 193,\n            \"Name\": \"Silicon Valley Education Foundation\",\n            \"Image\": \"https://static1.squarespace.com/static/56339016e4b095e84e825b9c/t/5820d0ead482e9a9a704c4c3/1478545656869/Silicon+Valley+Education+Foundation+logo\",\n            \"Info\": {\n                \"Tagline\": \"To transform Silicon Valley into a model for enhancing public education.\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\",\n                \"Rating\": 3\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "charities/ search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "33991357-5ebb-4f82-a146-cce3b8f3e76e",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/charities?page=1&search=Jones",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"charities"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "Jones"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "charities/ filter and sort",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/charities?page=1&search=Jones",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"charities"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "search",
+													"value": "Jones"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 25,\n    \"grid\": [\n        {\n            \"Id\": 182,\n            \"Name\": \"Jones Valley Teaching Farm\",\n            \"Image\": \"https://jvtf.org/wp-content/uploads/2017/12/new-logo-stacked.png\",\n            \"Info\": {\n                \"Tagline\": \"Encouraging students to act as critical thinkers, problem solvers, and change agents\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 2\n            }\n        },\n        {\n            \"Id\": 183,\n            \"Name\": \"Junior Achievement of Alabama\",\n            \"Image\": \"http://static1.squarespace.com/static/568d4405b204d5a4f88d2cbd/t/568d779d05f8e2ada343d666/1518216170222/?format=1500w\",\n            \"Info\": {\n                \"Tagline\": \"Empowering Young people to own their economic success\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 184,\n            \"Name\": \"Cornerstone Schools of Alabama\",\n            \"Image\": \"https://csalabama.org/app/uploads/2017/09/cornerstone-school-vertical-logo.png\",\n            \"Info\": {\n                \"Tagline\": \"A model of excellence in urban education\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 185,\n            \"Name\": \"Better Basics\",\n            \"Image\": \"https://pbs.twimg.com/profile_images/471317752284598273/0t6P-OnA.png\",\n            \"Info\": {\n                \"Tagline\": \"Empowering Children - Reducing Illiteracy - Improving the Community\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Alabama\",\n                \"Rating\": 4\n            }\n        },\n        {\n            \"Id\": 188,\n            \"Name\": \"Junior Achievement of Arizona\",\n            \"Image\": \"https://media.licdn.com/dms/image/C4D0BAQEK-0VNlq3Z2w/company-logo_200_200/0?e=2159024400&v=beta&t=P8T4AFz-HYKR7_9Hjo1JUHxCY5sfEQinT9jAiZ0g7Y8\",\n            \"Info\": {\n                \"Tagline\": \"To inspire and prepare young people to succeed in a global economy Empowering young people to own their economic success\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 189,\n            \"Name\": \"Youth On Their Own\",\n            \"Image\": \"https://yoto.org/wp-content/uploads/2015/06/yoto-header_01.png\",\n            \"Info\": {\n                \"Tagline\": \"Educating homeless teens, investing in Arizona's future!\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"Arizona\",\n                \"Rating\": 3\n            }\n        },\n        {\n            \"Id\": 191,\n            \"Name\": \"Kokua Hawai?i Foundation\",\n            \"Image\": \"https://www.kokuahawaiifoundation.org/images/sized/images/ugc/uploads/kokua_admat_sized-305x0.jpg\",\n            \"Info\": {\n                \"Tagline\": \"Supporting environmental education in the schools and communities of Hawaiʻi.\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\",\n                \"Rating\": 1\n            }\n        },\n        {\n            \"Id\": 192,\n            \"Name\": \"LA Promise Fund\",\n            \"Image\": \"http://www.lapromisefund.org/wp-content/uploads/2017/06/LAPF_final_logo_wo_tagline_ai___103___RGB_GPU_Preview_.png\",\n            \"Info\": {\n                \"Tagline\": \"Empowering students. Strengthening families. Building communities.\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\",\n                \"Rating\": 4\n            }\n        },\n        {\n            \"Id\": 193,\n            \"Name\": \"Silicon Valley Education Foundation\",\n            \"Image\": \"https://static1.squarespace.com/static/56339016e4b095e84e825b9c/t/5820d0ead482e9a9a704c4c3/1478545656869/Silicon+Valley+Education+Foundation+logo\",\n            \"Info\": {\n                \"Tagline\": \"To transform Silicon Valley into a model for enhancing public education.\",\n                \"Category\": \"Youth Education\",\n                \"Scope\": \"Regional\",\n                \"State\": \"California\",\n                \"Rating\": 3\n            }\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Communities",
+					"item": [
+						{
+							"name": "/communities/?id=357",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "ed007dc4-9bfc-4145-9e21-4138ad28778b",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.Id)\r",
+											"    pm.expect(jsonData.Id).to.eql(357)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/communities/?id=357",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"communities",
+										""
+									],
+									"query": [
+										{
+											"key": "id",
+											"value": "357"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/communities/?id=357",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/communities/?id=357",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"communities",
+												""
+											],
+											"query": [
+												{
+													"key": "id",
+													"value": "357"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"Id\": 357,\n    \"Name\": \"Ashburn, GA\",\n    \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/c/c9/Ashburn_City_Hall_SE_corner.JPG\",\n    \"Info\": {\n        \"State\": \"Georgia\",\n        \"Counties\": \"Turner County\",\n        \"Population\": \"4152\",\n        \"Summary\": \"The city of Ashburn is the county seat of Turner County, Georgia, United States. As of 2010, the city had a population of 3,792. Ashburn's government is classified as a council/manager form of municipal government.The City Manager of Ashburn is Ben Taylor.\\nAshburn is noted for its peanuts and a fire ant festival. Ashburn boasts a large peanut monument and is home to the Golden Peanut Company.\",\n        \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=31+42+16+N+83+39+14+W\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "/communities/?page=1",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0b93222a-25bf-4f9d-8a67-703673b996d7",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/communities/?page=1",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"communities",
+										""
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/communities/?page=1",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/communities/?page=1",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"communities",
+												""
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 8,\n    \"grid\": [\n        {\n            \"Id\": 243,\n            \"Name\": \"Clarksdale, MI\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/8/8c/Coahoma_County_Mississippi_Incorporated_and_Unincorporated_areas_Clarksdale_Highlighted.svg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Coahoma County\",\n                \"Population\": \"17962\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=34+12+N+90+34+W\"\n            }\n        },\n        {\n            \"Id\": 244,\n            \"Name\": \"Brooklyn, IL\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/bf/Clair_County_Illinois_Incorporated_and_Unincorporated_areas_Brooklyn_Highlighted.svg\",\n            \"Info\": {\n                \"State\": \"Illinois\",\n                \"Counties\": \"St. Clair County\",\n                \"Population\": \"749\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=38+39+24+N+90+9+55+W\"\n            }\n        },\n        {\n            \"Id\": 245,\n            \"Name\": \"Quemado, NM\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/10/USA_New_Mexico_location_map.svg\",\n            \"Info\": {\n                \"State\": \"New Mexico\",\n                \"Counties\": \"Catron County\",\n                \"Population\": \"228\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=34+20+38+N+108+29+44+W\"\n            }\n        },\n        {\n            \"Id\": 246,\n            \"Name\": \"Hayneville, AL\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/4/43/Hayneville%2C_Alabama.JPG\",\n            \"Info\": {\n                \"State\": \"Alabama\",\n                \"Counties\": \"Lowndes County\",\n                \"Population\": \"932\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=32+10+57+N+86+34+50+W\"\n            }\n        },\n        {\n            \"Id\": 247,\n            \"Name\": \"Imperial, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/1a/Sand_dunes_at_Imperial%2C_TX_SCN1050.JPG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Pecos County\",\n                \"Population\": \"278\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=31+16+19+N+102+41+45+W\"\n            }\n        },\n        {\n            \"Id\": 248,\n            \"Name\": \"Lake Providence, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b0/Louisiana_State_Cotton_Museum_in_Lake_Providence%2C_LA_IMG_7379.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"East Carroll Parish\",\n                \"Population\": \"3991\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=32+48+19+N+91+10+46+W\"\n            }\n        },\n        {\n            \"Id\": 249,\n            \"Name\": \"Selma, AL\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/2/2f/St._James_Hotel%2C_Selma%2C_Alabama_Highsmith.jpg\",\n            \"Info\": {\n                \"State\": \"Alabama\",\n                \"Counties\": \"Dallas County\",\n                \"Population\": \"20756\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=32+24+59+N+87+1+29+W\"\n            }\n        },\n        {\n            \"Id\": 250,\n            \"Name\": \"Hickman, KY\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/3/3c/Fulton_County_Courthouse.jpg\",\n            \"Info\": {\n                \"State\": \"Kentucky\",\n                \"Counties\": \"Fulton County\",\n                \"Population\": \"2395\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=36+34+2+N+89+11+11+W\"\n            }\n        },\n        {\n            \"Id\": 251,\n            \"Name\": \"Durant, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/9/9c/Depot_-_Durant%2C_Mississippi.jpg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Holmes County\",\n                \"Population\": \"2673\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=33+4+35+N+89+51+23+W\"\n            }\n        },\n        {\n            \"Id\": 252,\n            \"Name\": \"Cairo, IL\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/bb/PublicLibraryCairoIL.jpg\",\n            \"Info\": {\n                \"State\": \"Illinois\",\n                \"Counties\": \"Alexander County\",\n                \"Population\": \"2831\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=37+0+47+N+89+10+49+W\"\n            }\n        },\n        {\n            \"Id\": 254,\n            \"Name\": \"Hollandale, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b3/Washington_County_Mississippi_Incorporated_and_Unincorporated_areas_Hollandale_Highlighted.svg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Washington County\",\n                \"Population\": \"2702\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=33+10+24+N+90+51+19+W\"\n            }\n        },\n        {\n            \"Id\": 255,\n            \"Name\": \"Donna, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/e/e7/TXMap-doton-Donna.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Hidalgo County\",\n                \"Population\": \"15798\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=26+10+13+N+98+2+57+W\"\n            }\n        },\n        {\n            \"Id\": 256,\n            \"Name\": \"Port Gibson, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b9/ClaiborneCourthouseConfederate31Aug08.jpg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Claiborne County\",\n                \"Population\": \"1567\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=31+57+22+N+90+58+59+W\"\n            }\n        },\n        {\n            \"Id\": 257,\n            \"Name\": \"Port Orford, OR\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/7/78/Port_Orford.jpg\",\n            \"Info\": {\n                \"State\": \"Oregon\",\n                \"Counties\": \"Curry County\",\n                \"Population\": \"1133\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=42+44+59+N+124+29+53+W\"\n            }\n        },\n        {\n            \"Id\": 258,\n            \"Name\": \"Tallulah, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/a/af/Tallulah%2C_LA%2C_Municipal_Building_IMG_0199.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"Madison Parish\",\n                \"Population\": \"7335\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=32+24+31+N+91+11+12+W\"\n            }\n        },\n        {\n            \"Id\": 259,\n            \"Name\": \"Muskegon, MI\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/a/ad/Muskegon_County_Michigan_Incorporated_and_Unincorporated_areas_Muskegon_Highlighted.svg\",\n            \"Info\": {\n                \"State\": \"Michigan\",\n                \"Counties\": \"Muskegon County\",\n                \"Population\": \"38401\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=43+14+03+N+86+14+54+W\"\n            }\n        },\n        {\n            \"Id\": 260,\n            \"Name\": \"Lima, MT\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/2/22/Lima-Montana.jpg\",\n            \"Info\": {\n                \"State\": \"Montana\",\n                \"Counties\": \"Beaverhead County\",\n                \"Population\": \"221\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=44+38+9+N+112+35+31+W\"\n            }\n        },\n        {\n            \"Id\": 261,\n            \"Name\": \"Roma, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/12/TXMap-doton-Roma.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Starr County\",\n                \"Population\": \"9765\",\n                \"Location\": \"http://maps.google.com/maps?z=11&t=k&q=26+24+22+N+99+0+20+W\"\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/communities filter and sort",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0b93222a-25bf-4f9d-8a67-703673b996d7",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/communities?page=1&category=youth+education&rating=average&scope=national&state=alaska&sort=name",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"communities"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "category",
+											"value": "youth+education"
+										},
+										{
+											"key": "rating",
+											"value": "average"
+										},
+										{
+											"key": "scope",
+											"value": "national"
+										},
+										{
+											"key": "state",
+											"value": "alaska"
+										},
+										{
+											"key": "sort",
+											"value": "name"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/communities/ filter and sort",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/communities?page=1&population=medium&state=alaska&sort=population&desc=true",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"communities"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "population",
+													"value": "medium"
+												},
+												{
+													"key": "state",
+													"value": "alaska"
+												},
+												{
+													"key": "sort",
+													"value": "population"
+												},
+												{
+													"key": "desc",
+													"value": "true"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 6,\n    \"grid\": [\n        {\n            \"Id\": 248,\n            \"Name\": \"Lake Providence, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b0/Louisiana_State_Cotton_Museum_in_Lake_Providence%2C_LA_IMG_7379.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"East Carroll Parish\",\n                \"Population\": 3991\n            }\n        },\n        {\n            \"Id\": 250,\n            \"Name\": \"Hickman, KY\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/3/3c/Fulton_County_Courthouse.jpg\",\n            \"Info\": {\n                \"State\": \"Kentucky\",\n                \"Counties\": \"Fulton County\",\n                \"Population\": 2395\n            }\n        },\n        {\n            \"Id\": 251,\n            \"Name\": \"Durant, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/9/9c/Depot_-_Durant%2C_Mississippi.jpg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Holmes County\",\n                \"Population\": 2673\n            }\n        },\n        {\n            \"Id\": 252,\n            \"Name\": \"Cairo, IL\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/bb/PublicLibraryCairoIL.jpg\",\n            \"Info\": {\n                \"State\": \"Illinois\",\n                \"Counties\": \"Alexander County\",\n                \"Population\": 2831\n            }\n        },\n        {\n            \"Id\": 254,\n            \"Name\": \"Hollandale, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b3/Washington_County_Mississippi_Incorporated_and_Unincorporated_areas_Hollandale_Highlighted.svg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Washington County\",\n                \"Population\": 2702\n            }\n        },\n        {\n            \"Id\": 258,\n            \"Name\": \"Tallulah, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/a/af/Tallulah%2C_LA%2C_Municipal_Building_IMG_0199.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"Madison Parish\",\n                \"Population\": 7335\n            }\n        },\n        {\n            \"Id\": 261,\n            \"Name\": \"Roma, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/12/TXMap-doton-Roma.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Starr County\",\n                \"Population\": 9765\n            }\n        },\n        {\n            \"Id\": 264,\n            \"Name\": \"Edcouch, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/13/Hidalgo_County_Elsa.svg\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Hidalgo County\",\n                \"Population\": 3161\n            }\n        },\n        {\n            \"Id\": 267,\n            \"Name\": \"Fabens, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/9/92/TXMap-doton-Fabens.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"El Paso County\",\n                \"Population\": 8257\n            }\n        }\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "/communities search",
+							"event": [
+								{
+									"listen": "test",
+									"script": {
+										"id": "0b93222a-25bf-4f9d-8a67-703673b996d7",
+										"exec": [
+											"pm.test(\"response is ok\", function () {\r",
+											"    pm.response.to.have.status(200);\r",
+											"});\r",
+											"\r",
+											"pm.test(\"response has same id\", function () {\r",
+											"    let jsonData = pm.response.json()\r",
+											"    console.log(jsonData.grid.length)\r",
+											"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+											"});"
+										],
+										"type": "text/javascript"
+									}
+								}
+							],
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/communities?page=1&search=Lake",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"communities"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "Lake"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "/communities/ search",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "{{prod_url}}/communities?page=1&search=Lake",
+											"host": [
+												"{{prod_url}}"
+											],
+											"path": [
+												"communities"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "search",
+													"value": "Lake"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"num_pages\": 6,\n    \"grid\": [\n        {\n            \"Id\": 248,\n            \"Name\": \"Lake Providence, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b0/Louisiana_State_Cotton_Museum_in_Lake_Providence%2C_LA_IMG_7379.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"East Carroll Parish\",\n                \"Population\": 3991\n            }\n        },\n        {\n            \"Id\": 250,\n            \"Name\": \"Hickman, KY\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/3/3c/Fulton_County_Courthouse.jpg\",\n            \"Info\": {\n                \"State\": \"Kentucky\",\n                \"Counties\": \"Fulton County\",\n                \"Population\": 2395\n            }\n        },\n        {\n            \"Id\": 251,\n            \"Name\": \"Durant, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/9/9c/Depot_-_Durant%2C_Mississippi.jpg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Holmes County\",\n                \"Population\": 2673\n            }\n        },\n        {\n            \"Id\": 252,\n            \"Name\": \"Cairo, IL\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/bb/PublicLibraryCairoIL.jpg\",\n            \"Info\": {\n                \"State\": \"Illinois\",\n                \"Counties\": \"Alexander County\",\n                \"Population\": 2831\n            }\n        },\n        {\n            \"Id\": 254,\n            \"Name\": \"Hollandale, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b3/Washington_County_Mississippi_Incorporated_and_Unincorporated_areas_Hollandale_Highlighted.svg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Washington County\",\n                \"Population\": 2702\n            }\n        },\n        {\n            \"Id\": 258,\n            \"Name\": \"Tallulah, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/a/af/Tallulah%2C_LA%2C_Municipal_Building_IMG_0199.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"Madison Parish\",\n                \"Population\": 7335\n            }\n        },\n        {\n            \"Id\": 261,\n            \"Name\": \"Roma, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/12/TXMap-doton-Roma.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Starr County\",\n                \"Population\": 9765\n            }\n        },\n        {\n            \"Id\": 264,\n            \"Name\": \"Edcouch, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/13/Hidalgo_County_Elsa.svg\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Hidalgo County\",\n                \"Population\": 3161\n            }\n        },\n        {\n            \"Id\": 267,\n            \"Name\": \"Fabens, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/9/92/TXMap-doton-Fabens.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"El Paso County\",\n                \"Population\": 8257\n            }\n        }\n    ]\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "Search Microservice",
+					"item": [
+						{
+							"name": "search_doc charities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://idb-search-dot-cs373-idb-218121.appspot.com/search_doc?query=youngsters&entity=charities",
+									"protocol": "https",
+									"host": [
+										"idb-search-dot-cs373-idb-218121",
+										"appspot",
+										"com"
+									],
+									"path": [
+										"search_doc"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "youngsters"
+										},
+										{
+											"key": "entity",
+											"value": "charities"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "search_doc charities",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://idb-search-dot-cs373-idb-218121.appspot.com/search_doc?query=youngsters&entity=charities",
+											"protocol": "https",
+											"host": [
+												"idb-search-dot-cs373-idb-218121",
+												"appspot",
+												"com"
+											],
+											"path": [
+												"search_doc"
+											],
+											"query": [
+												{
+													"key": "query",
+													"value": "youngsters"
+												},
+												{
+													"key": "entity",
+													"value": "charities"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"results\": [\n        423,\n        378\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "search_doc school_districts",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://idb-search-dot-cs373-idb-218121.appspot.com/search_doc?query=Texas&entity=school_districts",
+									"protocol": "https",
+									"host": [
+										"idb-search-dot-cs373-idb-218121",
+										"appspot",
+										"com"
+									],
+									"path": [
+										"search_doc"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "Texas"
+										},
+										{
+											"key": "entity",
+											"value": "school_districts"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "search_doc school_districts",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://idb-search-dot-cs373-idb-218121.appspot.com/search_doc?query=Texas&entity=school_districts",
+											"protocol": "https",
+											"host": [
+												"idb-search-dot-cs373-idb-218121",
+												"appspot",
+												"com"
+											],
+											"path": [
+												"search_doc"
+											],
+											"query": [
+												{
+													"key": "query",
+													"value": "Texas"
+												},
+												{
+													"key": "entity",
+													"value": "school_districts"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"results\": [\n        585,\n        586,\n        581,\n        567,\n        561,\n        551,\n        543,\n        528,\n        520,\n        510,\n        506,\n        509,\n        499,\n        482,\n        480,\n        477,\n        473,\n        472,\n        470,\n        464\n    ]\n}"
+								}
+							]
+						},
+						{
+							"name": "search_doc communities",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "https://idb-search-dot-cs373-idb-218121.appspot.com/search_doc?query=River&entity=communities",
+									"protocol": "https",
+									"host": [
+										"idb-search-dot-cs373-idb-218121",
+										"appspot",
+										"com"
+									],
+									"path": [
+										"search_doc"
+									],
+									"query": [
+										{
+											"key": "query",
+											"value": "River"
+										},
+										{
+											"key": "entity",
+											"value": "communities"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "search_doc communities",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": ""
+										},
+										"url": {
+											"raw": "https://idb-search-dot-cs373-idb-218121.appspot.com/search_doc?query=River&entity=communities",
+											"protocol": "https",
+											"host": [
+												"idb-search-dot-cs373-idb-218121",
+												"appspot",
+												"com"
+											],
+											"path": [
+												"search_doc"
+											],
+											"query": [
+												{
+													"key": "query",
+													"value": "River"
+												},
+												{
+													"key": "entity",
+													"value": "communities"
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": null,
+									"cookie": [],
+									"body": "{\n    \"results\": [\n        381,\n        363,\n        364,\n        362,\n        355,\n        350,\n        349,\n        342,\n        337,\n        334,\n        335,\n        329,\n        320,\n        314,\n        313,\n        309,\n        310,\n        304,\n        305,\n        306\n    ]\n}"
+								}
+							]
+						}
+					],
+					"_postman_isSubFolder": true
+				},
+				{
+					"name": "/all search",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"id": "0b93222a-25bf-4f9d-8a67-703673b996d7",
+								"exec": [
+									"pm.test(\"response is ok\", function () {\r",
+									"    pm.response.to.have.status(200);\r",
+									"});\r",
+									"\r",
+									"pm.test(\"response has same id\", function () {\r",
+									"    let jsonData = pm.response.json()\r",
+									"    console.log(jsonData.grid.length)\r",
+									"    pm.expect(jsonData.grid.length).to.eql(18)\r",
+									"});"
+								],
+								"type": "text/javascript"
+							}
+						}
+					],
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{prod_url}}/all?page=1&search=Lake",
+							"host": [
+								"{{prod_url}}"
+							],
+							"path": [
+								"all"
+							],
+							"query": [
+								{
+									"key": "page",
+									"value": "1"
+								},
+								{
+									"key": "search",
+									"value": "Lake"
+								}
+							]
+						}
+					},
+					"response": [
+						{
+							"name": "all/ search",
+							"originalRequest": {
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": ""
+								},
+								"url": {
+									"raw": "{{prod_url}}/all?page=1&search=Lake",
+									"host": [
+										"{{prod_url}}"
+									],
+									"path": [
+										"all"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "search",
+											"value": "Lake"
+										}
+									]
+								}
+							},
+							"status": "OK",
+							"code": 200,
+							"_postman_previewlanguage": "json",
+							"header": null,
+							"cookie": [],
+							"body": "{\n    \"num_pages\": 6,\n    \"grid\": [\n        {\n            \"Id\": 248,\n            \"Name\": \"Lake Providence, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b0/Louisiana_State_Cotton_Museum_in_Lake_Providence%2C_LA_IMG_7379.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"East Carroll Parish\",\n                \"Population\": 3991\n            }\n        },\n        {\n            \"Id\": 250,\n            \"Name\": \"Hickman, KY\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/3/3c/Fulton_County_Courthouse.jpg\",\n            \"Info\": {\n                \"State\": \"Kentucky\",\n                \"Counties\": \"Fulton County\",\n                \"Population\": 2395\n            }\n        },\n        {\n            \"Id\": 251,\n            \"Name\": \"Durant, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/9/9c/Depot_-_Durant%2C_Mississippi.jpg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Holmes County\",\n                \"Population\": 2673\n            }\n        },\n        {\n            \"Id\": 252,\n            \"Name\": \"Cairo, IL\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/bb/PublicLibraryCairoIL.jpg\",\n            \"Info\": {\n                \"State\": \"Illinois\",\n                \"Counties\": \"Alexander County\",\n                \"Population\": 2831\n            }\n        },\n        {\n            \"Id\": 254,\n            \"Name\": \"Hollandale, MS\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/b/b3/Washington_County_Mississippi_Incorporated_and_Unincorporated_areas_Hollandale_Highlighted.svg\",\n            \"Info\": {\n                \"State\": \"Mississippi\",\n                \"Counties\": \"Washington County\",\n                \"Population\": 2702\n            }\n        },\n        {\n            \"Id\": 258,\n            \"Name\": \"Tallulah, LA\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/a/af/Tallulah%2C_LA%2C_Municipal_Building_IMG_0199.JPG\",\n            \"Info\": {\n                \"State\": \"Louisiana\",\n                \"Counties\": \"Madison Parish\",\n                \"Population\": 7335\n            }\n        },\n        {\n            \"Id\": 261,\n            \"Name\": \"Roma, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/12/TXMap-doton-Roma.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Starr County\",\n                \"Population\": 9765\n            }\n        },\n        {\n            \"Id\": 264,\n            \"Name\": \"Edcouch, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/1/13/Hidalgo_County_Elsa.svg\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"Hidalgo County\",\n                \"Population\": 3161\n            }\n        },\n        {\n            \"Id\": 267,\n            \"Name\": \"Fabens, TX\",\n            \"Image\": \"https://upload.wikimedia.org/wikipedia/commons/9/92/TXMap-doton-Fabens.PNG\",\n            \"Info\": {\n                \"State\": \"Texas\",\n                \"Counties\": \"El Paso County\",\n                \"Population\": 8257\n            }\n        }\n    ]\n}"
+						}
+					]
+				}
+			],
+			"description": "The below API provide mock ups of the API end points that we would want to provide.\nEach of the mock ups are put under corresponding folder for corresponding entities. ",
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"id": "91bf8ccf-cb8d-40a6-802d-5c1e47e224a9",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"id": "5aaab4bc-c00b-4b36-a98a-6cb645b0988e",
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "ae7ad940-d4d6-46f2-93c5-f512e2620c44",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "6e9c30b8-ce2c-4064-854a-4e1ff3cd7abb",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"id": "5f41bf67-3dd1-4a41-a79b-d336b4b13a1f",
+			"key": "prod_url",
+			"value": "",
+			"type": "string"
+		}
+	]
+}

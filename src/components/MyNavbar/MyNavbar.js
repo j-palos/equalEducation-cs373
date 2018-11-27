@@ -2,11 +2,23 @@ import React from 'react';
 import {Collapse, Nav, Navbar, NavbarBrand, NavbarToggler, NavItem, NavLink} from 'reactstrap';
 import {NavLink as RRNavLink, withRouter} from 'react-router-dom';
 import './styles.css'
+import Input from "@material-ui/core/Input";
+import {changeTerms} from "../../js/store/actions";
+import connect from "react-redux/es/connect/connect";
 
-class MyNavbar extends React.Component {
+const mapDispatchToProps = dispatch => {
+    return {
+        changeTerms: term => dispatch(changeTerms(term))
+    };
+};
+
+const mapStateToProps = state => {
+    return {searchTerms: state.searchTerms};
+};
+
+class ConnectedNavbar extends React.Component {
     constructor(props) {
         super(props);
-
         this.toggle = this.toggle.bind(this);
         this.state = {
             isOpen: false
@@ -19,7 +31,20 @@ class MyNavbar extends React.Component {
         });
     }
 
+    handleChange(e) {
+        this.setState({
+            userInput: e.target.value,
+        });
+        this.props.changeTerms(e.target.value);
+
+    }
+
+    handleSubmit() {
+        this.props.history.push('/search');
+    }
+
     render() {
+
 
         return (
             <div>
@@ -48,9 +73,16 @@ class MyNavbar extends React.Component {
                                 <NavLink to={"/about"} activeClassName={'active'} tag={RRNavLink}>About</NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink to={"/datavisualization"} activeClassName={'active'} tag={RRNavLink}>Data</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink to={"/search"} activeClassName={'active'} tag={RRNavLink}>Search</NavLink>
                             </NavItem>
                         </Nav>
+                        <Input type="search" name="search" id="search" placeholder="Search Within Page.."
+                               value={String(this.props.searchTerms).replace(/,/g, ' ')} onKeyPress={e => {
+                            if (e.key === 'Enter') this.handleSubmit(e);
+                        }} onChange={this.handleChange.bind(this)}/>
                     </Collapse>
                 </Navbar>
             </div>
@@ -58,4 +90,5 @@ class MyNavbar extends React.Component {
     }
 }
 
+const MyNavbar = connect(mapStateToProps, mapDispatchToProps)(ConnectedNavbar);
 export default withRouter(MyNavbar);

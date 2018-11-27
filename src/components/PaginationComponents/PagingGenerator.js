@@ -2,35 +2,20 @@ import React from 'react';
 import {PaginationItem, PaginationLink} from 'reactstrap';
 import {Link} from "react-router-dom";
 
-
-const base = 'http://api.equaleducation.info';
-
 const urls = {
     'charity': 'charities',
     'school': 'schools',
     'community': 'communities',
-};
-
-const apiurls = {
-    'charity': 'charities',
-    'school': 'school_districts',
-    'community': 'communities',
+    'search': 'search',
 };
 
 
-export default class PagingGenerator extends React.Component {
+export default class PagingGenerator extends React.PureComponent {
 
-    constructor(props) {
-        super(props);
-        this.state = {
-            pageNumber: this.props.pageNumber
-        }
-    }
 
     componentDidMount() {
 
         let url = this.props.url.toLowerCase();
-        // debugger;
         if (sessionStorage.getItem(url)) {
             return
         }

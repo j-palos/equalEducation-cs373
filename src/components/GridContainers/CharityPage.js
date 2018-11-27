@@ -1,9 +1,11 @@
 import React, {Component} from 'react';
+import './ModelPages.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "reactstrap";
 import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import queryString from "query-string";
 import {charityFilterQuery} from "../../constants/apiConstants";
+
 
 
 class CharityPage extends Component {
@@ -20,29 +22,24 @@ class CharityPage extends Component {
     }
 
     render() {
-        let x = this.props.location.search;
-        // debugger;
-        let egg = queryString.parse(x);
-        let meta = {};
-        let activeFilters = {};
-        let activeSort = egg.sort;
-        let desc = egg.desc;
-        let xx = charityFilterQuery;
-        for (x in (egg)) {
-            // debugger;
-            for (let y in xx) {
-                if (xx[y] === x) {
-                    // let z = x.toString();
-                    activeFilters[x] = {value: egg[x], label: egg[x]};
-                    // debugger;
+        let params = queryString.parse(this.props.location.search);
+        let activeFilters = [];
+        let activeSort = params.sort;
+        let desc = params.desc;
+        let possibles = charityFilterQuery;
+        for (let param in (params)) {
+            for (let pos in possibles) {
+                if (possibles[pos] === param) {
+                    activeFilters[param] = {value: params[param], label: params[param]};
                 }
             }
         }
-
         return (
             <Container>
                 <main role="main">
                     <div className="container marketing my-5">
+                        <br/><br/>
+                        <h1 class="h1-models">Charities</h1>
                         <br/><br/>
                         <div className={'mx-auto'}>
                             <PaginationContainer

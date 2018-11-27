@@ -11,3 +11,8 @@
     "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
     sans-serif;
 }
+
+#site-footer {
+	/*height: 50px;*/
+	background: '#07969b';
+}
