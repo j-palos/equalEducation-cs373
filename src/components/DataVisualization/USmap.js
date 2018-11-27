@@ -3,7 +3,7 @@ import ReactUSA from 'react-usa';
 
 export const USmap = (props) => {
   const props_data = props.data;
-  const palette = ["#584B53", "#9D5C63", "#E4BB97", "#FEF5EF"]
+  const palette = ["#E37476", "#F19F50", "#6E90B5", "#8DC1BD"]
 
   var data = []
   props_data.map(d => {

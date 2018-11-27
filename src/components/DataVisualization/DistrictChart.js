@@ -8,16 +8,18 @@ export const DistrictChart = (props) => {
   props_data.map(d => {
     const state = d.state
     const num_districts = d.num_districts
-    var color = "#FEF5EF"
+    const palette = ["#E37476", "#F19F50", "#6E90B5", "#8DC1BD"]
+
+    var color = palette[3]
     if (num_districts > 1) {
       if(num_districts > 14) {
-        color = "#584B53"
+        color = palette[0]
       }
       else if(num_districts > 6) {
-        color = "#9D5C63"
+        color = palette[1]
       }
       else {
-        color = "#E4BB97"
+        color = palette[2]
       }
       data.push({
         x: state,
