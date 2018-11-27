@@ -213,6 +213,19 @@ class Search extends React.Component {
                             <GridContainer info={this.state.info_communities}/>
                         </Row>
                         }
+                        {this.state.community_submitted &&
+                        this.state.school_submitted &&
+                        this.state.charity_submitted &&
+                        this.state.info_charities.length === 0 &&
+                        this.state.info_communities.length === 0 &&
+                        this.state.info_schools.length === 0 &&
+                        <Row>
+                            <Col>
+                                <p>There doesn't seem to be any results</p>
+                            </Col>
+                        </Row>
+
+                        }
                         <Button variant="fab" color="secondary" aria-label="Jump To Top" className={classes.fab}
                                 onClick={() => {
                                     this.scrollToTop();
