@@ -7,6 +7,7 @@ import React, {Component} from "react";
 import EntityContainer from "../EntityComponents/EntityContainer";
 import CommunityPage from "../GridContainers/CommunityPage";
 import SearchPage from '../Search/SearchPage';
+import DataVisualization from '../DataVisualization'
 
 
 export default class RouteBuilder extends Component {
@@ -31,6 +32,7 @@ export default class RouteBuilder extends Component {
                 <Route exact path="/about" component={AboutPage}/>
                 <Route exact path="/search" component={SearchPage}/>
                 <Route exact path="/search/:input" component={SearchPage}/>
+                <Route exact path="/datavisualization" component={DataVisualization}/>
             </Switch>
         )
     }

@@ -74,6 +74,9 @@ class Myavbar extends React.Component {
                                 <NavLink to={"/about"} activeClassName={'active'} tag={RRNavLink}>About</NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink to={"/datavisualization"} activeClassName={'active'} tag={RRNavLink}>Data</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink to={"/search"} activeClassName={'active'} tag={RRNavLink}>Search</NavLink>
                             </NavItem>
                         </Nav>
