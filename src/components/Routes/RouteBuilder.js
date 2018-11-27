@@ -7,7 +7,7 @@ import React, {Component} from "react";
 import EntityContainer from "../EntityComponents/EntityContainer";
 import CommunityPage from "../GridContainers/CommunityPage";
 import SearchPage from '../Search/SearchPage';
-import USMap from '../D3Test/usmap'
+import DataVisualization from '../DataVisualization'
 
 
 export default class RouteBuilder extends Component {
@@ -32,7 +32,7 @@ export default class RouteBuilder extends Component {
                 <Route exact path="/about" component={AboutPage}/>
                 <Route exact path="/search" component={SearchPage}/>
                 <Route exact path="/search/:input" component={SearchPage}/>
-                <Route exact path="/usmap" component={USMap}/>
+                <Route exact path="/datavisualization" component={DataVisualization}/>
             </Switch>
         )
     }

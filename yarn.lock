@@ -3964,7 +3964,7 @@ d3-scale@1.0.7, d3-scale@^1.0.7:
     d3-time "1"
     d3-time-format "2"
 
-d3-scale@2:
+d3-scale@2, d3-scale@^2.1.2:
   version "2.1.2"
   resolved "https://registry.yarnpkg.com/d3-scale/-/d3-scale-2.1.2.tgz#4e932b7b60182aee9073ede8764c98423e5f9a94"
   integrity sha512-bESpd64ylaKzCDzvULcmHKZTlzA/6DGSVwx7QSDj/EnX9cpSevsdiwdHFYI9ouo9tNBbV3v5xztHS2uFeOzh8Q==
