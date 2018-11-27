@@ -1,5 +1,5 @@
 import React, {Component} from 'react';
-import {Pagination, Row} from 'reactstrap';
+import {Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 import './PaginationContainer.css';
@@ -49,8 +49,8 @@ class SearchPaginationContainerConnect extends Component {
      * @returns {string}
      */
     getSearchAPIURL(currentPage) {
-        console.log(this.props.searchTerms);
-        return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${this.props.searchTerms}&list=999`;
+        let value = String(this.props.searchTerms).replace(/,/g, "+");
+        return `${base}/${searchurl[this.props.value]}?page=${currentPage}&search=${value}&list=999`;
     }
 
     getData() {
@@ -72,12 +72,11 @@ class SearchPaginationContainerConnect extends Component {
                     let totalPages = data['num_pages'];
                     let info = data['grid'];
                     sessionStorage.setItem(`${url}`, JSON.stringify(data));
-                    let pagination = this.helperPaging(this.state.currentPage, totalPages);
                     debugger;
                     this.setState({
                         total: totalPages,
                         info: info,
-                        pagination: pagination,
+                        // pagination: pagination,
                     });
                     return totalPages;
                 })
@@ -92,11 +91,11 @@ class SearchPaginationContainerConnect extends Component {
         data = JSON.parse(data);
         let totalPages = data['num_pages'];
         let info = data['grid'];
-        let pagination = this.helperPaging(currentPage, totalPages);
+        // let pagination = this.helperPaging(currentPage, totalPages);
         this.setState({
             total: totalPages,
             info: info,
-            pagination: pagination,
+            // pagination: pagination,
         });
     }
 
@@ -149,9 +148,9 @@ class SearchPaginationContainerConnect extends Component {
             <div>
                 <GridContainer info={this.state.info}/>
                 <Row>
-                    <Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>
-                        {this.state.pagination}
-                    </Pagination>
+                    {/*<Pagination size="lg" aria-label="Page navigation" className={'mx-auto'}>*/}
+                    {/*{this.state.pagination}*/}
+                    {/*</Pagination>*/}
                 </Row>
             </div>
         )

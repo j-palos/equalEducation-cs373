@@ -51,7 +51,7 @@ class Search extends React.Component {
             search: value,
             submitted: true,
         });
-        this.props.changeTerms(value);
+        // this.props.changeTerms(value);
     };
 
     handleTabChange = (event, value) => {
