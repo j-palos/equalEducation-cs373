@@ -22,30 +22,39 @@ class LandingPage extends PureComponent {
                     </p>
                     <div className="container">
                         <div className="row">
-                            <div className="col-sm">
+                            <div className="col-sm d-flex align-items-stretch">
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">School Districts</h5>
+                                        <img class="card-img-top" src="/images/district-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Low income school districts in America.</p>
-                                        <Link to={'/schools'}> Learn More </Link>
+                                        <button type="button" class="btn btn-primary">
+                                            <Link to={'/schools'} className="link"> Learn More </Link>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm d-flex align-items-stretch">
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Charities</h5>
+                                        <img class="card-img-top" src="/images/charity-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Charitable organizations involved in education.</p>
-                                        <Link to={'/charities'}> Learn More </Link>
+                                        <button type="button" class="btn btn-primary">
+                                            <Link to={'/charities'} className="link"> Learn More </Link>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
-                            <div className="col-sm">
+                            <div className="col-sm d-flex align-items-stretch">
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Communities</h5>
+                                        <img class="card-img-top" src="/images/volunteers-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Communities involved in low income school districts.</p>
-                                        <Link to={'/communities'}> Learn More </Link>
+                                        <button type="button" class="btn btn-primary">
+                                            <Link to={'/communities'} className="link"> Learn More </Link>
+                                        </button>
                                     </div>
                                 </div>
                             </div>
