@@ -80,13 +80,13 @@ class PaginationContainer extends Component {
         if (this.state.activeSort) {
             end += this.getActiveSort();
         }
-        return url + end;
+        return url + end + '&list=6';
     }
 
     getData() {
         let currentPage = this.state.currentPage;
         let url = this.getAPIURL(currentPage).toLowerCase();
-        if (sessionStorage.getItem(`${url}`) && this.props.path !== 'search') {
+        if (sessionStorage.getItem(`${url}`)) {
             this.getDataFromCache(currentPage, `${url}`);
         }
         else {
@@ -135,7 +135,7 @@ class PaginationContainer extends Component {
         let i;
         let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
-        let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
+        let rightBoundary = Number(Math.min(parseInt(currentPage + 3), lastPage));
         let query = this.props.query || `?${this.getActiveFilters() + this.getActiveSort()}`;
         if (currentPage > 1) {
             let url = this.getAPIURL(currentPage);
@@ -175,9 +175,6 @@ class PaginationContainer extends Component {
     handleFilterChange(filterable, selections) {
         let selection = this.state.activeFilters || [];
         selection[`${filterable}`] = selections;
-        console.log('here');
-        console.log(selection);
-        console.log(selections);
         this.setState({
             activeFilters: selection,
         });
@@ -207,7 +204,7 @@ class PaginationContainer extends Component {
     handleDirectionChange() {
         let change = !this.state.desc;
         this.setState({
-            currentPage: 1,
+            // currentPage: 1,
             desc: change,
         })
 
@@ -219,11 +216,10 @@ class PaginationContainer extends Component {
             <Col key={filterable} sm={4} className={'mx-auto'}>
                 <Select className={"Filter"}
                         name={filterable}
-                        value={this.state.activeFilters.filterable}
+                        value={this.state.activeFilters[filterable] || null}
                         onChange={this.handleFilterChange.bind(this, filterable)}
                         options={filterables[this.props.path][filterable]}
-                        isMulti={false}
-                        placeholder={`${this.state.activeFilters.filterable || "Filter by " + filterable + "..."}`}>
+                        placeholder={`${this.state.activeFilters[filterable] || "Filter by " + filterable + "..."}`}>
                 </Select>
             </Col>
         );
