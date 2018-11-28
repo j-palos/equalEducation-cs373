@@ -17,4 +17,36 @@ describe('AboutTable', () => {
       ).length
     ).toEqual(1);
   });
+
+  it('contains one thead', () => {
+    expect(
+      shallow(
+        <thead />
+      ).length
+    ).toEqual(1);
+  });
+
+  it('contains one tr', () => {
+    expect(
+      shallow(
+        <tr />
+      ).length
+    ).toEqual(1);
+  });
+
+  it('contains a th', () => {
+    expect(
+      shallow(
+        <th />
+      ).length
+    ).toEqual(1);
+  });
+
+  it('contains one tbody', () => {
+    expect(
+      shallow(
+        <tbody />
+      ).length
+    ).toEqual(1);
+  });
 });
