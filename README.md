@@ -23,6 +23,12 @@ Estimated completion time: 30 hours
 
 Actual completion time: 30 hours
 
+Phase 4:
+
+Estimated completion time: 20 hours
+
+Actual completion time: ~20 hours
+
 ---------------------------------------------
 
 Name: Intae Ryoo
@@ -49,6 +55,12 @@ Estimated completion time: 30 hours
 
 Actual completition time: 30 hours
 
+Phase 4:
+
+Estimated completion time: 15 hours
+
+Actual completion time: 20 hours
+
 ---------------------------------------------
 
 Name: Jesus Palos
@@ -74,6 +86,12 @@ Phase 3:
 Estimated completion time: 35 hours
 
 Actual completion time: 60 hours
+
+Phase 4:
+
+Estimated completion time: 20 hours
+
+Actual completion time: 30 hours
 
 ---------------------------------------------
 
@@ -102,6 +120,12 @@ Estimated completion time: 20 hours
 
 Actual completion time: 30 hours
 
+Phase 4:
+
+Estimated completion time: 20 hours
+
+Actual completion time: 25 hours
+
 ---------------------------------------------
 
 
@@ -129,6 +153,12 @@ Estimated completion time: 30 hours
 
 Actual completion time: 40 hours
 
+Phase 4:
+
+Estimated completion time: 20 hours
+
+Actual completion time: 20 hours
+
 ---------------------------------------------
 
 Name: Ailyn Aguirre
@@ -148,6 +178,12 @@ Phase 3:
 Estimated completion time: 30 hours
 
 Actual completion time: 40 hours
+
+Phase 4:
+
+Estimated completion time: 20 hours
+
+Actual completion time: 20 hours
 
 ---------------------------------------------
 
@@ -178,3 +214,12 @@ Phase 3
 Git SHA (front-end): 7c788ac63e132840b4fff2d89c2d65361d27e196
 
 Gitlab Pipeline (front-end): https://gitlab.com/intaeryoo/cs373-idb/pipelines
+
+---------------------------------------------
+
+Phase 4
+
+Git SHA (front-end): 271c0cbaeb29cb96561f4dd2dfc87d62e7340349
+
+Gitlab Pipeline (front-end): https://gitlab.com/intaeryoo/cs373-idb/pipelines
+
