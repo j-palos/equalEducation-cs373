@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {Col, Pagination, Row} from 'reactstrap';
+import {Button, Col, Form, FormGroup, Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 // import SearchAppBar from "../FilterSortBar/SearchAppBar";
 import Select from 'react-select';
 import './PaginationContainer.css';
 import {filterables, sortables} from '../../constants/apiConstants';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import SorterButton from "../FilterSortBar/SorterButton";
 import {withRouter} from "react-router-dom";
 
@@ -201,6 +201,10 @@ class PaginationContainer extends Component {
         return (this.props.history.replace(`/${surls[this.state.path]}/1?${end}`));
     };
 
+    handleReset = () => {
+        return (this.props.history.replace(`/${surls[this.state.path]}/1`));
+    }
+
     handleDirectionChange() {
         let change = !this.state.desc;
         this.setState({
@@ -227,7 +231,7 @@ class PaginationContainer extends Component {
             [<Select className={"Sort"}
                      key={'Sort'}
                      name='Sort'
-                     value={sortables[this.props.path][this.state.activeSort]}
+                     value={sortables[this.props.path][this.state.activeSort] || null}
                      onChange={this.handleSortChange.bind(this)}
                      options={sortables[this.props.path]}
                      placeholder={`${this.state.activeSort || "Sort by ..."}`}>
@@ -235,6 +239,7 @@ class PaginationContainer extends Component {
         ;
         sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
                                     onClick={this.handleDirectionChange.bind(this)}/>];
+        let resetButton = [<Button color={'warning'} onClick={this.handleReset.bind(this)}>Reset</Button>];
 
         return (
             <div>
@@ -242,23 +247,27 @@ class PaginationContainer extends Component {
                     <Row>
                         {filtersRender}
                     </Row>
-                    <Row>
-                        <Col>
+                    <Form inline>
+                        <FormGroup>
                             <div className={"Menu"}>
                                 {sortRender}</div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                        </Col>
+                        </FormGroup>
+
+                        <FormGroup>
                         <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
                                 className={'mx-auto'} style={{margin: '5px'}}>
                             Apply Filters/Sort
-                        </Button><Col>
+                        </Button></FormGroup>
+                        <FormGroup>
                             <span style={{margin: 'auto'}}>
                                 {sortButton}</span>
-                    </Col>
-                    </Row>
+                        </FormGroup>
+                        <Col>
+                            <FormGroup>
+                                <span style={{marginRight: '1px', marginLeft: 'auto'}}> {resetButton}</span>
+                            </FormGroup>
+                        </Col>
+                    </Form>
                 </div>
                 <GridContainer info={this.state.info}/>
                 <Row>
