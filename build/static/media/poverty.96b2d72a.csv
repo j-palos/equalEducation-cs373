@@ -1,0 +1,51 @@
+state,abbr,poverty,num_districts
+Alabama,AL,15,9
+Alaska,AK,14.4,1
+Arizona,AZ,13.2,6
+Arkansas,AR,14.8,6
+California,CA,12.4,3
+Colorado,CO,7.7,1
+Connecticut,CT,10.9,0
+Delaware,DE,9.2,0
+Florida,FL,13.7,0
+Georgia,GA,13.3,8
+Hawaii,HI,10.3,0
+Idaho,ID,11.7,0
+Illinois,IL,10.9,3
+Indiana,IN,11.4,1
+Iowa,IA,9.1,0
+Kansas,KS,14.7,0
+Kentucky,KY,14.4,12
+Louisiana,LA,21.4,6
+Maine,ME,12,0
+Maryland,MD,7.8,0
+Massachusetts,MA,10.6,0
+Michigan,MI,12.7,9
+Minnesota,MN,9.2,0
+Mississippi,MS,18.3,24
+Missouri,MO,11.1,1
+Montana,MT,9.7,1
+Nebraska,NE,10.4,0
+Nevada,NV,13.7,0
+New Hampshire,NH,6.6,0
+New Jersey,NJ,8.6,2
+New Mexico,NM,18.6,7
+New York,NY,13.4,1
+North Carolina,NC,14.5,0
+North Dakota,ND,11.3,1
+Ohio,OH,12.7,7
+Oklahoma,OK,12.6,2
+Oregon,OR,10.2,1
+Pennsylvania,PA,11.2,1
+Rhode Island,RI,12.2,0
+South Carolina,SC,15.6,3
+South Dakota,SD,10.4,3
+Tennessee,TN,11.5,0
+Texas,TX,13.4,21
+Utah,UT,8.6,0
+Vermont,VT,10.2,0
+Virginia,VA,10.3,0
+Washington,WA,9.9,0
+West Virginia,WV,17.3,0
+Wisconsin,WI,9.5,0
+Wyoming,WY,12.4,0

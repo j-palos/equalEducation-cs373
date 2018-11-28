@@ -26,7 +26,7 @@ class LandingPage extends PureComponent {
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">School Districts</h5>
-                                        <img class="card-img-top" src="/images/district-placeholder.jpg" alt="Card image cap"></img>
+                                        <img class="card-img-top-new" src="/images/district-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Low income school districts in America.</p>
                                         <button type="button" class="btn btn-primary">
                                             <Link to={'/schools'} className="link"> Learn More </Link>
@@ -38,7 +38,7 @@ class LandingPage extends PureComponent {
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Charities</h5>
-                                        <img class="card-img-top" src="/images/charity-placeholder.jpg" alt="Card image cap"></img>
+                                        <img class="card-img-top-new" src="/images/charity-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Charitable organizations involved in education.</p>
                                         <button type="button" class="btn btn-primary">
                                             <Link to={'/charities'} className="link"> Learn More </Link>
@@ -50,7 +50,7 @@ class LandingPage extends PureComponent {
                                 <div className="card text-center">
                                     <div className="card-body" id="landing-cards">
                                         <h5 className="card-title">Communities</h5>
-                                        <img class="card-img-top" src="/images/volunteers-placeholder.jpg" alt="Card image cap"></img>
+                                        <img class="card-img-top-new" src="/images/volunteers-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Communities involved in low income school districts.</p>
                                         <button type="button" class="btn btn-primary">
                                             <Link to={'/communities'} className="link"> Learn More </Link>
