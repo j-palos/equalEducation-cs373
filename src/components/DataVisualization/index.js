@@ -4,31 +4,20 @@ import { DistrictChart } from "./DistrictChart"
 import { PovertyRateChart } from "./PovertyRateChart"
 import "./styles.css";
 
+
 class DataVisualization extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
       data: null,
     };
-    this.updateData = this.updateData.bind(this);
   }
 
   componentWillMount() {
-    var csvFilePath = require("../../json/poverty.csv");
-    var Papa = require("papaparse/papaparse.min.js");
-    Papa.parse(csvFilePath, {
-      header: true,
-      download: true,
-      skipEmptyLines: true,
-      complete: this.updateData
-    });
+    var poverty = require("../../json/poverty.json");
+    this.setState({data:poverty})
+    console.log(this.state)
   }
-
-  updateData(result) {
-    const data = result.data;
-    this.setState({ data });
-  }
-
 
   render() {
     if (!this.state.data) {
