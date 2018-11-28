@@ -21,6 +21,7 @@ class SchoolPage extends PureComponent {
                 }
             }
         }
+        console.log('re')
         return (
             <Container>
                 <main role="main">
@@ -31,7 +32,7 @@ class SchoolPage extends PureComponent {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'school'}
-                                page={this.props.page || 1} id="school-page"
+                                page={this.props.match.params.page || 1} id="school-page"
                                 query={this.props.location.search}
                                 desc={desc}
                                 activeFilters={activeFilters}

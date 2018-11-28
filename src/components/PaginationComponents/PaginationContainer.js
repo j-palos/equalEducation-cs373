@@ -84,7 +84,7 @@ class PaginationContainer extends Component {
     }
 
     getData() {
-        let currentPage = this.state.currentPage;
+        let currentPage = parseInt(this.props.page);
         let url = this.getAPIURL(currentPage).toLowerCase();
         if (sessionStorage.getItem(`${url}`)) {
             this.getDataFromCache(currentPage, `${url}`);
@@ -131,11 +131,12 @@ class PaginationContainer extends Component {
 
     helperPaging(curPage, total) {
         let pagination = [];
-        let currentPage = curPage;
+        let currentPage = parseInt(curPage);
         let i;
         let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
-        let rightBoundary = Number(Math.min(parseInt(currentPage + 3), lastPage));
+        let temp = currentPage + 3;
+        let rightBoundary = Number(Math.min(temp, lastPage));
         let query = this.props.query || `?${this.getActiveFilters() + this.getActiveSort()}`;
         if (currentPage > 1) {
             let url = this.getAPIURL(currentPage);

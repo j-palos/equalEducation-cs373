@@ -39,8 +39,8 @@ class ConnectedNavbar extends React.Component {
 
     }
 
-    handleSubmit() {
-        this.props.history.push('/search');
+    handleSubmit(e) {
+        e.preventDefault();
     }
 
     render() {

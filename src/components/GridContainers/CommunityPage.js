@@ -1,23 +1,11 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import {Container} from "reactstrap";
 import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import queryString from "query-string";
 import {communityFilterQuery} from "../../constants/apiConstants";
 import './ModelPages.css'
 
-class CommunityPage extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            page: this.props.match.params.page || 1
-        }
-    }
-
-    componentWillReceiveProps(props) {
-        this.setState({'page': props.match.params.page || 1});
-    }
-
+class CommunityPage extends PureComponent {
     render() {
         let params = queryString.parse(this.props.location.search);
         let activeFilters = [];
@@ -41,7 +29,7 @@ class CommunityPage extends Component {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'community'}
-                                page={this.state.page}
+                                page={this.props.match.params.page || 1}
                                 id="community-page"
                                 query={this.props.location.search}
                                 desc={desc}

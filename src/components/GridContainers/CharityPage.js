@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import './ModelPages.css'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import {Container} from "reactstrap";
@@ -7,19 +7,7 @@ import queryString from "query-string";
 import {charityFilterQuery} from "../../constants/apiConstants";
 
 
-
-class CharityPage extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            page: this.props.match.params.page || 1
-        }
-    }
-
-    componentWillReceiveProps(props) {
-        this.setState({'page': props.match.params.page || 1});
-    }
+class CharityPage extends PureComponent {
 
     render() {
         let params = queryString.parse(this.props.location.search);
@@ -44,7 +32,7 @@ class CharityPage extends Component {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'charity'}
-                                page={this.state.page} id="charity-page"
+                                page={this.props.match.params.page || 1} id="charity-page"
                                 query={this.props.location.search}
                                 desc={desc}
                                 activeFilters={activeFilters}
