@@ -15,4 +15,28 @@ describe('Marker', () => {
       ).length
     ).toEqual(1);
   });
+
+  it('renders one div', () => {
+    expect(
+      shallow(
+        <div />
+      ).length
+    ).toEqual(1);
+  });
+
+  it('renders one p tag', () => {
+    expect(
+      shallow(
+        <p />
+      ).length
+    ).toEqual(1);
+  });
+
+  it('renders one span tag', () => {
+    expect(
+      shallow(
+        <span />
+      ).length
+    ).toEqual(1);
+  });
 });
