@@ -43,14 +43,14 @@ class DataVisualization extends React.Component {
 
          <center><hr className="featurette-divider" width="90%"/></center>
 
-         <div className="margin-left">
+         <div className="margin-center">
           <center><h1 className="margin-bottom">The Number of Poverty School Districts by State</h1></center>
           <DistrictChart data={data}/>
          </div>
 
          <center><hr className="featurette-divider" width="90%"/></center>
 
-         <div className="margin-left">
+         <div className="margin-center">
           <center><h1 className="margin-bottom">The Poverty Rate by State</h1></center>
           <PovertyRateChart data={data}/>
          </div>

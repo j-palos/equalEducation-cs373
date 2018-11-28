@@ -6,6 +6,7 @@
   margin-bottom: 30px;
 }
 
-.margin-left {
-  margin-left: 40px;
+.margin-center {
+  margin: auto;
+  width: 70%;
 }
