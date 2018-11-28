@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React, {PureComponent} from 'react';
 import '../../App.css';
 import PaginationContainer from "../PaginationComponents/PaginationContainer";
 import {Container} from "reactstrap";
@@ -6,18 +6,7 @@ import queryString from 'query-string';
 import {schoolFilterQuery} from "../../constants/apiConstants";
 import './ModelPages.css'
 
-class SchoolPage extends Component {
-
-    constructor(props) {
-        super(props);
-        this.state = {
-            page: this.props.match.params.page || 1
-        }
-    }
-
-    componentWillReceiveProps(props) {
-        this.setState({'page': props.match.params.page || 1});
-    }
+class SchoolPage extends PureComponent {
 
     render() {
         let params = queryString.parse(this.props.location.search);
@@ -42,7 +31,7 @@ class SchoolPage extends Component {
                         <div className={'mx-auto'}>
                             <PaginationContainer
                                 path={'school'}
-                                page={this.state.page} id="school-page"
+                                page={this.props.page || 1} id="school-page"
                                 query={this.props.location.search}
                                 desc={desc}
                                 activeFilters={activeFilters}

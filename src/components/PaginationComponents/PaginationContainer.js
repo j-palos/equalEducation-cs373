@@ -1,12 +1,12 @@
 import React, {Component} from 'react';
-import {Col, Pagination, Row} from 'reactstrap';
+import {Button, Col, Form, FormGroup, Pagination, Row} from 'reactstrap';
 import PagingGenerator from './PagingGenerator';
 import GridContainer from "../GridContainers/GridContainer";
 // import SearchAppBar from "../FilterSortBar/SearchAppBar";
 import Select from 'react-select';
 import './PaginationContainer.css';
 import {filterables, sortables} from '../../constants/apiConstants';
-import Button from '@material-ui/core/Button';
+// import Button from '@material-ui/core/Button';
 import SorterButton from "../FilterSortBar/SorterButton";
 import {withRouter} from "react-router-dom";
 
@@ -80,13 +80,13 @@ class PaginationContainer extends Component {
         if (this.state.activeSort) {
             end += this.getActiveSort();
         }
-        return url + end;
+        return url + end + '&list=6';
     }
 
     getData() {
         let currentPage = this.state.currentPage;
         let url = this.getAPIURL(currentPage).toLowerCase();
-        if (sessionStorage.getItem(`${url}`) && this.props.path !== 'search') {
+        if (sessionStorage.getItem(`${url}`)) {
             this.getDataFromCache(currentPage, `${url}`);
         }
         else {
@@ -135,7 +135,7 @@ class PaginationContainer extends Component {
         let i;
         let lastPage = Number(total);
         i = Number(Math.max(currentPage - 3, 1));
-        let rightBoundary = Number(Math.min(currentPage + 3, lastPage));
+        let rightBoundary = Number(Math.min(parseInt(currentPage + 3), lastPage));
         let query = this.props.query || `?${this.getActiveFilters() + this.getActiveSort()}`;
         if (currentPage > 1) {
             let url = this.getAPIURL(currentPage);
@@ -175,9 +175,6 @@ class PaginationContainer extends Component {
     handleFilterChange(filterable, selections) {
         let selection = this.state.activeFilters || [];
         selection[`${filterable}`] = selections;
-        console.log('here');
-        console.log(selection);
-        console.log(selections);
         this.setState({
             activeFilters: selection,
         });
@@ -204,10 +201,14 @@ class PaginationContainer extends Component {
         return (this.props.history.replace(`/${surls[this.state.path]}/1?${end}`));
     };
 
+    handleReset = () => {
+        return (this.props.history.replace(`/${surls[this.state.path]}/1`));
+    }
+
     handleDirectionChange() {
         let change = !this.state.desc;
         this.setState({
-            currentPage: 1,
+            // currentPage: 1,
             desc: change,
         })
 
@@ -219,11 +220,10 @@ class PaginationContainer extends Component {
             <Col key={filterable} sm={4} className={'mx-auto'}>
                 <Select className={"Filter"}
                         name={filterable}
-                        value={this.state.activeFilters.filterable}
+                        value={this.state.activeFilters[filterable] || null}
                         onChange={this.handleFilterChange.bind(this, filterable)}
                         options={filterables[this.props.path][filterable]}
-                        isMulti={false}
-                        placeholder={`${this.state.activeFilters.filterable || "Filter by " + filterable + "..."}`}>
+                        placeholder={`${this.state.activeFilters[filterable] || "Filter by " + filterable + "..."}`}>
                 </Select>
             </Col>
         );
@@ -231,7 +231,7 @@ class PaginationContainer extends Component {
             [<Select className={"Sort"}
                      key={'Sort'}
                      name='Sort'
-                     value={sortables[this.props.path][this.state.activeSort]}
+                     value={sortables[this.props.path][this.state.activeSort] || null}
                      onChange={this.handleSortChange.bind(this)}
                      options={sortables[this.props.path]}
                      placeholder={`${this.state.activeSort || "Sort by ..."}`}>
@@ -239,6 +239,7 @@ class PaginationContainer extends Component {
         ;
         sortButton = [<SorterButton key={'sorter'} desc={this.state.desc}
                                     onClick={this.handleDirectionChange.bind(this)}/>];
+        let resetButton = [<Button color={'warning'} onClick={this.handleReset.bind(this)}>Reset</Button>];
 
         return (
             <div>
@@ -246,23 +247,27 @@ class PaginationContainer extends Component {
                     <Row>
                         {filtersRender}
                     </Row>
-                    <Row>
-                        <Col>
+                    <Form inline>
+                        <FormGroup>
                             <div className={"Menu"}>
                                 {sortRender}</div>
-                        </Col>
-                    </Row>
-                    <Row>
-                        <Col>
-                        </Col>
+                        </FormGroup>
+
+                        <FormGroup>
                         <Button variant="contained" color="inherit" onClick={(e) => this.handleSubmit(e)}
                                 className={'mx-auto'} style={{margin: '5px'}}>
                             Apply Filters/Sort
-                        </Button><Col>
+                        </Button></FormGroup>
+                        <FormGroup>
                             <span style={{margin: 'auto'}}>
                                 {sortButton}</span>
-                    </Col>
-                    </Row>
+                        </FormGroup>
+                        <Col>
+                            <FormGroup>
+                                <span style={{marginRight: '1px', marginLeft: 'auto'}}> {resetButton}</span>
+                            </FormGroup>
+                        </Col>
+                    </Form>
                 </div>
                 <GridContainer info={this.state.info}/>
                 <Row>
