@@ -1,6 +1,9 @@
 import React from 'react';
 import ReactUSA from 'react-usa';
 
+let GOOGLE_MAPS = require('../../json/GoogleMaps.json');
+let MAP_BOX_KEYS = GOOGLE_MAPS.mapbox_keys;
+
 export const USmap = (props) => {
   const props_data = props.data;
   const palette = ["#E37476", "#F19F50", "#6E90B5", "#8DC1BD"]
@@ -31,7 +34,7 @@ export const USmap = (props) => {
       color: color
     })
   })
-  const mapboxAccessToken = ""
+  const mapboxAccessToken = MAP_BOX_KEYS
   const mapboxType = "streets";
   const position = [37.0902, -95.7129];
   const zoom = 4;
