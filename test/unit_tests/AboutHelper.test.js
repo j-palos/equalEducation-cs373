@@ -3,22 +3,22 @@ import Enzyme from 'enzyme';
 import expect from 'expect';
 import { shallow } from 'enzyme';
 import Adapter from 'enzyme-adapter-react-16';
+import { Table } from 'reactstrap';
+
 Enzyme.configure({ adapter: new Adapter() });
 
-import GoogleMap from '../../src/components/Map/Container';
-import Marker from '../../src/components/Marker'
-import { Map, GoogleApiWrapper } from 'google-maps-react';
+import AboutTable from '../../src/components/AboutTable';
 
-describe('Map', () => {
-  it('renders without exploding', () => {
+describe('AboutHelper', () => {
+  it('returns without exploding', () => {
     expect(
       shallow(
-        <GoogleApiWrapper />
+        <Table />
       ).length
     ).toEqual(1);
   });
 
-  it('contains one div', () => {
+  it('returns one div', () => {
     expect(
       shallow(
         <div />
@@ -26,10 +26,18 @@ describe('Map', () => {
     ).toEqual(1);
   });
 
-  it('contains one Marker', () => {
+  it('returns one p', () => {
     expect(
       shallow(
-        <Marker />
+        <p />
+      ).length
+    ).toEqual(1);
+  });
+
+  it('returns one span', () => {
+    expect(
+      shallow(
+        <span />
       ).length
     ).toEqual(1);
   });
