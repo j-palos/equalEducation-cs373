@@ -219,7 +219,7 @@ Gitlab Pipeline (front-end): https://gitlab.com/intaeryoo/cs373-idb/pipelines
 
 Phase 4
 
-Git SHA (front-end): 271c0cbaeb29cb96561f4dd2dfc87d62e7340349
+Git SHA (front-end): 9d2247944b08f94347db5dededb546f51c0df30a
 
 Gitlab Pipeline (front-end): https://gitlab.com/intaeryoo/cs373-idb/pipelines
 
