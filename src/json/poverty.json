@@ -1,0 +1,302 @@
+[
+  {
+    "state": "Alabama",
+    "abbr": "AL",
+    "poverty": 15,
+    "num_districts": 9
+  },
+  {
+    "state": "Alaska",
+    "abbr": "AK",
+    "poverty": 14.4,
+    "num_districts": 1
+  },
+  {
+    "state": "Arizona",
+    "abbr": "AZ",
+    "poverty": 13.2,
+    "num_districts": 6
+  },
+  {
+    "state": "Arkansas",
+    "abbr": "AR",
+    "poverty": 14.8,
+    "num_districts": 6
+  },
+  {
+    "state": "California",
+    "abbr": "CA",
+    "poverty": 12.4,
+    "num_districts": 3
+  },
+  {
+    "state": "Colorado",
+    "abbr": "CO",
+    "poverty": 7.7,
+    "num_districts": 1
+  },
+  {
+    "state": "Connecticut",
+    "abbr": "CT",
+    "poverty": 10.9,
+    "num_districts": 0
+  },
+  {
+    "state": "Delaware",
+    "abbr": "DE",
+    "poverty": 9.2,
+    "num_districts": 0
+  },
+  {
+    "state": "Florida",
+    "abbr": "FL",
+    "poverty": 13.7,
+    "num_districts": 0
+  },
+  {
+    "state": "Georgia",
+    "abbr": "GA",
+    "poverty": 13.3,
+    "num_districts": 8
+  },
+  {
+    "state": "Hawaii",
+    "abbr": "HI",
+    "poverty": 10.3,
+    "num_districts": 0
+  },
+  {
+    "state": "Idaho",
+    "abbr": "ID",
+    "poverty": 11.7,
+    "num_districts": 0
+  },
+  {
+    "state": "Illinois",
+    "abbr": "IL",
+    "poverty": 10.9,
+    "num_districts": 3
+  },
+  {
+    "state": "Indiana",
+    "abbr": "IN",
+    "poverty": 11.4,
+    "num_districts": 1
+  },
+  {
+    "state": "Iowa",
+    "abbr": "IA",
+    "poverty": 9.1,
+    "num_districts": 0
+  },
+  {
+    "state": "Kansas",
+    "abbr": "KS",
+    "poverty": 14.7,
+    "num_districts": 0
+  },
+  {
+    "state": "Kentucky",
+    "abbr": "KY",
+    "poverty": 14.4,
+    "num_districts": 12
+  },
+  {
+    "state": "Louisiana",
+    "abbr": "LA",
+    "poverty": 21.4,
+    "num_districts": 6
+  },
+  {
+    "state": "Maine",
+    "abbr": "ME",
+    "poverty": 12,
+    "num_districts": 0
+  },
+  {
+    "state": "Maryland",
+    "abbr": "MD",
+    "poverty": 7.8,
+    "num_districts": 0
+  },
+  {
+    "state": "Massachusetts",
+    "abbr": "MA",
+    "poverty": 10.6,
+    "num_districts": 0
+  },
+  {
+    "state": "Michigan",
+    "abbr": "MI",
+    "poverty": 12.7,
+    "num_districts": 9
+  },
+  {
+    "state": "Minnesota",
+    "abbr": "MN",
+    "poverty": 9.2,
+    "num_districts": 0
+  },
+  {
+    "state": "Mississippi",
+    "abbr": "MS",
+    "poverty": 18.3,
+    "num_districts": 24
+  },
+  {
+    "state": "Missouri",
+    "abbr": "MO",
+    "poverty": 11.1,
+    "num_districts": 1
+  },
+  {
+    "state": "Montana",
+    "abbr": "MT",
+    "poverty": 9.7,
+    "num_districts": 1
+  },
+  {
+    "state": "Nebraska",
+    "abbr": "NE",
+    "poverty": 10.4,
+    "num_districts": 0
+  },
+  {
+    "state": "Nevada",
+    "abbr": "NV",
+    "poverty": 13.7,
+    "num_districts": 0
+  },
+  {
+    "state": "New Hampshire",
+    "abbr": "NH",
+    "poverty": 6.6,
+    "num_districts": 0
+  },
+  {
+    "state": "New Jersey",
+    "abbr": "NJ",
+    "poverty": 8.6,
+    "num_districts": 2
+  },
+  {
+    "state": "New Mexico",
+    "abbr": "NM",
+    "poverty": 18.6,
+    "num_districts": 7
+  },
+  {
+    "state": "New York",
+    "abbr": "NY",
+    "poverty": 13.4,
+    "num_districts": 1
+  },
+  {
+    "state": "North Carolina",
+    "abbr": "NC",
+    "poverty": 14.5,
+    "num_districts": 0
+  },
+  {
+    "state": "North Dakota",
+    "abbr": "ND",
+    "poverty": 11.3,
+    "num_districts": 1
+  },
+  {
+    "state": "Ohio",
+    "abbr": "OH",
+    "poverty": 12.7,
+    "num_districts": 7
+  },
+  {
+    "state": "Oklahoma",
+    "abbr": "OK",
+    "poverty": 12.6,
+    "num_districts": 2
+  },
+  {
+    "state": "Oregon",
+    "abbr": "OR",
+    "poverty": 10.2,
+    "num_districts": 1
+  },
+  {
+    "state": "Pennsylvania",
+    "abbr": "PA",
+    "poverty": 11.2,
+    "num_districts": 1
+  },
+  {
+    "state": "Rhode Island",
+    "abbr": "RI",
+    "poverty": 12.2,
+    "num_districts": 0
+  },
+  {
+    "state": "South Carolina",
+    "abbr": "SC",
+    "poverty": 15.6,
+    "num_districts": 3
+  },
+  {
+    "state": "South Dakota",
+    "abbr": "SD",
+    "poverty": 10.4,
+    "num_districts": 3
+  },
+  {
+    "state": "Tennessee",
+    "abbr": "TN",
+    "poverty": 11.5,
+    "num_districts": 0
+  },
+  {
+    "state": "Texas",
+    "abbr": "TX",
+    "poverty": 13.4,
+    "num_districts": 21
+  },
+  {
+    "state": "Utah",
+    "abbr": "UT",
+    "poverty": 8.6,
+    "num_districts": 0
+  },
+  {
+    "state": "Vermont",
+    "abbr": "VT",
+    "poverty": 10.2,
+    "num_districts": 0
+  },
+  {
+    "state": "Virginia",
+    "abbr": "VA",
+    "poverty": 10.3,
+    "num_districts": 0
+  },
+  {
+    "state": "Washington",
+    "abbr": "WA",
+    "poverty": 9.9,
+    "num_districts": 0
+  },
+  {
+    "state": "West Virginia",
+    "abbr": "WV",
+    "poverty": 17.3,
+    "num_districts": 0
+  },
+  {
+    "state": "Wisconsin",
+    "abbr": "WI",
+    "poverty": 9.5,
+    "num_districts": 0
+  },
+  {
+    "state": "Wyoming",
+    "abbr": "WY",
+    "poverty": 12.4,
+    "num_districts": 0
+  }
+]
