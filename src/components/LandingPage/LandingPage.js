@@ -6,6 +6,18 @@ import {Link} from 'react-router-dom';
 
 
 class LandingPage extends PureComponent {
+    toSchool = () => {
+        this.props.history.push('/schools');
+      };
+
+    toCharity = () => {
+        this.props.history.push('/charities');
+    };
+
+    toCommunity = () => {
+        this.props.history.push('/communities');
+    };
+    
     render() {
         return (
             <div>
@@ -28,8 +40,8 @@ class LandingPage extends PureComponent {
                                         <h5 className="card-title">School Districts</h5>
                                         <img class="card-img-top-new" src="/images/district-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Low income school districts in America.</p>
-                                        <button type="button" class="btn btn-primary">
-                                            <Link to={'/schools'} className="link"> Learn More </Link>
+                                        <button type="button" class="btn btn-primary" onClick={this.toSchool}>
+                                            Learn More
                                         </button>
                                     </div>
                                 </div>
@@ -40,8 +52,8 @@ class LandingPage extends PureComponent {
                                         <h5 className="card-title">Charities</h5>
                                         <img class="card-img-top-new" src="/images/charity-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Charitable organizations involved in education.</p>
-                                        <button type="button" class="btn btn-primary">
-                                            <Link to={'/charities'} className="link"> Learn More </Link>
+                                        <button type="button" class="btn btn-primary" onClick={this.toCharity}>
+                                            Learn More
                                         </button>
                                     </div>
                                 </div>
@@ -52,8 +64,8 @@ class LandingPage extends PureComponent {
                                         <h5 className="card-title">Communities</h5>
                                         <img class="card-img-top-new" src="/images/volunteers-placeholder.jpg" alt="Card image cap"></img>
                                         <p className="card-text">Communities involved in low income school districts.</p>
-                                        <button type="button" class="btn btn-primary">
-                                            <Link to={'/communities'} className="link"> Learn More </Link>
+                                        <button type="button" class="btn btn-primary" onClick={this.toCommunity}>
+                                            Learn More
                                         </button>
                                     </div>
                                 </div>

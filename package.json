@@ -35,6 +35,7 @@
     "papaparse": "^4.6.2",
     "query-string": "^6.2.0",
     "queue": "^4.5.0",
+    "react-d3": "^0.4.0",
     "react-dom": "^16.5.2",
     "react-easy-chart": "^1.0.0",
     "react-highlight-words": "^0.14.0",
