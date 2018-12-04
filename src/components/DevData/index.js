@@ -3,117 +3,6 @@ import {Col, Container, Row} from 'reactstrap'
 import {BarChart, PieChart} from 'react-d3-components';
 import './styles.css';
 
-const minority_dict = {
-    "African American": 0,
-    "Women": 0,
-    "Latinx": 0,
-    "Asian American": 0,
-    "LGBTQ": 0,
-    "Native American": 0
-};
-
-const percentage_dict = {
-    "African American": 0,
-    "Women": 0,
-    "Latinx": 0,
-    "Asian American": 0,
-    "LGBTQ": 0,
-    "Native American": 0
-};
-
-const male_age_minority_dict = {
-    "0": 0,
-    "10": 0,
-    "20": 0,
-    "30": 0,
-    "40": 0,
-    "50": 0,
-    "60": 0,
-    "70": 0,
-    "80": 0,
-    "90": 0
-};
-
-const female_age_minority_dict = {
-    "0": 0,
-    "10": 0,
-    "20": 0,
-    "30": 0,
-    "40": 0,
-    "50": 0,
-    "60": 0,
-    "70": 0,
-    "80": 0,
-    "90": 0
-};
-
-const avg_age_dict = {
-    "Arts and Entertainment": 0,
-    "Politics": 0,
-    "Music": 0,
-    "Medicine": 0,
-    "Business": 0,
-    "Food": 0,
-    "Life, Physical, and Social Science": 0,
-    "Architecture and Engineering": 0,
-    "Computer Science and Mathematics": 0,
-    "Education": 0,
-    "Community and Social Service": 0
-};
-
-const counter_dict = {
-    "Arts and Entertainment": 0,
-    "Politics": 0,
-    "Music": 0,
-    "Medicine": 0,
-    "Business": 0,
-    "Food": 0,
-    "Life, Physical, and Social Science": 0,
-    "Architecture and Engineering": 0,
-    "Computer Science and Mathematics": 0,
-    "Education": 0,
-    "Community and Social Service": 0
-};
-
-const minority_pie_data = {
-    label: 'Minority Percentage(%)',
-    values: [{x: 'African American', y: 0}, {x: 'Women', y: 0}, {x: 'Latinx', y: 0}, {
-        x: 'Asian American',
-        y: 0
-    },
-        {x: 'LGBTQ', y: 0}, {x: 'Native American', y: 0}]
-};
-
-const age_minority_data = [
-    {
-        label: 'Age Distribution Between Minorities (Male)',
-        values: [{x: '0', y: 0}, {x: '10', y: 0}, {x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
-            {x: '50', y: 0}, {x: '60', y: 0}, {x: '70', y: 0}, {x: '80', y: 0}, {x: '90', y: 0}]
-    },
-    {
-        label: 'Age Distribution Between Minorities (Female)',
-        values: [{x: '0', y: 0}, {x: '10', y: 0}, {x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
-            {x: '50', y: 0}, {x: '60', y: 0}, {x: '70', y: 0}, {x: '80', y: 0}, {x: '90', y: 0}]
-    }
-];
-
-const avg_age_data = [
-    {
-        label: "Average Age in Fields",
-        values: [{x: "Arts and Entertainment", y: 0}, {x: "Politics", y: 0}, {x: "Music", y: 0},
-            {x: "Medicine", y: 0}, {x: "Business", y: 0}, {
-                x: "Food",
-                y: 0
-            }, {x: "Life, Physical, and Social Science", y: 0},
-            {x: "Architecture and Engineering", y: 0}, {
-                x: "Computer Science and Mathematics",
-                y: 0
-            }, {x: "Education", y: 0},
-            {x: "Community and Social Service", y: 0}]
-    }
-];
-
-
 class DevData extends React.Component {
     constructor(props) {
         super(props);
@@ -140,6 +29,115 @@ class DevData extends React.Component {
     }
 
     componentDidMount() {
+        const minority_dict = {
+            "African American": 0,
+            "Women": 0,
+            "Latinx": 0,
+            "Asian American": 0,
+            "LGBTQ": 0,
+            "Native American": 0
+        };
+
+        const percentage_dict = {
+            "African American": 0,
+            "Women": 0,
+            "Latinx": 0,
+            "Asian American": 0,
+            "LGBTQ": 0,
+            "Native American": 0
+        };
+
+        const male_age_minority_dict = {
+            "0": 0,
+            "10": 0,
+            "20": 0,
+            "30": 0,
+            "40": 0,
+            "50": 0,
+            "60": 0,
+            "70": 0,
+            "80": 0,
+            "90": 0
+        };
+
+        const female_age_minority_dict = {
+            "0": 0,
+            "10": 0,
+            "20": 0,
+            "30": 0,
+            "40": 0,
+            "50": 0,
+            "60": 0,
+            "70": 0,
+            "80": 0,
+            "90": 0
+        };
+
+        const avg_age_dict = {
+            "Arts and Entertainment": 0,
+            "Politics": 0,
+            "Music": 0,
+            "Medicine": 0,
+            "Business": 0,
+            "Food": 0,
+            "Life, Physical, and Social Science": 0,
+            "Architecture and Engineering": 0,
+            "Computer Science and Mathematics": 0,
+            "Education": 0,
+            "Community and Social Service": 0
+        };
+
+        const counter_dict = {
+            "Arts and Entertainment": 0,
+            "Politics": 0,
+            "Music": 0,
+            "Medicine": 0,
+            "Business": 0,
+            "Food": 0,
+            "Life, Physical, and Social Science": 0,
+            "Architecture and Engineering": 0,
+            "Computer Science and Mathematics": 0,
+            "Education": 0,
+            "Community and Social Service": 0
+        };
+
+        const minority_pie_data = {
+            label: 'Minority Percentage(%)',
+            values: [{x: 'African American', y: 0}, {x: 'Women', y: 0}, {x: 'Latinx', y: 0}, {
+                x: 'Asian American',
+                y: 0
+            },
+                {x: 'LGBTQ', y: 0}, {x: 'Native American', y: 0}]
+        };
+
+        const age_minority_data = [
+            {
+                label: 'Age Distribution Between Minorities (Male)',
+                values: [{x: '0', y: 0}, {x: '10', y: 0}, {x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
+                    {x: '50', y: 0}, {x: '60', y: 0}, {x: '70', y: 0}, {x: '80', y: 0}, {x: '90', y: 0}]
+            },
+            {
+                label: 'Age Distribution Between Minorities (Female)',
+                values: [{x: '0', y: 0}, {x: '10', y: 0}, {x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
+                    {x: '50', y: 0}, {x: '60', y: 0}, {x: '70', y: 0}, {x: '80', y: 0}, {x: '90', y: 0}]
+            }
+        ];
+
+        const avg_age_data = [
+            {
+                label: "Average Age in Fields",
+                values: [{x: "Arts and Entertainment", y: 0}, {x: "Politics", y: 0}, {x: "Music", y: 0},
+                    {x: "Medicine", y: 0}, {x: "Business", y: 0}, {
+                        x: "Food",
+                        y: 0
+                    }, {x: "Life, Physical, and Social Science", y: 0},
+                    {x: "Architecture and Engineering", y: 0}, {
+                        x: "Computer Science and Mathematics",
+                        y: 0
+                    }, {x: "Education", y: 0},
+                    {x: "Community and Social Service", y: 0}]
+            }
+        ];
         fetch("http://api.majorminorities.me/person")
             .then(results => {
                 return results.json();
