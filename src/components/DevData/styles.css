@@ -1,0 +1,29 @@
+.fine-print {
+    font-size: 0.75em;
+}
+
+.text_center {
+    text-align: center !important;
+}
+
+.center {
+    margin: auto;
+    width: 50%;
+    padding: 10px;
+}
+
+.color-legend {
+    float: left;
+    width: 20px;
+    height: 20px;
+    margin: 5px;
+    border: 1px solid rgba(0, 0, 0, .2);
+  }
+
+.blue {
+    background: #aec7e8;
+}
+
+.orange {   
+    background: #ff7f0e;
+}

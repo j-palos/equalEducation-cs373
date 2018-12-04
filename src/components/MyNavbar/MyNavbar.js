@@ -76,6 +76,9 @@ class ConnectedNavbar extends React.Component {
                                 <NavLink to={"/datavisualization"} activeClassName={'active'} tag={RRNavLink}>Data</NavLink>
                             </NavItem>
                             <NavItem>
+                                <NavLink to={"/devdata"} activeClassName={'active'} tag={RRNavLink}>Developer Data</NavLink>
+                            </NavItem>
+                            <NavItem>
                                 <NavLink to={"/search"} activeClassName={'active'} tag={RRNavLink}>Search</NavLink>
                             </NavItem>
                         </Nav>

@@ -1,16 +1,15 @@
 import React from 'react';
-import { BarChart } from 'react-easy-chart';
+import {BarChart} from 'react-easy-chart';
 
-export const DistrictChart = (props) => {
-  let props_data = props.data;
+export default class DistrictChart extends React.PureComponent {
+    render() {
+        let data = [];
+        this.props.data.map(d => {
+            const state = d.state;
+            const num_districts = d.num_districts;
+            const palette = ["#E37476", "#F19F50", "#6E90B5", "#8DC1BD"];
 
-  var data = []
-  props_data.map(d => {
-    const state = d.state
-    const num_districts = d.num_districts
-    const palette = ["#E37476", "#F19F50", "#6E90B5", "#8DC1BD"]
-
-    var color = palette[3]
+            let color = palette[3];
     if (num_districts > 1) {
       if(num_districts > 14) {
         color = palette[0]
@@ -27,7 +26,7 @@ export const DistrictChart = (props) => {
         color: color
       })
     }
-  })
+        });
   return(
     <BarChart
       axisLabels={{x: 'My x Axis', y: 'My y Axis'}}
@@ -41,4 +40,5 @@ export const DistrictChart = (props) => {
       margin={{top: 0, right: 0, bottom: 30, left: 30}}
       />
   )
-}
+    }
+};

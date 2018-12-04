@@ -1,7 +1,7 @@
 import React from 'react';
-import { USmap } from './USmap';
-import { DistrictChart } from "./DistrictChart"
-import { PovertyRateChart } from "./PovertyRateChart"
+import {USmap} from './USmap';
+import DistrictChart from "./DistrictChart"
+import {PovertyRateChart} from "./PovertyRateChart"
 import "./styles.css";
 
 
@@ -14,7 +14,7 @@ class DataVisualization extends React.Component {
   }
 
   componentWillMount() {
-    var poverty = require("../../json/poverty.json");
+      const poverty = require("../../json/poverty.json");
     this.setState({data:poverty})
     console.log(this.state)
   }
@@ -23,7 +23,7 @@ class DataVisualization extends React.Component {
     if (!this.state.data) {
       return null;
     }
-    const data = this.state.data
+      const data = this.state.data;
     return (
       <main role="main">
         <div className="margin-top">

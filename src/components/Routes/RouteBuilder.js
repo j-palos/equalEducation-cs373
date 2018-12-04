@@ -8,6 +8,7 @@ import EntityContainer from "../EntityComponents/EntityContainer";
 import CommunityPage from "../GridContainers/CommunityPage";
 import SearchPage from '../Search/SearchPage';
 import DataVisualization from '../DataVisualization'
+import DevData from '../DevData'
 
 
 export default class RouteBuilder extends Component {
@@ -32,6 +33,7 @@ export default class RouteBuilder extends Component {
                 <Route exact path="/search" component={SearchPage}/>
                 <Route exact path="/search/:input" component={SearchPage}/>
                 <Route exact path="/datavisualization" component={DataVisualization}/>
+                <Route exact path="/devdata" component={DevData}/>
             </Switch>
         )
     }
