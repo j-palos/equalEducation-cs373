@@ -12,7 +12,12 @@ class DevData extends React.Component {
                 values: [{x: 'loading...', y: 1}]
             },
 
-            age_data_minority : [{
+            age_data_minority: [{
+                label: "loading...",
+                values: [{x: "loading...", y: 1}]
+            }],
+
+            avg_age: [{
                 label: "loading...",
                 values: [{x: "loading...", y: 1}]
             }],
@@ -66,6 +71,34 @@ class DevData extends React.Component {
             "90": 0
         }
 
+        const avg_age_dict = {
+            "Arts and Entertainment": 0, 
+            "Politics": 0, 
+            "Music": 0,
+            "Medicine": 0, 
+            "Business": 0, 
+            "Food": 0, 
+            "Life, Physical, and Social Science": 0,
+            "Architecture and Engineering": 0, 
+            "Computer Science and Mathematics": 0, 
+            "Education": 0,
+            "Community and Social Service": 0
+        }
+
+        const counter_dict = {
+            "Arts and Entertainment": 0, 
+            "Politics": 0, 
+            "Music": 0,
+            "Medicine": 0, 
+            "Business": 0, 
+            "Food": 0, 
+            "Life, Physical, and Social Science": 0,
+            "Architecture and Engineering": 0, 
+            "Computer Science and Mathematics": 0, 
+            "Education": 0,
+            "Community and Social Service": 0
+        }
+
         var minority_pie_data = {
             label: 'Minority Percentage(%)',
             values: [{x: 'African American', y: 0}, {x: 'Women', y: 0}, {x: 'Latinx', y: 0}, {x: 'Asian American', y: 0},
@@ -85,6 +118,16 @@ class DevData extends React.Component {
             }
         ];
 
+        var avg_age_data = [
+            {
+                label: "Average Age in Fields",
+                values: [{x: "Arts and Entertainment", y: 0}, {x: "Politics", y: 0}, {x: "Music", y: 0},
+                         {x: "Medicine", y: 0}, {x: "Business", y: 0}, {x: "Food", y: 0}, {x: "Life, Physical, and Social Science", y: 0},
+                         {x: "Architecture and Engineering", y: 0}, {x: "Computer Science and Mathematics", y: 0}, {x: "Education", y: 0},
+                         {x: "Community and Social Service", y: 0}]
+            }
+        ]
+
         fetch("http://api.majorminorities.me/person")
             .then(results => {
                 return results.json();
@@ -97,12 +140,10 @@ class DevData extends React.Component {
                     } else {
                         female_age_minority_dict["" + Math.floor(minorities[i].age/10) * 10]++;
                     }
+                    avg_age_dict[minorities[i].industry] += minorities[i].age;
+                    counter_dict[minorities[i].industry]++;
                 }
-
-                console.log(male_age_minority_dict);
-                console.log(female_age_minority_dict);
             }).then(dummy => {
-                console.log(minority_dict);
                 let total = 0;
                 for (let i = 0; i < minority_pie_data.values.length; i++) {
                     minority_pie_data.values[i].y = minority_dict[minority_pie_data.values[i].x];
@@ -111,13 +152,18 @@ class DevData extends React.Component {
 
                 for (let i = 0; i < minority_pie_data.values.length; i++) {
                     percentage_dict[minority_pie_data.values[i].x] = minority_pie_data.values[i].y/total * 100;
-                    //console.log(percentage_dict);
                 }
 
                 for (let i = 0; i < age_minority_data[0].values.length; i++) {
                     age_minority_data[0].values[i].y = male_age_minority_dict[age_minority_data[0].values[i].x];
                     age_minority_data[1].values[i].y = female_age_minority_dict[age_minority_data[1].values[i].x];
                 }
+
+                for (let i = 0; i < avg_age_data[0].values.length; i++) {
+                    avg_age_data[0].values[i].y = avg_age_dict[avg_age_data[0].values[i].x]/counter_dict[avg_age_data[0].values[i].x];
+                }
+
+                console.log(avg_age_data);
 
                 age_minority_data[0].values[0].x = "0-10";
                 age_minority_data[0].values[1].x = "10-20";
@@ -141,12 +187,23 @@ class DevData extends React.Component {
                 age_minority_data[1].values[8].x = "80-90";
                 age_minority_data[1].values[9].x = "90-100";
 
-                console.log(age_minority_data);
+                avg_age_data[0].values[0].x = "Arts";
+                avg_age_data[0].values[1].x = "Politics";
+                avg_age_data[0].values[2].x = "Music";
+                avg_age_data[0].values[3].x = "Medicine";
+                avg_age_data[0].values[4].x = "Business";
+                avg_age_data[0].values[5].x = "Food";
+                avg_age_data[0].values[6].x = "Social Science";
+                avg_age_data[0].values[7].x = "Engr";
+                avg_age_data[0].values[8].x = "Comp Sci/Math";
+                avg_age_data[0].values[9].x = "Education";
+                avg_age_data[0].values[10].x = "Social Service";
 
                 this.setState({
                     pie_data: minority_pie_data,
                     percentages: percentage_dict,
-                    age_data_minority: age_minority_data 
+                    age_data_minority: age_minority_data,
+                    avg_age: avg_age_data
                 })
             });
     }
@@ -197,6 +254,18 @@ class DevData extends React.Component {
                             <div className="color-legend orange"></div>
                             <p className="lead">Female</p>
                         </Row>
+                    </Col>
+                </Row>
+
+                <Row>
+                    <Col>
+                        <h1 className="center text-center">Age Distribution Among Industries</h1>
+                        <BarChart
+                            groupedBars
+                            data={this.state.avg_age}
+                            width={1200}
+                            height={400}
+                            margin={{top: 10, bottom: 50, left: 50, right: 10}}/>
                     </Col>
                 </Row>
             </main>
