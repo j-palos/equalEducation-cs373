@@ -20,10 +20,10 @@
     border: 1px solid rgba(0, 0, 0, .2);
   }
 
-.blue {
-    background: #aec7e8;
+.male {
+    background: #1f77b4;
 }
 
-.orange {   
-    background: #ff7f0e;
+.female {   
+    background: #aec7e8;
 }

@@ -48,8 +48,6 @@ class DevData extends React.Component {
         };
 
         const male_age_minority_dict = {
-            "0": 0,
-            "10": 0,
             "20": 0,
             "30": 0,
             "40": 0,
@@ -61,8 +59,6 @@ class DevData extends React.Component {
         };
 
         const female_age_minority_dict = {
-            "0": 0,
-            "10": 0,
             "20": 0,
             "30": 0,
             "40": 0,
@@ -113,12 +109,12 @@ class DevData extends React.Component {
         const age_minority_data = [
             {
                 label: 'Age Distribution Between Minorities (Male)',
-                values: [{x: '0', y: 0}, {x: '10', y: 0}, {x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
+                values: [{x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
                     {x: '50', y: 0}, {x: '60', y: 0}, {x: '70', y: 0}, {x: '80', y: 0}, {x: '90', y: 0}]
             },
             {
                 label: 'Age Distribution Between Minorities (Female)',
-                values: [{x: '0', y: 0}, {x: '10', y: 0}, {x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
+                values: [{x: '20', y: 0}, {x: '30', y: 0}, {x: '40', y: 0},
                     {x: '50', y: 0}, {x: '60', y: 0}, {x: '70', y: 0}, {x: '80', y: 0}, {x: '90', y: 0}]
             }
         ];
@@ -182,27 +178,27 @@ class DevData extends React.Component {
 
             console.log(avg_age_data);
 
-            age_minority_data[0].values[0].x = "0-10";
-            age_minority_data[0].values[1].x = "10-20";
-            age_minority_data[0].values[2].x = "20-30";
-            age_minority_data[0].values[3].x = "30-40";
-            age_minority_data[0].values[4].x = "40-50";
-            age_minority_data[0].values[5].x = "50-60";
-            age_minority_data[0].values[6].x = "60-70";
-            age_minority_data[0].values[7].x = "70-80";
-            age_minority_data[0].values[8].x = "80-90";
-            age_minority_data[0].values[9].x = "90-100";
+            // age_minority_data[0].values[0].x = "0-10";
+            // age_minority_data[0].values[1].x = "10-20";
+            age_minority_data[0].values[0].x = "20-30";
+            age_minority_data[0].values[1].x = "30-40";
+            age_minority_data[0].values[2].x = "40-50";
+            age_minority_data[0].values[3].x = "50-60";
+            age_minority_data[0].values[4].x = "60-70";
+            age_minority_data[0].values[5].x = "70-80";
+            age_minority_data[0].values[6].x = "80-90";
+            age_minority_data[0].values[7].x = "90-100";
 
-            age_minority_data[1].values[0].x = "0-10";
-            age_minority_data[1].values[1].x = "10-20";
-            age_minority_data[1].values[2].x = "20-30";
-            age_minority_data[1].values[3].x = "30-40";
-            age_minority_data[1].values[4].x = "40-50";
-            age_minority_data[1].values[5].x = "50-60";
-            age_minority_data[1].values[6].x = "60-70";
-            age_minority_data[1].values[7].x = "70-80";
-            age_minority_data[1].values[8].x = "80-90";
-            age_minority_data[1].values[9].x = "90-100";
+            // age_minority_data[1].values[0].x = "0-10";
+            // age_minority_data[1].values[1].x = "10-20";
+            age_minority_data[1].values[0].x = "20-30";
+            age_minority_data[1].values[1].x = "30-40";
+            age_minority_data[1].values[2].x = "40-50";
+            age_minority_data[1].values[3].x = "50-60";
+            age_minority_data[1].values[4].x = "60-70";
+            age_minority_data[1].values[5].x = "70-80";
+            age_minority_data[1].values[6].x = "80-90";
+            age_minority_data[1].values[7].x = "90-100";
 
             this.setState({
                 age_data_minority: age_minority_data,
@@ -265,18 +261,18 @@ class DevData extends React.Component {
                             <BarChart
                                 groupedBars
                                 data={this.state.age_data_minority}
-                                width={600}
+                                width={700}
                                 height={400}
                                 margin={{top: 10, bottom: 50, left: 50, right: 10}}/>
                         </Col>
                         <Col>
                             <h1 className="h1-style">Age Distribution of Minorities</h1>
                             <Row>
-                                <div className="color-legend blue"></div>
+                                <div className="color-legend male"></div>
                                 <p className="lead">Male</p>
                             </Row>
                             <Row>
-                                <div className="color-legend orange"></div>
+                                <div className="color-legend female"></div>
                                 <p className="lead">Female</p>
                             </Row>
                         </Col>
